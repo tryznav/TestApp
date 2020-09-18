@@ -2,16 +2,19 @@
 
 int fhand_wav_pross(pross_waw_t *pross_waw){
     pross_waw_hand_t    *pross_waw_had = NULL;
-    // FILE                *src_file   = NULL;
-    // FILE                *dest_file  = NULL;
     RiffChunk_t         *RiffChunk  = NULL;
     FmtChunk_t          *FmtChunk   = NULL;
     DataChunk_t         *DataChunk  = NULL;
-    void                *audio      = NULL;
     size_t              sizeNms     = 0;
     size_t              tmpSize     = 0;
 
-    if((src_file = fhand_parse_wav_file_fptr(pross_waw->src_f_path, RiffChunk, FmtChunk, DataChunk)) == NULL){
+    pross_waw_had = (pross_waw_hand_t *)malloc(sizeof(pross_waw_hand_t));
+    if(pross_waw_had == NULL){
+        fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    if((pross_waw_had->src_file = fhand_parse_wav_file_fptr(pross_waw->src_f_path, RiffChunk, FmtChunk, DataChunk)) == NULL){
         fprintf(stderr,RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
         return -1;
     }
@@ -28,10 +31,10 @@ int fhand_wav_pross(pross_waw_t *pross_waw){
     RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(RiffChunk_t) + sizeof(DataChunk_t) + DataChunk->chunkSize;
 
 
-    if((dest_file = fhand_newav(pross_waw->dest_f_path, RiffChunk, FmtChunk, DataChunk)) == NULL){
+    if((pross_waw_had->dest_file = fhand_newav(pross_waw->dest_f_path, RiffChunk, FmtChunk, DataChunk)) == NULL){
         fprintf(stderr, RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
         free_chunk_hdr(RiffChunk, FmtChunk, DataChunk);
-        fclose(src_file);
+        fclose(pross_waw_had->src_file);
         return -1;
     }
 
@@ -39,8 +42,8 @@ int fhand_wav_pross(pross_waw_t *pross_waw){
 
     process(pross_waw_had);
 
-    fclose(src_file);
-    fclose(dest_file);
+    fclose(pross_waw_had->src_file);
+    fclose(pross_waw_had->dest_file);
 
     return 0;
 

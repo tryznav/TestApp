@@ -42,18 +42,18 @@ typedef struct DataChunk_s
 
 #pragma pack(pop)
 typedef struct pross_waw_s{
-    const char *src_f_path;
-    const char *dest_f_path;
+    const char      *src_f_path;
+    const char      *dest_f_path;
     size_t size_ms;
     //process
-    int32_t (*effect_process_get_sizes)(size_t*);
-    int32_t (*effect_reset)(void const*, void*);
-    int32_t (*effect_process)(void const*, void*, void*, size_t);
+    int32_t         (*effect_process_get_sizes)(size_t*);
+    int32_t         (*effect_reset)(void const*, void*);
+    int32_t         (*effect_process)(void const*, void*, void*, size_t);
     //controll
-    int32_t (*effect_control_get_sizes)(size_t*, size_t*);
-    int32_t (*effect_control_initialize)(void*, void*, uint32_t);
-    int32_t (*effect_set_parameter)(void*, int32_t, float);
-    int32_t (*effect_update_coeffs)(void const*, void*);
+    int32_t         (*effect_control_get_sizes)(size_t*, size_t*);
+    int32_t         (*effect_control_initialize)(void*, void*, uint32_t);
+    int32_t         (*effect_set_parameter)(void*, int32_t, float);
+    int32_t         (*effect_update_coeffs)(void const*, void*);
 }pross_waw_t;
 
 typedef struct pross_waw_hand_s{
@@ -61,7 +61,7 @@ typedef struct pross_waw_hand_s{
     size_t      sizeNms;
     FILE        *src_file;
     FILE        *dest_file;
-    int32_t (*effect_process)(void const*, void*, void*, size_t);
+    int32_t     (*effect_process)(void const*, void*, void*, size_t);
     void const* coeffs;
     void*       states;
     size_t      samples_count;
