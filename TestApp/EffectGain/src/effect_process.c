@@ -1,5 +1,6 @@
 #include "effect_process.h"
 #include "colors.h"
+
 #include <stdio.h>
 #include <math.h>
 
@@ -37,17 +38,17 @@ int32_t effect_process(
     size_t      samples_count){
 
     if(audio == NULL){
-        fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong audio pointer. Rejected\n"RESET);
+        fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'audio' pointer. Rejected\n"RESET);
         return -1;
     }
 
     if(states == NULL){
-        fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong audio pointer. Rejected\n"RESET);
+        // fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'states' pointer. Rejected\n"RESET);
         return -1;
     }
 
-    if(states == coeffs){
-        fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong audio pointer. Rejected\n"RESET);
+    if(coeffs == NULL){
+        fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'coeffs' pointer. Rejected\n"RESET);
         return -1;
     }
 

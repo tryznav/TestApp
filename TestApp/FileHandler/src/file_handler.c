@@ -161,129 +161,73 @@ int fhand_resize_wav(uint32_t size_ms, const char *src_f_path, const char *dest_
     return 0;
 }
 
-/*****************************************************************************************************/
-
-FILE *fhand_parse_wav_file_fptr(const char *path, RiffChunk_t *RiffChunk, FmtChunk_t *FmtChunk, DataChunk_t *DataChunk){
-
-    FILE *file = NULL;
-    
-    file = fopen(path, "rb");
-    if (!file) {
-        fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
-        return file;
-    }
-    //Alloc mem for hdr chunk
-    alloc_mem_chunk_hdr(RiffChunk, FmtChunk, DataChunk);
-
-    while(RiffChunk->chunkId != RIFF_CHUNK_ID && !feof(file)){
-        fread (&(RiffChunk->chunkId), 1, 4, file);
-    }
-    if(RiffChunk->chunkId == RIFF_CHUNK_ID){
-        fread (&(RiffChunk->chunkId), (sizeof(RiffChunk_t) - 4), 1, file);
-    }else{
-        fprintf(stderr,RED"Error: "BOLDWHITE"'Fmt' chunk not found\n"RESET);
-        free_chunk_hdr(RiffChunk, FmtChunk, DataChunk);
-        fclose(file);
-        return NULL;
-    }
-
-    while(FmtChunk->chunkId != fmt_CHUNK_ID && !feof(file)){
-        fread (&(FmtChunk->chunkId), 1, 4, file);
-    }
-
-    if(FmtChunk->chunkId == fmt_CHUNK_ID){
-        fread (&(RiffChunk->chunkId),  1, (sizeof(FmtChunk_t) - 4), file);
-    }else{
-        fprintf(stderr,RED"Error: "BOLDWHITE"'Fmt' chunk not found\n"RESET);
-        free_chunk_hdr(RiffChunk, FmtChunk, DataChunk);
-        fclose(file);
-        return NULL;
-    }
-
-    while(DataChunk->chunkId != data_CHUNK_ID && !feof(file)){
-        fread (&(FmtChunk->chunkId), 1, 4, file);
-    }
-
-    if(DataChunk->chunkId == data_CHUNK_ID){
-        fread (&(RiffChunk->chunkId), 1, (sizeof(FmtChunk_t) - 4), file);
-    }else{
-        fprintf(stderr,RED"Error: "BOLDWHITE"'Fmt' chunk not found\n"RESET);
-        free_chunk_hdr(RiffChunk, FmtChunk, DataChunk);
-        fclose(file);
-        return NULL;
-    }
-    
-    return file;
-}
 
 /*****************************************************************************************************/
 
-int fhand_wavdup(const char *src_f_path, const char *dest_f_path,size_t size_ms){
+// int fhand_wavdup(const char *src_f_path, const char *dest_f_path,size_t size_ms){
 
-    FILE        *src_file   = NULL;
-    FILE        *dest_file  = NULL;
-    RiffChunk_t *RiffChunk  = NULL;
-    FmtChunk_t  *FmtChunk   = NULL;
-    DataChunk_t *DataChunk  = NULL;
-    void        *audio      = NULL;
-    size_t      sizeNms     = 0;
-    size_t      tmpSize     = 0;
+//     FILE        *src_file   = NULL;
+//     FILE        *dest_file  = NULL;
+//     wav_hdr_t   hdr = {NULL, NULL, NULL};
+//     void        *audio      = NULL;
+//     size_t      sizeNms     = 0;
+//     size_t      tmpSize     = 0;
 
-    if((src_file = fhand_parse_wav_file_fptr(src_f_path, RiffChunk, FmtChunk, DataChunk)) == NULL){
-        fprintf(stderr,RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
-        return -1;
-    }
+//     if((src_file = fhand_parse_wav_file_fptr(src_f_path, &hdr)) == NULL){
+//         fprintf(stderr,RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
+//         return -1;
+//     }
 
-    FmtChunk->chunkSize =  sizeof(FmtChunk_t) - 8;
-    sizeNms = ((FmtChunk->sampleRate/1000)*size_ms)*FmtChunk->blockAlign;
+//     FmtChunk->chunkSize =  sizeof(FmtChunk_t) - 8;
+//     sizeNms = ((FmtChunk->sampleRate/1000)*size_ms)*FmtChunk->blockAlign;
 
-    tmpSize = (size_t)DataChunk->chunkSize;
-    if ((tmpSize % sizeNms) == 0){
-        DataChunk->chunkSize = DataChunk->chunkSize;
-    } else {
-        DataChunk->chunkSize = ((tmpSize / sizeNms) + 1) * sizeNms;
-    }
-    RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(RiffChunk_t) + sizeof(DataChunk_t) + DataChunk->chunkSize;
+//     tmpSize = (size_t)DataChunk->chunkSize;
+//     if ((tmpSize % sizeNms) == 0){
+//         DataChunk->chunkSize = DataChunk->chunkSize;
+//     } else {
+//         DataChunk->chunkSize = ((tmpSize / sizeNms) + 1) * sizeNms;
+//     }
+//     RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(RiffChunk_t) + sizeof(DataChunk_t) + DataChunk->chunkSize;
 
 
-    if((dest_file = fhand_newav(dest_f_path, RiffChunk, FmtChunk, DataChunk)) == NULL){
-        fprintf(stderr,RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
-        free_chunk_hdr(RiffChunk, FmtChunk, DataChunk);
-        fclose(src_file);
-        return -1;
-    }
+//     if((dest_file = fhand_newav(dest_f_path, RiffChunk, FmtChunk, DataChunk)) == NULL){
+//         fprintf(stderr,RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
+//         free_chunk_hdr(RiffChunk, FmtChunk, DataChunk);
+//         fclose(src_file);
+//         return -1;
+//     }
 
-    free_chunk_hdr(RiffChunk, FmtChunk, DataChunk);
+//     free_chunk_hdr(RiffChunk, FmtChunk, DataChunk);
 
-    audio = malloc(sizeNms);
-    if (audio == NULL){
-        fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
-        exit(EXIT_FAILURE);
-    }
-    memset(audio, 0, sizeNms);
+//     audio = malloc(sizeNms);
+//     if (audio == NULL){
+//         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
+//         exit(EXIT_FAILURE);
+//     }
+//     memset(audio, 0, sizeNms);
 
-    while (tmpSize > sizeNms){
-        fread(audio, 1, sizeNms, src_file);
-        fwrite(audio, 1,  sizeNms, dest_file);
-        tmpSize -= sizeNms;
-    }
+//     while (tmpSize > sizeNms){
+//         fread(audio, 1, sizeNms, src_file);
+//         fwrite(audio, 1,  sizeNms, dest_file);
+//         tmpSize -= sizeNms;
+//     }
 
-    if(tmpSize != 0){
-        memset(audio, 0, sizeNms);
-        fread(audio, 1, tmpSize, src_file);
-        fwrite(audio, 1,  sizeNms, dest_file);
-    }
+//     if(tmpSize != 0){
+//         memset(audio, 0, sizeNms);
+//         fread(audio, 1, tmpSize, src_file);
+//         fwrite(audio, 1,  sizeNms, dest_file);
+//     }
 
-    fclose(src_file);
-    fclose(dest_file);
+//     fclose(src_file);
+//     fclose(dest_file);
 
-    return 0;
+//     return 0;
 
-}
+// }
 
 /*****************************************************************************************************/
 
-FILE *fhand_newav(const char *path, RiffChunk_t *RiffChunk, FmtChunk_t *FmtChunk, DataChunk_t *DataChunk){
+FILE *fhand_newav(const char *path, wav_hdr_t *hdr){
     FILE *file = NULL;
 
     file = fopen(path, "w+");
@@ -292,46 +236,46 @@ FILE *fhand_newav(const char *path, RiffChunk_t *RiffChunk, FmtChunk_t *FmtChunk
         return file;
     }
 
-    fwrite(RiffChunk, 1, sizeof(RiffChunk_t), file);
-    fwrite(FmtChunk, 1, sizeof(FmtChunk_t), file);
-    fwrite(DataChunk, 1, (sizeof(FmtChunk_t)), file);
+    fwrite(hdr->RiffChunk, 1, sizeof(RiffChunk_t), file);
+    fwrite(hdr->FmtChunk, 1, sizeof(FmtChunk_t), file);
+    fwrite(hdr->DataChunk, 1, (sizeof(FmtChunk_t)), file);
 
     return file;
 }
 
-void free_chunk_hdr(RiffChunk_t *RiffChunk, FmtChunk_t *FmtChunk, DataChunk_t *DataChunk){
-    free(RiffChunk);
-    RiffChunk = NULL;
-    free(FmtChunk);
-    RiffChunk = NULL;
-    free(DataChunk);
-    RiffChunk = NULL;
+void free_chunk_hdr(wav_hdr_t *hdr){
+    free(hdr->RiffChunk);
+    hdr->RiffChunk = NULL;
+    free(hdr->FmtChunk);
+    hdr->RiffChunk = NULL;
+    free(hdr->DataChunk);
+    hdr->RiffChunk = NULL;
 }
 
 /*****************************************************************************************************/
 
-void alloc_mem_chunk_hdr(RiffChunk_t *RiffChunk, FmtChunk_t *FmtChunk, DataChunk_t *DataChunk){
+void alloc_mem_chunk_hdr(wav_hdr_t *hdr){
 
-    RiffChunk = (RiffChunk_t *)malloc(sizeof(RiffChunk_t));
-    if (RiffChunk == NULL){
+    hdr->RiffChunk = (RiffChunk_t *)malloc(sizeof(RiffChunk_t));
+    if (hdr->RiffChunk == NULL){
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
-    memset(RiffChunk, 0, sizeof(RiffChunk_t));
+    memset(hdr->RiffChunk, 0, sizeof(RiffChunk_t));
 
-    FmtChunk = (FmtChunk_t *)malloc(sizeof(FmtChunk_t));
-    if (FmtChunk == NULL){
+    hdr->FmtChunk = (FmtChunk_t *)malloc(sizeof(FmtChunk_t));
+    if (hdr->FmtChunk == NULL){
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
-    memset(FmtChunk, 0, sizeof(FmtChunk_t));
+    memset(hdr->FmtChunk, 0, sizeof(FmtChunk_t));
 
-    DataChunk = (DataChunk_t *)malloc(sizeof(DataChunk_t));
-    if (DataChunk == NULL){
+    hdr->DataChunk = (DataChunk_t *)malloc(sizeof(DataChunk_t));
+    if (hdr->DataChunk == NULL){
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
-    memset(DataChunk, 0, sizeof(DataChunk_t));
+    memset(hdr->DataChunk, 0, sizeof(DataChunk_t));
 }
 
 /*****************************************************************************************************/

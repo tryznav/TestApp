@@ -5,7 +5,9 @@ set(LIB_NAME "FileHandler")
 project(${LIB_NAME})
 
 add_library(${LIB_NAME} STATIC
-    ../../../${LIB_NAME}/src/file_handler.c)
+    ../../../${LIB_NAME}/src/file_handler.c
+    ../../../${LIB_NAME}/src/fhand_wav_process.c
+    ../../../${LIB_NAME}/src/fhand_parse_wav_file_fptr.c)
 
 target_include_directories(${LIB_NAME} PRIVATE ../../../${LIB_NAME}/inc)
 

@@ -1,5 +1,10 @@
 #include "effect_control.h"
+#include "params_id.h"
+#include "colors.h"
+
+#include <stdio.h>
 #include <math.h>
+
 
 /*******************************************************************************
  * Provides with the required data sizes for parameters and coefficients.
@@ -31,7 +36,7 @@ int32_t effect_control_initialize(
     void*       params,
     void*       coeffs,
     uint32_t    sample_rate){
-    *((float *)params) = 0;
+    //*((float *)params) = 0;               ???????????????????????????
     *((float *)coeffs) = powf(10.0f , (0.05f * (*((float *)params))));
     return 0;
 }
@@ -49,10 +54,12 @@ int32_t effect_set_parameter(
     void*       params,
     int32_t     id,
     float       value){
-    if(id == 1){
+    if(id == GAIN_dB_ID){
         *((float *)params) = value;
+        return 0;
     }
-    return 0;
+    fprintf(stderr, RED"%d: Error: "BOLDWHITE"Unsupported params. Rejected.\n"RESET);
+    return -1;
 }
 
 /*******************************************************************************

@@ -11,7 +11,8 @@ int app_handler(app_func_t *task){
         return 0;
     }
 
-    if(task->gain){
+    if(task->gain && task->input && task->ouput){
+        app_gain(task->input_f_path, task->output_f_path, task->gain_dB);
         printf(BOLDGREEN"Audio data is generated\n"RESET);
         return 0;
     }
@@ -22,7 +23,14 @@ int app_handler(app_func_t *task){
     }
 
     if(task->input && task->ouput){
-        fhand_wavdup(task->input_f_path, task->output_f_path, 10);
+        //fhand_wavdup(task->input_f_path, task->output_f_path, 10);
+        pross_waw_t pross_waw;
+        pross_waw.coeffs = NULL;
+        pross_waw.params = NULL;
+        pross_waw.size_ms = 10;
+        pross_waw.dest_f_path = task->output_f_path;
+        pross_waw.src_f_path = task->input_f_path;
+        fhand_wav_process(&pross_waw);
         //fhand_resize_wav(10, task->input_f_path, task->output_f_path);
         printf(BOLDGREEN"Audio file of length 10ms created\n"RESET);
         return 0;

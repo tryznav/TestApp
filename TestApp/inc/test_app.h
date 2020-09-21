@@ -8,11 +8,14 @@
 #include <math.h>
 
 #include "../EffectGain/inc/effect_control.h"
-#include "../EffectGain/inc/effect_control.h"
+#include "../EffectGain/inc/effect_process.h"
+#include "../EffectGain/inc/params_id.h"
 #include "../FileHandler/inc/file_handler.h"
 #include "../GetOpt/inc/getopt.h"
 #include "colors.h"
 
+
+#define DEFAULT_SAMPLE_RATE     48000
 
 typedef struct amplitude_s{
     float           whole_file;
@@ -43,6 +46,6 @@ typedef struct app_func_s{
 }app_func_t;
 
 int app_handler(app_func_t *task);
-void app_gain(char *input_f_path, char *output_f_path, float gain_dB);
+int32_t app_gain(char *input_f_path, char *output_f_path, float gain_dB);
 
 #endif
