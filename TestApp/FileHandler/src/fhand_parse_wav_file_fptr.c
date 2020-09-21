@@ -5,8 +5,7 @@
 FILE *fhand_parse_wav_file_fptr(const char *path, wav_hdr_t *hdr){
 
     FILE *file = NULL;
-    int seek_ofset = 0;
-    
+
     file = fopen(path, "rb");
     if (!file) {
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
@@ -28,13 +27,12 @@ FILE *fhand_parse_wav_file_fptr(const char *path, wav_hdr_t *hdr){
         fclose(file);
         return NULL;
     }
-    seek_ofset += 12; 
 
     while(hdr->FmtChunk->chunkId != fmt_CHUNK_ID && !feof(file)){
         fread (&(hdr->FmtChunk->chunkId), sizeof(uint32_t), 1, file);
 
     }
-    seek_ofset += 4;
+
     if(hdr->FmtChunk->chunkId == fmt_CHUNK_ID){
         //fread (&(hdr->RffChunk->chunkId),  1, (sizeof(FmtChunk_t) - 4), file);
         fread(&hdr->FmtChunk->chunkSize, sizeof(uint32_t), 1, file);
@@ -44,22 +42,25 @@ FILE *fhand_parse_wav_file_fptr(const char *path, wav_hdr_t *hdr){
         fread(&hdr->FmtChunk->byteRate, sizeof(uint32_t), 1, file);
         fread(&hdr->FmtChunk->blockAlign, sizeof(uint16_t), 1, file);
         fread(&hdr->FmtChunk->bitsPerSample, sizeof(uint16_t), 1, file);
+        fseek(file, (hdr->FmtChunk->chunkSize - 16), SEEK_CUR);
     }else{
         fprintf(stderr,RED"Error: "BOLDWHITE"'Fmt' chunk not found\n"RESET);
         free_chunk_hdr(hdr);
         fclose(file);
         return NULL;
     }
-    seek_ofset += hdr->FmtChunk->chunkSize;
+
 
     while(hdr->DataChunk->chunkId != data_CHUNK_ID && !feof(file)){
-        fseek(file, seek_ofset, SEEK_SET);
-        fread (&(hdr->DataChunk->chunkId), sizeof(uint32_t), 1, file);
-        seek_ofset++;
+        fread(&(hdr->DataChunk->chunkId), sizeof(uint32_t), 1, file);
+        fread(&hdr->DataChunk->chunkSize, sizeof(uint32_t), 1, file);
+        if(hdr->DataChunk->chunkId != data_CHUNK_ID){
+            fseek(file, (hdr->DataChunk->chunkSize), SEEK_CUR);
+        }
     }
 
     if(hdr->DataChunk->chunkId == data_CHUNK_ID){
-        fread(&(hdr->DataChunk->chunkSize), sizeof(uint32_t), 1, file);
+
     }else{
         fprintf(stderr,RED"Error: "BOLDWHITE"'data' chunk not found\n"RESET);
         free_chunk_hdr(hdr);

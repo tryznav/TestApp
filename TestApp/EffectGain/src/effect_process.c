@@ -4,11 +4,12 @@
 #include <stdio.h>
 #include <math.h>
 
+#pragma pack(push,1)
 typedef struct chanes_s{
     float Left;
     float Right;
 }chanes_t;
-
+#pragma pack(pop)
 /******************************************************************************/
 
 int32_t effect_process_get_sizes(
