@@ -1,6 +1,6 @@
 #include "test_sig_gen.h"
 
-void *tsig_square_init_states(uint32_t sample_rate, uint32_t length_sample, void* states,  void *params){
+void *tsig_square_init_states (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params){
     sample_rate = 0;
     states = malloc(sizeof(tsig_square_stat_t));
     if(states == NULL){
@@ -13,7 +13,7 @@ void *tsig_square_init_states(uint32_t sample_rate, uint32_t length_sample, void
     return states;
 }
 
-int32_t tsig_square_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio){
+int32_t tsig_gen_square_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio){
     sample_rate = 0;
 
     for (uint32_t i = 0; i < length_sample; i++){

@@ -1,6 +1,6 @@
 #include "test_sig_gen.h"
 
-void *tsig_sin_init_states(uint32_t sample_rate, uint32_t length_sample, void* states, void *params){
+void *tsig_sin_init_states (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params){
     sample_rate = 0;
     states = malloc(sizeof(tsig_sin_stat_t));
     if(states == NULL){
@@ -18,7 +18,7 @@ void *tsig_sin_init_states(uint32_t sample_rate, uint32_t length_sample, void* s
 
 }
 
-int32_t tsig_sin_st(const uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, const void *params, void* states, void *audio){
+int32_t tsig_gen_sin_st(const uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, const void *params, void* states, void *audio){
 
     for (uint32_t i = 0; i < length_sample; i++){
         ((chanels_t *)audio)[i].Left = (float)sin((double)((tsig_sin_prm_t *)params)->freq * (2.0 * M_PI) * (double)(((tsig_sin_stat_t *)states)->sample_increment) / (double)sample_rate) * amplitude_coef;

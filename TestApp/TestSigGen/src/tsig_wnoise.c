@@ -1,7 +1,7 @@
 
 #include "test_sig_gen.h"
 
-void *tsig_step_init_states(uint32_t sample_rate, uint32_t length_sample, void* states, void *params){
+void *tsig_wnoise_init_states (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params){
     sample_rate = 0;
     states = malloc(1);
     if(states == NULL){
@@ -14,7 +14,7 @@ void *tsig_step_init_states(uint32_t sample_rate, uint32_t length_sample, void* 
 }
 
 
-int32_t tsig_wnoise_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio){
+int32_t tsig_gen_wnoise_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio){
     sample_rate = 0;
 
     for (uint32_t i = 0; i < length_sample; i++){

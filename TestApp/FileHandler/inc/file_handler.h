@@ -53,6 +53,17 @@ typedef struct wav_hdr_s{
 }wav_hdr_t;
 
 #pragma pack(pop)
+
+typedef struct gen_sig_s{
+    uint32_t        sample_rate;
+    uint32_t        length_sample;
+    float           amplitude_coef;
+    void*           states;
+    void const      *params;
+    void *          (*tsig_sig_init_states)(uint32_t, uint32_t, void*, void const *);                    // void *tsig_sig_init_states(uint32_t sample_rate, uint32_t length_sample, void* states, void const *params)
+    int32_t         (*tsig_gen_sig_st)(uint32_t, uint32_t, float, void const *, void*, void *);     //int32_t tsig_gen_wnoise_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio)
+}gen_sig_t;
+
 typedef struct pross_waw_s{
     const char      *src_f_path;
     const char      *dest_f_path;
@@ -68,20 +79,24 @@ typedef struct pross_waw_s{
     int32_t         (*effect_control_initialize)(void*, void*, uint32_t);
     int32_t         (*effect_set_parameter)(void*, int32_t, float);
     int32_t         (*effect_update_coeffs)(void const*, void*);
+    gen_sig_t       *gen_sig;
 }pross_waw_t;
 
+
 typedef struct process_waw_hand_s{
-    size_t      allAudiosize;
-    size_t      sizeNms;
-    FILE        *src_file;
-    FILE        *dest_file;
-    int32_t     (*effect_process)(void const*, void*, void*, size_t);
-    void const* coeffs;
-    void*       states;
-    uint16_t    audioFormat;            // Аудио формат
-    size_t      samples_count;
-    
+    size_t          allAudiosize;
+    size_t          sizeNms;
+    FILE            *src_file;
+    FILE            *dest_file;
+    int32_t         (*effect_process)(void const*, void*, void*, size_t);
+    void const*     coeffs;
+    void*           states;
+    uint16_t        audioFormat;            // Аудио формат
+    size_t          samples_count;
+    gen_sig_t       *gen_sig;
 }process_waw_hand_t;
+
+
 
 /****************************************************************************************************************
 * fhand_file_to_mem() : reading data from a file into allocated memory
@@ -129,7 +144,11 @@ int fhand_wavdup(const char *src_f_path, const char *dest_f_path,size_t size_ms)
 /******************************************************************************************************/
 //help func
 void alloc_mem_chunk_hdr(wav_hdr_t *hdr);
+
 void free_chunk_hdr(wav_hdr_t *hdr);
+
 int32_t fhand_wav_process(pross_waw_t *pross_waw);
+
+int32_t fhand_newhdr_f(uint32_t sample_rate, uint32_t length_sample);
 
 #endif

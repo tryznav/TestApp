@@ -58,7 +58,7 @@ int32_t effect_set_parameter(
         *((float *)params) = value;
         return 0;
     }
-    fprintf(stderr, RED"%d: Error: "BOLDWHITE"Unsupported params. Rejected.\n"RESET);
+    fprintf(stderr, RED"Error: "BOLDWHITE"Unsupported params. Rejected.\n"RESET);
     return -1;
 }
 

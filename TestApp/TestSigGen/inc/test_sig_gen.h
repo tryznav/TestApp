@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <float.h>
+#include <errno.h>
+#include <string.h>
 
 #define CHIRP_LINEAR            1
 #define CHIRP_LOGARITM          2
@@ -14,6 +16,7 @@
 
 #define M_PI 3.14159265358979323846
 #pragma pack(push,1)
+// extern int errno;
 
 typedef struct chanels_s{
     float Left;
@@ -80,13 +83,22 @@ typedef struct tsig_l_sw_sin_stat_s
     float       amp_increment_num;
     float       amp_increment;
     uint32_t    sample_increment;
-    float       sin_coef;
+    double      sin_coef;
 }tsig_l_sw_sin_stat_t;
 
-int32_t tsig_delta_st  (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void *params, void* states, void *audio);
-int32_t tsig_step_st   (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void *params, void* states, void *audio);
-int32_t tsig_square_st (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void *params, void* states, void *audio);
-int32_t tsig_wnoise_st (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void *params, void* states, void *audio);
-int32_t tsig_sine      (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void *params, void* states, void *audio);
+
+void *tsig_wnoise_init_states   (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params);
+void *tsig_step_init_states     (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params);
+void *tsig_square_init_states   (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params);
+void *tsig_sin_init_states      (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params);
+void *tsig_lsw_sin_init_states  (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params);
+
+int32_t tsig_gen_delta_st   (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio);
+int32_t tsig_gen_step_st    (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio);
+int32_t tsig_gen_square_st  (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio);
+int32_t tsig_gen_wnoise_st  (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio);
+int32_t tsig_gen_sine       (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio);
+int32_t tsig_gen_chirp_st   (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio);
+int32_t tsig_gen_lsw_sin_st (uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio);
 
 #endif /*test_sig_gen.h*/

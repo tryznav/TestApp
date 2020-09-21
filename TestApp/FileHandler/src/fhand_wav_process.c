@@ -17,16 +17,25 @@ int32_t fhand_wav_process(pross_waw_t *pross_waw){
     //     exit(EXIT_FAILURE);
     // }
 
-    if((proc.src_file = fhand_parse_wav_file_fptr(pross_waw->src_f_path, &hdr)) == NULL){
-        fprintf(stderr,RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
-        return -1;
+
+    if(pross_waw->gen_sig == NULL){
+        if((proc.src_file = fhand_parse_wav_file_fptr(pross_waw->src_f_path, &hdr)) == NULL){
+            fprintf(stderr,RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
+            return -1;
+        }
+        fhand_print_chunk(hdr.RiffChunk, hdr.FmtChunk, hdr.DataChunk);
+        if((n = check(&hdr, pross_waw)) != 0){
+            free_chunk_hdr(&hdr);
+            fclose(proc.src_file);
+            return -1;
+        }
+    }else{
+        /* code */
+        n = fhand_newhdr_f(&hdr, pross_waw->gen_sig->sample_rate, pross_waw->gen_sig->length_sample);
     }
-    fhand_print_chunk(hdr.RiffChunk, hdr.FmtChunk, hdr.DataChunk);
-    if((n = check(&hdr, pross_waw)) != 0){
-        free_chunk_hdr(&hdr);
-        fclose(proc.src_file);
-        return -1;
-    }
+    
+    // fhand_print_chunk(hdr.RiffChunk, hdr.FmtChunk, hdr.DataChunk);
+
 
     set_proc_prm(pross_waw, &proc, &hdr);
 
@@ -43,8 +52,9 @@ int32_t fhand_wav_process(pross_waw_t *pross_waw){
     free_chunk_hdr(&hdr);
 
     process(&proc);
-
-    fclose(proc.src_file);
+    if(pross_waw->gen_sig == NULL){
+        fclose(proc.src_file);
+    }
     fclose(proc.dest_file);
 
     // free(proc);
@@ -63,7 +73,13 @@ int process(process_waw_hand_t *proc){
     memset(audio, 0, proc->sizeNms);
 
     while (proc->allAudiosize > proc->sizeNms){
-        fread(audio, 1, proc->sizeNms, proc->src_file);
+        if(proc->gen_sig == NULL){
+            fread(audio, 1, proc->sizeNms, proc->src_file);
+        }else{
+            proc->gen_sig->tsig_gen_sig_st(proc->gen_sig->sample_rate, proc->gen_sig->length_sample,proc->gen_sig->amplitude_coef,proc->gen_sig->params,proc->gen_sig->states, audio);
+        }
+        
+
         if(proc->coeffs != NULL){
             proc->effect_process(proc->coeffs, proc->states, audio, proc->samples_count);
         }
@@ -73,11 +89,13 @@ int process(process_waw_hand_t *proc){
 
     if(proc->allAudiosize != 0){
         memset(audio, 0, proc->sizeNms);
+        
         fread(audio, 1, proc->allAudiosize, proc->src_file);
         if(proc->coeffs != NULL){
             proc->effect_process(proc->coeffs, proc->states, audio, proc->samples_count);
         }
         fwrite(audio, 1,  proc->sizeNms, proc->dest_file);
+
     }
 
     return 0;
@@ -116,7 +134,9 @@ static int set_proc_prm(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_hd
             fprintf(stderr,RED"Error: "BOLDWHITE"reset_coeffs_wav\n"RESET);
         }
     }
-    
+
+    proc->gen_sig = pross_waw->gen_sig;
+
     return 0;
 }
 
@@ -178,4 +198,29 @@ static int32_t check(wav_hdr_t *hdr, pross_waw_t *pross_waw){
     return 0;
 }
 
+static int32_t check(wav_hdr_t *hdr, pross_waw_t *pross_waw){
+    if(hdr->FmtChunk->numChannels != STEREO_DATA) {
+        fprintf(stderr,RED"Error: Wrong audio format. "BOLDWHITE"App support stereo data.\n"RESET);
+        return -1;
+    }
+    if(hdr->FmtChunk->audioFormat != PMC && hdr->FmtChunk->audioFormat != IEEE_754){
+        fprintf(stderr,RED"Error: Wrong audio format. "BOLDWHITE"App support PMC and IEEE 754 formats.\n"RESET);
+        return -1;
+    }
+    if(hdr->FmtChunk->audioFormat == PMC && pross_waw->coeffs != NULL){
+        fprintf(stderr,RED"Error: Wrong audio format. "BOLDWHITE"Effect support IEEE 754 formats.\n"RESET);
+        return -1;
+    }
+    if(pross_waw->coeffs != NULL && pross_waw->coeffs == NULL){
+        fprintf(stderr,RED"Error: params. "BOLDWHITE"No params pre-alloc.\n"RESET);
+        return -1;
+    }
+    return 0;
+}
+
+//*******************************************************************************************************************/
+
+void create(){
+
+}
 

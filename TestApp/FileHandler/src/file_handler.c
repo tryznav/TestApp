@@ -243,6 +243,30 @@ FILE *fhand_newav(const char *path, wav_hdr_t *hdr){
     return file;
 }
 
+int32_t fhand_newhdr_f(wav_hdr_t *hdr, uint32_t sample_rate, uint32_t length_sample){
+    
+    alloc_mem_chunk_hdr(hdr);
+
+    hdr->RiffChunk->chunkId = RIFF_CHUNK_ID;
+    memcpy(hdr->RiffChunk->format,'EVAW',4);
+
+    hdr->FmtChunk->chunkId = fmt_CHUNK_ID;
+    hdr->FmtChunk->chunkSize = sizeof(FmtChunk_t);
+    hdr->FmtChunk->audioFormat = IEEE_754;
+    hdr->FmtChunk->numChannels = STEREO_DATA;
+    hdr->FmtChunk->sampleRate = sample_rate;
+    hdr->FmtChunk->byteRate = hdr->FmtChunk->numChannels * hdr->FmtChunk->sampleRate * sizeof(float);
+    hdr->FmtChunk->blockAlign = sizeof(float) * hdr->FmtChunk->numChannels;
+    hdr->FmtChunk->bitsPerSample = sizeof(float) * 8;
+    
+    hdr->DataChunk->chunkId = data_CHUNK_ID;
+    hdr->DataChunk->chunkId = hdr->FmtChunk->blockAlign * length_sample;
+    
+    hdr->RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(FmtChunk_t) + sizeof(DataChunk_t) + hdr->DataChunk->chunkId;
+
+    return 0;
+}
+
 void free_chunk_hdr(wav_hdr_t *hdr){
     free(hdr->RiffChunk);
     hdr->RiffChunk = NULL;

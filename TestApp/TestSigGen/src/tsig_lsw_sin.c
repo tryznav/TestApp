@@ -1,6 +1,6 @@
 #include "test_sig_gen.h"
 
-void *tsig_l_sw_sin_init_states(uint32_t sample_rate, uint32_t length_sample, void* states, void const *params){
+void *tsig_lsw_sin_init_states (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params){
     sample_rate = 0;
     float  amp_coef_start = powf(10.0f , (0.05f * (float)((tsig_l_sw_sin_prm_t *)params)->amp_start_dB));
     float  amp_coef_stop = powf(10.0f , (0.05f * (float)((tsig_l_sw_sin_prm_t *)params)->amp_stop_dB));
@@ -17,7 +17,7 @@ void *tsig_l_sw_sin_init_states(uint32_t sample_rate, uint32_t length_sample, vo
     return states;
 }
 
-int32_t tsig_l_sw_sin_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio){
+int32_t tsig_gen_lsw_sin_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio){
     amplitude_coef = 0;
     sample_rate = 0;
 
