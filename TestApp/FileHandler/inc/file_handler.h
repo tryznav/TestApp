@@ -60,7 +60,7 @@ typedef struct gen_sig_s{
     float           amplitude_coef;
     void*           states;
     void const      *params;
-    void *          (*tsig_sig_init_states)(uint32_t, uint32_t, void*, void const *);                    // void *tsig_sig_init_states(uint32_t sample_rate, uint32_t length_sample, void* states, void const *params)
+    void *          (*tsig_sig_init_states)(uint32_t , uint32_t , void const *);                    //void *tsig_sig_init_states  (uint32_t sample_rate, uint32_t length_sample, void const *params);
     int32_t         (*tsig_gen_sig_st)(uint32_t, uint32_t, float, void const *, void*, void *);     //int32_t tsig_gen_wnoise_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio)
 }gen_sig_t;
 
@@ -149,6 +149,6 @@ void free_chunk_hdr(wav_hdr_t *hdr);
 
 int32_t fhand_wav_process(pross_waw_t *pross_waw);
 
-int32_t fhand_newhdr_f(uint32_t sample_rate, uint32_t length_sample);
+int32_t fhand_newhdr_f(wav_hdr_t *hdr, uint32_t sample_rate, uint32_t length_sample);
 
 #endif

@@ -1,15 +1,17 @@
 #include "test_sig_gen.h"
 
-void *tsig_square_init_states (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params){
+void *tsig_square_init_states (uint32_t sample_rate, uint32_t length_sample, void const *params){
+    tsig_square_stat_t *states = NULL;
     sample_rate = 0;
+    
     states = malloc(sizeof(tsig_square_stat_t));
     if(states == NULL){
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
-    ((tsig_square_stat_t *)(states))->sample_increment = 0;
-    ((tsig_square_stat_t *)(states))->sign_value = 1;
-    ((tsig_square_stat_t *)(states))->half_period_sample = (sample_rate/1000) * (((tsig_square_prm_t *)params)->period_ms);
+    states->sample_increment = 0;
+    states->sign_value = 1;
+    states->half_period_sample = (sample_rate/1000) * (((tsig_square_prm_t *)params)->period_ms);
     return states;
 }
 

@@ -15,6 +15,7 @@ set(LIBS_PATH_2 "/tmp/Debug/")
 target_link_libraries(${PR_NAME} PRIVATE EffectGain)
 target_link_libraries(${PR_NAME} PRIVATE FileHandler)
 target_link_libraries(${PR_NAME} PRIVATE GetOpt)
+target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
 
 
 target_include_directories(${PR_NAME} PRIVATE ../../inc)

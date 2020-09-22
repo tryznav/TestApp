@@ -6,4 +6,5 @@ add_subdirectory(Libs/TestSigGen)
 add_subdirectory(Libs/EffectGain)
 add_subdirectory(Libs/FileHandler)
 add_subdirectory(Libs/GetOpt)
+
 add_subdirectory(TestApp)

@@ -238,7 +238,7 @@ FILE *fhand_newav(const char *path, wav_hdr_t *hdr){
 
     fwrite(hdr->RiffChunk, 1, sizeof(RiffChunk_t), file);
     fwrite(hdr->FmtChunk, 1, sizeof(FmtChunk_t), file);
-    fwrite(hdr->DataChunk, 1, (sizeof(FmtChunk_t)), file);
+    fwrite(hdr->DataChunk, 1, (sizeof(DataChunk_t)), file);
 
     return file;
 }
@@ -248,7 +248,7 @@ int32_t fhand_newhdr_f(wav_hdr_t *hdr, uint32_t sample_rate, uint32_t length_sam
     alloc_mem_chunk_hdr(hdr);
 
     hdr->RiffChunk->chunkId = RIFF_CHUNK_ID;
-    memcpy(hdr->RiffChunk->format,'EVAW',4);
+    memcpy(hdr->RiffChunk->format,"WAVE",4);
 
     hdr->FmtChunk->chunkId = fmt_CHUNK_ID;
     hdr->FmtChunk->chunkSize = sizeof(FmtChunk_t);
@@ -260,10 +260,11 @@ int32_t fhand_newhdr_f(wav_hdr_t *hdr, uint32_t sample_rate, uint32_t length_sam
     hdr->FmtChunk->bitsPerSample = sizeof(float) * 8;
     
     hdr->DataChunk->chunkId = data_CHUNK_ID;
-    hdr->DataChunk->chunkId = hdr->FmtChunk->blockAlign * length_sample;
+    hdr->DataChunk->chunkSize = hdr->FmtChunk->blockAlign * length_sample;
+        // printf("hdr->DataChunk->chunkSize %d\n", hdr->DataChunk->chunkSize);
     
-    hdr->RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(FmtChunk_t) + sizeof(DataChunk_t) + hdr->DataChunk->chunkId;
-
+    hdr->RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(FmtChunk_t) + sizeof(DataChunk_t) + hdr->DataChunk->chunkSize;
+    printf("hdr->RiffChunk->chunkSize %d\n", hdr->RiffChunk->chunkSize);
     return 0;
 }
 

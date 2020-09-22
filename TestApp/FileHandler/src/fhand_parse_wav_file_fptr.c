@@ -30,7 +30,6 @@ FILE *fhand_parse_wav_file_fptr(const char *path, wav_hdr_t *hdr){
 
     while(hdr->FmtChunk->chunkId != fmt_CHUNK_ID && !feof(file)){
         fread (&(hdr->FmtChunk->chunkId), sizeof(uint32_t), 1, file);
-
     }
 
     if(hdr->FmtChunk->chunkId == fmt_CHUNK_ID){

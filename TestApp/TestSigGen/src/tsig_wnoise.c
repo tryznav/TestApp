@@ -1,8 +1,10 @@
 
 #include "test_sig_gen.h"
 
-void *tsig_wnoise_init_states (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params){
+void *tsig_wnoise_init_states (uint32_t sample_rate, uint32_t length_sample, void const *params){
+    void    *states = NULL;
     sample_rate = 0;
+
     states = malloc(1);
     if(states == NULL){
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));

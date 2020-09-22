@@ -6,7 +6,16 @@ static void print_hdr(char *input_f_path);
 static void *conv_aud_for_eff(FmtChunk_t *FmtChunk, RiffChunk_t *RiffChunk, DataChunk_t *DataChunk, size_t samples_coun);
 
 int app_handler(app_func_t *task){
-    if(task->generator){
+    if(task->generator && task->ouput){        
+        printf(BOLDGREEN"Audio data is generated\n"RESET);
+        pross_waw_t pross_waw;
+        app_generator_init(&pross_waw, task);
+        if(task->gain){
+            app_gain_init(&pross_waw, NULL, task->output_f_path, task->gain_dB);
+        }
+        printf("proc->gen_sig->sample_rate %d\n", pross_waw.gen_sig->sample_rate);
+        printf(BOLDGREEN"Audio data is generated\n"RESET);
+        fhand_wav_process(&pross_waw);
         printf(BOLDGREEN"Audio data is generated\n"RESET);
         return 0;
     }

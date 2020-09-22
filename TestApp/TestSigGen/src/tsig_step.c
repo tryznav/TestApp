@@ -1,14 +1,16 @@
 
 #include "test_sig_gen.h"
 
-void *tsig_step_init_states (uint32_t sample_rate, uint32_t length_sample, void* states, void const *params){
+void *tsig_step_init_states (uint32_t sample_rate, uint32_t length_sample, void const *params){
+    tsig_delta_stat_t   *states = NULL;
     sample_rate = 0;
+
     states = malloc(sizeof(tsig_delta_stat_t));
     if(states == NULL){
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
-    ((tsig_delta_stat_t *)(states))->ex = 0;
+    states->ex = 0;
     return states;
 
 }
