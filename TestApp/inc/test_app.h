@@ -17,7 +17,37 @@
 
 
 #define DEFAULT_SAMPLE_RATE     48000
+#define HELP_TEXT_OPT               "Options\n"
+#define HELP_TEXT_IN                "   --in            -i  <input-file-path>       = Specify file for processing.\n"
+#define HELP_TEXT_OUT               "   --out           -o  <output-file-path>      = Specify a file for processing results.\n"
+#define HELP_TEXT_P_HDR             "   --print-hdr     -p  -                       = Print header input WAV.\n"
+#define HELP_TEXT_GAIN              "   --gain          -i  <amplitude-dB>          = Gain.\n"
+#define HELP_TEXT_GENER_1           "   --generator     -g\n"
+#define HELP_TEXT_GENER_2           "           <sample-rate>,<length_ms><signal-type>:<parametr>   = Generate test signals.\n"
+#define HELP_TEXT_GEN_S_T           "           <signal-type>           <parametr>\n"
+#define HELP_TEXT_DELTA             "           delta                   -\n"
+#define HELP_TEXT_STEP              "           step                    -\n"
+#define HELP_TEXT_SQUARE            "           square                  <period-ms>\n"
+#define HELP_TEXT_WNOISE            "           wnoise                  <amplitude-dB>\n"
+#define HELP_TEXT_SINE              "           sine                    <frequency-Hz,amplitude-dB>\n"
+#define HELP_TEXT_CHIRP_LIN         "           chirp_linear            <start-freq-Hz,end-freq-Hz,amplitude-dB>\n"              
+#define HELP_TEXT_CHIRP_LOG         "           chirp_logarithmic       <start-freq-Hz,end-freq-Hz,amplitude_dB>\n"
+#define HELP_TEXT_lSWEEP            "           lsweep                  <frequency-Hz,start-amp-dB,end-amp-dB>\n"
 
+// "Options
+//     --in            -i  <input-file-path>                                   = Specify file for processing.
+//     --out           -i  <output-file-path>                                  = Specify a file for processing results.
+//     --gain          -i  <amplitude-dB>                                      = Gain.
+//     --generator     -g  <sample-rate>,<length_ms><signal-type>:<parametr>   = Generate test signals.
+//             <signal-type>           <parametr>
+//             selta                   -
+//             step                    -
+//             square                  <period-ms>
+//             wnoise                  <amplitude-dB>
+//             sine                    <frequency-Hz,amplitude-dB>
+//             chirp_linear            <start-freq-Hz,end-freq-Hz,amplitude-dB>
+//             chirp_logarithmic       <start-freq-Hz,end-freq-Hz,amplitude_dB>
+//             lsweep                  <frequency-Hz,start-amp-dB,end-amp-dB>"
 typedef struct amplitude_s{
     float           whole_file;
     float           start_amp_dB;

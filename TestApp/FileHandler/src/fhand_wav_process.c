@@ -3,19 +3,13 @@
 static int32_t check(wav_hdr_t *hdr, pross_waw_t *pross_waw);
 static int set_proc_prm(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_hdr_t *hdr);
 static int32_t reset_coeffs_wav(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_hdr_t  *hdr);
-static int process(process_waw_hand_t *proc);
+ static int process(process_waw_hand_t *proc);
 
 
 int32_t fhand_wav_process(pross_waw_t *pross_waw){
     process_waw_hand_t  proc;
     wav_hdr_t           hdr         = {NULL, NULL, NULL};
     int32_t             n           = 0;
-
-    // proc = (process_waw_hand_t *)malloc(sizeof(process_waw_hand_t));
-    // if(proc == NULL){
-    //     fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
-    //     exit(EXIT_FAILURE);
-    // }
 
     if(pross_waw->gen_sig == NULL){
         if((proc.src_file = fhand_parse_wav_file_fptr(pross_waw->src_f_path, &hdr)) == NULL){
@@ -33,24 +27,17 @@ int32_t fhand_wav_process(pross_waw_t *pross_waw){
     }
     // fhand_print_chunk(hdr.RiffChunk, hdr.FmtChunk, hdr.DataChunk);
 
-    // printf("here02");
     set_proc_prm(pross_waw, &proc, &hdr);
-    // printf("here03");
     if((proc.dest_file = fhand_newav(pross_waw->dest_f_path, &hdr)) == NULL){
         fprintf(stderr, RED"Error: "BOLDWHITE"File uncreate. Reject\n"RESET);
         free_chunk_hdr(&hdr);
         fclose(proc.src_file);
         return -1;
     }
-    printf("\nhere1\n");
-    
-    //fhand_print_chunk(hdr.RiffChunk, hdr.FmtChunk, hdr.DataChunk);
-
-    //calculate
 
     free_chunk_hdr(&hdr);
-
     process(&proc);
+
     if(pross_waw->gen_sig == NULL){
         fclose(proc.src_file);
     }
@@ -62,42 +49,72 @@ int32_t fhand_wav_process(pross_waw_t *pross_waw){
 
 /****************************************************************************************/
 
-int process(process_waw_hand_t *proc){
+ static int process(process_waw_hand_t *proc){
+    size_t n = 0;
+    long n1, n2, ofset = 0;
     void *audio = malloc(proc->sizeNms);
     if (audio == NULL){
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
-    memset(audio, 0, proc->sizeNms);
-    //printf("process %d %d",proc->allAudiosize, proc->sizeNms);
+    // ofset = 44;
 
+    memset(audio, 0, proc->sizeNms);
     while (proc->allAudiosize > proc->sizeNms){
+
         if(proc->gen_sig == NULL){
             fread(audio, 1, proc->sizeNms, proc->src_file);
         }else{
             // printf("proc->samples_count %d %d",proc->sizeNms, proc->samples_count);
             proc->gen_sig->tsig_gen_sig_st(proc->gen_sig->sample_rate, proc->samples_count, proc->gen_sig->amplitude_coef,proc->gen_sig->params,proc->gen_sig->states, audio);
-            // printf("proc->samples_count %d %d",proc->sizeNms, proc->samples_count);
+            printf("proc->samples_count %d %d\n",proc->sizeNms, proc->samples_count);
         }
         
         if(proc->coeffs != NULL){
             proc->effect_process(proc->coeffs, proc->states, audio, proc->samples_count);
         }
-        fwrite(audio, 1,  proc->sizeNms, proc->dest_file);
+
+        n1 = ftell(proc->dest_file);
+        printf("ftell1 = %d\t", n1);
+        n = fwrite((const void *)audio, 1,  proc->sizeNms, proc->dest_file);
+        //fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
+        if(n != proc->sizeNms){
+            fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
+            exit(EXIT_FAILURE);
+        }
+        n2 = ftell(proc->dest_file);
+        printf("ftell2 = %d  %d\n", n2, (n2 - n1));
+        ofset += (long )proc->sizeNms;
         proc->allAudiosize -= proc->sizeNms;
     }
-
+     printf("proc->allAudiosize %d\n",proc->allAudiosize);
     if(proc->allAudiosize != 0){
         memset(audio, 0, proc->sizeNms);
-        
-        fread(audio, 1, proc->allAudiosize, proc->src_file);
+        if(proc->gen_sig == NULL){
+            fread(audio, 1, proc->sizeNms, proc->src_file);
+        }else{
+            proc->gen_sig->tsig_gen_sig_st(proc->gen_sig->sample_rate, proc->samples_count, proc->gen_sig->amplitude_coef,proc->gen_sig->params,proc->gen_sig->states, audio);
+        }
         if(proc->coeffs != NULL){
             proc->effect_process(proc->coeffs, proc->states, audio, proc->samples_count);
         }
-        fwrite(audio, 1,  proc->sizeNms, proc->dest_file);
+        n = (size_t)ftell(proc->dest_file);
 
+        printf("ftell1 = %d\n", n);
+        n = fwrite((const void *)audio, 1,  proc->sizeNms, proc->dest_file);
+        if(n != proc->sizeNms){
+            fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
+            exit(EXIT_FAILURE);
+        }
+        n = (size_t)ftell(proc->dest_file);
+        printf("ftell2 = %d\n", n);
+
+        
     }
-
+    printf("proc->samples_count %d\n",proc->samples_count);
+    printf("proc->sizeNms %d\n",proc->sizeNms);
+    free(audio);
+    audio = NULL;
     return 0;
 }
 
@@ -124,8 +141,10 @@ static int set_proc_prm(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_hd
         hdr->DataChunk->chunkSize = proc->samples_count * proc->sizeNms;
         proc->samples_count = proc->sizeNms / hdr->FmtChunk->blockAlign;
     }
-    hdr->RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(RiffChunk_t) + sizeof(DataChunk_t) + hdr->DataChunk->chunkSize;
-
+    hdr->RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(FmtChunk_t) + sizeof(DataChunk_t) + hdr->DataChunk->chunkSize;
+    // hdr->RiffChunk->chunkSize = 32 + hdr->DataChunk->chunkSize;
+    printf("hdr->RiffChunk->chunkSize %d\n", hdr->RiffChunk->chunkSize);
+    printf("hdr->DataChunk->chunkSize %d\n", hdr->DataChunk->chunkSize);
     proc->coeffs = pross_waw->coeffs;
 
     
@@ -169,12 +188,6 @@ int32_t reset_coeffs_wav(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_h
     if(n != 0){
         return n;
     }
-
-    // no param  from wav now 
-    //n = pross_waw->effect_set_parameter()
-    // if(n != 0){
-    //     return n;
-    // }
 
     n = pross_waw->effect_update_coeffs(pross_waw->params, pross_waw->coeffs);
     if(n != 0){

@@ -227,22 +227,6 @@ int fhand_resize_wav(uint32_t size_ms, const char *src_f_path, const char *dest_
 
 /*****************************************************************************************************/
 
-FILE *fhand_newav(const char *path, wav_hdr_t *hdr){
-    FILE *file = NULL;
-
-    file = fopen(path, "w+");
-    if (!file) {
-        fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
-        return file;
-    }
-
-    fwrite(hdr->RiffChunk, 1, sizeof(RiffChunk_t), file);
-    fwrite(hdr->FmtChunk, 1, sizeof(FmtChunk_t), file);
-    fwrite(hdr->DataChunk, 1, (sizeof(DataChunk_t)), file);
-
-    return file;
-}
-
 int32_t fhand_newhdr_f(wav_hdr_t *hdr, uint32_t sample_rate, uint32_t length_sample){
     
     alloc_mem_chunk_hdr(hdr);
@@ -265,6 +249,7 @@ int32_t fhand_newhdr_f(wav_hdr_t *hdr, uint32_t sample_rate, uint32_t length_sam
     
     hdr->RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(FmtChunk_t) + sizeof(DataChunk_t) + hdr->DataChunk->chunkSize;
     printf("hdr->RiffChunk->chunkSize %d\n", hdr->RiffChunk->chunkSize);
+    printf("hdr->DataChunk->chunkSize %d\n", hdr->DataChunk->chunkSize);
     return 0;
 }
 

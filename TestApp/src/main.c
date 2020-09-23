@@ -2,6 +2,7 @@
 
 static int verbose_flag;
 static int parse_generator_opt(char * opt, app_func_t *task );
+static void print_help(void);
 
 main (int argc, char **argv)
 {
@@ -18,8 +19,8 @@ main (int argc, char **argv)
         /* These options don’t set a flag.
             We distinguish them by their indices. */
         {"add",       no_argument,       0, 'a'},
-        {"append",    no_argument,       0, 'b'},
-        {"hdr",       no_argument,       0, 'h'},
+        {"help",      no_argument,       0, 'h'},
+        {"print-hdr", no_argument,       0, 'p'},
         {"gain",      required_argument, 0, 'g'},
         {"in",        required_argument, 0, 'i'},
         {"out",       required_argument, 0, 'o'},
@@ -29,7 +30,7 @@ main (int argc, char **argv)
     /* getopt_long stores the option index here. */
     int option_index = 0;
 
-    c = getopt_long (argc, argv, "abho:g:i:",
+    c = getopt_long (argc, argv, "ahho:g:i:",
                       long_options, &option_index);
 
     /* Detect the end of the options. */
@@ -54,8 +55,12 @@ main (int argc, char **argv)
       case 'b':
         puts ("option -b\n");
         break;
-      case 'h':
+      case 'p':
         app_task->print_hdr = true;
+        break;
+      case 'h':
+        print_help();
+        exit(EXIT_SUCCESS);
         break;
       case 'g':
         printf ("option -o with value `%s'\n", optarg);
@@ -157,7 +162,7 @@ static int parse_generator_opt(char * opt, app_func_t *task ){
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "square")){
     task->signal_id = TSIG_SQUARE;
-    ifn = strtok(NULL, ",");
+    ifn = strtok(NULL, "");
     printf("ifn = %s\n", ifn);
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
@@ -168,7 +173,7 @@ static int parse_generator_opt(char * opt, app_func_t *task ){
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "wnoise")){
-    task->signal_id = TSIG_SQUARE;
+    task->signal_id = TSIG_WNOISE;
     ifn = strtok(NULL, ",");
     printf("ifn = %s\n", ifn);
     if(!ifn){
@@ -269,5 +274,25 @@ static int parse_generator_opt(char * opt, app_func_t *task ){
     task->amplitude.end_amp_db = (float)atof(ifn);
     return 0;
   }
-  return 1;
+  fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
+  return -1;
+}
+
+static void print_help(void){
+  printf("%s",HELP_TEXT_OPT);
+  printf("%s",HELP_TEXT_IN);
+  printf("%s",HELP_TEXT_OUT);
+  printf("%s",HELP_TEXT_P_HDR);
+  printf("%s",HELP_TEXT_GAIN);
+  printf("%s",HELP_TEXT_GENER_1);
+  printf("%s",HELP_TEXT_GENER_2);
+  printf("%s",HELP_TEXT_GEN_S_T);
+  printf("%s",HELP_TEXT_DELTA);
+  printf("%s",HELP_TEXT_STEP);
+  printf("%s",HELP_TEXT_SQUARE);
+  printf("%s",HELP_TEXT_WNOISE);
+  printf("%s",HELP_TEXT_SINE);
+  printf("%s",HELP_TEXT_CHIRP_LIN);
+  printf("%s",HELP_TEXT_CHIRP_LOG);
+  printf("%s",HELP_TEXT_lSWEEP);
 }

@@ -7,6 +7,7 @@ project(${PR_NAME})
 add_executable(${PR_NAME}
     ../../src/main.c
     ../../src/app_handler.c
+    ../../src/app_task_init.c
     ../../src/app_gain.c)
 
 set(LIBS_PATH_1 "../Libs/")

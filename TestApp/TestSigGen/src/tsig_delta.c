@@ -26,7 +26,7 @@ int32_t tsig_gen_delta_st(uint32_t sample_rate, uint32_t length_sample, float am
     }
         
     if(!((tsig_delta_stat_t *)(states))->ex){
-        *((float *)audio)= 1.0f;
+        // *((float *)audio)= 1.0f;
         // _audio[0].Left =1.0f * amplitude_coef;
         //  _audio[0].Right =_audio[0].Left;
         ((chanels_t *)audio)[0].Left = 1.0f * amplitude_coef;
