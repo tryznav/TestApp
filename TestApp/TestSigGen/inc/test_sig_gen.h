@@ -84,7 +84,14 @@ typedef struct tsig_sin_stat_s
 }tsig_sin_stat_t;
 
 typedef struct tsig_chirp_stat_s
-{
+{   float       current_phase;
+    float       instantaneous_w;
+    float       length_sample_hf;//размер всего файйла
+    float       wfreq_start;
+    float       wfreq_end;
+    float       freq_pow_incr_num;
+    float       freq_pow;
+    float       freq_diff;
     float       freq_increment_num;
     float       freq_increment;
     uint32_t    sample_increment;
