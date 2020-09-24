@@ -15,17 +15,19 @@ void *tsig_chirp_init_states (uint32_t sample_rate, uint32_t length_sample, void
     case TSIG_CHIRP_LINEAR:
         _states->freq_increment_num = (float)(_params->freq_stop) - (float)(_params->freq_start);
         _states->freq_increment_num /= (float)length_sample;
-        printf(" _states->freq_increment_num = %f\n",  _states->freq_increment_num);
+        _states->freq_increment = (float)_params->freq_start;
         break;
     case TSIG_CHIRP_LOGARITM:
-
+        _states->freq_increment_num = logf((float)_params->freq_stop) - logf((float)_params->freq_start);
+        _states->freq_increment_num /= (float)length_sample;
+        _states->freq_increment = logf((float)_params->freq_start);
         break;
     default:
         fprintf(stderr,RED"Error: "BOLDWHITE"Wrong Chirp type.\n"RESET);
         free(_states);
         return NULL;
     }
-    _states->freq_increment = (float)_params->freq_start;
+  
     _states->sample_increment = 0;
 
     return _states;
@@ -34,16 +36,26 @@ void *tsig_chirp_init_states (uint32_t sample_rate, uint32_t length_sample, void
 int32_t tsig_gen_chirp_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio){
     chanels_t  *_audio = (chanels_t *)audio;
     tsig_chirp_stat_t *_states = (tsig_chirp_stat_t *)states;
+    tsig_chirp_prm_t * _params = (tsig_chirp_prm_t *)params;
+
     if(!_states){
         fprintf(stderr,RED" Error: "BOLDWHITE"NULL pointer _states.Rejected.\n"RESET);
         return -1;
     }
-
-    for (uint32_t i = 0; i < length_sample; i++){
-        _audio[i].Left = (float)sin((_states->freq_increment * (2.0 * M_PI) * (double)_states->sample_increment) / (double)sample_rate) * amplitude_coef;
-        _audio[i].Right = 0.0f;//((chanels_t *)audio)[i].Left;
-        _states->sample_increment++;
-        _states->freq_increment += _states->freq_increment_num;
+    if(_params->chirp_type_id == TSIG_CHIRP_LINEAR){
+        for (uint32_t i = 0; i < length_sample; i++){
+            _audio[i].Left = sinf(_states->freq_increment * (2.0f * (float)M_PI) * (float)_states->sample_increment / (float)sample_rate) * amplitude_coef;
+            _audio[i].Right = _audio[i].Left;
+            _states->sample_increment++;
+            _states->freq_increment += _states->freq_increment_num;
+        }
+    } else {
+        for (uint32_t i = 0; i < length_sample; i++){
+            _audio[i].Left = sinf(expf(_states->freq_increment) * (2.0f * (float)M_PI) * (float)_states->sample_increment / (float)sample_rate) * amplitude_coef;
+            _audio[i].Right = _audio[i].Left;
+            _states->sample_increment++;
+            _states->freq_increment += _states->freq_increment_num;
+        }
     }
 
     return 0;

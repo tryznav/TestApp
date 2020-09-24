@@ -9,8 +9,6 @@ void *tsig_lsw_sin_init_states (uint32_t sample_rate, uint32_t length_sample, vo
     }
     float  amp_coef_start = powf(10.0f , (0.05f * _params->amp_start_dB));
     float  amp_coef_stop = powf(10.0f , (0.05f * _params->amp_stop_dB));
-    printf("_params->amp_stop_dB = %f\n",_params->amp_stop_dB);
-    printf("_params->amp_start_dB = %f\n",_params->amp_start_dB);
 
     states = (tsig_lsw_sin_stat_t *)malloc(sizeof(tsig_lsw_sin_stat_t));
     if(states == NULL){
@@ -21,14 +19,12 @@ void *tsig_lsw_sin_init_states (uint32_t sample_rate, uint32_t length_sample, vo
     states->amp_increment_num = (amp_coef_stop - amp_coef_start)/(float)(length_sample);
     states->amp_increment = amp_coef_start;
     states->sin_coef = (double)(_params->freq * (2.0 * M_PI)) / (double)sample_rate;
-    printf("states->sin_coef = %f\n",states->sin_coef);
-    printf("states->sin_coef = %f\n",(double)sample_rate);
-    printf("states->sin_coef = %f\n",(double)(_params->freq * (2.0 * M_PI)));
     return states;
 }
 
 int32_t tsig_gen_lsw_sin_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio){
     tsig_lsw_sin_stat_t * _states = (tsig_lsw_sin_stat_t *)states;
+
     if(_states == NULL){
         fprintf(stderr,RED" Error: "BOLDWHITE"NULL pointer states.Rejected.\n"RESET);
         return -1;
@@ -37,11 +33,8 @@ int32_t tsig_gen_lsw_sin_st(uint32_t sample_rate, uint32_t length_sample, float 
     for (uint32_t i = 0; i < length_sample; i++){
         ((chanels_t *)audio)[i].Left = (float)sin(_states->sin_coef * (double)(_states->sample_increment)) * (_states->amp_increment);
         ((chanels_t *)audio)[i].Right = ((chanels_t *)audio)[i].Left;
-        // _states->amp_increment = _states->amp_increment + _states->amp_increment_num;
+        _states->amp_increment = _states->amp_increment + _states->amp_increment_num;
         _states->sample_increment++;
-        // printf("states->sin_coef = %f\n",_states->sin_coef);
-        // printf("_states->amp_increment = %f\n",_states->amp_increment);
-        //  printf("_states->amp_increment_num = %f\n",_states->amp_increment_num);
     }
 
 

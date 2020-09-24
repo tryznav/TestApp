@@ -1,9 +1,4 @@
-//file_handler.c
-
-
 #include "file_handler.h"
-
-
 
 //******************************************************************************************************
 
@@ -36,8 +31,7 @@ void *fhand_file_to_mem(
 
 //******************************************************************************************************
 
-long fhand_filelength(
-    FILE *file){
+long fhand_filelength(FILE *file){
     long length = 0;
 
     if (!file) {
@@ -129,6 +123,8 @@ void fhand_print_chunk(RiffChunk_t *RiffChunk, FmtChunk_t *FmtChunk, DataChunk_t
     printf("#########################################\n\n");
 }
 
+/*************************************************************************************************/
+
 int fhand_resize_wav(uint32_t size_ms, const char *src_f_path, const char *dest_f_path){
     long length = 0;
     uint32_t new_data_size = 0;
@@ -161,70 +157,6 @@ int fhand_resize_wav(uint32_t size_ms, const char *src_f_path, const char *dest_
     return 0;
 }
 
-
-/*****************************************************************************************************/
-
-// int fhand_wavdup(const char *src_f_path, const char *dest_f_path,size_t size_ms){
-
-//     FILE        *src_file   = NULL;
-//     FILE        *dest_file  = NULL;
-//     wav_hdr_t   hdr = {NULL, NULL, NULL};
-//     void        *audio      = NULL;
-//     size_t      sizeNms     = 0;
-//     size_t      tmpSize     = 0;
-
-//     if((src_file = fhand_parse_wav_file_fptr(src_f_path, &hdr)) == NULL){
-//         fprintf(stderr,RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
-//         return -1;
-//     }
-
-//     FmtChunk->chunkSize =  sizeof(FmtChunk_t) - 8;
-//     sizeNms = ((FmtChunk->sampleRate/1000)*size_ms)*FmtChunk->blockAlign;
-
-//     tmpSize = (size_t)DataChunk->chunkSize;
-//     if ((tmpSize % sizeNms) == 0){
-//         DataChunk->chunkSize = DataChunk->chunkSize;
-//     } else {
-//         DataChunk->chunkSize = ((tmpSize / sizeNms) + 1) * sizeNms;
-//     }
-//     RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(RiffChunk_t) + sizeof(DataChunk_t) + DataChunk->chunkSize;
-
-
-//     if((dest_file = fhand_newav(dest_f_path, RiffChunk, FmtChunk, DataChunk)) == NULL){
-//         fprintf(stderr,RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
-//         free_chunk_hdr(RiffChunk, FmtChunk, DataChunk);
-//         fclose(src_file);
-//         return -1;
-//     }
-
-//     free_chunk_hdr(RiffChunk, FmtChunk, DataChunk);
-
-//     audio = malloc(sizeNms);
-//     if (audio == NULL){
-//         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
-//         exit(EXIT_FAILURE);
-//     }
-//     memset(audio, 0, sizeNms);
-
-//     while (tmpSize > sizeNms){
-//         fread(audio, 1, sizeNms, src_file);
-//         fwrite(audio, 1,  sizeNms, dest_file);
-//         tmpSize -= sizeNms;
-//     }
-
-//     if(tmpSize != 0){
-//         memset(audio, 0, sizeNms);
-//         fread(audio, 1, tmpSize, src_file);
-//         fwrite(audio, 1,  sizeNms, dest_file);
-//     }
-
-//     fclose(src_file);
-//     fclose(dest_file);
-
-//     return 0;
-
-// }
-
 /*****************************************************************************************************/
 
 int32_t fhand_newhdr_f(wav_hdr_t *hdr, uint32_t sample_rate, uint32_t length_sample){
@@ -245,11 +177,9 @@ int32_t fhand_newhdr_f(wav_hdr_t *hdr, uint32_t sample_rate, uint32_t length_sam
     
     hdr->DataChunk->chunkId = data_CHUNK_ID;
     hdr->DataChunk->chunkSize = hdr->FmtChunk->blockAlign * length_sample;
-        // printf("hdr->DataChunk->chunkSize %d\n", hdr->DataChunk->chunkSize);
     
     hdr->RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(FmtChunk_t) + sizeof(DataChunk_t) + hdr->DataChunk->chunkSize;
-    printf("hdr->RiffChunk->chunkSize %d\n", hdr->RiffChunk->chunkSize);
-    printf("hdr->DataChunk->chunkSize %d\n", hdr->DataChunk->chunkSize);
+
     return 0;
 }
 

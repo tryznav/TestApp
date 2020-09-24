@@ -57,9 +57,12 @@ int32_t app_generator_init(pross_waw_t *pross_waw, app_func_t *task){
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
+
     gen_sig->states = NULL;
     gen_sig->sample_rate = task->sample_rate;
     gen_sig->length_sample = (task->sample_rate/1000) * task->length_ms;
+
+    pross_waw->gen_sig = gen_sig;
     if(gen_sig->length_sample == 0){
         fprintf(stderr,RED"Error: "BOLDWHITE"Very low sample rate.\n"RESET);
         return -1;
@@ -71,14 +74,14 @@ int32_t app_generator_init(pross_waw_t *pross_waw, app_func_t *task){
         gen_sig->params = NULL;
         gen_sig->tsig_gen_sig_st = &tsig_gen_delta_st;
         gen_sig->tsig_sig_init_states = &tsig_delta_init_states;
-        pross_waw->gen_sig = gen_sig;
+        Res = 0;
         break;
     case TSIG_STEP:
         gen_sig->amplitude_coef = 1;
         gen_sig->params = NULL;
         gen_sig->tsig_gen_sig_st = &tsig_gen_step_st;
         gen_sig->tsig_sig_init_states = &tsig_step_init_states;
-        pross_waw->gen_sig = gen_sig;
+        Res = 0;
         break;
     case TSIG_SQUARE:
         gen_sig->amplitude_coef = 1;
@@ -90,7 +93,7 @@ int32_t app_generator_init(pross_waw_t *pross_waw, app_func_t *task){
         ((tsig_square_prm_t *)gen_sig->params)->period_ms = task->period_ms;
         gen_sig->tsig_gen_sig_st = &tsig_gen_square_st;
         gen_sig->tsig_sig_init_states = &tsig_square_init_states;
-        pross_waw->gen_sig = gen_sig;
+        Res = 0;
         break;
     case TSIG_WNOISE:
         gen_sig->amplitude_coef = 1;
@@ -98,20 +101,19 @@ int32_t app_generator_init(pross_waw_t *pross_waw, app_func_t *task){
         gen_sig->amplitude_coef = (float)powf(10.0f , (0.05f * task->amplitude.whole_file));
         gen_sig->tsig_gen_sig_st = &tsig_gen_wnoise_st;
         gen_sig->tsig_sig_init_states = &tsig_wnoise_init_states;
-        pross_waw->gen_sig = gen_sig;
+        Res = 0;
         break;
-
     case TSIG_SINE:
-        gen_sig->amplitude_coef = 1;
         gen_sig->params = malloc(sizeof(tsig_sin_prm_t));
         if (gen_sig->params == NULL){
             fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
             exit(EXIT_FAILURE);
         }
+        gen_sig->amplitude_coef = powf(10.0f , (0.05f * task->amplitude.whole_file));
         ((tsig_sin_prm_t *)gen_sig->params)->freq = task->frequency.whole_file_freq;
         gen_sig->tsig_gen_sig_st = &tsig_gen_sine_st;
         gen_sig->tsig_sig_init_states = &tsig_sin_init_states;
-        pross_waw->gen_sig = gen_sig;
+        Res = 0;
         break;
     case TSIG_CHIRP_LINEAR:
         gen_sig->params = malloc(sizeof(tsig_chirp_prm_t));
@@ -120,12 +122,12 @@ int32_t app_generator_init(pross_waw_t *pross_waw, app_func_t *task){
             exit(EXIT_FAILURE);
         }
         ((tsig_chirp_prm_t *)gen_sig->params)->chirp_type_id = TSIG_CHIRP_LINEAR;
-        // gen_sig->amplitude_coef = powf(10.0f , (0.05f * task->amplitude.whole_file));
+        gen_sig->amplitude_coef = powf(10.0f , (0.05f * task->amplitude.whole_file));
         ((tsig_chirp_prm_t *)gen_sig->params)->freq_start = task->frequency.start_freq;
         ((tsig_chirp_prm_t *)gen_sig->params)->freq_stop = task->frequency.end_freq;
         gen_sig->tsig_gen_sig_st = &tsig_gen_chirp_st;
         gen_sig->tsig_sig_init_states = &tsig_chirp_init_states;
-        pross_waw->gen_sig = gen_sig;
+        Res = 0;
         break;
     case TSIG_CHIRP_LOGARITM:
         gen_sig->amplitude_coef = 1;
@@ -135,11 +137,12 @@ int32_t app_generator_init(pross_waw_t *pross_waw, app_func_t *task){
             exit(EXIT_FAILURE);
         }
         ((tsig_chirp_prm_t *)gen_sig->params)->chirp_type_id = TSIG_CHIRP_LOGARITM;
+         gen_sig->amplitude_coef = (float)powf(10.0f , (0.05f * task->amplitude.whole_file));
         ((tsig_chirp_prm_t *)gen_sig->params)->freq_start = task->frequency.start_freq;
         ((tsig_chirp_prm_t *)gen_sig->params)->freq_stop = task->frequency.end_freq;
         gen_sig->tsig_gen_sig_st = &tsig_gen_chirp_st;
         gen_sig->tsig_sig_init_states = &tsig_chirp_init_states;
-        pross_waw->gen_sig = gen_sig;
+        Res = 0;
         break;
     case TSIG_LEVEL_SWEEP:
         gen_sig->amplitude_coef = 1;
@@ -153,13 +156,13 @@ int32_t app_generator_init(pross_waw_t *pross_waw, app_func_t *task){
         ((tsig_lsw_sin_prm_t *)gen_sig->params)->amp_stop_dB = task->amplitude.end_amp_db;
         gen_sig->tsig_gen_sig_st = &tsig_gen_lsw_sin_st;
         gen_sig->tsig_sig_init_states = &tsig_lsw_sin_init_states;
-        pross_waw->gen_sig = gen_sig;
+        Res = 0;
         break;
     
     default:
-        //printf(stderr,RED"Error: "BOLDWHITE"Unsupported signal ID.\n"RESET);
-        //return -1;
+        fprintf(stderr,RED"Error: "BOLDWHITE"Unsupported signal ID.\n"RESET);
+        Res = -1;
         break;
     }
-    return 0;
+    return Res;
 }

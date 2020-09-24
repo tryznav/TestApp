@@ -2,16 +2,13 @@
 
 FILE *fhand_newav(const char *path, wav_hdr_t *hdr){
     FILE *file;
-    // fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
-// exit(EXIT_FAILURE);
+
     file = fopen(path, "wb");
     if (file == NULL) {
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         return file;
     }
-    printf("\n%s\n", path);
-//     fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
-// exit(EXIT_FAILURE);
+
     fwrite(&hdr->RiffChunk->chunkId, sizeof(uint32_t), 1, file);
     fwrite(&hdr->RiffChunk->chunkSize, sizeof(uint32_t), 1, file);
     fwrite(hdr->RiffChunk->format, sizeof(char), 4, file);

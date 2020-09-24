@@ -3,7 +3,7 @@
 static int32_t check(wav_hdr_t *hdr, pross_waw_t *pross_waw);
 static int set_proc_prm(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_hdr_t *hdr);
 static int32_t reset_coeffs_wav(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_hdr_t  *hdr);
- static int process(process_waw_hand_t *proc);
+static int process(process_waw_hand_t *proc);
 
 
 int32_t fhand_wav_process(pross_waw_t *pross_waw){
@@ -16,7 +16,6 @@ int32_t fhand_wav_process(pross_waw_t *pross_waw){
             fprintf(stderr,RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
             return -1;
         }
-        fhand_print_chunk(hdr.RiffChunk, hdr.FmtChunk, hdr.DataChunk);
         if((n = check(&hdr, pross_waw)) != 0){
             free_chunk_hdr(&hdr);
             fclose(proc.src_file);
@@ -25,7 +24,6 @@ int32_t fhand_wav_process(pross_waw_t *pross_waw){
     }else{
         n = fhand_newhdr_f(&hdr, pross_waw->gen_sig->sample_rate, pross_waw->gen_sig->length_sample);
     }
-    // fhand_print_chunk(hdr.RiffChunk, hdr.FmtChunk, hdr.DataChunk);
 
     set_proc_prm(pross_waw, &proc, &hdr);
     if((proc.dest_file = fhand_newav(pross_waw->dest_f_path, &hdr)) == NULL){
@@ -41,6 +39,7 @@ int32_t fhand_wav_process(pross_waw_t *pross_waw){
     if(pross_waw->gen_sig == NULL){
         fclose(proc.src_file);
     }
+
     fclose(proc.dest_file);
 
     return 0;
@@ -51,13 +50,11 @@ int32_t fhand_wav_process(pross_waw_t *pross_waw){
 
  static int process(process_waw_hand_t *proc){
     size_t n = 0;
-    long n1, n2, ofset = 0;
     void *audio = malloc(proc->sizeNms);
     if (audio == NULL){
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
-    // ofset = 44;
 
     memset(audio, 0, proc->sizeNms);
     while (proc->allAudiosize > proc->sizeNms){
@@ -65,29 +62,18 @@ int32_t fhand_wav_process(pross_waw_t *pross_waw){
         if(proc->gen_sig == NULL){
             fread(audio, 1, proc->sizeNms, proc->src_file);
         }else{
-            // printf("proc->samples_count %d %d",proc->sizeNms, proc->samples_count);
             proc->gen_sig->tsig_gen_sig_st(proc->gen_sig->sample_rate, proc->samples_count, proc->gen_sig->amplitude_coef,proc->gen_sig->params,proc->gen_sig->states, audio);
-            printf("proc->samples_count %d %d\n",proc->sizeNms, proc->samples_count);
         }
-        
         if(proc->coeffs != NULL){
             proc->effect_process(proc->coeffs, proc->states, audio, proc->samples_count);
         }
-
-        n1 = ftell(proc->dest_file);
-        printf("ftell1 = %d\t", n1);
         n = fwrite((const void *)audio, 1,  proc->sizeNms, proc->dest_file);
-        //fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         if(n != proc->sizeNms){
             fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
             exit(EXIT_FAILURE);
         }
-        n2 = ftell(proc->dest_file);
-        printf("ftell2 = %d  %d\n", n2, (n2 - n1));
-        ofset += (long )proc->sizeNms;
         proc->allAudiosize -= proc->sizeNms;
     }
-     printf("proc->allAudiosize %d\n",proc->allAudiosize);
     if(proc->allAudiosize != 0){
         memset(audio, 0, proc->sizeNms);
         if(proc->gen_sig == NULL){
@@ -98,29 +84,23 @@ int32_t fhand_wav_process(pross_waw_t *pross_waw){
         if(proc->coeffs != NULL){
             proc->effect_process(proc->coeffs, proc->states, audio, proc->samples_count);
         }
-        n = (size_t)ftell(proc->dest_file);
 
-        printf("ftell1 = %d\n", n);
         n = fwrite((const void *)audio, 1,  proc->sizeNms, proc->dest_file);
         if(n != proc->sizeNms){
             fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
             exit(EXIT_FAILURE);
         }
-        n = (size_t)ftell(proc->dest_file);
-        printf("ftell2 = %d\n", n);
 
-        
     }
-    printf("proc->samples_count %d\n",proc->samples_count);
-    printf("proc->sizeNms %d\n",proc->sizeNms);
+    if(proc->gen_sig == NULL){
+        free(proc->gen_sig->states);
+        proc->gen_sig->states = NULL;
+    }
+    if(proc->coeffs != NULL){
+
+    }
     free(audio);
     audio = NULL;
-    return 0;
-}
-
-/****************************************************************************************/
-
-float audio_convert_int16_to_float(){
     return 0;
 }
 
@@ -130,10 +110,8 @@ static int set_proc_prm(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_hd
     int32_t n = -1;
     hdr->FmtChunk->chunkSize =  sizeof(FmtChunk_t) - 8;
     proc->sizeNms = ((hdr->FmtChunk->sampleRate/1000)*pross_waw->size_ms)*hdr->FmtChunk->blockAlign;
-    printf("pross_waw->size_ms %d %d %d\n", pross_waw->size_ms,proc->sizeNms, hdr->FmtChunk->blockAlign);
     proc->allAudiosize = (size_t)hdr->DataChunk->chunkSize;
     if ((proc->allAudiosize % proc->sizeNms) == 0){
-        // proc->samples_count = proc->allAudiosize / proc->sizeNms;
         proc->samples_count = proc->sizeNms / hdr->FmtChunk->blockAlign;
         hdr->DataChunk->chunkSize = hdr->DataChunk->chunkSize;
     } else {
@@ -142,12 +120,8 @@ static int set_proc_prm(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_hd
         proc->samples_count = proc->sizeNms / hdr->FmtChunk->blockAlign;
     }
     hdr->RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(FmtChunk_t) + sizeof(DataChunk_t) + hdr->DataChunk->chunkSize;
-    // hdr->RiffChunk->chunkSize = 32 + hdr->DataChunk->chunkSize;
-    printf("hdr->RiffChunk->chunkSize %d\n", hdr->RiffChunk->chunkSize);
-    printf("hdr->DataChunk->chunkSize %d\n", hdr->DataChunk->chunkSize);
     proc->coeffs = pross_waw->coeffs;
 
-    
     if(pross_waw->coeffs != NULL){
         proc->effect_process = pross_waw->effect_process;
         n = reset_coeffs_wav(pross_waw, proc, hdr);
@@ -156,7 +130,7 @@ static int set_proc_prm(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_hd
             return -1;
         }
     }
-    printf("here022");
+
     proc->gen_sig = pross_waw->gen_sig;
     if(proc->gen_sig){
         proc->gen_sig->states = proc->gen_sig->tsig_sig_init_states(proc->gen_sig->sample_rate, proc->gen_sig->length_sample, proc->gen_sig->params);
@@ -168,6 +142,8 @@ static int set_proc_prm(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_hd
 
     return 0;
 }
+
+/********************************************************************************************************************************************************/
 
 int32_t reset_coeffs_wav(pross_waw_t *pross_waw, process_waw_hand_t *proc, wav_hdr_t    *hdr){
     size_t     states_bytes;

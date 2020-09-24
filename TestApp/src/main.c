@@ -134,7 +134,7 @@ static int parse_generator_opt(char * opt, app_func_t *task ){
     exit(EXIT_FAILURE);
   }
   task->sample_rate = (uint32_t)atol(sapmle_rate_ch);
-  printf("sample rate = %d\n", task->sample_rate);
+  // printf("sample rate = %d\n", task->sample_rate);
 
   length_ms_ch = strtok(NULL, ",");
   if(!length_ms_ch){
@@ -142,7 +142,7 @@ static int parse_generator_opt(char * opt, app_func_t *task ){
     exit(EXIT_FAILURE);
   }
   task->length_ms = (uint32_t)atol(length_ms_ch);
-  printf("length_ms_c = %d\n", task->length_ms);
+  // printf("length_ms_c = %d\n", task->length_ms);
 
   Sig_type = strtok(NULL, ":");
   if(!Sig_type){

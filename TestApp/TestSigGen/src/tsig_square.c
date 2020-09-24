@@ -16,7 +16,7 @@ void *tsig_square_init_states (uint32_t sample_rate, uint32_t length_sample, voi
     states->sample_increment = 0;
     states->sign_value = 1;
     states->half_period_sample = (sample_rate/2000) * (((tsig_square_prm_t *)params)->period_ms);
-    printf("sample_rate = %d\n", sample_rate);
+
     return states;
 }
 
