@@ -48,6 +48,9 @@
 //             chirp_linear            <start-freq-Hz,end-freq-Hz,amplitude-dB>
 //             chirp_logarithmic       <start-freq-Hz,end-freq-Hz,amplitude_dB>
 //             lsweep                  <frequency-Hz,start-amp-dB,end-amp-dB>"
+
+
+
 typedef struct amplitude_s{
     float           whole_file;
     float           start_amp_dB;
@@ -81,6 +84,7 @@ int app_handler(app_func_t *task);
 int32_t app_gain(char *input_f_path, char *output_f_path, float gain_dB);
 int32_t app_generator_init(pross_waw_t *pross_waw, app_func_t *task);
 int32_t app_gain_init(pross_waw_t *pross_waw,char *input_f_path, char *output_f_path, float gain_dB);
-
+int32_t app_gen_sig_del(pross_waw_t *pr);
+int32_t app_gain_del(pross_waw_t *pr);
 
 #endif

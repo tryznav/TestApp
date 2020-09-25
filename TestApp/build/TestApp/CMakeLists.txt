@@ -8,7 +8,8 @@ add_executable(${PR_NAME}
     ../../src/main.c
     ../../src/app_handler.c
     ../../src/app_task_init.c
-    ../../src/app_gain.c)
+    ../../src/app_gain.c
+    ../../src/app_task_del.c)
 
 set(LIBS_PATH_1 "../Libs/")
 set(LIBS_PATH_2 "/tmp/Debug/")

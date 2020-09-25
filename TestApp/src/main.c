@@ -1,6 +1,5 @@
 #include "test_app.h"
 
-static int verbose_flag;
 static int parse_generator_opt(char * opt, app_func_t *task );
 static void print_help(void);
 
@@ -13,12 +12,6 @@ main (int argc, char **argv)
   while (1){
     static struct option long_options[] =
       {
-        /* These options set a flag. */
-        {"verbose", no_argument,       &verbose_flag, 1},
-        {"brief",   no_argument,       &verbose_flag, 0},
-        /* These options don’t set a flag.
-            We distinguish them by their indices. */
-        {"add",       no_argument,       0, 'a'},
         {"help",      no_argument,       0, 'h'},
         {"print-hdr", no_argument,       0, 'p'},
         {"gain",      required_argument, 0, 'g'},
@@ -30,7 +23,7 @@ main (int argc, char **argv)
     /* getopt_long stores the option index here. */
     int option_index = 0;
 
-    c = getopt_long (argc, argv, "ahho:g:i:",
+    c = getopt_long (argc, argv, "hpo:g:i:",
                       long_options, &option_index);
 
     /* Detect the end of the options. */
@@ -47,13 +40,6 @@ main (int argc, char **argv)
         if (optarg)
           printf (" with arg %s", optarg);
         printf ("\n");
-        break;
-
-      case 'a':
-        puts ("option -a\n");
-        break;
-      case 'b':
-        puts ("option -b\n");
         break;
       case 'p':
         app_task->print_hdr = true;
@@ -74,7 +60,7 @@ main (int argc, char **argv)
         break;
       case 'o':
         app_task->ouput = true;
-        app_task->output_f_path = (char *)malloc(strlen(optarg) + 1);
+        app_task->output_f_path = malloc(strlen(optarg) + 1);
         memcpy(app_task->output_f_path, optarg, (strlen(optarg) + 1));
         break;
       case 's':
@@ -91,15 +77,6 @@ main (int argc, char **argv)
           fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Unknown option. Rejected\n"RESET);
       }
   }
-
-
-
-
-  /* Instead of reporting ‘--verbose’
-     and ‘--brief’ as they are encountered,
-     we report the final status resulting from them. */
-  if (verbose_flag)
-    puts ("verbose flag is set");
 
   /* Print any remaining command line arguments (not options). */
   if (optind < argc){
