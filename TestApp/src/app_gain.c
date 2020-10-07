@@ -35,7 +35,7 @@ int32_t app_gain(char *input_f_path, char *output_f_path, float gain_dB){
         exit(EXIT_FAILURE);
     }
 
-    if((Res = effect_set_parameter(pross_waw.efect->params, GAIN_dB_ID, gain_dB)) != 0){
+    if((Res = effect_set_parameter(pross_waw.efect->params, PRM_GAIN_dB_ID, gain_dB)) != 0){
         fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter()\n"RESET);
         exit(EXIT_FAILURE);
     }

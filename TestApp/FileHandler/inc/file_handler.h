@@ -55,15 +55,14 @@ typedef struct wav_hdr_s{
 #pragma pack(pop)
 
 typedef struct gen_sig_s{
+    uint16_t        audioFormat;
     uint32_t        sample_rate;
     uint32_t        length_sample;
-    float           amplitude_coef;
     void            *states;
     void            *params;
-    void *          (*tsig_sig_init_states)(uint32_t , uint32_t , void const *);                    //void *tsig_sig_init_states  (uint32_t sample_rate, uint32_t length_sample, void const *params);
-    int32_t         (*tsig_gen_sig_st)(uint32_t, uint32_t, float, void const *, void*, void *);     //int32_t tsig_gen_wnoise_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio)
+    void *          (*tsig_sig_init_states)(uint32_t , uint32_t , void const *, uint16_t);                  //void *tsig_delta_init_states    (uint32_t sample_rate, uint32_t length_sample, void const *params, uint16_t audioFormat)
+    int32_t         (*tsig_gen_sig_st)(uint32_t , void* , void *);                                          //int32_t tsig_gen_delta_st   (uint32_t length_sample, void* states, void *audio)
 }gen_sig_t;
-
 
 typedef struct efect_s{
     void            *coeffs;

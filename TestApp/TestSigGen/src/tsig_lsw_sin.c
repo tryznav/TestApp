@@ -1,6 +1,6 @@
 #include "test_sig_gen.h"
 
-void *tsig_lsw_sin_init_states (uint32_t sample_rate, uint32_t length_sample, void const *params){
+void *tsig_lsw_sin_init_states (uint32_t sample_rate, uint32_t length_sample, void const *params, uint16_t audioFormat){
     tsig_lsw_sin_stat_t     *states = NULL;
     tsig_lsw_sin_prm_t      *_params = (tsig_lsw_sin_prm_t *)params;
     if(_params == NULL){
@@ -22,21 +22,25 @@ void *tsig_lsw_sin_init_states (uint32_t sample_rate, uint32_t length_sample, vo
     return states;
 }
 
-int32_t tsig_gen_lsw_sin_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio){
-    tsig_lsw_sin_stat_t * _states = (tsig_lsw_sin_stat_t *)states;
+int32_t tsig_gen_lsw_sin_st(uint32_t length_sample, void* states, void *audio){
+    chanels_t           *_audio = (chanels_t *)audio;
+    tsig_lsw_sin_stat_t *_st    = (tsig_chirp_stat_t *)states; 
+    int                 n       = 0;
 
-    if(_states == NULL){
-        fprintf(stderr,RED" Error: "BOLDWHITE"NULL pointer states.Rejected.\n"RESET);
-        return -1;
+    if( (n = check_gen(length_sample, states, audio)) != 0){
+        return n;
     }
 
     for (uint32_t i = 0; i < length_sample; i++){
-        ((chanels_t *)audio)[i].Left = (float)sin(_states->sin_coef * (double)(_states->sample_increment)) * (_states->amp_increment);
-        ((chanels_t *)audio)[i].Right = ((chanels_t *)audio)[i].Left;
-        _states->amp_increment = _states->amp_increment + _states->amp_increment_num;
-        _states->sample_increment++;
+        _audio[i].Left = sinf(_st->sin_coef * (float)(_st->sample_increment)) * (_st->amp_increment);
+        _audio[i].Right = _audio[i].Left;
+        _st->amp_increment = _st->amp_increment + _st->amp_increment_num;
+        _st->sample_increment++;
     }
 
+    if(_st->audioFormat == PMC){
+        IEEE_754_to_PMC(audio, length_sample);
+    }
 
-    return 0;
+    return n;
 }

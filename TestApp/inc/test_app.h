@@ -7,14 +7,13 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include "../EffectGain/inc/effect_control.h"
-#include "../EffectGain/inc/effect_process.h"
-#include "../EffectGain/inc/params_id.h"
-#include "../FileHandler/inc/file_handler.h"
-#include "../GetOpt/inc/getopt.h"
-#include "../TestSigGen/inc/test_sig_gen.h"
+#include "effect_control.h"
+#include "effect_process.h"
+#include "params_id.h"
+#include "file_handler.h"
+#include "getopt.h"
+#include "test_sig_gen.h"
 #include "colors.h"
-
 
 #define DEFAULT_SAMPLE_RATE     48000
 #define HELP_TEXT_OPT               "Options\n"
@@ -22,6 +21,7 @@
 #define HELP_TEXT_OUT               "   --out           -o  <output-file-path>      = Specify a file for processing results.\n"
 #define HELP_TEXT_P_HDR             "   --print-hdr     -p  -                       = Print header input WAV.\n"
 #define HELP_TEXT_GAIN              "   --gain          -i  <amplitude-dB>          = Gain.\n"
+#define HELP_TEXT_LPF               "   --lpf           -l  <cutoff-frequency>      = Low-Pass FIR filter.\n"
 #define HELP_TEXT_GENER_1           "   --generator     -g\n"
 #define HELP_TEXT_GENER_2           "           <sample-rate>,<length_ms><signal-type>:<parametr>   = Generate test signals.\n"
 #define HELP_TEXT_GEN_S_T           "           <signal-type>           <parametr>\n"
@@ -51,32 +51,47 @@
 
 
 
-typedef struct amplitude_s{
-    float           whole_file;
-    float           start_amp_dB;
-    float           end_amp_db;
-}amplitude_t;
+typedef struct sweep_s{
+    float               start;
+    float               end;
+}sweep_t;
+
+union feature{
+    float               whole_file;
+    sweep_t             sweep;
+};
 
 typedef struct  frequency_t{
-    uint32_t        whole_file_freq;
-    uint32_t        start_freq;
-    uint32_t        end_freq;
+    uint32_t            whole_file_freq;
+    uint32_t            start_freq;
+    uint32_t            end_freq;
 }frequency_t;
+
+typedef struct  effect_s{
+    union
+    {
+        float           gain_dB;
+        float           cutoff_freq;
+    }prm;
+}effect_t;
+
+typedef struct  sig_gen_t{
+    uint16_t            audioFormatType;
+    uint32_t            sample_rate;
+    uint32_t            length_ms;
+    uint32_t            signal_id;
+    union feature       amp_dB;
+    union feature       freq_Hz;
+    uint32_t            period_ms;
+}tgen_t;
 
 typedef struct app_func_s{
     bool            input;
     char            *input_f_path;
     bool            ouput;
     char            *output_f_path;
-    bool            gain;
-    float           gain_dB;
-    bool            generator;
-    uint32_t        sample_rate;
-    uint32_t        length_ms;
-    uint32_t        signal_id;
-    uint32_t        period_ms;
-    amplitude_t     amplitude;
-    frequency_t     frequency;
+    tgen_t          *generator;
+    effect_t        *effect;
     bool            print_hdr;
 }app_func_t;
 

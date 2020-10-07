@@ -1,6 +1,6 @@
 #include "test_sig_gen.h"
 
-void *tsig_delta_init_states (uint32_t sample_rate, uint32_t length_sample, void const *params){
+void *tsig_delta_init_states (uint32_t sample_rate, uint32_t length_sample, void const *params, uint16_t audioFormat){
     sample_rate = 0;
     tsig_delta_stat_t *states = NULL;
 
@@ -9,25 +9,36 @@ void *tsig_delta_init_states (uint32_t sample_rate, uint32_t length_sample, void
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
-    ((tsig_delta_stat_t *)(states))->ex = 0;
+    states->audioFormat = audioFormat;
+    states->amplitude_coef = 1;
+    states->ex = 0;
     return states;
 
 }
 
-int32_t tsig_gen_delta_st(uint32_t sample_rate, uint32_t length_sample, float amplitude_coef, void const *params, void* states, void *audio){
-    if(states == NULL){
-        fprintf(stderr,RED" Error: "BOLDWHITE"NULL pointer states.Rejected.\n"RESET);
-        return -1;
+int32_t tsig_gen_delta_st(uint32_t length_sample, void* states, void *audio){
+    chanels_t           *_audio = (chanels_t *)audio;
+    tsig_delta_stat_t   *_st    = (tsig_chirp_stat_t *)states; 
+    int                 n       = 0;
+
+    if( (n = check_gen(length_sample, states, audio)) != 0){
+        return n;
     }
+
     for (uint32_t i = 0; i < length_sample; i++){
-        ((chanels_t *)audio)[i].Right = 0.0f;
-        ((chanels_t *)audio)[i].Left = 0.0f;
+        _audio[i].Right = 0.0f;
+        _audio[i].Left = 0.0f;
     }
         
-    if(!((tsig_delta_stat_t *)(states))->ex){
-        ((chanels_t *)audio)[0].Left = 1.0f * amplitude_coef;
-        ((chanels_t *)audio)[0].Right = ((chanels_t *)audio)[0].Left;
-        ((tsig_delta_stat_t *)(states))->ex = 1;
+    if(!_st->ex){
+        _audio[0].Left = 1.0f * _st->amplitude_coef;
+        _audio[0].Right = _audio[0].Left;
+        _st->ex = 1;
     }
+
+    if(_st->audioFormat == PMC){
+        IEEE_754_to_PMC(audio, length_sample);
+    }
+
     return 0;
 }

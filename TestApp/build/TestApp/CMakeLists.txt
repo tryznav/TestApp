@@ -21,6 +21,8 @@ target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
 
 
 target_include_directories(${PR_NAME} PRIVATE ../../inc)
+target_include_directories(${PR_NAME} PRIVATE ../../Effects/inc)
+target_include_directories(${PR_NAME} PRIVATE ../../GetOpt/inc)
 
 if(MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)

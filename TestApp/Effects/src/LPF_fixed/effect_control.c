@@ -1,10 +1,42 @@
 #include "effect_control.h"
 #include "params_id.h"
 #include "colors.h"
+#include "fxd_arithmetic.h"
 
 #include <stdio.h>
 #include <math.h>
 
+#define TAP_NUM     256
+#define M_PI 3.14159265358979323846
+
+typedef struct lpf_prm_s{
+    uint32_t    sample_rate;
+    uint32_t    cutoff_freq;
+}lpf_prm_t;
+
+static int32_t coeff_calc(fxd_q31_t *coeff, uint32_t cutoff_freq, uint32_t sample_rate){
+    double hzB[TAP_NUM];
+    memset(hzB, 0, sizeof(double) * TAP_NUM);
+    int nm = (TAP_NUM - 1) / 2;                                 //номера значений для коэфф фильтра симметричны
+    int j = nm;                                                 //отсчет от середины фильтра
+
+    for (int i = 0; i < nm; i++) {
+        if (i == 0)
+        {
+            hzB[j] = 2.0 * (double)cutoff_freq / sample_rate;
+        }
+        else
+        {
+            hzB[j + i] = (sin(2.0 * M_PI * i * cutoff_freq / sample_rate))  / (M_PI * i);
+            hzB[j - i] = hzB[j + i];
+        }
+    }
+    for(int i = 0; i < TAP_NUM; i++){
+        printf("hzB[i] = %f\n", hzB[i]);
+        coeff[i] = hzB[i] * FRACTIONAL_BASE;
+    }
+    return 0;
+}
 
 /*******************************************************************************
  * Provides with the required data sizes for parameters and coefficients.
@@ -18,8 +50,8 @@
 int32_t effect_control_get_sizes(
     size_t*     params_bytes,
     size_t*     coeffs_bytes){
-    *params_bytes = sizeof(float);
-    *coeffs_bytes = sizeof(float);
+    *params_bytes = sizeof(lpf_prm_t);
+    *coeffs_bytes = sizeof(fxd_q31_t) * TAP_NUM;
     return 0;
 }
 
@@ -36,8 +68,12 @@ int32_t effect_control_initialize(
     void*       params,
     void*       coeffs,
     uint32_t    sample_rate){
-    //*((float *)params) = 0;               ???????????????????????????
-    *((float *)coeffs) = powf(10.0f , (0.05f * (*((float *)params))));
+    lpf_prm_t *_prm = (lpf_prm_t *)params;
+
+    _prm->sample_rate = sample_rate;
+    _prm->cutoff_freq = sample_rate/200;
+    coeff_calc((fxd_q31_t *)coeffs,  _prm->cutoff_freq, _prm->sample_rate);
+
     return 0;
 }
 
@@ -54,8 +90,15 @@ int32_t effect_set_parameter(
     void*       params,
     int32_t     id,
     float       value){
-    if(id == GAIN_dB_ID){
-        *((float *)params) = value;
+
+    lpf_prm_t *_prm = (lpf_prm_t *)params;
+
+    if(id == PRM_SAMPLE_RATE_ID){
+        _prm->sample_rate = value;
+        return 0;
+    }
+    if(id == PRM_FREQ_START_ID){
+        _prm->cutoff_freq = value;
         return 0;
     }
     fprintf(stderr, RED"Error: "BOLDWHITE"Unsupported params. Rejected.\n"RESET);
@@ -73,6 +116,8 @@ int32_t effect_set_parameter(
 int32_t effect_update_coeffs(
     void const* params,
     void*       coeffs){
-    *((float *)coeffs) =  powf(10.0f , (0.05f * (*((float *)params))));
+    lpf_prm_t *_prm = (lpf_prm_t *)params;
+
+    coeff_calc((fxd_q31_t *)coeffs,  _prm->cutoff_freq, _prm->sample_rate);
     return 0;
 }

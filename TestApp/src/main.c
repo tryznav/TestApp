@@ -17,13 +17,16 @@ main (int argc, char **argv)
         {"gain",      required_argument, 0, 'g'},
         {"in",        required_argument, 0, 'i'},
         {"out",       required_argument, 0, 'o'},
+        {"lpf",       required_argument, 0, 'l'},
+        {"PMC",       no_argument,       0, 'q'},
+        {"IEEE_754",  no_argument,       0, 'f'},
         {"generator", required_argument, 0, 's'},
         {0, 0, 0, 0}
       };
     /* getopt_long stores the option index here. */
     int option_index = 0;
 
-    c = getopt_long (argc, argv, "hpo:g:i:",
+    c = getopt_long (argc, argv, "hpo:g:i:l:qf",
                       long_options, &option_index);
 
     /* Detect the end of the options. */
@@ -64,17 +67,27 @@ main (int argc, char **argv)
         memcpy(app_task->output_f_path, optarg, (strlen(optarg) + 1));
         break;
       case 's':
-        // app_task->ouput = true;
-        // app_task->output_f_path = (char *)malloc(strlen(optarg) + 1);
         parse_generator_opt(optarg, app_task);
+        break;
+      case 'l':
+        // app_task->audioFormat = true;
+        
         // memcpy(app_task->output_f_path, optarg, (strlen(optarg) + 1));
+        break;
+      case 'f':
+          app_task->audioFormat = true;
+          app_task->audioFormatType = IEEE_754;
+        break;
+      case 'q':
+          app_task->audioFormat = true;
+          app_task->audioFormatType = PMC;
         break;
       case '?':
         /* getopt_long already printed an error message. */
         break;
 
       default:
-          fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Unknown option. Rejected\n"RESET);
+        fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Unknown option. Rejected\n"RESET);
       }
   }
 
@@ -111,7 +124,7 @@ static int parse_generator_opt(char * opt, app_func_t *task ){
     exit(EXIT_FAILURE);
   }
   task->sample_rate = (uint32_t)atol(sapmle_rate_ch);
-  // printf("sample rate = %d\n", task->sample_rate);
+
 
   length_ms_ch = strtok(NULL, ",");
   if(!length_ms_ch){
@@ -140,7 +153,7 @@ static int parse_generator_opt(char * opt, app_func_t *task ){
   if(strstr( Sig_type, "square")){
     task->signal_id = TSIG_SQUARE;
     ifn = strtok(NULL, "");
-    printf("ifn = %s\n", ifn);
+
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
@@ -152,7 +165,7 @@ static int parse_generator_opt(char * opt, app_func_t *task ){
   if(strstr( Sig_type, "wnoise")){
     task->signal_id = TSIG_WNOISE;
     ifn = strtok(NULL, ",");
-    printf("ifn = %s\n", ifn);
+
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
@@ -164,14 +177,14 @@ static int parse_generator_opt(char * opt, app_func_t *task ){
   if(strstr( Sig_type, "sine")){
     task->signal_id = TSIG_SINE;
     ifn = strtok(NULL, ",");
-    printf("ifn = %s\n", ifn);
+
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
     task->frequency.whole_file_freq = (uint32_t)atol(ifn);
     ifn = strtok(NULL, ",");
-    printf("ifn = %s\n", ifn);
+
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);

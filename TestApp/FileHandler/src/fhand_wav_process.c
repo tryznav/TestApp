@@ -1,6 +1,6 @@
 #include "file_handler.h"
 
-static int32_t check( pross_waw_t *pross_waw, wav_hdr_t *hdr);
+static int32_t check(pross_waw_t *pross_waw, wav_hdr_t *hdr);
 static int32_t set_proc_prm(pross_waw_t *pr, wav_hdr_t *hdr);
 static int32_t reset_efect_coeffs_wav(pross_waw_t *pr, wav_hdr_t  *hdr);
 static int32_t process(pross_waw_t *pr);
@@ -62,7 +62,7 @@ static int32_t process(pross_waw_t *pr){
         if(pr->gen_sig == NULL){
             fread(buff, 1, pr->buff.size_byte, pr->src_file);
         }else{
-            pr->gen_sig->tsig_gen_sig_st(pr->gen_sig->sample_rate, pr->buff.samples, pr->gen_sig->amplitude_coef, pr->gen_sig->params, pr->gen_sig->states, buff);
+            pr->gen_sig->tsig_gen_sig_st(pr->buff.samples, pr->gen_sig->states, buff);
         }
 
         if(pr->efect != NULL){
@@ -82,7 +82,7 @@ static int32_t process(pross_waw_t *pr){
         if(pr->gen_sig == NULL){
             fread(buff, 1, pr->audio.size_byte, pr->src_file);
         }else{
-            pr->gen_sig->tsig_gen_sig_st(pr->gen_sig->sample_rate, pr->buff.samples, pr->gen_sig->amplitude_coef, pr->gen_sig->params, pr->gen_sig->states, buff);
+            pr->gen_sig->tsig_gen_sig_st(pr->buff.samples, pr->gen_sig->states, buff);
         }
 
         if(pr->efect != NULL){
@@ -125,7 +125,7 @@ static int32_t set_proc_prm(pross_waw_t *pr, wav_hdr_t *hdr){
     }
 
     if(pr->gen_sig){
-        pr->gen_sig->states = pr->gen_sig->tsig_sig_init_states(pr->gen_sig->sample_rate, pr->gen_sig->length_sample, pr->gen_sig->params);
+        pr->gen_sig->states = pr->gen_sig->tsig_sig_init_states(pr->gen_sig->sample_rate, pr->gen_sig->length_sample, pr->gen_sig->params, pr->gen_sig->audioFormat);
         if(pr->gen_sig->states == NULL){
             fprintf(stderr,RED"Error: "BOLDWHITE"tsig_sig_init_states\n"RESET); // пересмотреть чистый ли HEAP
             return -1;
