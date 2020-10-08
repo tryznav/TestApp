@@ -6,7 +6,8 @@ static int32_t reset_efect_coeffs_wav(pross_waw_t *pr, wav_hdr_t  *hdr);
 static int32_t process(pross_waw_t *pr);
 static int32_t del_proc_prm(pross_waw_t *pr);
 
-int32_t fhand_wav_process(pross_waw_t *pr){
+int32_t fhand_wav_process(){
+    pross_waw_t *       pr          = NULL;
     wav_hdr_t           hdr         = {NULL, NULL, NULL};
     int32_t             n           = 0;
 

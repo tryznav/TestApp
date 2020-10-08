@@ -15,6 +15,9 @@
 #include "test_sig_gen.h"
 #include "colors.h"
 
+#define EFFECT_ID_FIR           'FIRD'
+#define EFFECT_ID_GAIN          'GAIN'
+
 #define DEFAULT_SAMPLE_RATE     48000
 #define HELP_TEXT_OPT               "Options\n"
 #define HELP_TEXT_IN                "   --in            -i  <input-file-path>       = Specify file for processing.\n"
@@ -67,16 +70,16 @@ typedef struct  frequency_t{
     uint32_t            end_freq;
 }frequency_t;
 
-typedef struct  effect_s{
+typedef struct  effect_task_t{
+    uint32_t            effect_type;
     union
     {
         float           gain_dB;
         float           cutoff_freq;
     }prm;
-}effect_t;
+}effect_task_t;
 
 typedef struct  sig_gen_t{
-    uint16_t            audioFormatType;
     uint32_t            sample_rate;
     uint32_t            length_ms;
     uint32_t            signal_id;
@@ -91,8 +94,9 @@ typedef struct app_func_s{
     bool            ouput;
     char            *output_f_path;
     tgen_t          *generator;
-    effect_t        *effect;
+    effect_task_t   *effect;
     bool            print_hdr;
+    uint16_t        audioFormatType;
 }app_func_t;
 
 int app_handler(app_func_t *task);
@@ -101,5 +105,7 @@ int32_t app_generator_init(pross_waw_t *pross_waw, app_func_t *task);
 int32_t app_gain_init(pross_waw_t *pross_waw,char *input_f_path, char *output_f_path, float gain_dB);
 int32_t app_gen_sig_del(pross_waw_t *pr);
 int32_t app_gain_del(pross_waw_t *pr);
+
+int32_t app_efect_init(pross_waw_t *pr, wav_hdr_t  *hdr, effect_t *effect);
 
 #endif

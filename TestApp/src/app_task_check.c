@@ -4,43 +4,18 @@
 static void print_hdr(char *input_f_path);
 static void *conv_aud_for_eff(FmtChunk_t *FmtChunk, RiffChunk_t *RiffChunk, DataChunk_t *DataChunk, size_t samples_coun);
 
-int app_handler(app_func_t *task){
+int app_task_check(app_func_t *task){
     if(task->generator && task->ouput){        
-        pross_waw_t pross_waw;
-        pross_waw.efect = NULL;
-        pross_waw.gen_sig = NULL;
-        app_generator_init(&pross_waw, task);
-        if(task->gain){
-            app_gain_init(&pross_waw, NULL, task->output_f_path, task->gain_dB);
-        }
-        fhand_wav_process(&pross_waw);
-        app_gain_del(&pross_waw);
-        app_gen_sig_del(&pross_waw);
-        printf(BOLDGREEN"Audio data is generated\n"RESET);
         return 0;
     }
-
-    if(task->gain && task->input && task->ouput){
-        app_gain(task->input_f_path, task->output_f_path, task->gain_dB);
-        printf(BOLDGREEN"Audio data is generated\n"RESET);
+    if(task->effect && task->input && task->ouput){
         return 0;
     }
     if(task->input && task->print_hdr){
-        print_hdr(task->input_f_path);
-        printf(BOLDGREEN"Audio file of length 10ms created\n"RESET);
         return 0;
     }
 
     if(task->input && task->ouput){
-        pross_waw_t pross_waw;
-        pross_waw.gen_sig = NULL;
-        pross_waw.efect = NULL;
-        pross_waw.buff.size_ms = 10;
-        pross_waw.dest_f_path = task->output_f_path;
-        pross_waw.src_f_path = task->input_f_path;
-        fhand_wav_process(&pross_waw);
-
-        printf(BOLDGREEN"Audio file of length 10ms created\n"RESET);
         return 0;
     }
     fprintf(stderr,RED "Not enough arguments. "BOLDWHITE"Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET);

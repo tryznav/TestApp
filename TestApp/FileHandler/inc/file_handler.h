@@ -55,7 +55,6 @@ typedef struct wav_hdr_s{
 #pragma pack(pop)
 
 typedef struct gen_sig_s{
-    uint16_t        audioFormat;
     uint32_t        sample_rate;
     uint32_t        length_sample;
     void            *states;
@@ -77,6 +76,7 @@ typedef struct efect_s{
     int32_t         (*effect_reset)(void const*, void*);
     int32_t         (*effect_process)(void const*, void*, void*, size_t);
 
+    int32_t         (*effect_control_get_sizes)(size_t* , size_t* );  
     int32_t         (*effect_control_initialize)(void*, void*, uint32_t);
     int32_t         (*effect_set_parameter)(void*, int32_t, float);
     int32_t         (*effect_update_coeffs)(void const*, void*);
@@ -88,21 +88,15 @@ typedef struct buff_s{
     size_t  size_ms;
     size_t  size_byte;
     size_t  samples;
-}buff_t;
-
-typedef struct audio_s{
-    size_t  size_ms;
-    size_t  size_byte;
-    size_t  samples;
-}audio_t;
+}size_my_t;
 
 typedef struct pross_waw_s{
     const char      *src_f_path;
     const char      *dest_f_path;
     FILE            *dest_file;
     FILE            *src_file;
-    audio_t         audio;
-    buff_t          buff;
+    size_my_t        audio;
+    size_my_t        buff;
     //process
     efect_t         *efect;
     gen_sig_t       *gen_sig;
