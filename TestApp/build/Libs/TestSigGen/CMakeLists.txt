@@ -5,6 +5,7 @@ set(LIB_NAME "TestSigGen")
 project(${LIB_NAME})
 
 add_library(${LIB_NAME} STATIC
+    ../../../${LIB_NAME}/src/additional_func.c
     ../../../${LIB_NAME}/src/tsig_chirp.c
     ../../../${LIB_NAME}/src/tsig_delta.c
     ../../../${LIB_NAME}/src/tsig_lsw_sin.c
