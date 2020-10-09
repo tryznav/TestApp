@@ -25,7 +25,7 @@ typedef fxd_q31_t fir_coeffs_t;
 
 /******************************************************************************/
 
-int32_t effect_process_get_sizes(
+int32_t fir_process_get_sizes(
     size_t*     states_bytes){
 
     *states_bytes = sizeof(fir_states_t);
@@ -35,7 +35,7 @@ int32_t effect_process_get_sizes(
 
 /*******************************************************************************/
 
-int32_t effect_reset(
+int32_t fir_reset(
     void const* coeffs,
     void*       states){
 
@@ -80,7 +80,7 @@ static int32_t check(void const* coeffs,
 
 
 
-int32_t effect_process(
+int32_t fir_process(
     void const* coeffs,
     void*       states,
     void*       audio,

@@ -20,9 +20,9 @@ void *tsig_sin_init_states (uint32_t sample_rate, uint32_t length_sample, void c
     states->audioFormat = audioFormat;
 
     states->sample_increment = 0;
-    states->sample_in_period = sample_rate / _prm->freq; 
+    states->sample_in_period = sample_rate / (uint32_t)_prm->freq; 
     if(states->sample_in_period < 2){
-        fprintf(stderr,RED"Error: Nyquist frequency."BOLDWHITE"The Nyquist frequency is half of the sampling rate of a discrete signal processing system. %d\n"RESET, ((tsig_sin_prm_t *)params)->freq);
+        fprintf(stderr,RED"Error: Nyquist frequency."BOLDWHITE"The Nyquist frequency is half of the sampling rate of a discrete signal processing system.\n"RESET);
         free(states);
         return NULL;
     }

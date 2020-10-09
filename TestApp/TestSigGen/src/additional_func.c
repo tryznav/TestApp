@@ -24,7 +24,7 @@ static int32_t convert(float n){
         return INT32_MAX;
     }
 
-    return n * INT32_MAX;
+    return (int32_t)(n * INT32_MAX);
 }
 
 int32_t IEEE_754_to_PMC(void *audio, uint32_t length_sample){

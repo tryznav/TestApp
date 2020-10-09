@@ -43,7 +43,7 @@ static int32_t coeff_calc(my_float *coeff, uint32_t cutoff_freq, uint32_t sample
  * 
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
-int32_t effect_control_get_sizes(
+int32_t fir_control_get_sizes(
     size_t*     params_bytes,
     size_t*     coeffs_bytes){
     *params_bytes = sizeof(lpf_prm_t);
@@ -60,7 +60,7 @@ int32_t effect_control_get_sizes(
  * 
  * @return 0 if effect is initialized, non-zero error code otherwise
  ******************************************************************************/
-int32_t effect_control_initialize(
+int32_t fir_control_initialize(
     void*       params,
     void*       coeffs,
     uint32_t    sample_rate){
@@ -82,7 +82,7 @@ int32_t effect_control_initialize(
  * 
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
-int32_t effect_set_parameter(
+int32_t fir_set_parameter(
     void*       params,
     int32_t     id,
     float       value){
@@ -110,7 +110,7 @@ int32_t effect_set_parameter(
  * 
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
-int32_t effect_update_coeffs(
+int32_t fir_update_coeffs(
     void const* params,
     void*       coeffs){
     lpf_prm_t *_prm = (lpf_prm_t *)params;

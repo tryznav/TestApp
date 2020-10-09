@@ -1,6 +1,6 @@
 #include "test_app.h"
 
-static int parse_generator_opt(char * opt, app_func_t *task );
+static int parse_generator_opt(char * opt, tgen_t *task);
 static void print_help(void);
 
 main (int argc, char **argv)
@@ -8,6 +8,7 @@ main (int argc, char **argv)
   int c;
   app_func_t *app_task = (app_func_t *)malloc(sizeof(app_func_t));
   memset(app_task,0, sizeof(app_func_t));
+  app_task->audioFormatType = IEEE_754;
 
   while (1){
     static struct option long_options[] =
@@ -17,7 +18,7 @@ main (int argc, char **argv)
         {"gain",      required_argument, 0, 'g'},
         {"in",        required_argument, 0, 'i'},
         {"out",       required_argument, 0, 'o'},
-        {"lpf",       required_argument, 0, 'l'},
+        {"bpf",       required_argument, 0, 'b'},
         {"PMC",       no_argument,       0, 'q'},
         {"IEEE_754",  no_argument,       0, 'f'},
         {"generator", required_argument, 0, 's'},
@@ -26,7 +27,7 @@ main (int argc, char **argv)
     /* getopt_long stores the option index here. */
     int option_index = 0;
 
-    c = getopt_long (argc, argv, "hpo:g:i:l:qf",
+    c = getopt_long (argc, argv, "hpo:g:i:b:qf",
                       long_options, &option_index);
 
     /* Detect the end of the options. */
@@ -41,7 +42,7 @@ main (int argc, char **argv)
           break;
         printf ("option %s", long_options[option_index].name);
         if (optarg)
-          printf (" with arg %s", optarg);
+        printf (" with arg %s", optarg);
         printf ("\n");
         break;
       case 'p':
@@ -53,8 +54,9 @@ main (int argc, char **argv)
         break;
       case 'g':
         printf ("option -o with value `%s'\n", optarg);
-        app_task->gain = true;
-        app_task->gain_dB = (float)atof(optarg);                             //????????????????????????????
+        app_task->effect = malloc(sizeof(effect_task_t));
+        app_task->effect->effect_type = EFFECT_ID_GAIN;
+        app_task->effect->prm.gain_dB = (float)atof(optarg);                           //????????????????????????????
         break;
       case 'i':
         app_task->input = true;
@@ -67,19 +69,22 @@ main (int argc, char **argv)
         memcpy(app_task->output_f_path, optarg, (strlen(optarg) + 1));
         break;
       case 's':
-        parse_generator_opt(optarg, app_task);
+        parse_generator_opt(optarg, app_task->generator);
         break;
-      case 'l':
-        // app_task->audioFormat = true;
-        
-        // memcpy(app_task->output_f_path, optarg, (strlen(optarg) + 1));
+      case 'b':
+        app_task->effect = malloc(sizeof(effect_task_t));
+        app_task->effect->effect_type = EFFECT_ID_FIR;
+        app_task->effect->prm.cutoff_freq.sweep.start = (float)atof(optarg);
+        char *fin = strchr(optarg, '_');
+        fin = fin + 1;
+        app_task->effect->prm.cutoff_freq.sweep.end = (float)atof(fin);
+        printf("prm.cutoff_freq.sweep.start %f\n", app_task->effect->prm.cutoff_freq.sweep.start );
+        printf("app_task->effect->prm.cutoff_freq.sweep.end %f\n", app_task->effect->prm.cutoff_freq.sweep.end);
         break;
       case 'f':
-          app_task->audioFormat = true;
           app_task->audioFormatType = IEEE_754;
         break;
       case 'q':
-          app_task->audioFormat = true;
           app_task->audioFormatType = PMC;
         break;
       case '?':
@@ -99,7 +104,16 @@ main (int argc, char **argv)
       fprintf(stderr,RED "\nRejected.\n"RESET);
       exit (EXIT_FAILURE);
   }
-  app_handler(app_task);
+
+  c = app_task_check(app_task);
+  if(c != 0){
+    exit (EXIT_FAILURE);
+  }
+  app_handl(app_task);
+
+  if(app_task->generator){
+    free(app_task->generator);
+  }
   if(app_task->input){
     free(app_task->input_f_path);
   }
@@ -110,20 +124,24 @@ main (int argc, char **argv)
   exit (EXIT_SUCCESS);
 }
 
-static int parse_generator_opt(char * opt, app_func_t *task ){
+static int parse_generator_opt(char * opt, tgen_t * generator){
   char *sapmle_rate_ch = NULL;
   char *length_ms_ch = NULL;
   char *Sig_type = NULL;
   char *ifn = NULL;
 
-  task->generator =  true;
+  generator = malloc (sizeof(tgen_t));
+    if(generator){
+    fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
+    exit(EXIT_FAILURE);
+  }
 
   sapmle_rate_ch = strtok(opt, ",");
   if(!sapmle_rate_ch){
     fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
     exit(EXIT_FAILURE);
   }
-  task->sample_rate = (uint32_t)atol(sapmle_rate_ch);
+  generator->sample_rate = (uint32_t)atol(sapmle_rate_ch);
 
 
   length_ms_ch = strtok(NULL, ",");
@@ -131,7 +149,7 @@ static int parse_generator_opt(char * opt, app_func_t *task ){
     fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
     exit(EXIT_FAILURE);
   }
-  task->length_ms = (uint32_t)atol(length_ms_ch);
+  generator->length_ms = (uint32_t)atol(length_ms_ch);
   // printf("length_ms_c = %d\n", task->length_ms);
 
   Sig_type = strtok(NULL, ":");
@@ -141,127 +159,127 @@ static int parse_generator_opt(char * opt, app_func_t *task ){
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "delta")){
-   task->signal_id = TSIG_DELTA;
+   generator->signal_id = TSIG_DELTA;
    return 0;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "step")){
-    task->signal_id = TSIG_STEP;
+    generator->signal_id = TSIG_STEP;
     return 0;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "square")){
-    task->signal_id = TSIG_SQUARE;
+    generator->signal_id = TSIG_SQUARE;
     ifn = strtok(NULL, "");
 
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->period_ms = (uint32_t)atol(ifn);
+    generator->period_ms = (uint32_t)atol(ifn);
     return 0;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "wnoise")){
-    task->signal_id = TSIG_WNOISE;
+    generator->signal_id = TSIG_WNOISE;
     ifn = strtok(NULL, ",");
 
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->amplitude.whole_file = (float)atof(ifn);
+    generator->amp_dB.whole_file = (float)atof(ifn);
     return 0;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "sine")){
-    task->signal_id = TSIG_SINE;
+    generator->signal_id = TSIG_SINE;
     ifn = strtok(NULL, ",");
 
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->frequency.whole_file_freq = (uint32_t)atol(ifn);
+    generator->freq_Hz.whole_file = (float)atof(ifn);
     ifn = strtok(NULL, ",");
 
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->amplitude.whole_file = (float)atof(ifn);
+    generator->amp_dB.whole_file = (float)atof(ifn);
     return 0;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "chirp_linear")){
-    task->signal_id = TSIG_CHIRP_LINEAR;
+    generator->signal_id = TSIG_CHIRP_LINEAR;
     ifn = strtok(NULL, ",");
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->frequency.start_freq = (uint32_t)atol(ifn);
+    generator->freq_Hz.sweep.start = (float)atof(ifn);
     ifn = strtok(NULL, ",");
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->frequency.end_freq  = (uint32_t)atol(ifn);
+    generator->freq_Hz.sweep.end  = (float)atof(ifn);
     ifn = strtok(NULL, ",");
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->amplitude.whole_file = (float)atof(ifn);
+    generator->amp_dB.whole_file = (float)atof(ifn);
     return 0;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "chirp_logarithmic")){
-    task->signal_id = TSIG_CHIRP_LOGARITM;
+    generator->signal_id = TSIG_CHIRP_LOGARITM;
     ifn = strtok(NULL, ",");
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->frequency.start_freq = (uint32_t)atol(ifn);
+    generator->freq_Hz.sweep.start = (float)atof(ifn);
     ifn = strtok(NULL, ",");
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->frequency.end_freq  = (uint32_t)atol(ifn);
+    generator->freq_Hz.sweep.end  = (float)atof(ifn);
     ifn = strtok(NULL, ",");
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->amplitude.whole_file = (float)atof(ifn);
+    generator->amp_dB.whole_file = (float)atof(ifn);
     return 0;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "lsweep")){
-    task->signal_id = TSIG_LEVEL_SWEEP;
+    generator->signal_id = TSIG_LEVEL_SWEEP;
   
     ifn = strtok(NULL, ",");
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->frequency.whole_file_freq = (uint32_t)atol(ifn);
+    generator->freq_Hz.whole_file = (float)atof(ifn);
   
     ifn = strtok(NULL, ",");
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->amplitude.start_amp_dB = (float)atof(ifn);
+    generator->amp_dB.sweep.start = (float)atof(ifn);
   
     ifn = strtok(NULL, ",");
     if(!ifn){
       fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
       exit(EXIT_FAILURE);
     }
-    task->amplitude.end_amp_db = (float)atof(ifn);
+    generator->amp_dB.sweep.end  = (float)atof(ifn);
     return 0;
   }
   fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);

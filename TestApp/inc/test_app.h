@@ -9,8 +9,14 @@
 
 #include "effect_control.h"
 #include "effect_process.h"
+
+#include "fir_flt_control.h"
+#include "fir_flt_process.h"
+
+
 #include "params_id.h"
-#include "file_handler.h"
+#include "new_type.h"
+// #include "file_handler.h"
 #include "getopt.h"
 #include "test_sig_gen.h"
 #include "colors.h"
@@ -53,7 +59,6 @@
 //             lsweep                  <frequency-Hz,start-amp-dB,end-amp-dB>"
 
 
-
 typedef struct sweep_s{
     float               start;
     float               end;
@@ -75,7 +80,7 @@ typedef struct  effect_task_t{
     union
     {
         float           gain_dB;
-        float           cutoff_freq;
+        union feature    cutoff_freq;
     }prm;
 }effect_task_t;
 
@@ -99,13 +104,21 @@ typedef struct app_func_s{
     uint16_t        audioFormatType;
 }app_func_t;
 
-int app_handler(app_func_t *task);
-int32_t app_gain(char *input_f_path, char *output_f_path, float gain_dB);
-int32_t app_generator_init(pross_waw_t *pross_waw, app_func_t *task);
-int32_t app_gain_init(pross_waw_t *pross_waw,char *input_f_path, char *output_f_path, float gain_dB);
-int32_t app_gen_sig_del(pross_waw_t *pr);
-int32_t app_gain_del(pross_waw_t *pr);
+int32_t app_generator_init(pross_waw_t *pross_waw, tgen_t   *generator, uint16_t audioFormat);
 
-int32_t app_efect_init(pross_waw_t *pr, wav_hdr_t  *hdr, effect_t *effect);
+int32_t app_handl(app_func_t *task);
+
+int app_task_check(app_func_t *task);
+
+int32_t app_efect_init(pross_waw_t *pr, wav_hdr_t  *hdr, effect_task_t *effect);
+
+FILE*   fhand_parse_wav_file_fptr(const char *path, wav_hdr_t *hdr);
+int32_t fhand_newhdr_f(wav_hdr_t *hdr, uint32_t sample_rate, uint32_t length_sample, uint16_t audioFormat);
+void    free_chunk_hdr(wav_hdr_t *hdr);
+FILE*   fhand_newav(const char *path, wav_hdr_t *hdr);
+
+
+void alloc_mem_chunk_hdr(wav_hdr_t *hdr);
+void fhand_print_chunk(RiffChunk_t *RiffChunk, FmtChunk_t *FmtChunk, DataChunk_t *DataChunkh);
 
 #endif

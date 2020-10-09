@@ -164,6 +164,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{6C8658F8-03E2-351E-A7A5-341A5A5536CB}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\EffectFirFlt\EffectFirFlt.vcxproj">
+      <Project>{A4E67555-3B48-3ACC-AAD2-70EE7569E54D}</Project>
+      <Name>EffectFirFlt</Name>
+    </ProjectReference>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\EffectGain\EffectGain.vcxproj">
       <Project>{B6C5E2F2-2E4B-337F-97FC-24EDF793A6C9}</Project>
       <Name>EffectGain</Name>

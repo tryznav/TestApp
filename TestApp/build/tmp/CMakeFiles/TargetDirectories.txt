@@ -1,5 +1,7 @@
 D:/TestApp/TestApp/build/tmp/CMakeFiles/ALL_BUILD.dir
 D:/TestApp/TestApp/build/tmp/CMakeFiles/ZERO_CHECK.dir
+D:/TestApp/TestApp/build/tmp/Libs/EffectFirFlt/CMakeFiles/EffectFirFlt.dir
+D:/TestApp/TestApp/build/tmp/Libs/EffectFirFlt/CMakeFiles/ALL_BUILD.dir
 D:/TestApp/TestApp/build/tmp/Libs/TestSigGen/CMakeFiles/TestSigGen.dir
 D:/TestApp/TestApp/build/tmp/Libs/TestSigGen/CMakeFiles/ALL_BUILD.dir
 D:/TestApp/TestApp/build/tmp/Libs/EffectGain/CMakeFiles/EffectGain.dir

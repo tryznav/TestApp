@@ -118,7 +118,7 @@ int32_t app_generator_init(pross_waw_t *pross_waw, tgen_t   *generator, uint16_t
 
     gen_sig->states = gen_sig->tsig_sig_init_states(gen_sig->sample_rate, gen_sig->length_sample,  gen_sig->params, audioFormat);
     if(gen_sig->states == NULL){
-        fprintf(stderr,RED"%d: Error: tsig_sig_init_states "BOLDWHITE"%s.\n"RESET);
+        fprintf(stderr,RED"Error: "BOLDWHITE"tsig_sig_init_states\n"RESET);
         return -1;
     }
 

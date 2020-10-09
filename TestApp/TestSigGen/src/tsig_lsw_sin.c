@@ -24,7 +24,7 @@ void *tsig_lsw_sin_init_states (uint32_t sample_rate, uint32_t length_sample, vo
 
 int32_t tsig_gen_lsw_sin_st(uint32_t length_sample, void* states, void *audio){
     chanels_t           *_audio = (chanels_t *)audio;
-    tsig_lsw_sin_stat_t *_st    = (tsig_chirp_stat_t *)states; 
+    tsig_lsw_sin_stat_t *_st    = (tsig_lsw_sin_stat_t *)states; 
     int                 n       = 0;
 
     if( (n = check_gen(length_sample, states, audio)) != 0){
@@ -32,7 +32,7 @@ int32_t tsig_gen_lsw_sin_st(uint32_t length_sample, void* states, void *audio){
     }
 
     for (uint32_t i = 0; i < length_sample; i++){
-        _audio[i].Left = sinf(_st->sin_coef * (float)(_st->sample_increment)) * (_st->amp_increment);
+        _audio[i].Left = sinf((float)_st->sin_coef * (float)(_st->sample_increment)) * (_st->amp_increment);
         _audio[i].Right = _audio[i].Left;
         _st->amp_increment = _st->amp_increment + _st->amp_increment_num;
         _st->sample_increment++;

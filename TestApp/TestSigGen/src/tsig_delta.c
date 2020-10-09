@@ -18,7 +18,7 @@ void *tsig_delta_init_states (uint32_t sample_rate, uint32_t length_sample, void
 
 int32_t tsig_gen_delta_st(uint32_t length_sample, void* states, void *audio){
     chanels_t           *_audio = (chanels_t *)audio;
-    tsig_delta_stat_t   *_st    = (tsig_chirp_stat_t *)states; 
+    tsig_delta_stat_t   *_st    = (tsig_delta_stat_t *)states; 
     int                 n       = 0;
 
     if( (n = check_gen(length_sample, states, audio)) != 0){
