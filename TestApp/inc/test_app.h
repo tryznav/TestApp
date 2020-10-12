@@ -13,8 +13,15 @@
 #include "fir_flt_control.h"
 #include "fir_flt_process.h"
 
+#include "fir_fxd_control.h"
+#include "fir_fxd_process.h"
+
 #include "iir_flt_control.h"
 #include "iir_flt_process.h"
+
+
+#include "iir_fxd_control.h"
+#include "iir_fxd_process.h"
 
 #include "params_id.h"
 #include "new_type.h"

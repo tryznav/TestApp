@@ -9,6 +9,8 @@
 #define PRM_FREQ_START_ID       'FSTA'
 #define PRM_FREQ_END_ID         'FEND'
 
+extern const double bpf_coef[256];
+
 /*******************************************************************************
  * Provides with the required data sizes for parameters and coefficients.
  *   It is caller responsibility to allocate enough memory (bytes) for them.

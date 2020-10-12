@@ -6,6 +6,7 @@ project(${LIB_NAME})
 
 add_library(${LIB_NAME} STATIC
     ../../../${LIB_NAME}/src/fir_flt_control.c
-    ../../../${LIB_NAME}/src/fir_flt_process.c)
+    ../../../${LIB_NAME}/src/fir_flt_process.c
+    ../../../${LIB_NAME}/src/coefs.c)
 
 target_include_directories(${LIB_NAME} PRIVATE ../../../${LIB_NAME}/inc)

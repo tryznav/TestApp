@@ -95,9 +95,15 @@ int32_t fir_flt_process(
     }
 
     chanes_t *_audio = (chanes_t *)(audio);
+    // for (int i = 0; i <  TAP_NUM; i++ ){
+    //     printf("coeffs[%d] = %f\n", i, ((float *)coeffs)[i]);
+    // }
 
     fir_states_t *_st = (fir_states_t *)states;
-    fir_coeffs_t const *_coef = (fir_coeffs_t const *)coeffs;
+    float *_coef = (float *)coeffs;
+    // for (int i = 0; i <  TAP_NUM; i++ ){
+    //     printf("coeffs[%d] = %f\n", i, _coef[i]);
+    // }
     // printf("e");
 
     for(uint32_t a_index = 0; a_index < samples_count; a_index++){
@@ -105,12 +111,17 @@ int32_t fir_flt_process(
         float   AcumRight = 0;
         uint8_t h_index = _st->ofset;
         // printf("_audio[a_index] = %f\t", _audio[a_index].Left);
-        _st->history[_st->ofset] = _audio[a_index];
+        _st->history[_st->ofset].Left = _audio[a_index].Left;
+        _st->history[_st->ofset].Right = _audio[a_index].Right;
 
-        for(uint32_t i = 0; i < TAP_NUM; i++, h_index--){
+        for(int32_t i = (TAP_NUM - 1); i >= 0; i--, h_index--){
             // printf("_coef[i] = %f\n", _coef[i]);
             AcumLeft += _st->history[ h_index].Left * _coef[i];
             AcumRight += _st->history[ h_index].Right * _coef[i];
+            //  printf("_audio[%d] = %f\n", i,  _coef[i]);
+            //     for (int i = 0; i <  TAP_NUM; i++ ){
+//         ((float *)coeff)[i] = 0;
+//     }
         }
         
         _audio[a_index].Left = AcumLeft;

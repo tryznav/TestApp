@@ -1,5 +1,5 @@
-#ifndef __FILE_HANDLER_H__
-#define __FILE_HANDLER_H__
+#ifndef __NEW_TYPE_H__
+#define __NEW_TYPE_H__
 
 //headers for file handling
 #include <stdio.h>

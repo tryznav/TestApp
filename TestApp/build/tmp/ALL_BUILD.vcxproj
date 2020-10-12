@@ -164,9 +164,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{6C8658F8-03E2-351E-A7A5-341A5A5536CB}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Arithmetic\Arithmetic.vcxproj">
+      <Project>{B1C71917-8A32-3E29-9BE8-C26EAAAF859A}</Project>
+      <Name>Arithmetic</Name>
+    </ProjectReference>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\EffectFirFlt\EffectFirFlt.vcxproj">
       <Project>{A4E67555-3B48-3ACC-AAD2-70EE7569E54D}</Project>
       <Name>EffectFirFlt</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\EffectFirFxd\EffectFirFxd.vcxproj">
+      <Project>{656D1262-2272-3D03-AF13-F314B491C806}</Project>
+      <Name>EffectFirFxd</Name>
     </ProjectReference>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\EffectGain\EffectGain.vcxproj">
       <Project>{B6C5E2F2-2E4B-337F-97FC-24EDF793A6C9}</Project>
@@ -175,6 +183,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\EffectIirFlt\EffectIirFlt.vcxproj">
       <Project>{DD56F0C4-9450-3558-97CA-33F935ED242B}</Project>
       <Name>EffectIirFlt</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\EffectIirFxd\EffectIirFxd.vcxproj">
+      <Project>{B2190F9C-923E-3C09-9D44-A035FB3A625E}</Project>
+      <Name>EffectIirFxd</Name>
     </ProjectReference>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\GetOpt\GetOpt.vcxproj">
       <Project>{4E3839B3-0E43-316E-AA07-22AC5C8A6DC0}</Project>

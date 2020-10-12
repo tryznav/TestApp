@@ -296,6 +296,17 @@ fxd_q63_t   fxd63_lshift(fxd_q63_t a, uint32_t n){
 
 /***********************************************/
 
+fxd_q63_t   fxd63_rshift(fxd_q63_t a, uint32_t n){
+    fxd_q63_t res ;
+
+    assert(n <= 64);
+    res =  a >> n;
+
+    return res;
+}
+
+/***********************************************/
+
 fxd_q31_t   fxd_pow2_h(fxd_q31_t n){
 
     assert(n <= -(1<<22));
@@ -429,4 +440,19 @@ fxd_q5_26_t   dbl_to_fxd5_26(double input)
 
 double      fxd64_to_flt(fxd_q63_t val){
     return ((double)val / (double)(1u << FRACTION_BITS));
+}
+
+/***********************************************/
+fxd_q63_t   fxd_fmul(fxd_q31_t a, fxd_q31_t b){
+    fxd_q63_t acum = a;
+
+    acum *= b;
+    return acum;
+}
+
+
+fxd_q31_t   dbl_to_fxd_p(double a, uint32_t p)
+{
+    assert(p < 0);
+    return (fxd_q31_t)(a * (1u<<p));
 }

@@ -263,6 +263,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="D:\TestApp\TestApp\EffectFirFlt\src\fir_flt_control.c" />
     <ClCompile Include="D:\TestApp\TestApp\EffectFirFlt\src\fir_flt_process.c" />
+    <ClCompile Include="D:\TestApp\TestApp\EffectFirFlt\src\coefs.c" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\ZERO_CHECK.vcxproj">

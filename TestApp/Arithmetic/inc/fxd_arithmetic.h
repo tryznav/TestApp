@@ -244,9 +244,14 @@ fxd_q5_26_t     fxd_log2_no_interp(fxd_q31_t n);
 
 fxd_q31_t       fxd_pow2_no_interp(fxd_q5_26_t  n);
 
+fxd_q63_t       fxd63_rshift(fxd_q63_t a, uint32_t n);
 
 fxd_q31_t       fxd_pow2_h(fxd_q31_t n);
 
 fxd_q31_t       fxd_log2_h(fxd_q31_t n);
+
+fxd_q63_t   fxd_fmul(fxd_q31_t a, fxd_q31_t b);
+
+fxd_q31_t   dbl_to_fxd_p(double a, uint32_t p);
 
 #endif /* colors.h */

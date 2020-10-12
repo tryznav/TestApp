@@ -17,16 +17,25 @@ add_executable(${PR_NAME}
 set(LIBS_PATH_1 "../Libs/")
 set(LIBS_PATH_2 "/tmp/Debug/")
 
-target_link_libraries(${PR_NAME} PRIVATE EffectGain)
 target_link_libraries(${PR_NAME} PRIVATE GetOpt)
 target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
+#fxd
+target_link_libraries(${PR_NAME} PRIVATE EffectFirFxd)
+target_link_libraries(${PR_NAME} PRIVATE EffectIirFxd)
+#flt
+target_link_libraries(${PR_NAME} PRIVATE EffectGain)
 target_link_libraries(${PR_NAME} PRIVATE EffectFirFlt)
 target_link_libraries(${PR_NAME} PRIVATE EffectIirFlt)
 
 
 target_include_directories(${PR_NAME} PRIVATE ../../inc)
+
 target_include_directories(${PR_NAME} PRIVATE ../../EffectIirFlt/inc)
+target_include_directories(${PR_NAME} PRIVATE ../../EffectIirFxd/inc)
+
 target_include_directories(${PR_NAME} PRIVATE ../../EffectFirFlt/inc)
+target_include_directories(${PR_NAME} PRIVATE ../../EffectFirFxd/inc)
+
 target_include_directories(${PR_NAME} PRIVATE ../../Effects/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../GetOpt/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../TestSigGen/inc)

@@ -42,19 +42,52 @@ typedef struct iir_coefs_s{
 
 static int32_t iir_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     
-    _prm->BW = _prm->cutoff_freq.sweep.end - _prm->cutoff_freq.sweep.start;
-    _prm->f0 = (_prm->cutoff_freq.sweep.end + _prm->cutoff_freq.sweep.start) / 2;
+
+    _prm->BW = (double)(_prm->cutoff_freq.sweep.end - _prm->cutoff_freq.sweep.start);
+     printf("_prm->cutoff_freq = %f %f\n", _prm->cutoff_freq.sweep.end, _prm->cutoff_freq.sweep.start);
+    _prm->f0 =  (double)(_prm->cutoff_freq.sweep.end + _prm->cutoff_freq.sweep.start) / 2.0;
+    printf("_prm->f0 = %f\n", _prm->f0);
     _prm->Q = _prm->f0 / _prm->BW;
+    _prm->Q = 1;
+     printf("_prm->Q = %f\n", _prm->Q);
     _prm->w = 2 * M_PI * _prm->f0 / _prm->sample_rate;
     _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
 
+
     _coeffs->a0 = (float)(1.0 + _prm->alpha);
+
     _coeffs->a1 = (float)(-2.0 * cos(_prm->w));
     _coeffs->a2 = (float)(1.0 - _prm->alpha);
 
-    _coeffs->b0 = _prm->alpha;
-    _coeffs->b1 = 0;
-    _coeffs->b2 = -_prm->alpha;
+    _coeffs->b0 = (float)_prm->alpha;
+    _coeffs->b1 = 0.0f;
+    _coeffs->b2 = (float)(-_prm->alpha);
+    
+    printf("\n_coeffs->a0 %f\n",_coeffs->a0 );
+        printf("_coeffs->a1 %f\n",_coeffs->a1 );
+            printf("_coeffs->a2 %f\n",_coeffs->a2 );
+
+    printf("_coeffs->b0 %f\n",_coeffs->b0 );
+        printf("_coeffs->b1 %f\n",_coeffs->b1 );
+            printf("_coeffs->b2 %f\n",_coeffs->b2 );
+
+    //  _coeffs->a0 = (float)(1.0 + _prm->alpha);
+
+    _coeffs->a0 = _coeffs->a0 / -_coeffs->a1;
+    _coeffs->a2 = _coeffs->a2 / -_coeffs->a1;
+
+    _coeffs->b0 = _coeffs->b0 / -_coeffs->a1;
+    _coeffs->b1 = 0.0f;
+    _coeffs->b2 =  _coeffs->b2 / -_coeffs->a1;
+    _coeffs->a1 = _coeffs->a1 / -_coeffs->a1;
+
+    printf("_coeffs->a0 %f\n",_coeffs->a0 );
+        printf("_coeffs->a1 %f\n",_coeffs->a1 );
+            printf("_coeffs->a2 %f\n",_coeffs->a2 );
+
+    printf("_coeffs->b0 %f\n",_coeffs->b0 );
+        printf("_coeffs->b1 %f\n",_coeffs->b1 );
+            printf("_coeffs->b2 %f\n",_coeffs->b2 );
 
     return 0;
 }
@@ -93,8 +126,8 @@ int32_t iir_flt_control_initialize(
     iir_coefs_t *_coeffs = (iir_coefs_t  *)coeffs;
 
     _prm->sample_rate= (double)sample_rate;
-    _prm->cutoff_freq.sweep.start = _prm->sample_rate * 0.05;
-    _prm->cutoff_freq.sweep.end   = _prm->sample_rate * 0.1;
+    _prm->cutoff_freq.sweep.start = (float)(_prm->sample_rate * 0.05);
+    _prm->cutoff_freq.sweep.end   = (float)(_prm->sample_rate * 0.1);
 
     iir_coeff_calc(_prm, _coeffs);
 
@@ -122,10 +155,10 @@ int32_t iir_flt_set_parameter(
         _prm->sample_rate = value;
         return 0;
     case  PRM_FREQ_START_ID:
-        _prm->sample_rate = value;
+        _prm->cutoff_freq.sweep.start = value;
         return 0;
     case  PRM_FREQ_END_ID:
-        _prm->sample_rate = value;
+        _prm->cutoff_freq.sweep.end = value;
         return 0;
     default:
         fprintf(stderr, RED"Error: "BOLDWHITE"Unsupported params. Rejected.\n"RESET);
@@ -146,7 +179,6 @@ int32_t iir_flt_update_coeffs(
     void*       coeffs){
 
     iir_coeff_calc((iir_prm_t *)params, (iir_coefs_t  *)coeffs);
-
 
     printf("fir_flt_update_coeffs\n");
     return 0;

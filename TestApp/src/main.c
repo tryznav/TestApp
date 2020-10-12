@@ -21,7 +21,7 @@ main (int argc, char **argv)
         {"out",       required_argument, 0, 'o'},
         {"fir_bpf",   required_argument, 0, 'b'},
         {"iir_bpf",   required_argument, 0, 'r'},
-        {"PMC",       no_argument,       0, 'q'},
+        {"pmc",       no_argument,       0, 'q'},
         {"IEEE_754",  no_argument,       0, 'f'},
         {"generator", required_argument, 0, 's'},
         {0, 0, 0, 0}
@@ -29,7 +29,7 @@ main (int argc, char **argv)
     /* getopt_long stores the option index here. */
     int option_index = 0;
 
-    c = getopt_long (argc, argv, "hpo:g:i:b:r:qf",
+    c = getopt_long (argc, argv, "hpqfo:g:i:b:r:",
                       long_options, &option_index);
 
     /* Detect the end of the options. */
@@ -76,6 +76,7 @@ main (int argc, char **argv)
       case 'b':
         app_task->effect = malloc(sizeof(effect_task_t));
         app_task->effect->effect_type = EFFECT_ID_FIR;
+        printf(" EFFECT_ID_FIR");
         app_task->effect->prm.cutoff_freq.sweep.start = (float)atof(optarg);
          fin = strchr(optarg, '_');
         fin = fin + 1;
@@ -94,9 +95,11 @@ main (int argc, char **argv)
         printf("app_task->effect->prm.cutoff_freq.sweep.end %f\n", app_task->effect->prm.cutoff_freq.sweep.end);
         break;
       case 'f':
+          printf("IEEE_754\n");
           app_task->audioFormatType = IEEE_754;
         break;
       case 'q':
+          printf(" PMC\n");
           app_task->audioFormatType = PMC;
         break;
       case '?':
