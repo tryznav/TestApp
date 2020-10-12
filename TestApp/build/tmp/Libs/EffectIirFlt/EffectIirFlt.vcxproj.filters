@@ -1,18 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\TestApp\TestApp\Arithmetic\src\flt_arithmetic.c">
+    <ClCompile Include="D:\TestApp\TestApp\EffectIirFlt\src\iir_flt_control.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\TestApp\TestApp\Arithmetic\src\fxd_arithmetic.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\TestApp\TestApp\Arithmetic\src\tables.c">
+    <ClCompile Include="D:\TestApp\TestApp\EffectIirFlt\src\iir_flt_process.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\TestApp\TestApp\build\Libs\Arithmetic\CMakeLists.txt" />
+    <CustomBuild Include="D:\TestApp\TestApp\build\Libs\EffectIirFlt\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">

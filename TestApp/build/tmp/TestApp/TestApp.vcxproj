@@ -83,7 +83,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsC</CompileAs>
@@ -100,10 +100,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -111,7 +111,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\EffectGain\Debug\EffectGain.lib;..\Libs\GetOpt\Debug\GetOpt.lib;..\Libs\TestSigGen\Debug\TestSigGen.lib;..\Libs\EffectFirFlt\Debug\EffectFirFlt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\EffectGain\Debug\EffectGain.lib;..\Libs\GetOpt\Debug\GetOpt.lib;..\Libs\TestSigGen\Debug\TestSigGen.lib;..\Libs\EffectFirFlt\Debug\EffectFirFlt.lib;..\Libs\EffectIirFlt\Debug\EffectIirFlt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -126,7 +126,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -143,10 +143,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -154,7 +154,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\EffectGain\Release\EffectGain.lib;..\Libs\GetOpt\Release\GetOpt.lib;..\Libs\TestSigGen\Release\TestSigGen.lib;..\Libs\EffectFirFlt\Release\EffectFirFlt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\EffectGain\Release\EffectGain.lib;..\Libs\GetOpt\Release\GetOpt.lib;..\Libs\TestSigGen\Release\TestSigGen.lib;..\Libs\EffectFirFlt\Release\EffectFirFlt.lib;..\Libs\EffectIirFlt\Release\EffectIirFlt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -169,7 +169,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -186,10 +186,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -197,7 +197,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\EffectGain\MinSizeRel\EffectGain.lib;..\Libs\GetOpt\MinSizeRel\GetOpt.lib;..\Libs\TestSigGen\MinSizeRel\TestSigGen.lib;..\Libs\EffectFirFlt\MinSizeRel\EffectFirFlt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\EffectGain\MinSizeRel\EffectGain.lib;..\Libs\GetOpt\MinSizeRel\GetOpt.lib;..\Libs\TestSigGen\MinSizeRel\TestSigGen.lib;..\Libs\EffectFirFlt\MinSizeRel\EffectFirFlt.lib;..\Libs\EffectIirFlt\MinSizeRel\EffectIirFlt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -212,7 +212,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -228,10 +228,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\EffectFirFlt\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -239,7 +239,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\EffectGain\RelWithDebInfo\EffectGain.lib;..\Libs\GetOpt\RelWithDebInfo\GetOpt.lib;..\Libs\TestSigGen\RelWithDebInfo\TestSigGen.lib;..\Libs\EffectFirFlt\RelWithDebInfo\EffectFirFlt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\EffectGain\RelWithDebInfo\EffectGain.lib;..\Libs\GetOpt\RelWithDebInfo\GetOpt.lib;..\Libs\TestSigGen\RelWithDebInfo\TestSigGen.lib;..\Libs\EffectFirFlt\RelWithDebInfo\EffectFirFlt.lib;..\Libs\EffectIirFlt\RelWithDebInfo\EffectIirFlt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -330,6 +330,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\EffectGain\EffectGain.vcxproj">
       <Project>{B6C5E2F2-2E4B-337F-97FC-24EDF793A6C9}</Project>
       <Name>EffectGain</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\EffectIirFlt\EffectIirFlt.vcxproj">
+      <Project>{DD56F0C4-9450-3558-97CA-33F935ED242B}</Project>
+      <Name>EffectIirFlt</Name>
     </ProjectReference>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\GetOpt\GetOpt.vcxproj">
       <Project>{4E3839B3-0E43-316E-AA07-22AC5C8A6DC0}</Project>

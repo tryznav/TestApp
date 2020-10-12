@@ -1,5 +1,5 @@
-#ifndef __FIR_FLT_CONTROL_H__
-#define __FIR_FLT_CONTROL_H__
+#ifndef __IIR_FLT_CONTROL_H__
+#define __IIR_FLT_CONTROL_H__
 
 #include <stdint.h>
 #include <stddef.h>
@@ -18,7 +18,7 @@
  * 
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
-int32_t fir_flt_control_get_sizes(
+int32_t iir_flt_control_get_sizes(
     size_t*     params_bytes,
     size_t*     coeffs_bytes);
 
@@ -32,7 +32,7 @@ int32_t fir_flt_control_get_sizes(
  * 
  * @return 0 if effect is initialized, non-zero error code otherwise
  ******************************************************************************/
-int32_t fir_flt_control_initialize(
+int32_t iir_flt_control_initialize(
     void*       params,
     void*       coeffs,
     uint32_t    sample_rate);
@@ -47,7 +47,7 @@ int32_t fir_flt_control_initialize(
  * 
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
-int32_t fir_flt_set_parameter(
+int32_t iir_flt_set_parameter(
     void*       params,
     int32_t     id,
     float       value);
@@ -62,7 +62,7 @@ int32_t fir_flt_set_parameter(
  * 
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
-int32_t fir_flt_update_coeffs(
+int32_t iir_flt_update_coeffs(
     void const* params,
     void*       coeffs);
 

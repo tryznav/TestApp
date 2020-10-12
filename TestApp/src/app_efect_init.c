@@ -77,6 +77,16 @@ int32_t app_efect_init(pross_waw_t *pr, wav_hdr_t  *hdr, effect_task_t *effect_t
             efect->effect_process            = &fir_flt_process;
             efect->effect_process_get_sizes  = &fir_flt_process_get_sizes;
             efect->effect_reset              = &fir_flt_reset;
+        case    EFFECT_ID_IIR:
+            //controll
+            efect->effect_control_get_sizes  = &iir_flt_control_get_sizes;
+            efect->effect_control_initialize = &iir_flt_control_initialize;
+            efect->effect_set_parameter      = &iir_flt_set_parameter;
+            efect->effect_update_coeffs      = &iir_flt_update_coeffs;
+            //process
+            efect->effect_process            = &iir_flt_process;
+            efect->effect_process_get_sizes  = &iir_flt_process_get_sizes;
+            efect->effect_reset              = &iir_flt_reset;
         default:
             break;
         }

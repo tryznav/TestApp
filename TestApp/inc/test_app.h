@@ -13,6 +13,8 @@
 #include "fir_flt_control.h"
 #include "fir_flt_process.h"
 
+#include "iir_flt_control.h"
+#include "iir_flt_process.h"
 
 #include "params_id.h"
 #include "new_type.h"
@@ -21,8 +23,9 @@
 #include "test_sig_gen.h"
 #include "colors.h"
 
-#define EFFECT_ID_FIR           'FIRD'
+#define EFFECT_ID_FIR           'FIR_'
 #define EFFECT_ID_GAIN          'GAIN'
+#define EFFECT_ID_IIR           'IIR_'
 
 #define DEFAULT_SAMPLE_RATE     48000
 #define HELP_TEXT_OPT               "Options\n"

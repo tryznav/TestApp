@@ -9,6 +9,7 @@ main (int argc, char **argv)
   app_func_t *app_task = (app_func_t *)malloc(sizeof(app_func_t));
   memset(app_task,0, sizeof(app_func_t));
   app_task->audioFormatType = IEEE_754;
+  char *fin;
 
   while (1){
     static struct option long_options[] =
@@ -18,7 +19,8 @@ main (int argc, char **argv)
         {"gain",      required_argument, 0, 'g'},
         {"in",        required_argument, 0, 'i'},
         {"out",       required_argument, 0, 'o'},
-        {"bpf",       required_argument, 0, 'b'},
+        {"fir_bpf",   required_argument, 0, 'b'},
+        {"iir_bpf",   required_argument, 0, 'r'},
         {"PMC",       no_argument,       0, 'q'},
         {"IEEE_754",  no_argument,       0, 'f'},
         {"generator", required_argument, 0, 's'},
@@ -27,7 +29,7 @@ main (int argc, char **argv)
     /* getopt_long stores the option index here. */
     int option_index = 0;
 
-    c = getopt_long (argc, argv, "hpo:g:i:b:qf",
+    c = getopt_long (argc, argv, "hpo:g:i:b:r:qf",
                       long_options, &option_index);
 
     /* Detect the end of the options. */
@@ -75,7 +77,17 @@ main (int argc, char **argv)
         app_task->effect = malloc(sizeof(effect_task_t));
         app_task->effect->effect_type = EFFECT_ID_FIR;
         app_task->effect->prm.cutoff_freq.sweep.start = (float)atof(optarg);
-        char *fin = strchr(optarg, '_');
+         fin = strchr(optarg, '_');
+        fin = fin + 1;
+        app_task->effect->prm.cutoff_freq.sweep.end = (float)atof(fin);
+        printf("prm.cutoff_freq.sweep.start %f\n", app_task->effect->prm.cutoff_freq.sweep.start );
+        printf("app_task->effect->prm.cutoff_freq.sweep.end %f\n", app_task->effect->prm.cutoff_freq.sweep.end);
+        break;
+      case 'r':
+        app_task->effect = malloc(sizeof(effect_task_t));
+        app_task->effect->effect_type = EFFECT_ID_IIR;
+        app_task->effect->prm.cutoff_freq.sweep.start = (float)atof(optarg);
+        fin = strchr(optarg, '_');
         fin = fin + 1;
         app_task->effect->prm.cutoff_freq.sweep.end = (float)atof(fin);
         printf("prm.cutoff_freq.sweep.start %f\n", app_task->effect->prm.cutoff_freq.sweep.start );

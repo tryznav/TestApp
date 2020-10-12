@@ -1,4 +1,4 @@
-# Install script for directory: D:/TestApp/TestApp/build/Libs/Arithmetic
+# Install script for directory: D:/TestApp/TestApp/build/Libs/EffectIirFlt
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -172,6 +172,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{B6C5E2F2-2E4B-337F-97FC-24EDF793A6C9}</Project>
       <Name>EffectGain</Name>
     </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\EffectIirFlt\EffectIirFlt.vcxproj">
+      <Project>{DD56F0C4-9450-3558-97CA-33F935ED242B}</Project>
+      <Name>EffectIirFlt</Name>
+    </ProjectReference>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\GetOpt\GetOpt.vcxproj">
       <Project>{4E3839B3-0E43-316E-AA07-22AC5C8A6DC0}</Project>
       <Name>GetOpt</Name>

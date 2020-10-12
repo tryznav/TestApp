@@ -34,6 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+  include("D:/TestApp/TestApp/build/tmp/Libs/EffectIirFlt/cmake_install.cmake")
   include("D:/TestApp/TestApp/build/tmp/Libs/EffectFirFlt/cmake_install.cmake")
   include("D:/TestApp/TestApp/build/tmp/Libs/TestSigGen/cmake_install.cmake")
   include("D:/TestApp/TestApp/build/tmp/Libs/EffectGain/cmake_install.cmake")

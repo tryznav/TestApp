@@ -1,5 +1,5 @@
-#ifndef __FIR_FLT_PROCESS_H__
-#define __FIR_FLT_PROCESS_H__
+#ifndef __IIR_FLT_PROCESS_H__
+#define __IIR_FLT_PROCESS_H__
 
 #include <stdint.h>
 #include <stddef.h>
@@ -47,15 +47,5 @@ int32_t iir_flt_process(
     void*       audio,
     size_t      samples_count);
 
-	float output = 	(bq->b0 * input) +
-					(bq->b1 * bq->prev_input_1) +
-					(bq->b2* bq->prev_input_2) -
-					(bq->a1* bq->prev_output_1) -
-					(bq->a2* bq->prev_output_2);
-	bq->prev_input_2 = bq->prev_input_1;
-	bq->prev_input_1 = input;
-	bq->prev_output_2 = bq->prev_output_1;
-	bq->prev_output_1 = output;
-	//update last samples...
-	return output;
+
 #endif

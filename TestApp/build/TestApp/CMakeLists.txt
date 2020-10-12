@@ -21,9 +21,11 @@ target_link_libraries(${PR_NAME} PRIVATE EffectGain)
 target_link_libraries(${PR_NAME} PRIVATE GetOpt)
 target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
 target_link_libraries(${PR_NAME} PRIVATE EffectFirFlt)
+target_link_libraries(${PR_NAME} PRIVATE EffectIirFlt)
 
 
 target_include_directories(${PR_NAME} PRIVATE ../../inc)
+target_include_directories(${PR_NAME} PRIVATE ../../EffectIirFlt/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../EffectFirFlt/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../Effects/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../GetOpt/inc)

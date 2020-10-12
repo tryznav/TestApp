@@ -102,10 +102,10 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\TestApp\TestApp\build\Libs\Arithmetic\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/TestApp/TestApp/build/Libs/Arithmetic/CMakeLists.txt</Message>
+    <CustomBuild Include="D:\TestApp\TestApp\build\Libs\EffectIirFlt\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/TestApp/TestApp/build/Libs/EffectIirFlt/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/Libs/Arithmetic/CMakeFiles/generate.stamp
+"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/Libs/EffectIirFlt/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -113,12 +113,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/TestApp/TestApp/build/Libs/Arithmetic/CMakeLists.txt;D:\TestApp\TestApp\build\Libs\Arithmetic\CMakeLists.txt;D:\TestApp\TestApp\build\Libs\Arithmetic\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\TestApp\TestApp\build\tmp\Libs\Arithmetic\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/TestApp/TestApp/build/Libs/EffectIirFlt/CMakeLists.txt;D:\TestApp\TestApp\build\Libs\EffectIirFlt\CMakeLists.txt;D:\TestApp\TestApp\build\Libs\EffectIirFlt\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\TestApp\TestApp\build\tmp\Libs\EffectIirFlt\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/TestApp/TestApp/build/Libs/Arithmetic/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/TestApp/TestApp/build/Libs/EffectIirFlt/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/Libs/Arithmetic/CMakeFiles/generate.stamp
+"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/Libs/EffectIirFlt/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -126,12 +126,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/TestApp/TestApp/build/Libs/Arithmetic/CMakeLists.txt;D:\TestApp\TestApp\build\Libs\Arithmetic\CMakeLists.txt;D:\TestApp\TestApp\build\Libs\Arithmetic\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\TestApp\TestApp\build\tmp\Libs\Arithmetic\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/TestApp/TestApp/build/Libs/EffectIirFlt/CMakeLists.txt;D:\TestApp\TestApp\build\Libs\EffectIirFlt\CMakeLists.txt;D:\TestApp\TestApp\build\Libs\EffectIirFlt\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\TestApp\TestApp\build\tmp\Libs\EffectIirFlt\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/TestApp/TestApp/build/Libs/Arithmetic/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/TestApp/TestApp/build/Libs/EffectIirFlt/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/Libs/Arithmetic/CMakeFiles/generate.stamp
+"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/Libs/EffectIirFlt/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -139,12 +139,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/TestApp/TestApp/build/Libs/Arithmetic/CMakeLists.txt;D:\TestApp\TestApp\build\Libs\Arithmetic\CMakeLists.txt;D:\TestApp\TestApp\build\Libs\Arithmetic\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\TestApp\TestApp\build\tmp\Libs\Arithmetic\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/TestApp/TestApp/build/Libs/EffectIirFlt/CMakeLists.txt;D:\TestApp\TestApp\build\Libs\EffectIirFlt\CMakeLists.txt;D:\TestApp\TestApp\build\Libs\EffectIirFlt\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\TestApp\TestApp\build\tmp\Libs\EffectIirFlt\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/TestApp/TestApp/build/Libs/Arithmetic/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/TestApp/TestApp/build/Libs/EffectIirFlt/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/Libs/Arithmetic/CMakeFiles/generate.stamp
+"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/Libs/EffectIirFlt/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -152,8 +152,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/TestApp/TestApp/build/Libs/Arithmetic/CMakeLists.txt;D:\TestApp\TestApp\build\Libs\Arithmetic\CMakeLists.txt;D:\TestApp\TestApp\build\Libs\Arithmetic\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\TestApp\TestApp\build\tmp\Libs\Arithmetic\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/TestApp/TestApp/build/Libs/EffectIirFlt/CMakeLists.txt;D:\TestApp\TestApp\build\Libs\EffectIirFlt\CMakeLists.txt;D:\TestApp\TestApp\build\Libs\EffectIirFlt\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\TestApp\TestApp\build\tmp\Libs\EffectIirFlt\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
@@ -164,9 +164,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{6C8658F8-03E2-351E-A7A5-341A5A5536CB}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Arithmetic\Arithmetic.vcxproj">
-      <Project>{B1C71917-8A32-3E29-9BE8-C26EAAAF859A}</Project>
-      <Name>Arithmetic</Name>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\EffectIirFlt\EffectIirFlt.vcxproj">
+      <Project>{DD56F0C4-9450-3558-97CA-33F935ED242B}</Project>
+      <Name>EffectIirFlt</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

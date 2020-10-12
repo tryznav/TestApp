@@ -1,4 +1,4 @@
-#include "fir_flt_control.h"
+#include "iir_flt_control.h"
 // #include "params_id.h"
 #include "colors.h"
 #include "string.h"
@@ -20,7 +20,7 @@ union feature{
     sweep_t             sweep;
 };
 
-typedef struct iir_prm_t{
+typedef struct iir_prm_s{
     union feature       cutoff_freq;
     double  BW; //BW = f2 − f1 = f0/Q  
     double  f0;
@@ -31,7 +31,7 @@ typedef struct iir_prm_t{
     double  sample_rate;
 }iir_prm_t;
 
-typedef struct iir_prm_t{
+typedef struct iir_coefs_s{
 	float a0;
 	float a1;
 	float a2;
@@ -92,9 +92,9 @@ int32_t iir_flt_control_initialize(
     iir_prm_t *_prm = (iir_prm_t *)params;
     iir_coefs_t *_coeffs = (iir_coefs_t  *)coeffs;
 
-    _prm->sample_rate= (float)sample_rate;
-    _prm->cutoff_freq.sweep.start = _prm->sample_rate * 0.05f;
-    _prm->cutoff_freq.sweep.end   = _prm->sample_rate * 0.1f;
+    _prm->sample_rate= (double)sample_rate;
+    _prm->cutoff_freq.sweep.start = _prm->sample_rate * 0.05;
+    _prm->cutoff_freq.sweep.end   = _prm->sample_rate * 0.1;
 
     iir_coeff_calc(_prm, _coeffs);
 
