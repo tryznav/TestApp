@@ -33,7 +33,8 @@ fxd_q63_t saturation(fxd_q63_t num){
 /***********************************************/
 
 fxd_q31_t   fxd_add(int32_t a, int32_t b){
-    fxd_q63_t res = a + b;
+    fxd_q63_t res = a;
+    res += b;
 
     res = saturation(res);
 
@@ -43,7 +44,8 @@ fxd_q31_t   fxd_add(int32_t a, int32_t b){
 /***********************************************/
 
 fxd_q31_t   fxd_sub(fxd_q31_t a, fxd_q31_t b){
-    int64_t res = a - b;
+    int64_t res = a;
+    res -= b;
 
     res = saturation(res);
 
@@ -453,6 +455,6 @@ fxd_q63_t   fxd_fmul(fxd_q31_t a, fxd_q31_t b){
 
 fxd_q31_t   dbl_to_fxd_p(double a, uint32_t p)
 {
-    assert(p < 0);
+    assert(p < 31);
     return (fxd_q31_t)(a * (1u<<p));
 }

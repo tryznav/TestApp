@@ -1,47 +1,7 @@
-#include "iir_flt_control.h"
-// #include "params_id.h"
-#include "colors.h"
-#include "string.h"
-// #include "fxd_arithmetic.h"
-
-#include <stdio.h>
-#include <math.h>
-
-#define TAP_NUM     256
-#define M_PI 3.14159265358979323846
-
-typedef struct sweep_s{
-    float               start;
-    float               end;
-}sweep_t;
-
-union feature{
-    float               whole_file;
-    sweep_t             sweep;
-};
-
-typedef struct iir_prm_s{
-    union feature       cutoff_freq;
-    double  BW; //BW = f2 − f1 = f0/Q  
-    double  f0;
-    double  Q;
-    double  w;
-    double  A;
-    double  alpha;  //sin(w0)/2Q
-    double  sample_rate;
-}iir_prm_t;
-
-typedef struct iir_coefs_s{
-	float a0;
-	float a1;
-	float a2;
-	float b0;
-	float b1;
-	float b2;
-}iir_coefs_t;
+#include "iir_flt.h"
 
 static int32_t iir_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
-    
+    iir_doub_coefs_t coeffs_dbl;
 
     _prm->BW = (double)(_prm->cutoff_freq.sweep.end - _prm->cutoff_freq.sweep.start);
      printf("_prm->cutoff_freq = %f %f\n", _prm->cutoff_freq.sweep.end, _prm->cutoff_freq.sweep.start);
@@ -54,40 +14,40 @@ static int32_t iir_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
 
 
-    _coeffs->a0 = (float)(1.0 + _prm->alpha);
+    coeffs_dbl.a0 = 1.0 + _prm->alpha;
+    coeffs_dbl.a1 = -2.0 * cos(_prm->w);
+    coeffs_dbl.a2 = 1.0 - _prm->alpha;
 
-    _coeffs->a1 = (float)(-2.0 * cos(_prm->w));
-    _coeffs->a2 = (float)(1.0 - _prm->alpha);
+    coeffs_dbl.b0 = _prm->alpha;
+    coeffs_dbl.b1 = 0.0f;
+    coeffs_dbl.b2 = -_prm->alpha;
 
-    _coeffs->b0 = (float)_prm->alpha;
-    _coeffs->b1 = 0.0f;
-    _coeffs->b2 = (float)(-_prm->alpha);
     
-    printf("\n_coeffs->a0 %f\n",_coeffs->a0 );
-        printf("_coeffs->a1 %f\n",_coeffs->a1 );
-            printf("_coeffs->a2 %f\n",_coeffs->a2 );
+    coeffs_dbl.a1 = coeffs_dbl.a1 / coeffs_dbl.a0;
+    coeffs_dbl.a2 = coeffs_dbl.a2 / coeffs_dbl.a0;
 
-    printf("_coeffs->b0 %f\n",_coeffs->b0 );
-        printf("_coeffs->b1 %f\n",_coeffs->b1 );
-            printf("_coeffs->b2 %f\n",_coeffs->b2 );
+    coeffs_dbl.b0 = coeffs_dbl.b0 / coeffs_dbl.a0;
+    coeffs_dbl.b1 = 0.0f;
+    coeffs_dbl.b2 =  coeffs_dbl.b2 /coeffs_dbl.a0;
+    coeffs_dbl.a0 = coeffs_dbl.a0  / coeffs_dbl.a0;
 
-    //  _coeffs->a0 = (float)(1.0 + _prm->alpha);
 
-    _coeffs->a0 = _coeffs->a0 / -_coeffs->a1;
-    _coeffs->a2 = _coeffs->a2 / -_coeffs->a1;
+    _coeffs->a0 = (my_float)coeffs_dbl.a0;
+    _coeffs->a1 = (my_float)coeffs_dbl.a1;
+    _coeffs->a2 = (my_float)coeffs_dbl.a2;
 
-    _coeffs->b0 = _coeffs->b0 / -_coeffs->a1;
-    _coeffs->b1 = 0.0f;
-    _coeffs->b2 =  _coeffs->b2 / -_coeffs->a1;
-    _coeffs->a1 = _coeffs->a1 / -_coeffs->a1;
+    printf("a0 = %f\n", _coeffs->a0);
+    printf("a1 = %f\n", _coeffs->a1);
+    printf("a2 = %f\n", _coeffs->a2);
 
-    printf("_coeffs->a0 %f\n",_coeffs->a0 );
-        printf("_coeffs->a1 %f\n",_coeffs->a1 );
-            printf("_coeffs->a2 %f\n",_coeffs->a2 );
+    _coeffs->b0 = (my_float)coeffs_dbl.b0;
+    _coeffs->b1 = (my_float)coeffs_dbl.b1;
+    _coeffs->b2 = (my_float)coeffs_dbl.b2;
 
-    printf("_coeffs->b0 %f\n",_coeffs->b0 );
-        printf("_coeffs->b1 %f\n",_coeffs->b1 );
-            printf("_coeffs->b2 %f\n",_coeffs->b2 );
+    printf("b0 = %f\n", _coeffs->b0);
+    printf("b1 = %f\n", _coeffs->b1);
+    printf("b2 = %f\n", _coeffs->b2);
+
 
     return 0;
 }

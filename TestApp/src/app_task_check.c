@@ -4,7 +4,8 @@
 static void print_hdr(char *input_f_path);
 
 int app_task_check(app_func_t *task){
-    if(task->generator && task->ouput){        
+    if(task->generator && task->ouput){
+        printf("asdasd\n");      
         return 0;
     }
     if(task->effect && task->input && task->ouput){

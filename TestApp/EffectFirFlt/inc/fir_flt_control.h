@@ -4,13 +4,6 @@
 #include <stdint.h>
 #include <stddef.h>
 
-#define PRM_GAIN_dB_ID          'Gain'
-#define PRM_SAMPLE_RATE_ID      'SMPR'
-#define PRM_FREQ_START_ID       'FSTA'
-#define PRM_FREQ_END_ID         'FEND'
-
-extern const double bpf_coef[256];
-
 /*******************************************************************************
  * Provides with the required data sizes for parameters and coefficients.
  *   It is caller responsibility to allocate enough memory (bytes) for them.
@@ -67,6 +60,5 @@ int32_t fir_flt_set_parameter(
 int32_t fir_flt_update_coeffs(
     void const* params,
     void*       coeffs);
-
 
 #endif

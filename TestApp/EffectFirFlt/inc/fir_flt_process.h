@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include <stddef.h>
 
-
 /*******************************************************************************
  * Provides with the required data sizes for states. It is caller responsibility
  *   to allocate enough memory (bytes) for them.

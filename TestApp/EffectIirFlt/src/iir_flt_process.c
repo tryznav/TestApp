@@ -1,37 +1,4 @@
-#include "iir_flt_process.h"
-#include "colors.h"
-#include <string.h>
-
-#include <stdio.h>
-#include <math.h>
-
-#define TAP_NUM     256
-
-#pragma pack(push,1)
-typedef struct chanes_s{
-    float Left;
-    float Right;
-}chanes_t;
-#pragma pack(pop)
-
-typedef float fir_coeffs_t;
-
-typedef struct iir_prm_t{
-	float a0;
-	float a1;
-	float a2;
-	float b0;
-	float b1;
-	float b2;
-}iir_coefs_t;
-
-typedef struct iir_states_t{
-	chanes_t input_1;
-	chanes_t input_2;
-	chanes_t output_1;
-	chanes_t output_2;
-}iir_states_t;
-
+#include "iir_flt.h"
 
 /******************************************************************************/
 
@@ -50,14 +17,14 @@ int32_t iir_flt_reset(
     void*       states){
 
     iir_states_t *_states = states;
-    _states->input_1.Left = 0;
-    _states->input_2.Left = 0;
-    _states->output_1.Left = 0;
-    _states->output_2.Left = 0;
-    _states->input_1.Right = 0;
-    _states->input_2.Right = 0;
-    _states->output_1.Right = 0;
-    _states->output_2.Right = 0;
+    _states->input_1.Left = 0.0f;
+    _states->input_2.Left = 0.0f;
+    _states->output_1.Left = 0.0f;
+    _states->output_2.Left = 0.0f;
+    _states->input_1.Right = 0.0f;
+    _states->input_2.Right = 0.0f;
+    _states->output_1.Right = 0.0f;
+    _states->output_2.Right = 0.0f;
 
     return 0;
 
@@ -93,8 +60,43 @@ static int32_t check(void const* coeffs,
 }
 
 
+
+
 chanes_t calc_iir(chanes_t inp, iir_states_t* _st, iir_coefs_t* coef){
     chanes_t out;
+    
+//     my_float acum = flt_mul(coef->b0, inp.Left);
+//     acum = flt_add(acum, flt_mul(coef->b1, _st->input_1.Left));
+//     acum = flt_add(acum, flt_mul(coef->b2, _st->input_2.Left));
+//     acum = flt_sub(acum, flt_mul(coef->a1, _st->output_1.Left));
+//     acum = flt_sub(acum, flt_mul(coef->a2, _st->output_2.Left));
+//     // acum = fxd63_rshift(acum, COEF_FRACTIONAL_BITS);
+//     // acum = saturation(acum);
+//     out.Left = (my_float)acum;
+// acum = 0.0f;
+//     // acum = flt_mul(coef->b0, inp.Right);
+//     // acum = flt_add(acum, flt_mul(coef->b1, _st->input_1.Right));
+//     // acum = flt_add(acum, flt_mul(coef->b2, _st->input_2.Right));
+//     // acum = flt_sub(acum, flt_mul(coef->a1, _st->output_1.Right));
+//     // acum = flt_sub(acum, flt_mul(coef->a2, _st->output_2.Right));
+//     // acum = fxd63_rshift(acum, COEF_FRACTIONAL_BITS);
+//     // acum = saturation(acum);
+//      out.Right = (my_float)acum;
+
+//     //update last samples...
+//     // _st->input_2.Right = _st->input_1.Right;
+//     // _st->input_1.Right = inp.Right;
+//     // _st->output_2.Right = _st->output_1.Right;
+//     // _st->output_1.Right = out.Right;
+
+//     _st->input_2.Left = _st->input_1.Left;
+//     _st->input_1.Left = inp.Left;
+//     _st->output_2.Left = _st->output_1.Left;
+//     _st->output_1.Left = out.Left;
+
+
+
+    // chanes_t out;
     out.Left =  (coef->b0 * inp.Left) +
                 (coef->b1 * _st->input_1.Left) +
                 (coef->b2 * _st->input_2.Left) -
@@ -115,7 +117,6 @@ chanes_t calc_iir(chanes_t inp, iir_states_t* _st, iir_coefs_t* coef){
     _st->output_2.Right = _st->output_1.Right;
     _st->output_1.Right = out.Right;
 
-    //update last samples...
     return out;
 }
 

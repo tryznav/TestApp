@@ -83,7 +83,7 @@ static chanes_t calc_iir(chanes_t inp, iir_states_t* _st, iir_coefs_t* coef){
     acum = saturation(acum);
     out.Right = (fxd_q31_t)acum;
 
-    //update last samples...
+    //update last samples
     _st->input_2.Left = _st->input_1.Left;
     _st->input_1.Left = inp.Left;
     _st->output_2.Left = _st->output_1.Left;

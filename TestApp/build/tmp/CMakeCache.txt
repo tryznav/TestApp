@@ -179,6 +179,9 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Value Computed by CMake
 EffectFirFlt_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/EffectFirFlt
 
+//Dependencies for the target
+EffectFirFlt_LIB_DEPENDS:STATIC=general;Arithmetic;
+
 //Value Computed by CMake
 EffectFirFlt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/EffectFirFlt
 
@@ -199,6 +202,9 @@ EffectGain_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/EffectGain
 
 //Value Computed by CMake
 EffectIirFlt_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/EffectIirFlt
+
+//Dependencies for the target
+EffectIirFlt_LIB_DEPENDS:STATIC=general;Arithmetic;
 
 //Value Computed by CMake
 EffectIirFlt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/EffectIirFlt

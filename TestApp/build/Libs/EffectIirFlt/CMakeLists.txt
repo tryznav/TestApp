@@ -8,4 +8,9 @@ add_library(${LIB_NAME} STATIC
     ../../../${LIB_NAME}/src/iir_flt_control.c
     ../../../${LIB_NAME}/src/iir_flt_process.c)
 
+target_link_libraries(${LIB_NAME} PRIVATE Arithmetic)
+
+target_include_directories(${LIB_NAME} PRIVATE ../../../Arithmetic/inc)
+
 target_include_directories(${LIB_NAME} PRIVATE ../../../${LIB_NAME}/inc)
+target_include_directories(${LIB_NAME} PRIVATE ../../../${LIB_NAME}/inc_close)

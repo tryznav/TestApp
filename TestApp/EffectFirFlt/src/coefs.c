@@ -33,3 +33,45 @@ const double bpf_coef[256] = {
   -0.00078869555,  0.00029395097,  0.00059922739, -0.00004009211,  0.00009987105,  0.00000080394, -0.00060678444, -0.00012956708,
    0.00050514300,  0.00011927613, -0.00001982469,  0.00012274276, -0.00033068927, -0.00033982048,  0.00029341332,  0.00025028949,
   -0.00004628404,  0.00010213537, -0.00010178670, -0.00038072996,  0.00006126254,  0.00031190206,  0.00000941789,  0.00003411635 };
+
+  
+//     // memset(coeff, 0, sizeof(double) * TAP_NUM);
+//     // for(int i = 0; i < TAP_NUM; i++){
+//     //     double tmp = (1.0 / ((double)i - 0.5) * M_PI) * sin( 2 * M_PI )* ((double)i - 0.5) * (double)cutoff_freq.sweep.end;
+//     //       printf("cutoff_freq.sweep.end[%d] = %f\n", i, cutoff_freq.sweep.end);
+//     //     tmp -=  sin( 2 * M_PI )* ((double)i - 0.5) *cutoff_freq.sweep.start;
+//     //     printf("tmp[%d] = %f\n", i, tmp);
+//     //     coeff[i] = (float)tmp;
+//     // }
+//     for (int i = 0; i <  TAP_NUM; i++ ){
+//         ((float *)coeff)[i] = 0;
+//     }
+
+//     int nm = (TAP_NUM - 1) / 2;                                 //номера значений для коэфф фильтра симметричны
+//     int j = nm;                                                 //отсчет от середины фильтра
+
+//     for (int i = 0; i < nm; i++) {
+//         if (i == 0)
+//         {
+//             coeff[j] = 2.0f * (cutoff_freq.sweep.end - cutoff_freq.sweep.start);
+//             // printf("coeff[%d] = %f\n",  j, coeff[j]);
+//         }
+//         else
+//         {
+//             coeff[j + i] = (float)(1.0/(M_PI * (double)i) * (sin(2.0 * M_PI * (double)i *(double)cutoff_freq.sweep.end))); //- sin(2.0 * M_PI * (double)i *(double)cutoff_freq.sweep.start)));
+//             coeff[j - i] = coeff[j + i];
+//             printf("coeff[%d] = %f\n",  j, coeff[j + i]);
+//         }
+//     }
+//     // float acom = 0;
+//     // for (int i = 0; i <  TAP_NUM; i++ ){
+//     //     acom += ((float *)coeff)[i];
+//     // }
+//     for (int i = 0; i <  TAP_NUM; i++ ){
+//         //  printf("coeffs[%d] = %f\n", i, ((float *)coeff)[i]);
+//         // ((float *)coeff)[i] = ((float *)coeff)[i] / acom;
+       
+//     }
+//     // printf("acom %f\n", acom);
+//     return 0;
+// }

@@ -75,7 +75,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsC</CompileAs>
@@ -92,10 +92,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -108,7 +108,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -125,10 +125,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -141,7 +141,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -158,10 +158,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -174,7 +174,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -190,10 +190,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc;D:\TestApp\TestApp\build\Libs\EffectIirFlt\..\..\..\EffectIirFlt\inc_close;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -268,6 +268,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\ZERO_CHECK.vcxproj">
       <Project>{6C8658F8-03E2-351E-A7A5-341A5A5536CB}</Project>
       <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Arithmetic\Arithmetic.vcxproj">
+      <Project>{B1C71917-8A32-3E29-9BE8-C26EAAAF859A}</Project>
+      <Name>Arithmetic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

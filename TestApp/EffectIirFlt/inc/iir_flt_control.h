@@ -4,11 +4,6 @@
 #include <stdint.h>
 #include <stddef.h>
 
-#define PRM_GAIN_dB_ID          'Gain'
-#define PRM_SAMPLE_RATE_ID      'SMPR'
-#define PRM_FREQ_START_ID       'FSTA'
-#define PRM_FREQ_END_ID         'FEND'
-
 /*******************************************************************************
  * Provides with the required data sizes for parameters and coefficients.
  *   It is caller responsibility to allocate enough memory (bytes) for them.

@@ -13,6 +13,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arithmetic", "..\Libs\Arith
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EffectFirFlt", "..\Libs\EffectFirFlt\EffectFirFlt.vcxproj", "{A4E67555-3B48-3ACC-AAD2-70EE7569E54D}"
 	ProjectSection(ProjectDependencies) = postProject
+		{B1C71917-8A32-3E29-9BE8-C26EAAAF859A} = {B1C71917-8A32-3E29-9BE8-C26EAAAF859A}
 		{6C8658F8-03E2-351E-A7A5-341A5A5536CB} = {6C8658F8-03E2-351E-A7A5-341A5A5536CB}
 	EndProjectSection
 EndProject
@@ -29,6 +30,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EffectGain", "..\Libs\Effec
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EffectIirFlt", "..\Libs\EffectIirFlt\EffectIirFlt.vcxproj", "{DD56F0C4-9450-3558-97CA-33F935ED242B}"
 	ProjectSection(ProjectDependencies) = postProject
+		{B1C71917-8A32-3E29-9BE8-C26EAAAF859A} = {B1C71917-8A32-3E29-9BE8-C26EAAAF859A}
 		{6C8658F8-03E2-351E-A7A5-341A5A5536CB} = {6C8658F8-03E2-351E-A7A5-341A5A5536CB}
 	EndProjectSection
 EndProject

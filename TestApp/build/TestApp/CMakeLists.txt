@@ -30,6 +30,8 @@ target_link_libraries(${PR_NAME} PRIVATE EffectIirFlt)
 
 target_include_directories(${PR_NAME} PRIVATE ../../inc)
 
+# target_include_directories(${LIB_NAME} PRIVATE ../../Arithmetic/inc)
+
 target_include_directories(${PR_NAME} PRIVATE ../../EffectIirFlt/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../EffectIirFxd/inc)
 

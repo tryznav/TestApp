@@ -1,6 +1,6 @@
 #include "test_app.h"
 
-static int parse_generator_opt(char * opt, tgen_t *task);
+static tgen_t * parse_generator_opt(char * opt);
 static void print_help(void);
 
 main (int argc, char **argv)
@@ -21,7 +21,7 @@ main (int argc, char **argv)
         {"out",       required_argument, 0, 'o'},
         {"fir_bpf",   required_argument, 0, 'b'},
         {"iir_bpf",   required_argument, 0, 'r'},
-        {"pmc",       no_argument,       0, 'q'},
+        {"PMC",       no_argument,       0, 'q'},
         {"IEEE_754",  no_argument,       0, 'f'},
         {"generator", required_argument, 0, 's'},
         {0, 0, 0, 0}
@@ -29,7 +29,7 @@ main (int argc, char **argv)
     /* getopt_long stores the option index here. */
     int option_index = 0;
 
-    c = getopt_long (argc, argv, "hpqfo:g:i:b:r:",
+    c = getopt_long (argc, argv, "hpqfo:g:i:b:r:s:",
                       long_options, &option_index);
 
     /* Detect the end of the options. */
@@ -71,7 +71,10 @@ main (int argc, char **argv)
         memcpy(app_task->output_f_path, optarg, (strlen(optarg) + 1));
         break;
       case 's':
-        parse_generator_opt(optarg, app_task->generator);
+        app_task->generator = parse_generator_opt(optarg);
+        if(!app_task->generator){
+          printf("error");
+        }
         break;
       case 'b':
         app_task->effect = malloc(sizeof(effect_task_t));
@@ -139,14 +142,15 @@ main (int argc, char **argv)
   exit (EXIT_SUCCESS);
 }
 
-static int parse_generator_opt(char * opt, tgen_t * generator){
+static tgen_t * parse_generator_opt(char * opt){
   char *sapmle_rate_ch = NULL;
   char *length_ms_ch = NULL;
   char *Sig_type = NULL;
   char *ifn = NULL;
+  tgen_t * generator;
 
   generator = malloc (sizeof(tgen_t));
-    if(generator){
+  if(!generator){
     fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
     exit(EXIT_FAILURE);
   }
@@ -175,12 +179,13 @@ static int parse_generator_opt(char * opt, tgen_t * generator){
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "delta")){
    generator->signal_id = TSIG_DELTA;
-   return 0;
+   printf("DELTA\n");
+   return generator;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "step")){
     generator->signal_id = TSIG_STEP;
-    return 0;
+    return generator;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "square")){
@@ -192,7 +197,7 @@ static int parse_generator_opt(char * opt, tgen_t * generator){
       exit(EXIT_FAILURE);
     }
     generator->period_ms = (uint32_t)atol(ifn);
-    return 0;
+    return generator;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "wnoise")){
@@ -204,7 +209,7 @@ static int parse_generator_opt(char * opt, tgen_t * generator){
       exit(EXIT_FAILURE);
     }
     generator->amp_dB.whole_file = (float)atof(ifn);
-    return 0;
+    return generator;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "sine")){
@@ -223,7 +228,7 @@ static int parse_generator_opt(char * opt, tgen_t * generator){
       exit(EXIT_FAILURE);
     }
     generator->amp_dB.whole_file = (float)atof(ifn);
-    return 0;
+    return generator;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "chirp_linear")){
@@ -246,7 +251,7 @@ static int parse_generator_opt(char * opt, tgen_t * generator){
       exit(EXIT_FAILURE);
     }
     generator->amp_dB.whole_file = (float)atof(ifn);
-    return 0;
+    return generator;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "chirp_logarithmic")){
@@ -269,7 +274,7 @@ static int parse_generator_opt(char * opt, tgen_t * generator){
       exit(EXIT_FAILURE);
     }
     generator->amp_dB.whole_file = (float)atof(ifn);
-    return 0;
+    return generator;
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(strstr( Sig_type, "lsweep")){
@@ -295,10 +300,10 @@ static int parse_generator_opt(char * opt, tgen_t * generator){
       exit(EXIT_FAILURE);
     }
     generator->amp_dB.sweep.end  = (float)atof(ifn);
-    return 0;
+    return generator;
   }
   fprintf(stderr, RED "Error: "RESET BOLDWHITE"'%s' non-arg --generator. Specify"BOLDYELLOW" --help"BOLDWHITE" for usage\n"RESET, opt);
-  return -1;
+  return NULL;
 }
 
 static void print_help(void){

@@ -6,15 +6,10 @@
 
 #define COEF_FRACTIONAL_BITS    16
 
-
 #define PRM_GAIN_dB_ID          'Gain'
 #define PRM_SAMPLE_RATE_ID      'SMPR'
 #define PRM_FREQ_START_ID       'FSTA'
 #define PRM_FREQ_END_ID         'FEND'
-
-
-
-
 
 extern const double bpf_coef[256];
 
