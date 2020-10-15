@@ -38,7 +38,7 @@ target_include_directories(${PR_NAME} PRIVATE ../../EffectIirFxd/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../EffectFirFlt/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../EffectFirFxd/inc)
 
-target_include_directories(${PR_NAME} PRIVATE ../../Effects/inc)
+target_include_directories(${PR_NAME} PRIVATE ../../EffectGain/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../GetOpt/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../TestSigGen/inc)
 
