@@ -66,15 +66,6 @@ static int32_t check(void const* coeffs,
 static chanes_t calc_iir(chanes_t inp, iir_states_t* _st, iir_coefs_t* coef){
     chanes_t out;
 
-    // printf("a0 = %d\n", coef->a0);
-    // printf("a1 = %d\n", coef->a1);
-    // printf("a2 = %d\n", coef->a2);
-
-
-    // printf("b0 = %d\n", coef->b0);
-    // printf("b1 = %d\n", coef->b1);
-    // printf("b2 = %d\n", coef->b2);
-// printf("u %d", inp.Left);
     fxd_q63_t acum = fxd_fmul(coef->b0, inp.Left);
     acum += _st->dizer.Left;
     acum = fxd63_add(acum, fxd_fmul(coef->b1, _st->input_1.Left));
@@ -86,7 +77,7 @@ static chanes_t calc_iir(chanes_t inp, iir_states_t* _st, iir_coefs_t* coef){
     acum = saturation(acum);
     out.Left = (fxd_q31_t)acum;
 
-    // printf("out.Left %d\n", out.Left);
+
     
     acum = fxd_fmul(coef->b0, inp.Right);
     // acum += _st->dizer.Right;

@@ -51,7 +51,7 @@ int32_t app_handl(app_func_t *task){
     process(&pr);
 
     del_proc_prm(&pr);
-
+    printf(BOLDGREEN"DONE\n"RESET);
 
     return 0;
 }
@@ -126,7 +126,7 @@ static int32_t set_handl_prm(pross_waw_t *pr, wav_hdr_t *hdr, app_func_t *task){
        hdr->DataChunk->chunkSize = ((pr->audio.size_byte / pr->audio.size_byte) + 1) * pr->buff.size_byte;
     }
     hdr->RiffChunk->chunkSize = sizeof(RiffChunk_t) - 8 + sizeof(FmtChunk_t) + sizeof(DataChunk_t) + hdr->DataChunk->chunkSize;
-    printf(BOLDGREEN"DONE\n"RESET);
+
     if(task->effect){
         n = app_efect_init(pr, hdr, task->effect);
         if(n != 0){
@@ -134,7 +134,7 @@ static int32_t set_handl_prm(pross_waw_t *pr, wav_hdr_t *hdr, app_func_t *task){
             return -1;
         }
     }
-    printf(BOLDGREEN"DONE2\n"RESET);
+
 
     return 0;
 }

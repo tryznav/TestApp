@@ -94,29 +94,6 @@ acum = 0.0f;
     _st->output_2.Left = _st->output_1.Left;
     _st->output_1.Left = out.Left;
 
-
-
-    // // chanes_t out;
-    // out.Left =  (coef->b0 * inp.Left) +
-    //             (coef->b1 * _st->input_1.Left) +
-    //             (coef->b2 * _st->input_2.Left) -
-    //             (coef->a1 * _st->output_1.Left) -
-    //             (coef->a2 * _st->output_2.Left);
-    // _st->input_2.Left = _st->input_1.Left;
-    // _st->input_1.Left = inp.Left;
-    // _st->output_2.Left = _st->output_1.Left;
-    // _st->output_1.Left = out.Left;
-
-    // out.Right =  (coef->b0 * inp.Right) +
-    //             (coef->b1 * _st->input_1.Right) +
-    //             (coef->b2 * _st->input_2.Right) -
-    //             (coef->a1 * _st->output_1.Right) -
-    //             (coef->a2 * _st->output_2.Right);
-    // _st->input_2.Right = _st->input_1.Right;
-    // _st->input_1.Right = inp.Right;
-    // _st->output_2.Right = _st->output_1.Right;
-    // _st->output_1.Right = out.Right;
-
     return out;
 }
 

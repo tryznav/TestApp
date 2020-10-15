@@ -4,19 +4,13 @@ static int32_t iir_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     iir_doub_coefs_t coeffs_dbl;
 
     _prm->BW = (double)(_prm->cutoff_freq.sweep.end - _prm->cutoff_freq.sweep.start);
-    //  printf("_prm->cutoff_freq = %f %f\n", _prm->cutoff_freq.sweep.end, _prm->cutoff_freq.sweep.start);
     _prm->f0 =  (double)(_prm->cutoff_freq.sweep.end + _prm->cutoff_freq.sweep.start) / 2.0;
-    // printf("_prm->f0 = %f\n", _prm->f0);
+
     _prm->Q = _prm->f0 / _prm->BW;
-    // _prm->Q = 1;
-    //  printf("_prm->Q = %f\n", _prm->Q);
+
     _prm->w = 2 * M_PI * _prm->f0 / _prm->sample_rate;
-_prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
+    _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
 
-// // printf("_prm->alpha %f\n",_prm->alpha );
-//     _prm->alpha = sin(_prm->w) * sinh(((log10(2)) / 2.0 ) * _prm->BW * (_prm->w / sin(_prm->w)));    // sin(_prm->w)/(2.0 * _prm->Q);
-
-// printf("_prm->alpha %f\n",_prm->alpha );
 
 
     coeffs_dbl.a0 = 1.0 + _prm->alpha;
@@ -41,17 +35,17 @@ _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
     _coeffs->a1 = (my_float)coeffs_dbl.a1;
     _coeffs->a2 = (my_float)coeffs_dbl.a2;
 
-    printf("a0 = %f\n", _coeffs->a0);
-    printf("a1 = %f\n", _coeffs->a1);
-    printf("a2 = %f\n", _coeffs->a2);
+    // printf("a0 = %f\n", _coeffs->a0);
+    // printf("a1 = %f\n", _coeffs->a1);
+    // printf("a2 = %f\n", _coeffs->a2);
 
     _coeffs->b0 = (my_float)coeffs_dbl.b0;
     _coeffs->b1 = (my_float)coeffs_dbl.b1;
     _coeffs->b2 = (my_float)coeffs_dbl.b2;
 
-    printf("b0 = %f\n", _coeffs->b0);
-    printf("b1 = %f\n", _coeffs->b1);
-    printf("b2 = %f\n", _coeffs->b2);
+    // printf("b0 = %f\n", _coeffs->b0);
+    // printf("b1 = %f\n", _coeffs->b1);
+    // printf("b2 = %f\n", _coeffs->b2);
 
 
     return 0;
@@ -145,6 +139,5 @@ int32_t iir_flt_update_coeffs(
 
     iir_coeff_calc((iir_prm_t *)params, (iir_coefs_t  *)coeffs);
 
-    printf("fir_flt_update_coeffs\n");
     return 0;
 }

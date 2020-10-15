@@ -9,7 +9,7 @@ main (int argc, char **argv)
   app_func_t *app_task = (app_func_t *)malloc(sizeof(app_func_t));
   memset(app_task,0, sizeof(app_func_t));
   app_task->audioFormatType = IEEE_754;
-  char *fin;
+  // char *fin;
 
   while (1){
     static struct option long_options[] =
@@ -19,8 +19,8 @@ main (int argc, char **argv)
         {"gain",      required_argument, 0, 'g'},
         {"in",        required_argument, 0, 'i'},
         {"out",       required_argument, 0, 'o'},
-        {"fir_bpf",   required_argument, 0, 'b'},
-        {"iir_bpf",   required_argument, 0, 'r'},
+        {"fir_bpf",   no_argument,       0, 'b'},
+        {"iir_bpf",   no_argument,       0, 'r'},
         {"PCM",       no_argument,       0, 'q'},
         {"IEEE_754",  no_argument,       0, 'f'},
         {"generator", required_argument, 0, 's'},
@@ -79,26 +79,26 @@ main (int argc, char **argv)
       case 'b':
         app_task->effect = malloc(sizeof(effect_task_t));
         app_task->effect->effect_type = EFFECT_ID_FIR;
-        printf(" EFFECT_ID_FIR");
-        app_task->effect->prm.cutoff_freq.sweep.start = (float)atof(optarg);
-         fin = strchr(optarg, '_');
-        fin = fin + 1;
-        app_task->effect->prm.cutoff_freq.sweep.end = (float)atof(fin);
-        printf("prm.cutoff_freq.sweep.start %f\n", app_task->effect->prm.cutoff_freq.sweep.start );
-        printf("app_task->effect->prm.cutoff_freq.sweep.end %f\n", app_task->effect->prm.cutoff_freq.sweep.end);
+        // printf(" EFFECT_ID_FIR");
+        app_task->effect->prm.cutoff_freq.sweep.start = 0;// (float)atof(optarg);
+        // fin = strchr(optarg, '_');
+        // fin = fin + 1;
+        app_task->effect->prm.cutoff_freq.sweep.end = 0; //(float)atof(fin);
+        // printf("prm.cutoff_freq.sweep.start %f\n", app_task->effect->prm.cutoff_freq.sweep.start );
+        // printf("app_task->effect->prm.cutoff_freq.sweep.end %f\n", app_task->effect->prm.cutoff_freq.sweep.end);
         break;
       case 'r':
         app_task->effect = malloc(sizeof(effect_task_t));
         app_task->effect->effect_type = EFFECT_ID_IIR;
-        app_task->effect->prm.cutoff_freq.sweep.start = (float)atof(optarg);
-        fin = strchr(optarg, '_');
-        fin = fin + 1;
-        app_task->effect->prm.cutoff_freq.sweep.end = (float)atof(fin);
-        printf("prm.cutoff_freq.sweep.start %f\n", app_task->effect->prm.cutoff_freq.sweep.start );
-        printf("app_task->effect->prm.cutoff_freq.sweep.end %f\n", app_task->effect->prm.cutoff_freq.sweep.end);
+        app_task->effect->prm.cutoff_freq.sweep.start = 0; //(float)atof(optarg);
+        // fin = strchr(optarg, '_');
+        // fin = fin + 1;
+        app_task->effect->prm.cutoff_freq.sweep.end = 0; //(float)atof(fin);
+        // printf("prm.cutoff_freq.sweep.start %f\n", app_task->effect->prm.cutoff_freq.sweep.start );
+        // printf("app_task->effect->prm.cutoff_freq.sweep.end %f\n", app_task->effect->prm.cutoff_freq.sweep.end);
         break;
       case 'f':
-          printf("IEEE_754\n");
+          printf(BOLDCYAN"IEEE_754\n"RESET);
           app_task->audioFormatType = IEEE_754;
         break;
       case 'q':
@@ -312,6 +312,8 @@ static void print_help(void){
   printf("%s",HELP_TEXT_OUT);
   printf("%s",HELP_TEXT_P_HDR);
   printf("%s",HELP_TEXT_GAIN);
+  printf("%s",HELP_TEXT_IIR_BPF);
+  printf("%s",HELP_TEXT_FIR_BPF);
   printf("%s",HELP_TEXT_GENER_1);
   printf("%s",HELP_TEXT_GENER_2);
   printf("%s",HELP_TEXT_GEN_S_T);

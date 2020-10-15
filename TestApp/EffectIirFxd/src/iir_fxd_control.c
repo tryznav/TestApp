@@ -6,20 +6,13 @@ static int32_t iir_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     iir_doub_coefs_t coeffs_dbl;
 
     _prm->BW = (double)(_prm->cutoff_freq.sweep.end - _prm->cutoff_freq.sweep.start);
-    //  printf("_prm->cutoff_freq = %f %f\n", _prm->cutoff_freq.sweep.end, _prm->cutoff_freq.sweep.start);
+   
     _prm->f0 =  (double)(_prm->cutoff_freq.sweep.end + _prm->cutoff_freq.sweep.start) / 2.0;
-    // printf("_prm->f0 = %f\n", _prm->f0);
+
     _prm->Q = _prm->f0 / _prm->BW;
-    // _prm->Q = 1;
-    //  printf("_prm->Q = %f\n", _prm->Q);
+
     _prm->w = 2 * M_PI * _prm->f0 / _prm->sample_rate;
-_prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
-
-// // printf("_prm->alpha %f\n",_prm->alpha );
-//     _prm->alpha = sin(_prm->w) * sinh(((log10(2)) / 2.0 ) * _prm->BW * (_prm->w / sin(_prm->w)));    // sin(_prm->w)/(2.0 * _prm->Q);
-
-// printf("_prm->alpha %f\n",_prm->alpha );
-
+    _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
 
     coeffs_dbl.a0 = 1.0 + _prm->alpha;
     coeffs_dbl.a1 = -2.0 * cos(_prm->w);
@@ -39,13 +32,13 @@ _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
     coeffs_dbl.a0 = coeffs_dbl.a0  / coeffs_dbl.a0;
 
     
-    printf("a0 = %f\n", coeffs_dbl.a0);
-    printf("a1 = %f\n", coeffs_dbl.a1);
-    printf("a2 = %f\n", coeffs_dbl.a2);
+    // printf("a0 = %f\n", coeffs_dbl.a0);
+    // printf("a1 = %f\n", coeffs_dbl.a1);
+    // printf("a2 = %f\n", coeffs_dbl.a2);
 
-    printf("b0 = %f\n", coeffs_dbl.b0);
-    printf("b1 = %f\n", coeffs_dbl.b1);
-    printf("b2 = %f\n", coeffs_dbl.b2);
+    // printf("b0 = %f\n", coeffs_dbl.b0);
+    // printf("b1 = %f\n", coeffs_dbl.b1);
+    // printf("b2 = %f\n", coeffs_dbl.b2);
 
 
     _coeffs->a0 = dbl_to_fxd_p(coeffs_dbl.a0, COEF_FRACTIONAL_BITS);
@@ -56,14 +49,14 @@ _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
     _coeffs->b1 = dbl_to_fxd_p(coeffs_dbl.b1, COEF_FRACTIONAL_BITS);
     _coeffs->b2 = dbl_to_fxd_p(coeffs_dbl.b2, COEF_FRACTIONAL_BITS);
 
-    printf("a0 = %d\n", _coeffs->a0);
-    printf("a1 = %d\n", _coeffs->a1);
-    printf("a2 = %d\n", _coeffs->a2);
+    // printf("a0 = %d\n", _coeffs->a0);
+    // printf("a1 = %d\n", _coeffs->a1);
+    // printf("a2 = %d\n", _coeffs->a2);
 
 
-    printf("b0 = %d\n", _coeffs->b0);
-    printf("b1 = %d\n", _coeffs->b1);
-    printf("b2 = %d\n", _coeffs->b2);
+    // printf("b0 = %d\n", _coeffs->b0);
+    // printf("b1 = %d\n", _coeffs->b1);
+    // printf("b2 = %d\n", _coeffs->b2);
 
     return 0;
 }
@@ -156,7 +149,5 @@ int32_t iir_fxd_update_coeffs(
 
     iir_coeff_calc((iir_prm_t *)params, (iir_coefs_t  *)coeffs);
 
-
-    printf("fir_flt_update_coeffs\n");
     return 0;
 }
