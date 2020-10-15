@@ -36,8 +36,8 @@ int32_t tsig_gen_delta_st(uint32_t length_sample, void* states, void *audio){
         _st->ex = 1;
     }
 
-    if(_st->audioFormat == PMC){
-        IEEE_754_to_PMC(audio, length_sample);
+    if(_st->audioFormat == PCM){
+        IEEE_754_to_PCM(audio, length_sample);
     }
 
     return 0;

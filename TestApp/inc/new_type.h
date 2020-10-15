@@ -14,7 +14,7 @@
 #define     fmt_CHUNK_ID        ' tmf'  //0x666D7420
 #define     data_CHUNK_ID       'atad'  //0x64617461
 
-#define     PMC                 1
+#define     PCM                 1
 #define     IEEE_754            3
 
 #define     STEREO_DATA         2

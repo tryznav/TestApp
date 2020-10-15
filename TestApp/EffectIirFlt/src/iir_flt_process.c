@@ -65,57 +65,57 @@ static int32_t check(void const* coeffs,
 chanes_t calc_iir(chanes_t inp, iir_states_t* _st, iir_coefs_t* coef){
     chanes_t out;
     
-//     my_float acum = flt_mul(coef->b0, inp.Left);
-//     acum = flt_add(acum, flt_mul(coef->b1, _st->input_1.Left));
-//     acum = flt_add(acum, flt_mul(coef->b2, _st->input_2.Left));
-//     acum = flt_sub(acum, flt_mul(coef->a1, _st->output_1.Left));
-//     acum = flt_sub(acum, flt_mul(coef->a2, _st->output_2.Left));
-//     // acum = fxd63_rshift(acum, COEF_FRACTIONAL_BITS);
-//     // acum = saturation(acum);
-//     out.Left = (my_float)acum;
-// acum = 0.0f;
-//     // acum = flt_mul(coef->b0, inp.Right);
-//     // acum = flt_add(acum, flt_mul(coef->b1, _st->input_1.Right));
-//     // acum = flt_add(acum, flt_mul(coef->b2, _st->input_2.Right));
-//     // acum = flt_sub(acum, flt_mul(coef->a1, _st->output_1.Right));
-//     // acum = flt_sub(acum, flt_mul(coef->a2, _st->output_2.Right));
-//     // acum = fxd63_rshift(acum, COEF_FRACTIONAL_BITS);
-//     // acum = saturation(acum);
-//      out.Right = (my_float)acum;
+    my_float acum = flt_mul(coef->b0, inp.Left);
+    acum = flt_add(acum, flt_mul(coef->b1, _st->input_1.Left));
+    acum = flt_add(acum, flt_mul(coef->b2, _st->input_2.Left));
+    acum = flt_sub(acum, flt_mul(coef->a1, _st->output_1.Left));
+    acum = flt_sub(acum, flt_mul(coef->a2, _st->output_2.Left));
+    // acum = fxd63_rshift(acum, COEF_FRACTIONAL_BITS);
+    // acum = saturation(acum);
+    out.Left = (my_float)acum;
+acum = 0.0f;
+    acum = flt_mul(coef->b0, inp.Right);
+    acum = flt_add(acum, flt_mul(coef->b1, _st->input_1.Right));
+    acum = flt_add(acum, flt_mul(coef->b2, _st->input_2.Right));
+    acum = flt_sub(acum, flt_mul(coef->a1, _st->output_1.Right));
+    acum = flt_sub(acum, flt_mul(coef->a2, _st->output_2.Right));
+    // acum = fxd63_rshift(acum, COEF_FRACTIONAL_BITS);
+    // acum = saturation(acum);
+     out.Right = (my_float)acum;
 
-//     //update last samples...
-//     // _st->input_2.Right = _st->input_1.Right;
-//     // _st->input_1.Right = inp.Right;
-//     // _st->output_2.Right = _st->output_1.Right;
-//     // _st->output_1.Right = out.Right;
+    //update last samples...
+    _st->input_2.Right = _st->input_1.Right;
+    _st->input_1.Right = inp.Right;
+    _st->output_2.Right = _st->output_1.Right;
+    _st->output_1.Right = out.Right;
 
-//     _st->input_2.Left = _st->input_1.Left;
-//     _st->input_1.Left = inp.Left;
-//     _st->output_2.Left = _st->output_1.Left;
-//     _st->output_1.Left = out.Left;
-
-
-
-    // chanes_t out;
-    out.Left =  (coef->b0 * inp.Left) +
-                (coef->b1 * _st->input_1.Left) +
-                (coef->b2 * _st->input_2.Left) -
-                (coef->a1 * _st->output_1.Left) -
-                (coef->a2 * _st->output_2.Left);
     _st->input_2.Left = _st->input_1.Left;
     _st->input_1.Left = inp.Left;
     _st->output_2.Left = _st->output_1.Left;
     _st->output_1.Left = out.Left;
 
-    out.Right =  (coef->b0 * inp.Right) +
-                (coef->b1 * _st->input_1.Right) +
-                (coef->b2 * _st->input_2.Right) -
-                (coef->a1 * _st->output_1.Right) -
-                (coef->a2 * _st->output_2.Right);
-    _st->input_2.Right = _st->input_1.Right;
-    _st->input_1.Right = inp.Right;
-    _st->output_2.Right = _st->output_1.Right;
-    _st->output_1.Right = out.Right;
+
+
+    // // chanes_t out;
+    // out.Left =  (coef->b0 * inp.Left) +
+    //             (coef->b1 * _st->input_1.Left) +
+    //             (coef->b2 * _st->input_2.Left) -
+    //             (coef->a1 * _st->output_1.Left) -
+    //             (coef->a2 * _st->output_2.Left);
+    // _st->input_2.Left = _st->input_1.Left;
+    // _st->input_1.Left = inp.Left;
+    // _st->output_2.Left = _st->output_1.Left;
+    // _st->output_1.Left = out.Left;
+
+    // out.Right =  (coef->b0 * inp.Right) +
+    //             (coef->b1 * _st->input_1.Right) +
+    //             (coef->b2 * _st->input_2.Right) -
+    //             (coef->a1 * _st->output_1.Right) -
+    //             (coef->a2 * _st->output_2.Right);
+    // _st->input_2.Right = _st->input_1.Right;
+    // _st->input_1.Right = inp.Right;
+    // _st->output_2.Right = _st->output_1.Right;
+    // _st->output_1.Right = out.Right;
 
     return out;
 }

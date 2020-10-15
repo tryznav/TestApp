@@ -61,6 +61,7 @@ typedef struct chanes_s{
 #pragma pack(pop)
 
 typedef struct iir_states_t{
+	chanes_t dizer;
 	chanes_t input_1;
 	chanes_t input_2;
 	chanes_t output_1;

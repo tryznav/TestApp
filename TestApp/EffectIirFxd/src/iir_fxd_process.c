@@ -27,7 +27,8 @@ int32_t iir_fxd_reset(
     _states->input_2.Right = 0;
     _states->output_1.Right = 0;
     _states->output_2.Right = 0;
-
+    _states->dizer.Left = 0;
+    _states->dizer.Right = 0;
     return 0;
 
 }
@@ -65,20 +66,36 @@ static int32_t check(void const* coeffs,
 static chanes_t calc_iir(chanes_t inp, iir_states_t* _st, iir_coefs_t* coef){
     chanes_t out;
 
+    // printf("a0 = %d\n", coef->a0);
+    // printf("a1 = %d\n", coef->a1);
+    // printf("a2 = %d\n", coef->a2);
+
+
+    // printf("b0 = %d\n", coef->b0);
+    // printf("b1 = %d\n", coef->b1);
+    // printf("b2 = %d\n", coef->b2);
+// printf("u %d", inp.Left);
     fxd_q63_t acum = fxd_fmul(coef->b0, inp.Left);
+    acum += _st->dizer.Left;
     acum = fxd63_add(acum, fxd_fmul(coef->b1, _st->input_1.Left));
     acum = fxd63_add(acum, fxd_fmul(coef->b2, _st->input_2.Left));
     acum = fxd63_sub(acum, fxd_fmul(coef->a1, _st->output_1.Left));
     acum = fxd63_sub(acum, fxd_fmul(coef->a2, _st->output_2.Left));
+    _st->dizer.Left = (fxd_q31_t)(acum & ((1u << COEF_FRACTIONAL_BITS) - 1));
     acum = fxd63_rshift(acum, COEF_FRACTIONAL_BITS);
     acum = saturation(acum);
     out.Left = (fxd_q31_t)acum;
 
+    // printf("out.Left %d\n", out.Left);
+    
     acum = fxd_fmul(coef->b0, inp.Right);
+    // acum += _st->dizer.Right;
     acum = fxd63_add(acum, fxd_fmul(coef->b1, _st->input_1.Right));
     acum = fxd63_add(acum, fxd_fmul(coef->b2, _st->input_2.Right));
     acum = fxd63_sub(acum, fxd_fmul(coef->a1, _st->output_1.Right));
     acum = fxd63_sub(acum, fxd_fmul(coef->a2, _st->output_2.Right));
+    // printf("_st->dizer.Left = %d\n", _st->dizer.Left);
+    // _st->dizer.Right = (fxd_q31_t)(acum & (COEF_FRACTIONAL_BITS - 1));
     acum = fxd63_rshift(acum, COEF_FRACTIONAL_BITS);
     acum = saturation(acum);
     out.Right = (fxd_q31_t)acum;
@@ -93,6 +110,8 @@ static chanes_t calc_iir(chanes_t inp, iir_states_t* _st, iir_coefs_t* coef){
     _st->input_1.Right = inp.Right;
     _st->output_2.Right = _st->output_1.Right;
     _st->output_1.Right = out.Right;
+    //  printf("ALL\n");
+    // exit(0);
 
     return out;
 }

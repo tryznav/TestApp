@@ -34,9 +34,7 @@ int32_t app_handl(app_func_t *task){
 
 
     set_handl_prm(&pr, &hdr, task);
-    printf(BOLDGREEN"DONE\n"RESET);
-        printf(BOLDGREEN"DONE EXIT\n"RESET);
-        printf("pr.dest_file = %s\n",pr.dest_f_path );
+
         
 
     if((pr.dest_file = fhand_newav(pr.dest_f_path, &hdr)) == NULL){
@@ -46,14 +44,14 @@ int32_t app_handl(app_func_t *task){
         fclose(pr.src_file);
         return -1;
     }
-    printf(BOLDGREEN"DONE\n"RESET);
+
 
     free_chunk_hdr(&hdr);
-       printf(BOLDGREEN"DONE EXIT\n"RESET);
+
     process(&pr);
 
     del_proc_prm(&pr);
-    printf(BOLDGREEN"DONE EXIT\n"RESET);
+
 
     return 0;
 }
@@ -148,12 +146,12 @@ static int32_t check( pross_waw_t *pr, wav_hdr_t *hdr){
         fprintf(stderr,RED"Error: Wrong audio format. "BOLDWHITE"App support stereo data.\n"RESET);
         return -1;
     }
-    if(hdr->FmtChunk->audioFormat != PMC && hdr->FmtChunk->audioFormat != IEEE_754){
-        fprintf(stderr,RED"Error: Wrong audio format. "BOLDWHITE"App support PMC and IEEE 754 formats.\n"RESET);
+    if(hdr->FmtChunk->audioFormat != PCM && hdr->FmtChunk->audioFormat != IEEE_754){
+        fprintf(stderr,RED"Error: Wrong audio format. "BOLDWHITE"App support PCM and IEEE 754 formats.\n"RESET);
         return -1;
     }
     if(pr->efect){
-        if(hdr->FmtChunk->audioFormat == PMC){
+        if(hdr->FmtChunk->audioFormat == PCM){
             fprintf(stderr,RED"Error: Wrong audio format. "BOLDWHITE"Effect support IEEE 754 formats.\n"RESET);
             return -1;
         }

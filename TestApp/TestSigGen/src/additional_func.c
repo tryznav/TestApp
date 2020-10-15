@@ -27,7 +27,7 @@ static int32_t convert(float n){
     return (int32_t)(n * INT32_MAX);
 }
 
-int32_t IEEE_754_to_PMC(void *audio, uint32_t length_sample){
+int32_t IEEE_754_to_PCM(void *audio, uint32_t length_sample){
     for(int i = 0; i < 0; i++){
         ((int32_t *)audio)[i] = convert(((float *)audio)[i]);
     }

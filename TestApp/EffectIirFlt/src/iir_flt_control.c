@@ -4,14 +4,19 @@ static int32_t iir_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     iir_doub_coefs_t coeffs_dbl;
 
     _prm->BW = (double)(_prm->cutoff_freq.sweep.end - _prm->cutoff_freq.sweep.start);
-     printf("_prm->cutoff_freq = %f %f\n", _prm->cutoff_freq.sweep.end, _prm->cutoff_freq.sweep.start);
+    //  printf("_prm->cutoff_freq = %f %f\n", _prm->cutoff_freq.sweep.end, _prm->cutoff_freq.sweep.start);
     _prm->f0 =  (double)(_prm->cutoff_freq.sweep.end + _prm->cutoff_freq.sweep.start) / 2.0;
-    printf("_prm->f0 = %f\n", _prm->f0);
+    // printf("_prm->f0 = %f\n", _prm->f0);
     _prm->Q = _prm->f0 / _prm->BW;
-    _prm->Q = 1;
-     printf("_prm->Q = %f\n", _prm->Q);
+    // _prm->Q = 1;
+    //  printf("_prm->Q = %f\n", _prm->Q);
     _prm->w = 2 * M_PI * _prm->f0 / _prm->sample_rate;
-    _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
+_prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
+
+// // printf("_prm->alpha %f\n",_prm->alpha );
+//     _prm->alpha = sin(_prm->w) * sinh(((log10(2)) / 2.0 ) * _prm->BW * (_prm->w / sin(_prm->w)));    // sin(_prm->w)/(2.0 * _prm->Q);
+
+// printf("_prm->alpha %f\n",_prm->alpha );
 
 
     coeffs_dbl.a0 = 1.0 + _prm->alpha;

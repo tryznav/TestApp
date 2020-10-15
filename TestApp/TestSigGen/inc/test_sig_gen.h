@@ -22,7 +22,7 @@
 
 #define  MAX_PRM_SIZE           32
 
-#define     PMC                 1
+#define     PCM                 1
 #define     IEEE_754            3
 
 // #define _USE_MATH_DEFINES
@@ -136,7 +136,7 @@ void *tsig_sin_init_states      (uint32_t sample_rate, uint32_t length_sample, v
 void *tsig_lsw_sin_init_states  (uint32_t sample_rate, uint32_t length_sample, void const *params, uint16_t audioFormat);
 void *tsig_chirp_init_states    (uint32_t sample_rate, uint32_t length_sample, void const *params, uint16_t audioFormat);
 
-int32_t IEEE_754_to_PMC(void *audio, uint32_t length_sample);
+int32_t IEEE_754_to_PCM(void *audio, uint32_t length_sample);
 
 int32_t check_gen(uint32_t length_sample, void* states, void *audio);
 

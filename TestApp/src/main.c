@@ -21,7 +21,7 @@ main (int argc, char **argv)
         {"out",       required_argument, 0, 'o'},
         {"fir_bpf",   required_argument, 0, 'b'},
         {"iir_bpf",   required_argument, 0, 'r'},
-        {"PMC",       no_argument,       0, 'q'},
+        {"PCM",       no_argument,       0, 'q'},
         {"IEEE_754",  no_argument,       0, 'f'},
         {"generator", required_argument, 0, 's'},
         {0, 0, 0, 0}
@@ -102,8 +102,8 @@ main (int argc, char **argv)
           app_task->audioFormatType = IEEE_754;
         break;
       case 'q':
-          printf(" PMC\n");
-          app_task->audioFormatType = PMC;
+          printf(" PCM\n");
+          app_task->audioFormatType = PCM;
         break;
       case '?':
         /* getopt_long already printed an error message. */

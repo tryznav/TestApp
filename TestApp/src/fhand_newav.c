@@ -2,9 +2,9 @@
 
 FILE *fhand_newav(const char *path, wav_hdr_t *hdr){
     FILE *file;
-        printf("zalupa %s\n", path);
+
     file = fopen(path, "wb");
-    printf("zalupa\n");
+
     if (file == NULL) {
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
         return file;
@@ -25,6 +25,6 @@ FILE *fhand_newav(const char *path, wav_hdr_t *hdr){
 
     fwrite(&(hdr->DataChunk->chunkId), sizeof(uint32_t), 1, file);
     fwrite(&hdr->DataChunk->chunkSize, sizeof(uint32_t), 1, file);
-printf("%s \n", path);
+
     return file;
 }

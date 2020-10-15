@@ -18,7 +18,7 @@ int32_t app_efect_init(pross_waw_t *pr, wav_hdr_t  *hdr, effect_task_t *effect_t
 
     switch (hdr->FmtChunk->audioFormat)
     {
-    case PMC:
+    case PCM:
         switch (effect_task->effect_type)
         {
         // case    EFFECT_ID_GAIN: 
@@ -151,15 +151,15 @@ fprintf(stderr,RED"%d: Error000: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno))
     }
 
 
-    // if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_START_ID, effect_task->prm.cutoff_freq.sweep.start)) != 0){
-    //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
-    //     // exit(EXIT_FAILURE);
-    // }
+    if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_START_ID, effect_task->prm.cutoff_freq.sweep.start)) != 0){
+        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
+        // exit(EXIT_FAILURE);
+    }
 
-    // if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_END_ID, effect_task->prm.cutoff_freq.sweep.end)) != 0){
-    //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
-    //     // exit(EXIT_FAILURE);
-    // }
+    if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_END_ID, effect_task->prm.cutoff_freq.sweep.end)) != 0){
+        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
+        // exit(EXIT_FAILURE);
+    }
 
     // if((Res = effect->effect_set_parameter(effect->params, PRM_GAIN_dB_ID, effect_task->prm.gain_dB)) != 0){
     //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
