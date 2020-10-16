@@ -42,7 +42,7 @@ static int32_t check(void const* coeffs,
     }
 
     if(states == NULL){
-        // fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'states' pointer. Rejected\n"RESET);
+        fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'states' pointer. Rejected\n"RESET);
         return -1;
     }
 
@@ -60,28 +60,23 @@ static int32_t check(void const* coeffs,
 }
 
 
-
-
 chanes_t calc_iir(chanes_t inp, iir_states_t* _st, iir_coefs_t* coef){
     chanes_t out;
     
-    my_float acum = flt_mul(coef->b0, inp.Left);
+    acum_type acum = flt_mul(coef->b0, inp.Left);
     acum = flt_add(acum, flt_mul(coef->b1, _st->input_1.Left));
     acum = flt_add(acum, flt_mul(coef->b2, _st->input_2.Left));
     acum = flt_sub(acum, flt_mul(coef->a1, _st->output_1.Left));
     acum = flt_sub(acum, flt_mul(coef->a2, _st->output_2.Left));
-    // acum = fxd63_rshift(acum, COEF_FRACTIONAL_BITS);
-    // acum = saturation(acum);
     out.Left = (my_float)acum;
-acum = 0.0f;
+
+    acum = 0.0f;
     acum = flt_mul(coef->b0, inp.Right);
     acum = flt_add(acum, flt_mul(coef->b1, _st->input_1.Right));
     acum = flt_add(acum, flt_mul(coef->b2, _st->input_2.Right));
     acum = flt_sub(acum, flt_mul(coef->a1, _st->output_1.Right));
     acum = flt_sub(acum, flt_mul(coef->a2, _st->output_2.Right));
-    // acum = fxd63_rshift(acum, COEF_FRACTIONAL_BITS);
-    // acum = saturation(acum);
-     out.Right = (my_float)acum;
+    out.Right = (my_float)acum;
 
     //update last samples...
     _st->input_2.Right = _st->input_1.Right;

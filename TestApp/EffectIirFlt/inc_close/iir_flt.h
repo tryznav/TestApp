@@ -13,9 +13,26 @@
 
 #define TAP_NUM     256
 
+#define LPF         '_LPF'
+#define HPF         '_HPF'
+#define BPF         '_BPF'
+#define BSF         '_BSF'
+#define PQE         '_PQE'
+
+// #define LPF         1.0f
+// #define HPF         2.0f
+// #define BPF         3.0f
+// #define BSF         4.0f
+// #define PQE         5.0f
+
 #ifndef M_PI
     #define M_PI 3.14159265358979323846
 #endif
+
+typedef my_float audio_type;
+typedef my_float coef_type;
+typedef my_float acum_type;
+
 
 typedef struct sweep_s{
     float               start;
@@ -29,37 +46,39 @@ union feature{
 
 typedef struct iir_prm_s{
     union feature       cutoff_freq;
-    double  BW; //BW = f2 − f1 = f0/Q  
-    double  f0;
-    double  Q;
-    double  w;
-    double  A;
-    double  alpha;  //sin(w0)/2Q
-    double  sample_rate;
+    uint32_t            type;
+    double              gain_dB;
+    double              BW; //BW = f2 − f1 = f0/Q  
+    double              f0;
+    double              Q;
+    double              w;  
+    double              A;
+    double              alpha;  //sin(w0)/2Q
+    double              sample_rate;
 }iir_prm_t;
 
-typedef struct iir_coefs_s{
-    my_float a0;
-	my_float a1;
-	my_float a2;
-	my_float b0;
-	my_float b1;
-	my_float b2;
-}iir_coefs_t;
-
 typedef struct iir_doub_coefs_s{
-	double a0;
-	double a1;
-	double a2;
-	double b0;
-	double b1;
-	double b2;
+	double              a0;
+	double              a1;
+	double              a2;
+	double              b0;
+	double              b1;
+	double              b2;
 }iir_doub_coefs_t;
+
+typedef struct iir_coefs_s{
+    coef_type           a0;
+	coef_type           a1;
+	coef_type           a2;
+	coef_type           b0;
+	coef_type           b1;
+	coef_type           b2;
+}iir_coefs_t;
 
 #pragma pack(push,1)
 typedef struct chanes_s{
-    my_float Left;
-    my_float Right;
+    coef_type Left;
+    coef_type Right;
 }chanes_t;
 #pragma pack(pop)
 

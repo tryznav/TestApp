@@ -1,55 +1,5 @@
 #include "iir_flt.h"
 
-static int32_t iir_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
-    iir_doub_coefs_t coeffs_dbl;
-
-    _prm->BW = (double)(_prm->cutoff_freq.sweep.end - _prm->cutoff_freq.sweep.start);
-    _prm->f0 =  (double)(_prm->cutoff_freq.sweep.end + _prm->cutoff_freq.sweep.start) / 2.0;
-
-    _prm->Q = _prm->f0 / _prm->BW;
-
-    _prm->w = 2 * M_PI * _prm->f0 / _prm->sample_rate;
-    _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
-
-
-
-    coeffs_dbl.a0 = 1.0 + _prm->alpha;
-    coeffs_dbl.a1 = -2.0 * cos(_prm->w);
-    coeffs_dbl.a2 = 1.0 - _prm->alpha;
-
-    coeffs_dbl.b0 = _prm->alpha;
-    coeffs_dbl.b1 = 0.0f;
-    coeffs_dbl.b2 = -_prm->alpha;
-
-    
-    coeffs_dbl.a1 = coeffs_dbl.a1 / coeffs_dbl.a0;
-    coeffs_dbl.a2 = coeffs_dbl.a2 / coeffs_dbl.a0;
-
-    coeffs_dbl.b0 = coeffs_dbl.b0 / coeffs_dbl.a0;
-    coeffs_dbl.b1 = 0.0f;
-    coeffs_dbl.b2 =  coeffs_dbl.b2 /coeffs_dbl.a0;
-    coeffs_dbl.a0 = coeffs_dbl.a0  / coeffs_dbl.a0;
-
-
-    _coeffs->a0 = (my_float)coeffs_dbl.a0;
-    _coeffs->a1 = (my_float)coeffs_dbl.a1;
-    _coeffs->a2 = (my_float)coeffs_dbl.a2;
-
-    // printf("a0 = %f\n", _coeffs->a0);
-    // printf("a1 = %f\n", _coeffs->a1);
-    // printf("a2 = %f\n", _coeffs->a2);
-
-    _coeffs->b0 = (my_float)coeffs_dbl.b0;
-    _coeffs->b1 = (my_float)coeffs_dbl.b1;
-    _coeffs->b2 = (my_float)coeffs_dbl.b2;
-
-    // printf("b0 = %f\n", _coeffs->b0);
-    // printf("b1 = %f\n", _coeffs->b1);
-    // printf("b2 = %f\n", _coeffs->b2);
-
-
-    return 0;
-}
 
 /*******************************************************************************
  * Provides with the required data sizes for parameters and coefficients.
@@ -118,6 +68,12 @@ int32_t iir_flt_set_parameter(
         return 0;
     case  PRM_FREQ_END_ID:
         _prm->cutoff_freq.sweep.end = value;
+        return 0;
+    case PRM_GAIN_dB_ID:
+        _prm->gain_dB = value;
+        return 0;
+    case BPF:
+        _prm->type =  BPF;
         return 0;
     default:
         fprintf(stderr, RED"Error: "BOLDWHITE"Unsupported params. Rejected.\n"RESET);
