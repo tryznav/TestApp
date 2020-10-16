@@ -20,7 +20,7 @@ main (int argc, char **argv)
         {"in",        required_argument, 0, 'i'},
         {"out",       required_argument, 0, 'o'},
         {"fir_bpf",   no_argument,       0, 'b'},
-        {"iir_bpf",   no_argument,       0, 'r'},
+        {"iir",       required_argument, 0, 'r'},
         {"PCM",       no_argument,       0, 'q'},
         {"IEEE_754",  no_argument,       0, 'f'},
         {"generator", required_argument, 0, 's'},

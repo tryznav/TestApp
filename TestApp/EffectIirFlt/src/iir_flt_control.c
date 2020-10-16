@@ -1,6 +1,5 @@
 #include "iir_flt.h"
 
-
 /*******************************************************************************
  * Provides with the required data sizes for parameters and coefficients.
  *   It is caller responsibility to allocate enough memory (bytes) for them.
@@ -34,7 +33,7 @@ int32_t iir_flt_control_initialize(
     iir_prm_t *_prm = (iir_prm_t *)params;
     iir_coefs_t *_coeffs = (iir_coefs_t  *)coeffs;
 
-    _prm->sample_rate= (double)sample_rate;
+    _prm->sample_rate = (double)sample_rate;
     _prm->cutoff_freq.sweep.start = (float)(_prm->sample_rate * 0.05);
     _prm->cutoff_freq.sweep.end   = (float)(_prm->sample_rate * 0.1);
 
@@ -72,8 +71,8 @@ int32_t iir_flt_set_parameter(
     case PRM_GAIN_dB_ID:
         _prm->gain_dB = value;
         return 0;
-    case BPF:
-        _prm->type =  BPF;
+    case PRM_IIR_TYPE_ID:
+        _prm->type = (uint32_t)value;
         return 0;
     default:
         fprintf(stderr, RED"Error: "BOLDWHITE"Unsupported params. Rejected.\n"RESET);

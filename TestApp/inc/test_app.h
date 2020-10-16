@@ -40,8 +40,7 @@
 #define HELP_TEXT_OUT               "   --out           -o  <output-file-path>      = Specify a file for processing results.\n"
 #define HELP_TEXT_P_HDR             "   --print-hdr     -p  -                       = Print header input WAV.\n"
 #define HELP_TEXT_GAIN              "   --gain          -i  <amplitude-dB>          = Gain.\n"
-#define HELP_TEXT_IIR_BPF           "   --fir_bpf       -b  -                       = Band-Pass FIR filter.\n"
-#define HELP_TEXT_FIR_BPF           "   --iir_bpf       -r  -                       = Band-Pass IIR filter.\n"
+#define HELP_TEXT_FIR_BPF           "   --fir_bpf       -b  -                       = Band-Pass FIR filter.\n"
 #define HELP_TEXT_GENER_1           "   --generator     -g\n"
 #define HELP_TEXT_GENER_2           "           <sample-rate>,<length_ms><signal-type>:<parametr>   = Generate test signals.\n"
 #define HELP_TEXT_GEN_S_T           "           <signal-type>           <parametr>\n"
@@ -53,6 +52,17 @@
 #define HELP_TEXT_CHIRP_LIN         "           chirp_linear            <start-freq-Hz,end-freq-Hz,amplitude-dB>\n"              
 #define HELP_TEXT_CHIRP_LOG         "           chirp_logarithmic       <start-freq-Hz,end-freq-Hz,amplitude_dB>\n"
 #define HELP_TEXT_lSWEEP            "           lsweep                  <frequency-Hz,start-amp-dB,end-amp-dB>\n"
+#define HELP_TEXT_IIR               "   --iir_bpf       -r"
+#define HELP_TEXT_IIR2              "           <iir-type>:<cutoff-freq>,<parametr>    = IIR filter.\n"
+#define HELP_TEXT_IIR_T             "           <iir-type>             <cutoff-freq>                   <parametr>\n"
+#define HELP_TEXT_IIR_LPF           "           LPF                    <freq-Hz>                       -\n"
+#define HELP_TEXT_IIR_HPF           "           HPF                    <freq-Hz>                       -\n"
+#define HELP_TEXT_IIR_BPF           "           BPF                    <start-freq-Hz,end-freq-Hz>     -\n"
+#define HELP_TEXT_IIR_BPF           "           BSF                    <start-freq-Hz,end-freq-Hz>     -\n"
+#define HELP_TEXT_IIR_PQE           "           PQE                    <freq-Hz>                       <amplitude-dB>\n"
+#define HELP_TEXT_IIR_LSH           "           LSH                    <freq-Hz>                       <amplitude-dB>\n"
+#define HELP_TEXT_IIR_HSH           "           HSH                    <freq-Hz>                       <amplitude-dB>\n"
+
 
 // "Options
 //     --in            -i  <input-file-path>                                   = Specify file for processing.
@@ -88,11 +98,9 @@ typedef struct  frequency_t{
 
 typedef struct  effect_task_t{
     uint32_t            effect_type;
-    union
-    {
-        float           gain_dB;
-        union feature    cutoff_freq;
-    }prm;
+    uint32_t            effect_subtype;
+    union feature       amp_dB;
+    union feature       cutoff_freq_Hz;
 }effect_task_t;
 
 typedef struct  sig_gen_t{

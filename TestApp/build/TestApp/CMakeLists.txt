@@ -17,6 +17,10 @@ add_executable(${PR_NAME}
 set(LIBS_PATH_1 "../Libs/")
 set(LIBS_PATH_2 "/tmp/Debug/")
 
+target_include_directories(${PR_NAME} PRIVATE D:/vcpkg/installed/x86-windows/share/json-c)
+find_package(json-c CONFIG REQUIRED)
+target_link_libraries(${PR_NAME} PRIVATE json-c::json-c)
+
 target_link_libraries(${PR_NAME} PRIVATE GetOpt)
 target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
 #fxd

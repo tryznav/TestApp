@@ -5,6 +5,8 @@ static int32_t hpf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs);
 static int32_t bpf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs);
 static int32_t bsf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs);
 static int32_t peakingEQ_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs);
+static int32_t lshelf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs);
+static int32_t hshelf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs);
 
 int32_t iir_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     switch (_prm->type)
@@ -23,6 +25,12 @@ int32_t iir_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     case PQE:
         peakingEQ_coeff_calc(_prm, _coeffs);
         return 0;
+    case LSH:
+        lshelf_coeff_calc(_prm, _coeffs);
+        return 0;
+    case HSH:
+        hshelf_coeff_calc(_prm, _coeffs);
+        return 0;   
     default:
         break;
     }
@@ -53,7 +61,7 @@ static int32_t convet_coefs(iir_doub_coefs_t *coeffs_dbl, iir_coefs_t *_coeffs){
 static int32_t lpf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     iir_doub_coefs_t coeffs_dbl;
 
-    _prm->BW = 10.0;
+    _prm->BW = BandWidth;
 
     _prm->f0 = _prm->cutoff_freq.whole_file;
 
@@ -79,7 +87,7 @@ static int32_t lpf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
 static int32_t hpf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     iir_doub_coefs_t coeffs_dbl;
 
-    _prm->BW = 10.0;
+    _prm->BW = BandWidth;
 
     _prm->f0 = _prm->cutoff_freq.whole_file;
 
@@ -126,30 +134,6 @@ static int32_t bpf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     return 0;
 }
 
-// int32_t bpf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
-//     iir_doub_coefs_t coeffs_dbl;
-
-//     _prm->BW = (double)(_prm->cutoff_freq.sweep.end - _prm->cutoff_freq.sweep.start);
-//     _prm->f0 =  (double)(_prm->cutoff_freq.sweep.end + _prm->cutoff_freq.sweep.start) / 2.0;
-
-//     _prm->Q = _prm->f0 / _prm->BW;
-
-//     _prm->w = 2 * M_PI * _prm->f0 / _prm->sample_rate;
-//     _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
-
-//     coeffs_dbl.a0 = 1.0 + _prm->alpha;
-//     coeffs_dbl.a1 = -2.0 * cos(_prm->w);
-//     coeffs_dbl.a2 = 1.0 - _prm->alpha;
-
-//     coeffs_dbl.b0 = _prm->alpha;
-//     coeffs_dbl.b1 = 0.0f;
-//     coeffs_dbl.b2 = -_prm->alpha;
-   
-//     convet_coefs(&coeffs_dbl, _coeffs);
-
-//     return 0;
-// }
-
 static int32_t bsf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     iir_doub_coefs_t coeffs_dbl;
 
@@ -176,10 +160,10 @@ static int32_t bsf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
 
 static int32_t peakingEQ_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     iir_doub_coefs_t coeffs_dbl;
-    _prm->A = pow(10.0, _prm->gain_dB / 40);
+    _prm->A = pow(10.0, _prm->gain_dB / 40.0);
     _prm->f0 = (double)(_prm->cutoff_freq.sweep.end + _prm->cutoff_freq.sweep.start) / 2.0;
     
-    _prm->BW = 10;
+    _prm->BW = BandWidth;
     _prm->Q = _prm->f0 / _prm->BW;
 
     _prm->w = 2 * M_PI * _prm->f0 / _prm->sample_rate;
@@ -198,13 +182,12 @@ static int32_t peakingEQ_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     return 0;
 }
 
-
 static int32_t lshelf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
     iir_doub_coefs_t coeffs_dbl;
-    _prm->A = pow(10.0, _prm->gain_dB / 40);
+    _prm->A = pow(10.0, _prm->gain_dB / 40.0);
     _prm->f0 = (double)(_prm->cutoff_freq.sweep.end + _prm->cutoff_freq.sweep.start) / 2.0;
     
-    _prm->BW = 10;
+    _prm->BW = BandWidth;
     _prm->Q = _prm->f0 / _prm->BW;
 
     _prm->w = 2 * M_PI * _prm->f0 / _prm->sample_rate;
@@ -216,6 +199,54 @@ static int32_t lshelf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
 
     coeffs_dbl.b0 = _prm->A * ((_prm->A + 1.0) + ((_prm->A - 1.0) * cos(_prm->w)) + (2.0 * pow(_prm->A, 0.5)));
     coeffs_dbl.b1 = -2.0 * _prm->A * ((_prm->A + 1.0) + (_prm->A - 1.0) * cos(_prm->w));
+    coeffs_dbl.b2 = _prm->A * ((_prm->A + 1.0) + ((_prm->A - 1.0) * cos(_prm->w)) - (2.0 * pow(_prm->A, 0.5)));
+
+    convet_coefs(&coeffs_dbl, _coeffs);
+
+    return 0;
+}
+
+static int32_t lshelf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
+    iir_doub_coefs_t coeffs_dbl;
+    _prm->A = pow(10.0, _prm->gain_dB / 40.0);
+    _prm->f0 = (double)(_prm->cutoff_freq.sweep.end + _prm->cutoff_freq.sweep.start) / 2.0;
+    
+    _prm->BW = BandWidth;
+    _prm->Q = _prm->f0 / _prm->BW;
+
+    _prm->w = 2 * M_PI * _prm->f0 / _prm->sample_rate;
+    _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
+
+    coeffs_dbl.a0 = (_prm->A + 1.0) + ((_prm->A - 1.0) * cos(_prm->w)) + (2.0 * pow(_prm->A, 0.5));
+    coeffs_dbl.a1 = -2.0 * ((_prm->A - 1.0) + (_prm->A + 1.0) * cos(_prm->w));
+    coeffs_dbl.a2 = (_prm->A + 1.0) + ((_prm->A - 1.0) * cos(_prm->w)) - (2.0 * pow(_prm->A, 0.5));
+
+    coeffs_dbl.b0 = _prm->A * ((_prm->A + 1.0) + ((_prm->A - 1.0) * cos(_prm->w)) + (2.0 * pow(_prm->A, 0.5)));
+    coeffs_dbl.b1 = 2.0 * _prm->A * ((_prm->A - 1.0) - (_prm->A + 1.0) * cos(_prm->w));
+    coeffs_dbl.b2 = _prm->A * ((_prm->A + 1.0) + ((_prm->A - 1.0) * cos(_prm->w)) - (2.0 * pow(_prm->A, 0.5)));
+
+    convet_coefs(&coeffs_dbl, _coeffs);
+
+    return 0;
+}
+
+static int32_t hshelf_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs){
+    iir_doub_coefs_t coeffs_dbl;
+    _prm->A = pow(10.0, _prm->gain_dB / 40.0);
+    _prm->f0 = (double)(_prm->cutoff_freq.sweep.end + _prm->cutoff_freq.sweep.start) / 2.0;
+    
+    _prm->BW = BandWidth;
+    _prm->Q = _prm->f0 / _prm->BW;
+
+    _prm->w = 2 * M_PI * _prm->f0 / _prm->sample_rate;
+    _prm->alpha = sin(_prm->w)/(2.0 * _prm->Q);
+
+    coeffs_dbl.a0 = (_prm->A + 1.0) + ((_prm->A - 1.0) * cos(_prm->w)) + (2.0 * pow(_prm->A, 0.5));
+    coeffs_dbl.a1 = -2.0 * ((_prm->A - 1.0) + (_prm->A + 1.0) * cos(_prm->w));
+    coeffs_dbl.a2 = (_prm->A + 1.0) + ((_prm->A - 1.0) * cos(_prm->w)) - (2.0 * pow(_prm->A, 0.5));
+
+    coeffs_dbl.b0 = _prm->A * ((_prm->A + 1.0) + ((_prm->A - 1.0) * cos(_prm->w)) + (2.0 * pow(_prm->A, 0.5)));
+    coeffs_dbl.b1 = -2.0 * _prm->A * ((_prm->A - 1.0) + (_prm->A + 1.0) * cos(_prm->w));
     coeffs_dbl.b2 = _prm->A * ((_prm->A + 1.0) + ((_prm->A - 1.0) * cos(_prm->w)) - (2.0 * pow(_prm->A, 0.5)));
 
     convet_coefs(&coeffs_dbl, _coeffs);

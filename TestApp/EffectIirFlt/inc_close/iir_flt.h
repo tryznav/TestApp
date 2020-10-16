@@ -3,6 +3,7 @@
 
 #include "iir_flt_control.h"
 #include "iir_flt_process.h"
+#include "params_id.h"
 
 #include "flt_arithmetic.h"
 #include "colors.h"
@@ -11,19 +12,14 @@
 #include <stdio.h>
 #include <math.h>
 
-#define TAP_NUM     256
+#define TAP_NUM         256
 
-#define LPF         '_LPF'
-#define HPF         '_HPF'
-#define BPF         '_BPF'
-#define BSF         '_BSF'
-#define PQE         '_PQE'
-
-// #define LPF         1.0f
-// #define HPF         2.0f
-// #define BPF         3.0f
-// #define BSF         4.0f
-// #define PQE         5.0f
+/*******************************************************************************
+ * the bandwidth in octaves (between -3 dB
+ * frequencies for BPF and notch or between
+ * midpoint (dBgain/2) gain frequencies for peaking EQ)
+ ******************************************************************************/
+#define BandWidth             10.0
 
 #ifndef M_PI
     #define M_PI 3.14159265358979323846
@@ -32,7 +28,6 @@
 typedef my_float audio_type;
 typedef my_float coef_type;
 typedef my_float acum_type;
-
 
 typedef struct sweep_s{
     float               start;

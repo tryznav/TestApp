@@ -20,9 +20,4 @@
 #define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
 
-#define PRM_GAIN_dB_ID          'Gain'
-#define PRM_SAMPLE_RATE_ID      'SMPR'
-#define PRM_FREQ_START_ID       'FSTA'
-#define PRM_FREQ_END_ID         'FEND'
-
 #endif /* colors.h */
