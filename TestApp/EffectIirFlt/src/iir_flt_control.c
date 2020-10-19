@@ -34,8 +34,11 @@ int32_t iir_flt_control_initialize(
     iir_coefs_t *_coeffs = (iir_coefs_t  *)coeffs;
 
     _prm->sample_rate = (double)sample_rate;
-    _prm->cutoff_freq.sweep.start = (float)(_prm->sample_rate * 0.05);
-    _prm->cutoff_freq.sweep.end   = (float)(_prm->sample_rate * 0.1);
+    // _prm->cutoff_freq.sweep.start = (float)(_prm->sample_rate * 0.05);
+    // _prm->cutoff_freq.sweep.end   = (float)(_prm->sample_rate * 0.1);
+    _prm->cutoff_freq.whole_file = (float)(_prm->sample_rate * 0.05);
+_prm->gain_dB = 6.0;
+    _prm->type = APF;
 
     iir_coeff_calc(_prm, _coeffs);
 

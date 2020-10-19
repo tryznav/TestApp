@@ -3,13 +3,14 @@ cmake_minimum_required(VERSION 3.10)
 project(WholeSolution)
 
 add_subdirectory(Libs/Arithmetic)
-#FIR
+add_subdirectory(Libs/json-c)
+# FIR
 add_subdirectory(Libs/EffectFirFlt)
 add_subdirectory(Libs/EffectFirFxd)
-# #IIR
+# IIR
 add_subdirectory(Libs/EffectIirFlt)
 add_subdirectory(Libs/EffectIirFxd)
-# #GAIN
+# GAIN
 add_subdirectory(Libs/EffectGain)
 
 add_subdirectory(Libs/TestSigGen)

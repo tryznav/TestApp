@@ -5,6 +5,8 @@ set(PR_NAME "TestApp")
 project(${PR_NAME})
 
 add_executable(${PR_NAME}
+    ../../src/opt_parse/app_parse_gen_opt.c
+    ../../src/opt_parse/app_parse_iir_opt.c
     ../../src/app_efect_init.c
     ../../src/app_generator_init.c
     ../../src/app_handl.c
@@ -17,9 +19,8 @@ add_executable(${PR_NAME}
 set(LIBS_PATH_1 "../Libs/")
 set(LIBS_PATH_2 "/tmp/Debug/")
 
-target_include_directories(${PR_NAME} PRIVATE D:/vcpkg/installed/x86-windows/share/json-c)
-find_package(json-c CONFIG REQUIRED)
-target_link_libraries(${PR_NAME} PRIVATE json-c::json-c)
+# find_package(json-c CONFIG REQUIRED)
+target_link_libraries(${PR_NAME} PRIVATE json-c)
 
 target_link_libraries(${PR_NAME} PRIVATE GetOpt)
 target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
@@ -31,6 +32,7 @@ target_link_libraries(${PR_NAME} PRIVATE EffectGain)
 target_link_libraries(${PR_NAME} PRIVATE EffectFirFlt)
 target_link_libraries(${PR_NAME} PRIVATE EffectIirFlt)
 
+target_include_directories(${PR_NAME} PRIVATE ../Libs/json-c)
 
 target_include_directories(${PR_NAME} PRIVATE ../../inc)
 

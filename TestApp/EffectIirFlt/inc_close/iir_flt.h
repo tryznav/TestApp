@@ -84,5 +84,6 @@ typedef struct iir_states_t{
 	chanes_t output_2;
 }iir_states_t;
 
+int32_t iir_coeff_calc(iir_prm_t *_prm, iir_coefs_t *_coeffs);
 
 #endif

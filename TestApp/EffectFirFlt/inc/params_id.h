@@ -13,5 +13,5 @@
     #define PQE         4
     #define LSH         5
     #define HSH         6
-
+    #define APF         7
 #endif

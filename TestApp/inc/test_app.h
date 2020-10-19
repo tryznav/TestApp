@@ -52,13 +52,13 @@
 #define HELP_TEXT_CHIRP_LIN         "           chirp_linear            <start-freq-Hz,end-freq-Hz,amplitude-dB>\n"              
 #define HELP_TEXT_CHIRP_LOG         "           chirp_logarithmic       <start-freq-Hz,end-freq-Hz,amplitude_dB>\n"
 #define HELP_TEXT_lSWEEP            "           lsweep                  <frequency-Hz,start-amp-dB,end-amp-dB>\n"
-#define HELP_TEXT_IIR               "   --iir_bpf       -r"
+#define HELP_TEXT_IIR               "   --iir           -r"
 #define HELP_TEXT_IIR2              "           <iir-type>:<cutoff-freq>,<parametr>    = IIR filter.\n"
 #define HELP_TEXT_IIR_T             "           <iir-type>             <cutoff-freq>                   <parametr>\n"
 #define HELP_TEXT_IIR_LPF           "           LPF                    <freq-Hz>                       -\n"
 #define HELP_TEXT_IIR_HPF           "           HPF                    <freq-Hz>                       -\n"
 #define HELP_TEXT_IIR_BPF           "           BPF                    <start-freq-Hz,end-freq-Hz>     -\n"
-#define HELP_TEXT_IIR_BPF           "           BSF                    <start-freq-Hz,end-freq-Hz>     -\n"
+#define HELP_TEXT_IIR_BSF           "           BSF                    <start-freq-Hz,end-freq-Hz>     -\n"
 #define HELP_TEXT_IIR_PQE           "           PQE                    <freq-Hz>                       <amplitude-dB>\n"
 #define HELP_TEXT_IIR_LSH           "           LSH                    <freq-Hz>                       <amplitude-dB>\n"
 #define HELP_TEXT_IIR_HSH           "           HSH                    <freq-Hz>                       <amplitude-dB>\n"
@@ -139,5 +139,12 @@ FILE*   fhand_newav(const char *path, wav_hdr_t *hdr);
 
 void alloc_mem_chunk_hdr(wav_hdr_t *hdr);
 void fhand_print_chunk(RiffChunk_t *RiffChunk, FmtChunk_t *FmtChunk, DataChunk_t *DataChunkh);
+
+//opt parse
+
+
+tgen_t *app_parse_gen_opt(char * opt);
+effect_task_t *app_parse_iir_opt(char * opt);
+
 
 #endif

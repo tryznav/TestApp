@@ -5,6 +5,7 @@ set(LIB_NAME "EffectIirFlt")
 project(${LIB_NAME})
 
 add_library(${LIB_NAME} STATIC
+    ../../../${LIB_NAME}/src/coeff_calculate.c
     ../../../${LIB_NAME}/src/iir_flt_control.c
     ../../../${LIB_NAME}/src/iir_flt_process.c)
 
