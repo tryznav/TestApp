@@ -25,26 +25,31 @@ target_link_libraries(${PR_NAME} PRIVATE json-c)
 target_link_libraries(${PR_NAME} PRIVATE GetOpt)
 target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
 #fxd
-target_link_libraries(${PR_NAME} PRIVATE EffectFirFxd)
-target_link_libraries(${PR_NAME} PRIVATE EffectIirFxd)
+target_link_libraries(${PR_NAME} PRIVATE Fir_fxd)
+target_link_libraries(${PR_NAME} PRIVATE Iir_fxd)
 #flt
-target_link_libraries(${PR_NAME} PRIVATE EffectGain)
-target_link_libraries(${PR_NAME} PRIVATE EffectFirFlt)
-target_link_libraries(${PR_NAME} PRIVATE EffectIirFlt)
+target_link_libraries(${PR_NAME} PRIVATE Gain_flt)
+target_link_libraries(${PR_NAME} PRIVATE Fir_flt)
+target_link_libraries(${PR_NAME} PRIVATE Iir_flt)
+target_link_libraries(${PR_NAME} PRIVATE Crossover_flt)
+target_link_libraries(${PR_NAME} PRIVATE Apf_flt)
+
 
 target_include_directories(${PR_NAME} PRIVATE ../Libs/json-c)
+
+
 
 target_include_directories(${PR_NAME} PRIVATE ../../inc)
 
 # target_include_directories(${LIB_NAME} PRIVATE ../../Arithmetic/inc)
 
-target_include_directories(${PR_NAME} PRIVATE ../../EffectIirFlt/inc)
-target_include_directories(${PR_NAME} PRIVATE ../../EffectIirFxd/inc)
 
-target_include_directories(${PR_NAME} PRIVATE ../../EffectFirFlt/inc)
-target_include_directories(${PR_NAME} PRIVATE ../../EffectFirFxd/inc)
+set(EFFECTS_PATH "../../Effects")
 
-target_include_directories(${PR_NAME} PRIVATE ../../EffectGain/inc)
+target_include_directories(${PR_NAME} PRIVATE ${EFFECTS_PATH}/inc)
+target_include_directories(${PR_NAME} PRIVATE ${EFFECTS_PATH}/inc/Flt)
+target_include_directories(${PR_NAME} PRIVATE ${EFFECTS_PATH}/inc/Fxd)
+
 target_include_directories(${PR_NAME} PRIVATE ../../GetOpt/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../TestSigGen/inc)
 

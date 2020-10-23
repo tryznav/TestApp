@@ -23,12 +23,14 @@ main (int argc, char **argv)
         {"PCM",       no_argument,       0, 'q'},
         {"IEEE_754",  no_argument,       0, 'f'},
         {"generator", required_argument, 0, 's'},
+        {"crossover", no_argument, 0, 'c'},
+        {"apf",       no_argument, 0, 'a'},
         {0, 0, 0, 0}
       };
     /* getopt_long stores the option index here. */
     int option_index = 0;
 
-    c = getopt_long (argc, argv, "hpqfo:g:i:b:r:s:",
+    c = getopt_long (argc, argv, "chpqfo:g:i:b:r:s:",
                       long_options, &option_index);
 
     /* Detect the end of the options. */
@@ -77,7 +79,18 @@ main (int argc, char **argv)
         break;
       case 'b':
         app_task->effect = malloc(sizeof(effect_task_t));
-        app_task->effect->effect_type = EFFECT_ID_FIR;
+        app_task->effect->effect_type =  EFFECT_ID_FIR;
+        break;
+      case 'r':
+        app_task->effect = app_parse_iir_opt(optarg);
+        if(!app_task->effect){
+          printf("error");
+        }
+        break;
+      case 'c':
+        app_task->audioFormatType = IEEE_754;
+        app_task->effect = malloc(sizeof(effect_task_t));
+        app_task->effect->effect_type = EFFECT_ID_CROSSOVER;
         // printf(" EFFECT_ID_FIR");
         app_task->effect->cutoff_freq_Hz.sweep.start = 0;// (float)atof(optarg);
         // fin = strchr(optarg, '_');
@@ -86,15 +99,17 @@ main (int argc, char **argv)
         // printf("prm.cutoff_freq.sweep.start %f\n", app_task->effect->prm.cutoff_freq.sweep.start );
         // printf("app_task->effect->prm.cutoff_freq.sweep.end %f\n", app_task->effect->prm.cutoff_freq.sweep.end);
         break;
-      case 'r':
-        app_task->effect = app_parse_iir_opt(optarg);
-        if(!app_task->effect){
-          printf("error");
-        }
-        break;
-      case 'f':
-          printf(BOLDCYAN"IEEE_754\n"RESET);
-          app_task->audioFormatType = IEEE_754;
+      case 'a':
+        app_task->audioFormatType = IEEE_754;
+        app_task->effect = malloc(sizeof(effect_task_t));
+        app_task->effect->effect_type = EFFECT_ID_APF;
+        // printf(" EFFECT_ID_FIR");
+        app_task->effect->cutoff_freq_Hz.sweep.start = 0;// (float)atof(optarg);
+        // fin = strchr(optarg, '_');
+        // fin = fin + 1;
+        app_task->effect->cutoff_freq_Hz.sweep.end = 0; //(float)atof(fin);
+        // printf("prm.cutoff_freq.sweep.start %f\n", app_task->effect->prm.cutoff_freq.sweep.start );
+        // printf("app_task->effect->prm.cutoff_freq.sweep.end %f\n", app_task->effect->prm.cutoff_freq.sweep.end);
         break;
       case 'q':
           printf(" PCM\n");
@@ -167,4 +182,6 @@ static void print_help(void){
   printf("%s",HELP_TEXT_IIR_PQE);
   printf("%s",HELP_TEXT_IIR_LSH);
   printf("%s",HELP_TEXT_IIR_HSH);
+
+    printf("%s",HELP_TEXT_CROSSOVER);
 }

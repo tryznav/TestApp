@@ -95,6 +95,28 @@ int32_t app_efect_init(pross_waw_t *pr, wav_hdr_t  *hdr, effect_task_t *effect_t
             efect->effect_process_get_sizes  = &iir_flt_process_get_sizes;
             efect->effect_reset              = &iir_flt_reset;
              break;
+        case    EFFECT_ID_CROSSOVER:
+            //controll
+            efect->effect_control_get_sizes  = &cross_flt_control_get_sizes;
+            efect->effect_control_initialize = &cross_flt_control_initialize;
+            efect->effect_set_parameter      = &cross_flt_set_parameter;
+            efect->effect_update_coeffs      = &cross_flt_update_coeffs;
+            //process
+            efect->effect_process            = &cross_flt_process;
+            efect->effect_process_get_sizes  = &cross_flt_process_get_sizes;
+            efect->effect_reset              = &cross_flt_reset;
+             break;
+        case    EFFECT_ID_APF:
+            //controll
+            efect->effect_control_get_sizes  = &apf_flt_control_get_sizes;
+            efect->effect_control_initialize = &apf_flt_control_initialize;
+            efect->effect_set_parameter      = &apf_flt_set_parameter;
+            efect->effect_update_coeffs      = &apf_flt_update_coeffs;
+            //process
+            efect->effect_process            = &apf_flt_process;
+            efect->effect_process_get_sizes  = &apf_flt_process_get_sizes;
+            efect->effect_reset              = &apf_flt_reset;
+             break;
         default:
             break;
         }
@@ -148,6 +170,9 @@ static int32_t effect_control(effect_t *effect, wav_hdr_t  *hdr, effect_task_t *
         // exit(EXIT_FAILURE);
     }
 
+    // if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_START_ID, effect_task->prm.cutoff_freq.sweep.start)) != 0){
+    //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
+    //     // 
 
     // if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_START_ID, effect_task->prm.cutoff_freq.sweep.start)) != 0){
     //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);

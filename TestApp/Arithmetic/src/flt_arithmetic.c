@@ -31,7 +31,7 @@ my_float   flt_abs(my_float a){
 }
 
 my_float   flt_neg(my_float a){
-        return -a;
+    return -a;
 }
 
 my_float   flt_div(my_float N, my_float  D){

@@ -19,9 +19,14 @@
 #include "iir_flt_control.h"
 #include "iir_flt_process.h"
 
+#include "apf_flt_control.h"
+#include "apf_flt_process.h"
 
 #include "iir_fxd_control.h"
 #include "iir_fxd_process.h"
+
+#include "cross_flt_control.h"
+#include "cross_flt_process.h"
 
 #include "params_id.h"
 #include "new_type.h"
@@ -33,6 +38,8 @@
 #define EFFECT_ID_FIR           'FIR_'
 #define EFFECT_ID_GAIN          'GAIN'
 #define EFFECT_ID_IIR           'IIR_'
+#define EFFECT_ID_CROSSOVER     'CROS'
+#define EFFECT_ID_APF           'APF_'
 
 #define DEFAULT_SAMPLE_RATE     48000
 #define HELP_TEXT_OPT               "Options\n"
@@ -52,7 +59,7 @@
 #define HELP_TEXT_CHIRP_LIN         "           chirp_linear            <start-freq-Hz,end-freq-Hz,amplitude-dB>\n"              
 #define HELP_TEXT_CHIRP_LOG         "           chirp_logarithmic       <start-freq-Hz,end-freq-Hz,amplitude_dB>\n"
 #define HELP_TEXT_lSWEEP            "           lsweep                  <frequency-Hz,start-amp-dB,end-amp-dB>\n"
-#define HELP_TEXT_IIR               "   --iir           -r"
+#define HELP_TEXT_IIR               "   --iir           -r\n"
 #define HELP_TEXT_IIR2              "           <iir-type>:<cutoff-freq>,<parametr>    = IIR filter.\n"
 #define HELP_TEXT_IIR_T             "           <iir-type>             <cutoff-freq>                   <parametr>\n"
 #define HELP_TEXT_IIR_LPF           "           LPF                    <freq-Hz>                       -\n"
@@ -62,7 +69,7 @@
 #define HELP_TEXT_IIR_PQE           "           PQE                    <freq-Hz>                       <amplitude-dB>\n"
 #define HELP_TEXT_IIR_LSH           "           LSH                    <freq-Hz>                       <amplitude-dB>\n"
 #define HELP_TEXT_IIR_HSH           "           HSH                    <freq-Hz>                       <amplitude-dB>\n"
-
+#define HELP_TEXT_CROSSOVER         "   --crossover     -c\n"
 
 // "Options
 //     --in            -i  <input-file-path>                                   = Specify file for processing.
