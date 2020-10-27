@@ -22,9 +22,11 @@
 
 fxd_q63_t saturation(fxd_q63_t num){
     if(num > INT32_MAX){
+        printf("sat Max");
         return INT32_MAX;
     }
     if(num < INT32_MIN){
+                printf("SaM min Max");
         return INT32_MIN;
     }
     return num;
@@ -107,6 +109,31 @@ fxd_q31_t   fxd_abs(fxd_q31_t a){
     }
 }
 
+/***********************************************/
+fxd_q63_t   fxd_mac_m(fxd_q63_t a, fxd_q31_t b,  fxd_q31_t c){
+    fxd_q63_t acum = b;
+    acum *= c;
+    // if(acum == (1ull << 62)){
+    //     acum = (1ull << 62) - 1;
+    // }
+    // acum <<= 1;
+    acum = fxd63_add(acum, a);
+    return acum;
+}
+
+/***********************************************/
+
+fxd_q63_t   fxd_msub_m(fxd_q63_t a, fxd_q31_t b,  fxd_q31_t c){
+    fxd_q63_t acum = b;
+    acum *= c;
+
+    // if(a == (1ull << 62)){
+    //     a = (1ull << 62) - 1;
+    // }
+    // acum <<= 1;
+    acum = fxd63_sub(a, acum); 
+    return acum;
+}
 /***********************************************/
 
 fxd_q31_t   fxd_neg(fxd_q31_t a){
@@ -447,14 +474,15 @@ double      fxd64_to_flt(fxd_q63_t val){
 /***********************************************/
 fxd_q63_t   fxd_fmul(fxd_q31_t a, fxd_q31_t b){
     fxd_q63_t acum = a;
-
+    // print_n63(acum);
     acum *= b;
+    // print_n63(acum);
     return acum;
 }
 
 
 fxd_q31_t   dbl_to_fxd_p(double a, uint32_t p)
 {
-    assert(p < 31);
+    assert(p <= 31);
     return (fxd_q31_t)(a * (1u<<p));
 }

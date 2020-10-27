@@ -55,62 +55,80 @@ static int32_t check(void const* coeffs,
     return 0;
 }
 
+static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+    audio_type xh = flt_sub(x, flt_mul(coef->c[0], st->xh[0]));
 
-audio_type apf_direct_form2(audio_type x, apf_states_t *st, apf_coefs_t *coef){
-    // audio_type y = 0;
-    audio_type y[APF_2nd + 1];
-    audio_type Xh[APF_2nd + 1];
-    Xh[APF_2nd] = x;
-    y[APF_2nd] = st->xh[APF_2nd - 1];
+    audio_type y =  flt_mac(st->xh[0], xh, coef->c[0]);
 
-    for(int order = (APF_2nd - 1); order >= 0 ; order--){
-        Xh[order] = flt_msub(Xh[order + 1], st->xh[order], coef->c[order]);
-        y[order] = flt_mac(st->xh[order], Xh[order], coef->c[order]);
-    }
-    for(int order = (APF_2nd - 1); order >= 0 ; order--){
-        st->xh[order] = Xh[order];
-    }
-    return y[0];
+    st->xh[0] = xh;
+
+    return y;
 }
 
-audio_type apf_direct_form(audio_type x, apf_states_t *st, apf_coefs_t *coef){
-    // audio_type y = 0;
-    audio_type y[APF_ORDER + 1];
-    audio_type Xh[APF_ORDER + 1];
-    Xh[APF_ORDER] = x;
-    y[APF_ORDER] = st->xh[APF_ORDER - 1];
+static double apl_1st_dbl(double x, apf_states_t *st, apf_coefs_t *coef){
+    double xh = x;
+    xh -= coef->c_dbl[0] * st->xh_dbl[0];
 
-    for(int order = (APF_ORDER - 1); order >= 0 ; order--){
-        Xh[order] = flt_mac(Xh[order + 1], st->xh[order], flt_neg(coef->c[order]));
-        y[order] = flt_mac(st->xh[order], Xh[order], coef->c[order]);
-    }
-    for(int order = (APF_ORDER - 1); order >= 0 ; order--){
-        st->xh[order] = Xh[order];
-    }
-    return y[0];
+    double y = st->xh_dbl[0] + (xh * coef->c_dbl[0]);
+
+    st->xh_dbl[0] = xh;
+
+    return y;
 }
 
-// audio_type apl_direct_recurs(audio_type x, apf_states_t *st, apf_coefs_t *coef, int order){
-//     audio_type y = 0;
-//     st->xh[order] =
-//     return ;
-// }
+static audio_type apl_direct_2nd_order(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+    audio_type  xh = x;
+    xh = flt_msub(xh, coef->c[1], st->xh[0]);
+    xh = flt_mac(xh, coef->c[0], st->xh[1]);
 
-// audio_type apl_2nd_order(audio_type x, xh_z_t *xh, apf_coef_2nd_t *coef){
-//     audio_type  xh_z0 = x;
-//     xh_z0 = flt_msub(xh_z0, coef->dc, xh->z_1);
-//     xh_z0 = flt_mac(xh_z0, coef->c, xh->z_2);
-//     // Sleep(100);
-//     // printf("xh_z0 %f\n",  xh_z0);
+    audio_type  y = flt_mul(coef->c[1], st->xh[0]);
+    y = flt_msub(y, coef->c[0], xh);
+    y = flt_add(y, st->xh[1]);
 
-//     audio_type  y = flt_mul(coef->dc, xh->z_1);
-//     y = flt_msub(y, coef->c, xh_z0);
-//     y = flt_add(y, xh->z_2);    
+    st->xh[1] = st->xh[0];
+    st->xh[0] = xh;
 
-//     xh->z_2 = xh->z_1;
-//     xh->z_1 = xh_z0;
-//     return y;
-// }
+    return y;
+}
+
+static audio_type apl_direct_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+    double c_1 = coef->c[1];
+    double c_0 = coef->c[0];
+    double xh = x;
+
+    xh -= coef->c_dbl[1] * st->xh_dbl[0];
+    xh += coef->c_dbl[0] * st->xh_dbl[1];
+
+    double y = coef->c_dbl[1] * st->xh_dbl[0];
+    y -= coef->c_dbl[0] * xh;
+    y += st->xh_dbl[1];
+
+    st->xh_dbl[1] = st->xh_dbl[0];
+    st->xh_dbl[0] = xh;
+
+    return (audio_type)y;
+}
+
+static audio_type apl_lattice_2nd_order(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+    audio_type  xh = flt_msub(x, coef->c[1], st->xh[1]);
+    audio_type  y = flt_mac(st->xh[1], coef->c[1], xh);
+
+    st->xh[1] = apl_1st_order(xh, st, coef);
+
+    return y;
+}
+
+static audio_type apl_lattice_2nd_order_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+    double xh = x;
+
+    xh -= coef->c_dbl[1] *  st->xh_dbl[1];
+    double y = st->xh_dbl[1] + (coef->c_dbl[1] * xh);
+
+    st->xh_dbl[1] = apl_1st_dbl(xh, st, coef);
+
+    return (audio_type)y;
+}
+
 
 int32_t apf_flt_process(
     void const* coeffs,
@@ -126,10 +144,38 @@ int32_t apf_flt_process(
     states_t* _st = (states_t*)states;
     apf_coefs_t* coef = (apf_coefs_t*)coeffs;
 
-    for(uint32_t a_index = 0; a_index < samples_count; a_index++){
-        _audio[a_index].Left = apf_direct_form(_audio[a_index].Left, &(_st->Left), coef);
-        _audio[a_index].Right =  (_audio[a_index].Left -_audio[a_index].Right )*0.5f;//  apf_direct_form2(_audio[a_index].Right, &(_st->Right), coef);
+    switch (coef->order)
+    {
+    case 1:
+        for(uint32_t a_index = 0; a_index < samples_count; a_index++){
+            _audio[a_index].Left = apl_1st_order(_audio[a_index].Left, &(_st->Left), coef);
+            _audio[a_index].Right = (_audio[a_index].Left -_audio[a_index].Right)*0.5f;//  apf_direct_form2(_audio[a_index].Right, &(_st->Right), coef);
+        }
+        break;
+    case 2:
+        switch(coef->form)
+        {
+        case 1:
+            for(uint32_t a_index = 0; a_index < samples_count; a_index++){
+                _audio[a_index].Left = apl_direct_2nd_order(_audio[a_index].Left, &(_st->Left), coef);
+                _audio[a_index].Right = (_audio[a_index].Left +_audio[a_index].Right)*0.5f;//  apf_direct_form2(_audio[a_index].Right, &(_st->Right), coef);
+            }
+            break;
+        case 2:
+            for(uint32_t a_index = 0; a_index < samples_count; a_index++){
+                _audio[a_index].Left = apl_lattice_2nd_order_dbl(_audio[a_index].Left, &(_st->Left), coef);
+                _audio[a_index].Right = (_audio[a_index].Left +_audio[a_index].Right)*0.5f;//  apf_direct_form2(_audio[a_index].Right, &(_st->Right), coef);
+            }
+            break;
+        default:
+            break;
+        }
+        break;
+    default:
+        break;
     }
+
+    
 
     return 0;
 }

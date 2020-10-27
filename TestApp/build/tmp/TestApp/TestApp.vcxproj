@@ -111,7 +111,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>json-c.lib;..\Libs\GetOpt\Debug\GetOpt.lib;..\Libs\TestSigGen\Debug\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Debug\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Debug\Iir_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Debug\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Debug\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Debug\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\Debug\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\Debug\Apf_flt.lib;..\Libs\Arithmetic\Debug\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>json-c.lib;..\Libs\GetOpt\Debug\GetOpt.lib;..\Libs\TestSigGen\Debug\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Debug\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Debug\Iir_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Debug\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Debug\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Debug\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\Debug\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\Debug\Apf_flt.lib;..\Libs\Effects\Fxd\Apf_fxd\Debug\Apf_fxd.lib;..\Libs\Arithmetic\Debug\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -154,7 +154,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>json-c.lib;..\Libs\GetOpt\Release\GetOpt.lib;..\Libs\TestSigGen\Release\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Release\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Release\Iir_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Release\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Release\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Release\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\Release\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\Release\Apf_flt.lib;..\Libs\Arithmetic\Release\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>json-c.lib;..\Libs\GetOpt\Release\GetOpt.lib;..\Libs\TestSigGen\Release\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Release\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Release\Iir_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Release\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Release\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Release\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\Release\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\Release\Apf_flt.lib;..\Libs\Effects\Fxd\Apf_fxd\Release\Apf_fxd.lib;..\Libs\Arithmetic\Release\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -197,7 +197,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>json-c.lib;..\Libs\GetOpt\MinSizeRel\GetOpt.lib;..\Libs\TestSigGen\MinSizeRel\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\MinSizeRel\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\MinSizeRel\Iir_fxd.lib;..\Libs\Effects\Flt\Gain_flt\MinSizeRel\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\MinSizeRel\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\MinSizeRel\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\MinSizeRel\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\MinSizeRel\Apf_flt.lib;..\Libs\Arithmetic\MinSizeRel\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>json-c.lib;..\Libs\GetOpt\MinSizeRel\GetOpt.lib;..\Libs\TestSigGen\MinSizeRel\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\MinSizeRel\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\MinSizeRel\Iir_fxd.lib;..\Libs\Effects\Flt\Gain_flt\MinSizeRel\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\MinSizeRel\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\MinSizeRel\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\MinSizeRel\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\MinSizeRel\Apf_flt.lib;..\Libs\Effects\Fxd\Apf_fxd\MinSizeRel\Apf_fxd.lib;..\Libs\Arithmetic\MinSizeRel\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -239,7 +239,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>json-c.lib;..\Libs\GetOpt\RelWithDebInfo\GetOpt.lib;..\Libs\TestSigGen\RelWithDebInfo\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\RelWithDebInfo\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\RelWithDebInfo\Iir_fxd.lib;..\Libs\Effects\Flt\Gain_flt\RelWithDebInfo\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\RelWithDebInfo\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\RelWithDebInfo\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\RelWithDebInfo\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\RelWithDebInfo\Apf_flt.lib;..\Libs\Arithmetic\RelWithDebInfo\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>json-c.lib;..\Libs\GetOpt\RelWithDebInfo\GetOpt.lib;..\Libs\TestSigGen\RelWithDebInfo\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\RelWithDebInfo\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\RelWithDebInfo\Iir_fxd.lib;..\Libs\Effects\Flt\Gain_flt\RelWithDebInfo\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\RelWithDebInfo\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\RelWithDebInfo\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\RelWithDebInfo\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\RelWithDebInfo\Apf_flt.lib;..\Libs\Effects\Fxd\Apf_fxd\RelWithDebInfo\Apf_fxd.lib;..\Libs\Arithmetic\RelWithDebInfo\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -328,6 +328,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Effects\Flt\Apf_flt\Apf_flt.vcxproj">
       <Project>{18869FFA-F2B8-3950-9F44-F41EB2256B1F}</Project>
       <Name>Apf_flt</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Effects\Fxd\Apf_fxd\Apf_fxd.vcxproj">
+      <Project>{F1C7CA05-5CF5-39C0-827E-403E6E7B6973}</Project>
+      <Name>Apf_fxd</Name>
     </ProjectReference>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Arithmetic\Arithmetic.vcxproj">
       <Project>{B1C71917-8A32-3E29-9BE8-C26EAAAF859A}</Project>

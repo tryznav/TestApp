@@ -16,6 +16,8 @@ D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Fir_fxd/CMakeFiles/Fir_fxd.dir
 D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Fir_fxd/CMakeFiles/ALL_BUILD.dir
 D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Iir_fxd/CMakeFiles/Iir_fxd.dir
 D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Iir_fxd/CMakeFiles/ALL_BUILD.dir
+D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Apf_fxd/CMakeFiles/Apf_fxd.dir
+D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Apf_fxd/CMakeFiles/ALL_BUILD.dir
 D:/TestApp/TestApp/build/tmp/Libs/TestSigGen/CMakeFiles/TestSigGen.dir
 D:/TestApp/TestApp/build/tmp/Libs/TestSigGen/CMakeFiles/ALL_BUILD.dir
 D:/TestApp/TestApp/build/tmp/Libs/GetOpt/CMakeFiles/GetOpt.dir

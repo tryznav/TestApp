@@ -22,6 +22,10 @@
 #include "apf_flt_control.h"
 #include "apf_flt_process.h"
 
+
+#include "apf_fxd_control.h"
+#include "apf_fxd_process.h"
+
 #include "iir_fxd_control.h"
 #include "iir_fxd_process.h"
 

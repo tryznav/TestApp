@@ -12,8 +12,6 @@ static int32_t apf_coeff_2nd_calc(apf_coef_2nd_t *coef, double fc, double sample
 
 int32_t cross_coeff_calc(cross_prm_t *prm, cross_coefs_t *coeffs){
     for(int i = 0; i < NUM_OF_FREQ; i++){
-        // lpf_coeff_calc(&coeffs->lpf[i], prm->freq[i], prm->sample_rate);
-        // hpf_coeff_calc(&coeffs->hpf[i], prm->freq[i], prm->sample_rate);
         apf_coeff_1st_calc(&coeffs->apf_1st[i], prm->freq[i], prm->sample_rate);
         apf_coeff_2nd_calc(&coeffs->apf_2nd[i], prm->freq[i], prm->sample_rate);
     }

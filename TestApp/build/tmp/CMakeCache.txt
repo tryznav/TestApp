@@ -24,6 +24,15 @@ Apf_flt_LIB_DEPENDS:STATIC=general;Arithmetic;
 Apf_flt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Flt/Apf_flt
 
 //Value Computed by CMake
+Apf_fxd_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Apf_fxd
+
+//Dependencies for the target
+Apf_fxd_LIB_DEPENDS:STATIC=general;Arithmetic;
+
+//Value Computed by CMake
+Apf_fxd_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Fxd/Apf_fxd
+
+//Value Computed by CMake
 Arithmetic_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Arithmetic
 
 //Value Computed by CMake
@@ -344,7 +353,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=12
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=13
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_COMPILER

@@ -254,4 +254,11 @@ fxd_q63_t   fxd_fmul(fxd_q31_t a, fxd_q31_t b);
 
 fxd_q31_t   dbl_to_fxd_p(double a, uint32_t p);
 
+fxd_q63_t   fxd_mac_m(fxd_q63_t a, fxd_q31_t b,  fxd_q31_t c);
+
+/***********************************************/
+fxd_q63_t   fxd63_lshift(fxd_q63_t a, uint32_t n);
+
+fxd_q63_t   fxd_msub_m(fxd_q63_t a, fxd_q31_t b,  fxd_q31_t c);
+
 #endif /* colors.h */

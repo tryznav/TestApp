@@ -14,6 +14,7 @@ add_subdirectory(Libs/Effects/Flt/Apf_flt)
 
 add_subdirectory(Libs/Effects/Fxd/Fir_fxd)
 add_subdirectory(Libs/Effects/Fxd/Iir_fxd)
+add_subdirectory(Libs/Effects/Fxd/Apf_fxd)
 
 # GAIN
 

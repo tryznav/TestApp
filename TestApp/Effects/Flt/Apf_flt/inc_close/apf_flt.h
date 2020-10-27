@@ -13,7 +13,7 @@
 #include <math.h>
 
 #define TAP_NUM         256
-#define APF_ORDER       1
+#define APF_ORDER       2
 #define APF_2nd         1           
 
 /*******************************************************************************
@@ -46,7 +46,9 @@ union feature{
 };
 
 typedef struct apf_prm_s{
+    int32_t             order;
     double              freq;
+    int32_t             form;
     double              sample_rate;
 }apf_prm_t;
 
@@ -56,6 +58,9 @@ typedef struct canon_doub_coefs_s{
 
 typedef struct apfcoefs_s{
     coef_type           c[APF_ORDER];
+    double              c_dbl[APF_ORDER];
+    int32_t             order;
+    int32_t             form;
 }apf_coefs_t;
 
 #pragma pack(push,1)
@@ -67,6 +72,7 @@ typedef struct chanes_s{
 
 typedef struct apf_states_s{
     audio_type          xh[APF_ORDER];
+    double              xh_dbl[APF_ORDER];
 }apf_states_t;
 
 typedef struct states_s{

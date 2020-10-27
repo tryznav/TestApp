@@ -52,6 +52,18 @@ int32_t app_efect_init(pross_waw_t *pr, wav_hdr_t  *hdr, effect_task_t *effect_t
             efect->effect_process_get_sizes  = &iir_fxd_process_get_sizes;
             efect->effect_reset              = &iir_fxd_reset;
              break;
+        case    EFFECT_ID_APF:
+        printf("a");
+            //controll
+            efect->effect_control_get_sizes  = &apf_fxd_control_get_sizes;
+            efect->effect_control_initialize = &apf_fxd_control_initialize;
+            efect->effect_set_parameter      = &apf_fxd_set_parameter;
+            efect->effect_update_coeffs      = &apf_fxd_update_coeffs;
+            //process
+            efect->effect_process            = &apf_fxd_process;
+            efect->effect_process_get_sizes  = &apf_fxd_process_get_sizes;
+            efect->effect_reset              = &apf_fxd_reset;
+             break;
         default:
             fprintf(stderr,RED" Error: "BOLDWHITE"Not supported format for this effect.\n"RESET);
             return -1;
