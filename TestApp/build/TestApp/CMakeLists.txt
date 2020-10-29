@@ -27,13 +27,15 @@ target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
 #fxd
 target_link_libraries(${PR_NAME} PRIVATE Fir_fxd)
 target_link_libraries(${PR_NAME} PRIVATE Iir_fxd)
+target_link_libraries(${PR_NAME} PRIVATE Crossover_fxd)
+target_link_libraries(${PR_NAME} PRIVATE Apf_fxd)
 #flt
 target_link_libraries(${PR_NAME} PRIVATE Gain_flt)
 target_link_libraries(${PR_NAME} PRIVATE Fir_flt)
 target_link_libraries(${PR_NAME} PRIVATE Iir_flt)
 target_link_libraries(${PR_NAME} PRIVATE Crossover_flt)
 target_link_libraries(${PR_NAME} PRIVATE Apf_flt)
-target_link_libraries(${PR_NAME} PRIVATE Apf_fxd)
+
 
 
 target_include_directories(${PR_NAME} PRIVATE ../Libs/json-c)

@@ -13,7 +13,7 @@ int32_t cross_flt_control_get_sizes(
     size_t*     params_bytes,
     size_t*     coeffs_bytes){
     *params_bytes = sizeof(cross_prm_t);
-    *coeffs_bytes = sizeof(cross_coefs_t);
+    *coeffs_bytes = sizeof(coef_t);
     return 0;
 }
 
@@ -31,17 +31,17 @@ int32_t cross_flt_control_initialize(
     void*       coeffs,
     uint32_t    sample_rate){
     cross_prm_t *_prm = (cross_prm_t *)params;
-    cross_coefs_t *_coeffs = (cross_coefs_t  *)coeffs;
+    coef_t *_coeffs = (coef_t  *)coeffs;
 
     _prm->sample_rate = (double)sample_rate;
 
-    _prm->freq[0] = 100;
-    _prm->freq[1] = 1000;
-    _prm->freq[2] = 10000;
-    _prm->gain_dB[0] = 6.0;
-    _prm->gain_dB[1] = 0.0;
-    _prm->gain_dB[2] = 0.0;
-    _prm->gain_dB[3] = 0.0;
+    _prm->freq[0] = 10000;
+    _prm->freq[1] = 10000;
+    _prm->freq[2] = 20000;
+    _prm->gain_dB[0] = -6.0;
+    _prm->gain_dB[1] = -6.0;
+    _prm->gain_dB[2] = -6.0;
+    _prm->gain_dB[3] = -6.0;
 
     cross_coeff_calc(_prm, _coeffs);
 
@@ -104,7 +104,7 @@ int32_t cross_flt_update_coeffs(
     void const* params,
     void*       coeffs){
 
-    cross_coeff_calc((cross_prm_t *)params, (cross_coefs_t  *)coeffs);
+    cross_coeff_calc((cross_prm_t *)params, (coef_t  *)coeffs);
 
     return 0;
 }

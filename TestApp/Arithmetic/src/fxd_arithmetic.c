@@ -1,6 +1,8 @@
 //flt_arithmetic.c
 
 #include "fxd_arithmetic.h"
+#include <stdlib.h>
+#include <Windows.h>
 
 #include <math.h>
 #define BITS_TYPE32         31
@@ -18,15 +20,35 @@
 
 #define INTERP_FACTOR_MASK  ((1 << 22) - 1)
 
+// union 
+// {
+//     struct 
+//     {
+//         /* data */
+//         fxd high;
+//         int32_t low;
+//     }n;
+//     int64_t 
+    
+// };
+/***********************************************/
+
+fxd_q31_t fxd_get_high(fxd_q63_t n){
+    n <<= 32;
+    return (fxd_q31_t)n;
+}
+
 /***********************************************/
 
 fxd_q63_t saturation(fxd_q63_t num){
     if(num > INT32_MAX){
-        printf("sat Max");
+        // printf("sat Max");
+        // // exit(0);
         return INT32_MAX;
     }
-    if(num < INT32_MIN){
-                printf("SaM min Max");
+    if(num < INT32_MIN){        
+            // printf("SaM min Max");
+            // exit(0);
         return INT32_MIN;
     }
     return num;

@@ -34,9 +34,9 @@ int32_t apf_fxd_control_initialize(
     apf_coefs_t *_coeffs = (apf_coefs_t  *)coeffs;
 
     _prm->sample_rate = (double)sample_rate;
-    _prm->freq = 1.0; //min cutoff freq
+    _prm->freq = 5000.0; //min cutoff freq
     _prm->form = 1;
-    _prm->order = 2;
+    _prm->order = 1;
     apf_coeff_calc_fxd(_prm, _coeffs);
 
     return 0;

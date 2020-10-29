@@ -204,6 +204,15 @@ Crossover_flt_LIB_DEPENDS:STATIC=general;Arithmetic;
 Crossover_flt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Flt/Crossover_flt
 
 //Value Computed by CMake
+Crossover_fxd_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Crossover_fxd
+
+//Dependencies for the target
+Crossover_fxd_LIB_DEPENDS:STATIC=general;Arithmetic;
+
+//Value Computed by CMake
+Crossover_fxd_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Fxd/Crossover_fxd
+
+//Value Computed by CMake
 Fir_flt_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Fir_flt
 
 //Dependencies for the target
@@ -353,7 +362,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=13
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=14
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_COMPILER

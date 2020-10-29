@@ -229,6 +229,8 @@ fxd_q63_t   fxd63_add(int64_t a, int64_t b);
  ******************************************************************************/
 fxd_q63_t   fxd63_sub(fxd_q63_t a, fxd_q63_t b);
 
+fxd_q31_t fxd_get_high(fxd_q63_t n);
+
 
 double      fxd5_26_to_dbl(int32_t val);
 

@@ -32,6 +32,9 @@
 #include "cross_flt_control.h"
 #include "cross_flt_process.h"
 
+#include "cross_fxd_control.h"
+#include "cross_fxd_process.h"
+
 #include "params_id.h"
 #include "new_type.h"
 // #include "file_handler.h"

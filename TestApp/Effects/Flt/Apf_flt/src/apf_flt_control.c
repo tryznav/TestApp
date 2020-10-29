@@ -34,10 +34,9 @@ int32_t apf_flt_control_initialize(
     apf_coefs_t *_coeffs = (apf_coefs_t  *)coeffs;
 
     _prm->sample_rate = (double)sample_rate;
-    _prm->freq = 15000.0;
-    _prm->form = 2;
-    // _prm->sample_rate / 2.0f / 2.0f;
-    _prm->order = 2;
+    _prm->freq = 1.0;
+    _prm->form = 1;
+    _prm->order = 1;
     apf_coeff_calc(_prm, _coeffs);
 
     return 0;
