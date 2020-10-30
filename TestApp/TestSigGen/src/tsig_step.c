@@ -9,7 +9,7 @@ void *tsig_step_init_states (uint32_t sample_rate, uint32_t length_sample, void 
         exit(EXIT_FAILURE);
     }
     states->audioFormat = audioFormat;
-    states->amplitude_coef = 1;
+    states->amplitude_coef = 1.0f;
     return states;
 
 }
@@ -25,7 +25,7 @@ int32_t tsig_gen_step_st(uint32_t length_sample, void* states, void *audio){
 
     for (uint32_t i = 0; i < length_sample; i++){
         _audio[i].Left = 1.0f * _st->amplitude_coef;
-        _audio[i].Right = ((chanels_t *)audio)[i].Left;
+        _audio[i].Right = _audio[i].Left;
     }
 
     if(_st->audioFormat == PCM){

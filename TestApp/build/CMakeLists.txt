@@ -4,7 +4,7 @@ project(WholeSolution)
 
 
 add_subdirectory(Libs/Arithmetic)
-# add_subdirectory(Libs/json-c)
+add_subdirectory(Libs/json-c)
 # FLT
 add_subdirectory(Libs/Effects/Flt/Fir_flt)
 add_subdirectory(Libs/Effects/Flt/Iir_flt)

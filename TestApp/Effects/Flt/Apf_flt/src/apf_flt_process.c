@@ -86,8 +86,11 @@ static audio_type apl_direct_2nd_order(audio_type x, apf_states_t *st, apf_coefs
     // printf("xh = %f\n",xh );
 
     audio_type  y = flt_mul(coef->c[1], st->xh[0]);
+    // printf("y = %f\t",y );
     y = flt_msub(y, coef->c[0], xh);
+        // printf("y = %f\t",y );
     y = flt_add(y, st->xh[1]);
+        // printf("y = %f\n",y );
 
     st->xh[1] = st->xh[0];
     st->xh[0] = xh;
@@ -98,8 +101,8 @@ static audio_type apl_direct_2nd_order(audio_type x, apf_states_t *st, apf_coefs
 static audio_type apl_direct_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
     double xh = x;
 
-    xh -= coef->c_dbl[1] * st->xh_dbl[0];
-    xh += coef->c_dbl[0] * st->xh_dbl[1];
+    xh -= (coef->c_dbl[1] * st->xh_dbl[0]);
+    xh += (coef->c_dbl[0] * st->xh_dbl[1]);
     
 
 

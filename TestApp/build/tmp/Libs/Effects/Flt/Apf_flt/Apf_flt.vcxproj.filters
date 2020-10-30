@@ -10,6 +10,9 @@
     <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\src\apf_flt_process.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\src\apf_settings.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\CMakeLists.txt" />

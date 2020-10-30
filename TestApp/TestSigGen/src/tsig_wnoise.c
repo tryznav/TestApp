@@ -18,7 +18,6 @@ void *tsig_wnoise_init_states (uint32_t sample_rate, uint32_t length_sample, voi
     states->amplitude_coef = powf(10.0f , (0.05f * _prm->amp_dB));
 
     return states;
-
 }
 
 

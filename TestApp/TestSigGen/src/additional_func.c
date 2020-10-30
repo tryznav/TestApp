@@ -17,18 +17,17 @@ int32_t check_gen(uint32_t length_sample, void* states, void *audio){
 }
 
 static int32_t convert(float n){
-    if(n < -1.0f){
+    if(n < -1.0){
         return INT32_MIN;
     }
-    if(n >= 1.0f){
+    if(n >= 1.0){
         return INT32_MAX;
     }
-
-    return (int32_t)(n * INT32_MAX);
+    return (int32_t)(n * (1u<<31));
 }
 
 int32_t IEEE_754_to_PCM(void *audio, uint32_t length_sample){
-    for(int i = 0; i < 0; i++){
+    for(uint32_t i = 0; i < (length_sample * 2); i++){
         ((int32_t *)audio)[i] = convert(((float *)audio)[i]);
     }
     return 0;

@@ -167,7 +167,7 @@ static audio_type calc_crossover(audio_type x, cross_states_t *st, coef_t *coef)
     res = fxd_mac(res, band3, coef->gain_c[2]);
     res = fxd_mac(res, band4, coef->gain_c[3]);
 
-    return band1+band2 + band3 + band4;//fxd_get_high(res);
+    return band1 + band2 + band3 + band4;//fxd_get_high(res);
 }
 
 int32_t cross_fxd_process(

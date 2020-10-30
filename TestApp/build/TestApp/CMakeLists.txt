@@ -20,7 +20,7 @@ set(LIBS_PATH_1 "../Libs/")
 set(LIBS_PATH_2 "/tmp/Debug/")
 
 # find_package(json-c CONFIG REQUIRED)
-target_link_libraries(${PR_NAME} PRIVATE json-c)
+# target_link_libraries(${PR_NAME} PRIVATE json-c)
 
 target_link_libraries(${PR_NAME} PRIVATE GetOpt)
 target_link_libraries(${PR_NAME} PRIVATE TestSigGen)

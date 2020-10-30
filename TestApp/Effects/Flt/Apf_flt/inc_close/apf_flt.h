@@ -48,6 +48,7 @@ union feature{
 typedef struct apf_prm_s{
     int32_t             order;
     double              freq;
+    double              fb;
     int32_t             form;
     double              sample_rate;
 }apf_prm_t;
@@ -82,5 +83,7 @@ typedef struct states_s{
 
 
 int32_t apf_coeff_calc(apf_prm_t *_prm, apf_coefs_t *_coeffs);
+int32_t apf_settings_write(apf_prm_t *prm);
+int32_t apf_settings_read(apf_prm_t *prm);
 
 #endif

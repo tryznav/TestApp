@@ -34,10 +34,11 @@ int32_t apf_flt_control_initialize(
     apf_coefs_t *_coeffs = (apf_coefs_t  *)coeffs;
 
     _prm->sample_rate = (double)sample_rate;
-    _prm->freq = 1.0;
+    _prm->freq = 100.0;
     _prm->form = 1;
-    _prm->order = 1;
+    _prm->order = 2;
     apf_coeff_calc(_prm, _coeffs);
+    apf_settings_write(_prm);
 
     return 0;
 }
@@ -82,7 +83,7 @@ int32_t apf_flt_set_parameter(
 int32_t apf_flt_update_coeffs(
     void const* params,
     void*       coeffs){
-
+    apf_settings_read((apf_prm_t *)params);
     apf_coeff_calc((apf_prm_t *)params, (apf_coefs_t  *)coeffs);
 
     return 0;

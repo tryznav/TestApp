@@ -35,6 +35,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("D:/TestApp/TestApp/build/tmp/Libs/Arithmetic/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/Libs/json-c/cmake_install.cmake")
   include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Fir_flt/cmake_install.cmake")
   include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Iir_flt/cmake_install.cmake")
   include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Gain_flt/cmake_install.cmake")

@@ -216,6 +216,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{FE357F6E-8C1E-3855-BA30-665C86453040}</Project>
       <Name>TestSigGen</Name>
     </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\json-c\json-c.vcxproj">
+      <Project>{C6AE42CB-F4E0-300D-BA9F-FB98175D5A99}</Project>
+      <Name>json-c</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\json-c\json-c-static.vcxproj">
+      <Project>{D41E8A7F-A347-362C-91DD-3085D3A5E726}</Project>
+      <Name>json-c-static</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
