@@ -9,7 +9,9 @@
 #include <math.h>
 
 #define TAP_NUM     256
-#define M_PI 3.14159265358979323846
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
 
 typedef struct sweep_s{
     float               start;

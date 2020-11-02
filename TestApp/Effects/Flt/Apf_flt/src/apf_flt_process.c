@@ -1,6 +1,10 @@
 #include "apf_flt.h"
 #include <stdlib.h>
-#include <Windows.h>
+#ifdef WIN32
+    #include <Windows.h>
+#else
+    #include <unistd.h>    
+#endif
 
 /******************************************************************************/
 
@@ -164,8 +168,8 @@ int32_t apf_flt_process(
         {
         case 1:
             for(uint32_t a_index = 0; a_index < samples_count; a_index++){
-                _audio[a_index].Left = apl_direct_dbl(_audio[a_index].Left, &(_st->Left), coef);
-                _audio[a_index].Right = apl_direct_2nd_order(_audio[a_index].Right, &(_st->Right), coef); //(_audio[a_index].Left +_audio[a_index].Right)*0.5f;//  apf_direct_form2(_audio[a_index].Right, &(_st->Right), coef);
+                _audio[a_index].Left = apl_direct_2nd_order(_audio[a_index].Left, &(_st->Left), coef);
+                _audio[a_index].Right = apl_direct_dbl (_audio[a_index].Right, &(_st->Right), coef); //(_audio[a_index].Left +_audio[a_index].Right)*0.5f;//  apf_direct_form2(_audio[a_index].Right, &(_st->Right), coef);
             }
             break;
         case 2:

@@ -1,6 +1,8 @@
 #ifndef __COLORS_H__
 #define __COLORS_H__
 
+#include <errno.h>
+
 //COLORS
 #define RESET   "\033[0m"
 #define BLACK   "\033[30m"      /* Black */

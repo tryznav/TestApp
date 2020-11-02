@@ -1,6 +1,10 @@
 #include "cross_fxd.h"
 #include <stdlib.h>
-#include <Windows.h>
+#ifdef WIN32
+    #include <Windows.h>
+#else
+    #include <unistd.h>    
+#endif
 
 #define SUM_BITS        (COEF_FR - 14)
 #define FORWARD_MASK    ((1u << COEF_FR) - 1)

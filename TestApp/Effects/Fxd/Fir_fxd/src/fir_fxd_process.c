@@ -13,6 +13,7 @@ typedef struct chanes_s{
     fxd_q31_t Left;
     fxd_q31_t Right;
 }chanes_t;
+#pragma pack(pop)
 
 typedef struct fir_states_s{
     uint8_t     start;              //history ofset max value 256 because 256 tap

@@ -1,4 +1,4 @@
- #include "apf_flt.h"
+ #include "apf_fxd.h"
  #include <json.h>
 
 #define FILE_NAME       "apf_preset.json"
@@ -27,7 +27,7 @@
 
     /*Now printing the json object*/
     const char *str = json_object_to_json_string(jobj);
-    fprintf(file, str);
+    fprintf(file, "%s", str);
     fclose(file);
     return 0;
 }
@@ -61,7 +61,7 @@ int32_t apf_settings_read(apf_prm_t *prm){
 
     prm->sample_rate = json_object_get_double(sample_rate);
     prm->freq = json_object_get_double(cutoff_freq);
-    prm->fb = json_object_get_double(band_width);
+    // prm->fb = json_object_get_double(band_width);
 
     fclose(file);
     return 0;

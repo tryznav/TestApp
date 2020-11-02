@@ -56,7 +56,7 @@ typedef struct  apf_coef_t{
 typedef struct  coef_t{
     apf_coef_t          apf_1st[NUM_OF_FREQ];
     apf_coef_t          apf_2nd[NUM_OF_FREQ];
-    coef_type           gain_c[NUM_OF_FREQ];
+    coef_type           gain_c[NUM_OF_BAND];
 }coef_t;
 
 typedef struct apf_states_s{

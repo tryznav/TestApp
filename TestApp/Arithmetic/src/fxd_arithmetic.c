@@ -2,7 +2,11 @@
 
 #include "fxd_arithmetic.h"
 #include <stdlib.h>
-#include <Windows.h>
+#ifdef WIN32
+    #include <Windows.h>
+#else
+    #include <unistd.h>    
+#endif
 
 #include <math.h>
 #define BITS_TYPE32         31

@@ -37,6 +37,7 @@ int32_t apf_fxd_control_initialize(
     _prm->freq = 1.0; //min cutoff freq
     _prm->form = 1;
     _prm->order = 1;
+    apf_settings_write(_prm);
     apf_coeff_calc_fxd(_prm, _coeffs);
 
     return 0;
@@ -83,6 +84,7 @@ int32_t apf_fxd_update_coeffs(
     void const* params,
     void*       coeffs){
 
+    apf_settings_read((apf_prm_t *)params);
     apf_coeff_calc_fxd((apf_prm_t *)params, (apf_coefs_t  *)coeffs);
 
 

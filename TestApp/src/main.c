@@ -2,7 +2,7 @@
 
 static void print_help(void);
 
-main (int argc, char **argv)
+int main (int argc, char **argv)
 {
   int c;
   app_func_t *app_task = (app_func_t *)malloc(sizeof(app_func_t));

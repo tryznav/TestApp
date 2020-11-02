@@ -1,6 +1,10 @@
 #include "apf_fxd.h"
 #include <stdlib.h>
-#include <Windows.h>
+#ifdef WIN32
+    // #include <Windows.h>
+#else
+    #include <unistd.h>    
+#endif
 
 /******************************************************************************/
 
@@ -81,6 +85,9 @@ static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coefs_t *coe
     return  (audio_type)y;
 }
 
+
+
+
 static audio_type apl_direct_2nd_order(audio_type x, apf_states_t *st, apf_coefs_t *coef){
     acum_type xh = fxd63_lshift(x, (COEF_FR - 28)); //convert to type type 'xh'
     xh = fxd63_add(xh,st->noise[0]);
@@ -112,6 +119,57 @@ static audio_type apl_direct_2nd_order(audio_type x, apf_states_t *st, apf_coefs
     return (audio_type)y;
 }
 
+static audio_type apl_direct_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+    double xh = fxd_to_dbl(x);
+
+    xh -= (coef->c_dbl[1] * st->xh_dbl[0]);
+    xh += (coef->c_dbl[0] * st->xh_dbl[1]);
+    
+
+
+    double y = coef->c_dbl[1] * st->xh_dbl[0];
+    y -= coef->c_dbl[0] * xh;
+    y += st->xh_dbl[1];
+
+    st->xh_dbl[1] = st->xh_dbl[0];
+    st->xh_dbl[0] = xh;
+
+    return dbl_to_fxd(y);
+}
+
+static double apl_1st_m_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+    double xh = fxd_to_dbl(x);
+    xh -= coef->c_dbl[0] * st->xh_dbl[0];
+
+    double y = st->xh_dbl[0] + (xh * coef->c_dbl[0]);
+
+    st->xh_dbl[0] = xh;
+
+    return dbl_to_fxd(y);
+}
+
+static double apl_1st_dbl(double x, apf_states_t *st, apf_coefs_t *coef){
+    double xh = x;
+    xh -= coef->c_dbl[0] * st->xh_dbl[0];
+
+    double y = st->xh_dbl[0] + (xh * coef->c_dbl[0]);
+
+    st->xh_dbl[0] = xh;
+
+    return y;
+}
+
+static audio_type apl_lattice_2nd_order_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+    double xh = fxd_to_dbl(x);
+
+    xh -= coef->c_dbl[1] *  st->xh_dbl[1];
+    double y = st->xh_dbl[1] + (coef->c_dbl[1] * xh);
+
+    st->xh_dbl[1] = apl_1st_dbl(xh, st, coef);
+
+    return  dbl_to_fxd(y);
+}
+
 static audio_type apl_lattice_2nd_order(audio_type x, apf_states_t *st, apf_coefs_t *coef){
     acum_type p = 0;
     acum_type xh = fxd63_lshift(x, (COEF_FR - 14));
@@ -141,16 +199,9 @@ static audio_type apl_lattice_2nd_order(audio_type x, apf_states_t *st, apf_coef
     return (audio_type)y;
 }
 
-// static audio_type apl_lattice_2nd_order_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
-//     double xh = x;
 
-//     xh -= coef->c_dbl[1] *  st->xh_dbl[1];
-//     double y = st->xh_dbl[1] + (coef->c_dbl[1] * xh);
 
-//     st->xh_dbl[1] = apl_1st_dbl(xh, st, coef);
 
-//     return (audio_type)y;
-// }
 
 int32_t apf_fxd_process(
     void const* coeffs,
@@ -171,7 +222,7 @@ int32_t apf_fxd_process(
     case 1:
         for(uint32_t a_index = 0; a_index < samples_count; a_index++){
             _audio[a_index].Left = apl_1st_order(_audio[a_index].Left, &(_st->Left), coef);
-            //_audio[a_index].Right = ((_audio[a_index].Left >> 2) - (_audio[a_index].Right >> 2));
+            _audio[a_index].Left = apl_1st_m_dbl(_audio[a_index].Right, &(_st->Right), coef);
         }
         break;
     case 2:
@@ -180,14 +231,13 @@ int32_t apf_fxd_process(
         case 1:
             for(uint32_t a_index = 0; a_index < samples_count; a_index++){
                 _audio[a_index].Left = apl_direct_2nd_order(_audio[a_index].Left, &(_st->Left), coef);
-                // _audio[a_index].Right = ((_audio[a_index].Left >> 2) - (_audio[a_index].Right >> 2));
-                // _audio[a_index].Right = ((_audio[a_index].Left >> 1) + (_audio[a_index].Right>>1));//  apf_direct_form2(_audio[a_index].Right, &(_st->Right), coef);
+                _audio[a_index].Right = apl_direct_dbl(_audio[a_index].Right, &(_st->Right), coef);
             }
             break;
         case 2:
             for(uint32_t a_index = 0; a_index < samples_count; a_index++){
                 _audio[a_index].Left = apl_lattice_2nd_order(_audio[a_index].Left, &(_st->Left), coef);
-                _audio[a_index].Right = ((_audio[a_index].Left >> 1) + (_audio[a_index].Right>>1));//  apf_direct_form2(_audio[a_index].Right, &(_st->Right), coef);
+                _audio[a_index].Right = apl_lattice_2nd_order_dbl(_audio[a_index].Right, &(_st->Right), coef);
             }
             break;
         default:
