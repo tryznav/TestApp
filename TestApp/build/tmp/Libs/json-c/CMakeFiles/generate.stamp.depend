@@ -1,0 +1,31 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CMakeConfigurableFile.in
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CPack.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CPackComponent.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CTest.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CTestTargets.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CTestUseLaunchers.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CheckIncludeFile.c.in
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CheckIncludeFiles.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CheckTypeSize.c.in
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/DartConfiguration.tcl.in
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/WriteBasicConfigVersionFile.cmake
+C:/Program Files/CMake 3.12/share/cmake-3.12/Templates/CPackConfig.cmake.in
+D:/TestApp/TestApp/build/Libs/json-c/CMakeLists.txt
+D:/TestApp/TestApp/build/Libs/json-c/cmake/Config.cmake.in
+D:/TestApp/TestApp/build/Libs/json-c/cmake/config.h.in
+D:/TestApp/TestApp/build/Libs/json-c/cmake/json_config.h.in
+D:/TestApp/TestApp/build/tmp/CMakeFiles/CheckIncludeFiles/STDC_HEADERS.c
+D:/TestApp/TestApp/build/tmp/CMakeFiles/CheckTypeSize/SIZEOF_INT.c
+D:/TestApp/TestApp/build/tmp/CMakeFiles/CheckTypeSize/SIZEOF_INT64_T.c
+D:/TestApp/TestApp/build/tmp/CMakeFiles/CheckTypeSize/SIZEOF_LONG.c
+D:/TestApp/TestApp/build/tmp/CMakeFiles/CheckTypeSize/SIZEOF_LONG_LONG.c
+D:/TestApp/TestApp/build/tmp/CMakeFiles/CheckTypeSize/SIZEOF_SIZE_T.c
+D:/TestApp/TestApp/build/tmp/CMakeFiles/CheckTypeSize/SIZEOF_SSIZE_T.c

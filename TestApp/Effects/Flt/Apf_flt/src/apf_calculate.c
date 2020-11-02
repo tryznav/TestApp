@@ -45,6 +45,12 @@ static int32_t apf_coeff_2nd_calc(apf_coefs_t *coef, double fc, double sample_ra
         coef->c_dbl[0] = d;
         coef->c_dbl[1] = -c;
         break;
+    case 3:     // direct form
+        coef->c[0] = (coef_type)c;
+        coef->c[1] = (coef_type)dc;
+        coef->c_dbl[0] = c;
+        coef->c_dbl[1] = dc;
+        break;
 
     default:
         break;

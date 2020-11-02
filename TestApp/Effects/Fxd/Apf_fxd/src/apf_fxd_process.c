@@ -1,10 +1,13 @@
 #include "apf_fxd.h"
 #include <stdlib.h>
 #ifdef WIN32
-    // #include <Windows.h>
+    #include <Windows.h>
 #else
     #include <unistd.h>    
 #endif
+
+#define DIRECT2_FBITS   (COEF_FR - 15) //28
+#define FISRT_FBITS     (COEF_FR - 14)
 
 /******************************************************************************/
 
@@ -26,6 +29,8 @@ int32_t apf_fxd_reset(
     for(int order = (APF_ORDER - 1); order >= 0 ; order--){
         _st->Left.xh[order] = 0;
         _st->Right.xh[order] = 0;
+        _st->Left.xh_dbl[order] = 0.0;
+        _st->Right.xh_dbl[order] = 0.0;
     }
     return 0;
 }
@@ -60,7 +65,7 @@ static int32_t check(void const* coeffs,
 }
 
 static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coefs_t *coef){
-    acum_type xh = fxd63_lshift(x, COEF_FR - 14); //convert to type type xh
+    acum_type xh = fxd63_lshift(x, FISRT_FBITS ); //convert to type type xh
     // xh = fxd63_add(xh,st->noise[0]);
 
     xh = fxd_msub_m(xh, coef->c[0], st->xh[0]);
@@ -74,9 +79,9 @@ static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coefs_t *coe
 
     acum_type y = fxd63_lshift(st->xh[0], COEF_FR);
     y = fxd_mac_m(y, coef->c[0], (audio_type)xh);
-    y = fxd63_add(y, st->noise[1]);
-    st->noise[1] = (fxd_q31_t)(y & ((1u << (COEF_FR - 14)) - 1));
-    y = fxd63_rshift(y, (COEF_FR - 14));    //convert to type type Q31
+    // y = fxd63_add(y, st->noise[1]);
+    st->noise[1] = (fxd_q31_t)(y & ((1u << FISRT_FBITS ) - 1));
+    y = fxd63_rshift(y, FISRT_FBITS );    //convert to type type Q31
 
     y = saturation(y);
 
@@ -89,8 +94,8 @@ static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coefs_t *coe
 
 
 static audio_type apl_direct_2nd_order(audio_type x, apf_states_t *st, apf_coefs_t *coef){
-    acum_type xh = fxd63_lshift(x, (COEF_FR - 28)); //convert to type type 'xh'
-    xh = fxd63_add(xh,st->noise[0]);
+    acum_type xh = fxd63_lshift(x, DIRECT2_FBITS); //convert to type type 'xh'
+    //  xh = fxd63_add(xh,st->noise[0]);
 
     xh = fxd_msub_m(xh, coef->c[1], st->xh[0]);
     xh = fxd_mac_m(xh, coef->c[0], st->xh[1]);
@@ -104,11 +109,11 @@ static audio_type apl_direct_2nd_order(audio_type x, apf_states_t *st, apf_coefs
 
     acum_type y = fxd63_lshift(st->xh[1], COEF_FR);
     y = fxd_mac_m(y, coef->c[1], st->xh[0]);
-    y = fxd63_add(y,st->noise[1]);
+    //  y = fxd63_add(y,st->noise[1]);
     y = fxd_msub_m(y, coef->c[0], (audio_type)xh);
-    st->noise[1] = (fxd_q31_t)(y & ((1u << (COEF_FR - 28)) - 1));
+    st->noise[1] = (fxd_q31_t)(y & ((1u << DIRECT2_FBITS) - 1));
 
-    y = fxd63_rshift(y, (COEF_FR - 28));                   //convert to type type 'xh'
+    y = fxd63_rshift(y, DIRECT2_FBITS);                   //convert to type type 'xh'
    
     y = saturation(y);
 
@@ -121,10 +126,11 @@ static audio_type apl_direct_2nd_order(audio_type x, apf_states_t *st, apf_coefs
 
 static audio_type apl_direct_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
     double xh = fxd_to_dbl(x);
+    // printf("xh = %f\n", xh);
 
     xh -= (coef->c_dbl[1] * st->xh_dbl[0]);
     xh += (coef->c_dbl[0] * st->xh_dbl[1]);
-    
+    // printf("xh = %f\n", xh);
 
 
     double y = coef->c_dbl[1] * st->xh_dbl[0];
@@ -133,18 +139,23 @@ static audio_type apl_direct_dbl(audio_type x, apf_states_t *st, apf_coefs_t *co
 
     st->xh_dbl[1] = st->xh_dbl[0];
     st->xh_dbl[0] = xh;
-
+    // printf("y = %f\n", y);
+    // printf("coef->c_dbl[1] = %f\n", coef->c_dbl[1]);
+    //     printf("coef->c_dbl[0] = %f\n", coef->c_dbl[0]);
     return dbl_to_fxd(y);
 }
 
-static double apl_1st_m_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+static audio_type apl_1st_m_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
     double xh = fxd_to_dbl(x);
+        // printf("xh = %f\n", xh);
     xh -= coef->c_dbl[0] * st->xh_dbl[0];
 
     double y = st->xh_dbl[0] + (xh * coef->c_dbl[0]);
 
     st->xh_dbl[0] = xh;
-
+    // printf("y = %f\n", y);
+    //     // printf("coef->c_dbl[1] = %f\n", coef->c_dbl[1]);
+    //     printf("coef->c_dbl[0] = %f\n", coef->c_dbl[0]);
     return dbl_to_fxd(y);
 }
 
@@ -172,8 +183,8 @@ static audio_type apl_lattice_2nd_order_dbl(audio_type x, apf_states_t *st, apf_
 
 static audio_type apl_lattice_2nd_order(audio_type x, apf_states_t *st, apf_coefs_t *coef){
     acum_type p = 0;
-    acum_type xh = fxd63_lshift(x, (COEF_FR - 14));
-    xh = fxd63_add(xh,st->noise[2]);
+    acum_type xh = fxd63_lshift(x, FISRT_FBITS );
+    // xh = fxd63_add(xh,st->noise[2]);
     xh = fxd_msub_m(xh, coef->c[1], st->xh[1]);
 
     st->noise[2] = (fxd_q31_t)(xh & ((1u << COEF_FR) - 1));
@@ -186,11 +197,11 @@ static audio_type apl_lattice_2nd_order(audio_type x, apf_states_t *st, apf_coef
     }
 
     acum_type  y = fxd63_lshift(st->xh[1], COEF_FR);
-    y = fxd63_add(y, st->noise[3]);
+    // y = fxd63_add(y, st->noise[3]);
     y = fxd_mac_m(y, coef->c[1], (audio_type)xh);
 
-    st->noise[3] = (fxd_q31_t)(y & ((1u << (COEF_FR - 14)) - 1));
-    y = fxd63_rshift(y, (COEF_FR - 14));
+    st->noise[3] = (fxd_q31_t)(y & ((1u << FISRT_FBITS ) - 1));
+    y = fxd63_rshift(y, FISRT_FBITS );
     
     y = saturation(y);
 
@@ -221,8 +232,9 @@ int32_t apf_fxd_process(
     {
     case 1:
         for(uint32_t a_index = 0; a_index < samples_count; a_index++){
+            // printf("SDFSDFSD");
             _audio[a_index].Left = apl_1st_order(_audio[a_index].Left, &(_st->Left), coef);
-            _audio[a_index].Left = apl_1st_m_dbl(_audio[a_index].Right, &(_st->Right), coef);
+            _audio[a_index].Right = apl_1st_m_dbl(_audio[a_index].Right, &(_st->Right), coef);
         }
         break;
     case 2:
@@ -246,8 +258,5 @@ int32_t apf_fxd_process(
     default:
         break;
     }
-
-    
-
     return 0;
 }

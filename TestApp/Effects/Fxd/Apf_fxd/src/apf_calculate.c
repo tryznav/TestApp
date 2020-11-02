@@ -59,5 +59,6 @@ static int32_t apf_coeff_1st_calc(apf_coefs_t *coef, double fc, double sample_ra
     // c = -2.0;
     coef->c[0] = dbl_to_fxd_p(c, COEF_FR);
      printf("c = %f\n", c);
+    coef->c_dbl[0] = c;
     return 0;
 }

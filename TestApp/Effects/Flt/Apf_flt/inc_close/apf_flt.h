@@ -74,6 +74,7 @@ typedef struct chanes_s{
 typedef struct apf_states_s{
     audio_type          xh[APF_ORDER];
     double              xh_dbl[APF_ORDER];
+    audio_type          y[APF_ORDER];
 }apf_states_t;
 
 typedef struct states_s{
