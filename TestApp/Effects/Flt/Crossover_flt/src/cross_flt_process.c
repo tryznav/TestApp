@@ -101,7 +101,6 @@ static audio_type calc_crossover(audio_type x, cross_states_t *st, coef_t *coef)
     audio_type h_f2 = x - l_f2;
     audio_type h = h_f2 * 0.5f;
 
-
     // audio_type apl_1nd2 = apl_2nd_order(x, &(cr->xh_apf_2ord_h[1]), &coef->apf_2nd[1]); 
 
     apl_2nd = apl_2nd_order(l_f2, &(st->apf_2nd[1]), &coef->apf_2nd[0]);   

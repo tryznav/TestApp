@@ -31,30 +31,37 @@ static int32_t apf_coeff_2nd_calc(apf_coefs_t *coef, double fc, double sample_ra
     printf("dc = %f\n", dc);
     printf("d = %f\n", d);
 
-    switch (coef->form)
-    {
-    case 1:     // direct form
-        coef->c[0] = (coef_type)c;
-        coef->c[1] = (coef_type)dc;
-        coef->c_dbl[0] = c;
-        coef->c_dbl[1] = dc;
-        break;
-    case 2:     // lattice form
+    coef->c[0] = (coef_type)dc;
+    coef->c[1] = (coef_type)-c;
+    coef->c_dbl[0] = dc;
+    coef->c_dbl[1] = -c;
+    if(coef->form == 5){// lattice form
         coef->c[0] = (coef_type)d;
         coef->c[1] = (coef_type)-c;
         coef->c_dbl[0] = d;
         coef->c_dbl[1] = -c;
-        break;
-    case 3:     // direct form
-        coef->c[0] = (coef_type)c;
-        coef->c[1] = (coef_type)dc;
-        coef->c_dbl[0] = c;
-        coef->c_dbl[1] = dc;
-        break;
-
-    default:
-        break;
     }
+    // switch (coef->form)
+    // {
+    // case 1:     // direct form
+    //     coef->c[0] = (coef_type)c;
+    //     coef->c[1] = (coef_type)dc;
+    //     coef->c_dbl[0] = c;
+    //     coef->c_dbl[1] = dc;
+    //     break;
+    // case 2:     // lattice form
+    //     coef->c[0] = (coef_type)d;
+    //     coef->c[1] = (coef_type)-c;
+    //     coef->c_dbl[0] = d;
+    //     coef->c_dbl[1] = -c;
+    //     break;
+    // case 3:     // direct form
+
+    //     break;
+
+    // default:
+    //     break;
+    // }
 
     return 0;
 }

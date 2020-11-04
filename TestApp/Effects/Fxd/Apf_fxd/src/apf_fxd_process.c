@@ -6,8 +6,9 @@
     #include <unistd.h>    
 #endif
 
-#define DIRECT2_FBITS   (COEF_FR - 15) //28
+#define DIRECT2_FBITS   (COEF_FR - 27) //28
 #define FISRT_FBITS     (COEF_FR - 14)
+
 
 /******************************************************************************/
 
@@ -145,6 +146,8 @@ static audio_type apl_direct_dbl(audio_type x, apf_states_t *st, apf_coefs_t *co
     return dbl_to_fxd(y);
 }
 
+
+
 static audio_type apl_1st_m_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
     double xh = fxd_to_dbl(x);
         // printf("xh = %f\n", xh);
@@ -183,7 +186,7 @@ static audio_type apl_lattice_2nd_order_dbl(audio_type x, apf_states_t *st, apf_
 
 static audio_type apl_lattice_2nd_order(audio_type x, apf_states_t *st, apf_coefs_t *coef){
     acum_type p = 0;
-    acum_type xh = fxd63_lshift(x, FISRT_FBITS );
+    acum_type xh = fxd63_lshift(x, FISRT_FBITS);
     // xh = fxd63_add(xh,st->noise[2]);
     xh = fxd_msub_m(xh, coef->c[1], st->xh[1]);
 
@@ -260,3 +263,4 @@ int32_t apf_fxd_process(
     }
     return 0;
 }
+
