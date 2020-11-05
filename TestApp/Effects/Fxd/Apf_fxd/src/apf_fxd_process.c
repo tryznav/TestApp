@@ -30,6 +30,8 @@ int32_t apf_fxd_reset(
     for(int order = (APF_ORDER - 1); order >= 0 ; order--){
         _st->Left.xh[order] = 0;
         _st->Right.xh[order] = 0;
+        _st->Left.y[order] = 0;
+        _st->Right.y[order] = 0;
         _st->Left.xh_dbl[order] = 0.0;
         _st->Right.xh_dbl[order] = 0.0;
     }
@@ -67,58 +69,57 @@ static int32_t check(void const* coeffs,
 
 static audio_type apl_direct_f1_2nd(audio_type x, apf_states_t *st, apf_coefs_t *coef){
     acum_type  acum = 0;
-    acum = fxd_mac_m(acum, coef->c[0], st->xh[0]);
     acum = fxd_mac_m(acum, coef->c[1], fxd_rshift(x, 1));
-    acum = fxd63_add(acum, fxd63_lshift(st->xh[1], COEF_FR));
 
     acum = fxd_msub_m(acum, coef->c[1], st->y[1]);
+    
+    acum = fxd_mac_m(acum, coef->c[0], st->xh[0]);
+
     acum = fxd_msub_m(acum, coef->c[0], st->y[0]);
 
+    acum = fxd63_add(acum, fxd63_lshift(st->xh[1], COEF_FR - 1));
 
     st->xh[1] = st->xh[0];
     st->xh[0] = fxd_rshift(x, 1);
 
     st->y[1] = st->y[0];
-    st->y[0] = saturation(fxd63_rshift(acum, (COEF_FR )));
+    st->y[0] = (audio_type)saturation(fxd63_rshift(acum, (COEF_FR - 1)));
+
+
 
     // (audio_type)acum;
 
-    acum = fxd63_rshift(acum, (COEF_FR - 1));
+    acum = fxd63_rshift(acum, (COEF_FR - 2));
     acum = saturation(acum);
-    // printf("%d \n", st->y[0]);
+
     return (audio_type)acum;
 }
 
-static audio_type apl_direct_f1_t_2nd(audio_type x, apf_states_t *st, apf_coefs_t *coef){
-    audio_type xh = fxd_add(x, st->xh[0]);
+// static audio_type apl_direct_f1_t_2nd(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+//     audio_type xh = fxd_add(x, st->xh[0]);
 
-    st->xh[0] = flt_msub(st->xh[1], coef->c[0], xh);
-    st->xh[1] = flt_neg(flt_mul(xh, coef->c[1]));
+//     st->xh[0] = flt_msub(st->xh[1], coef->c[0], xh);
+//     st->xh[1] = flt_neg(flt_mul(xh, coef->c[1]));
 
-    audio_type y = flt_mac(st->y[0], coef->c[1], xh);
+//     audio_type y = flt_mac(st->y[0], coef->c[1], xh);
 
-    st->y[0] = flt_mac(st->y[1], coef->c[0], xh);
-    st->y[1] = xh;
+//     st->y[0] = flt_mac(st->y[1], coef->c[0], xh);
+//     st->y[1] = xh;
     
-    return y;
-}
+//     return y;
+// }
 
 static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coefs_t *coef){
-    acum_type xh = fxd63_lshift(x, FISRT_FBITS ); //convert to type type xh
-    // xh = fxd63_add(xh,st->noise[0]);
+    acum_type xh = fxd63_lshift(x, FISRT_FBITS); //convert to type type xh
 
     xh = fxd_msub_m(xh, coef->c[0], st->xh[0]);
 
     st->noise[0] = (fxd_q31_t)(xh & ((1u << COEF_FR) - 1));
     xh = fxd63_rshift(xh, COEF_FR); //convert to type type Q30
-
-    
-
     saturation(xh);
 
     acum_type y = fxd63_lshift(st->xh[0], COEF_FR);
     y = fxd_mac_m(y, coef->c[0], (audio_type)xh);
-    // y = fxd63_add(y, st->noise[1]);
     st->noise[1] = (fxd_q31_t)(y & ((1u << FISRT_FBITS ) - 1));
     y = fxd63_rshift(y, FISRT_FBITS );    //convert to type type Q31
 
@@ -128,6 +129,53 @@ static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coefs_t *coe
 
     return  (audio_type)y;
 }
+
+
+    // acum_type S0 = fxd_mac_m(fxd63_lshift(st->xh[0], COEF_FR), coef->c[1], x);
+    
+
+    // S0 = fxd63_rshift(S0 , (COEF_FR - 1));
+    // S0 = saturation(S0);
+
+    // audio_type y = (audio_type)S0;
+    
+    // S0 = fxd_mac_m(fxd63_lshift(st->xh[1], COEF_FR), coef->c[0], x);
+    // S0  = fxd_msub_m(S0 , coef->c[0], y);
+    // S0 = fxd63_rshift(S0 , (COEF_FR));
+    // S0 = saturation(S0);
+    // st->xh[0] = (audio_type)S0;
+
+    // S0 = fxd_msub_m(fxd63_lshift(x, (COEF_FR - 1)), coef->c[1], y);
+    // S0 = fxd63_rshift(S0 , (COEF_FR));
+    // S0 = saturation(S0);
+    // st->xh[1] = (audio_type)S0;
+#define N 1
+
+static audio_type apl_direct_f2_t_2nd(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+    acum_type S0 = fxd_mac_m(fxd63_lshift(st->xh[0], COEF_FR), coef->c[1], fxd_rshift(x, N));
+        // printf(" st->xh[1] = %d\n",  st->xh[1]);
+
+    S0 = fxd63_rshift(S0 , (COEF_FR - (1+N)));
+    S0 = saturation(S0);
+
+    audio_type y = (audio_type)S0;
+    
+    S0 = fxd_mac_m(fxd63_lshift(st->xh[1], COEF_FR), coef->c[0], fxd_rshift(x, N));
+      printf(" st->xh[0] = %d\n",  st->xh[0]);
+    S0  = fxd_msub_m(S0 , coef->c[0], fxd_rshift(y, N));
+    S0 = fxd63_rshift(S0 , (COEF_FR));
+    S0 = saturation(S0);
+    st->xh[0] = (audio_type)S0;
+
+    S0 = fxd_msub_m(fxd63_lshift(x, (COEF_FR - (1 + N))), coef->c[1], fxd_rshift(y, N));
+    S0 = fxd63_rshift(S0 , (COEF_FR));
+    S0 = saturation(S0);
+    st->xh[1] = (audio_type)S0;
+    // printf(" st->xh[1] = %d\n",  st->xh[1]);
+
+    return y;
+}
+
 
 static audio_type apl_direct_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
     double xh = fxd_to_dbl(x);
@@ -148,7 +196,6 @@ static audio_type apl_direct_dbl(audio_type x, apf_states_t *st, apf_coefs_t *co
 
 static audio_type apl_direct_2nd_order(audio_type x, apf_states_t *st, apf_coefs_t *coef){
     acum_type xh = fxd63_lshift(x, DIRECT2_FBITS); //convert to type type 'xh'
-    //  xh = fxd63_add(xh,st->noise[0]);
 
     xh = fxd_msub_m(xh, coef->c[1], st->xh[0]);
     xh = fxd_mac_m(xh, coef->c[0], st->xh[1]);
@@ -298,9 +345,9 @@ int32_t apf_fxd_process(
             break;
         case 4:
             for(uint32_t a_index = 0; a_index < samples_count; a_index++){
-                // _audio[a_index].Left = apl_direct_f2_t_2nd(_audio[a_index].Left, &(_st->Left), coef);++
+                _audio[a_index].Left = apl_direct_f2_t_2nd(_audio[a_index].Left, &(_st->Left), coef);
                 // _audio[a_index].Right = _audio[a_index].Left - _audio[a_index].Right;
-                _audio[a_index].Right = apl_direct_dbl (_audio[a_index].Right, &(_st->Right), coef);// (_audio[a_index].Left +_audio[a_index].Right)*0.5f;//  apf_direct_form2(_audio[a_index].Right, &(_st->Right), coef);
+                _audio[a_index].Right = apl_direct_dbl(_audio[a_index].Right, &(_st->Right), coef);// (_audio[a_index].Left +_audio[a_index].Right)*0.5f;//  apf_direct_form2(_audio[a_index].Right, &(_st->Right), coef);
                 // _audio[a_index].Right = _audio[a_index].Left - _audio[a_index].Right;
             }
             break;

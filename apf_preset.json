@@ -1,1 +1,1 @@
-{"Sample rate": 48000.0, "Cutoff freq": 1, "Band width": 100.0, "Form": 1, "Order": 2}
+{"Sample rate": 48000.0, "Cutoff freq": 500, "Band width": 100.0, "Form": 4, "Order": 2}

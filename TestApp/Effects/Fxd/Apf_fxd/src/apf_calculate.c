@@ -45,14 +45,17 @@ static int32_t apf_coeff_2nd_calc(apf_coefs_t *coef, double fc, double sample_ra
     // default:
     //     break;
     // }
-    coef->c[0] = dbl_to_fxd_p(dc, COEF_FR);
-    coef->c[1] = dbl_to_fxd_p(-c, COEF_FR);
-        printf("c = %f\n", c);
-        printf("dc = %f\n", dc);
-        printf("d = %f\n", d);
-        printf("c = %f\n", c/2.0);
-        printf("dc = %f\n", dc/2.0);
-        printf("d = %f\n", d);
+    coef->c[0] = dbl_to_fxd_p((dc/2.0), COEF_FR);
+    coef->c[1] = dbl_to_fxd_p((-c/2.0), COEF_FR);
+    
+    // coef->c[0] = dbl_to_fxd_p(dc, COEF_FR);
+    // coef->c[1] = dbl_to_fxd_p(-c, COEF_FR);
+        // printf("c = %f\n", c);
+        // printf("dc = %f\n", dc);
+        // printf("d = %f\n", d);
+        // printf("c = %f\n", c/2.0);
+        // printf("dc = %f\n", dc/2.0);
+        // printf("d = %f\n", d);
     coef->c_dbl[0] = dc;
     coef->c_dbl[1] = -c;
     if(form == 5){

@@ -15,7 +15,7 @@
 #define TAP_NUM         256
 #define APF_ORDER       2
 #define APF_2nd         1
-#define COEF_FR         30
+#define COEF_FR         31
 
 /*******************************************************************************
  * the bandwidth in octaves (between -3 dB
