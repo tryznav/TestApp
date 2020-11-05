@@ -126,9 +126,9 @@ static audio_type apl_direct_f2_2nd(audio_type x, apf_states_t *st, apf_coefs_t 
     xh = flt_msub(xh, coef->c[0], st->xh[0]);
     xh = flt_msub(xh, coef->c[1], st->xh[1]);
 
-    audio_type  y = st->xh[1];
-    y = flt_mac(y, coef->c[1], xh);
+    audio_type  y = flt_mul(coef->c[1], xh);
     y = flt_mac(y, coef->c[0], st->xh[0]);
+    y = flt_add(y, st->xh[1]);
 
     st->xh[1] = st->xh[0];
     st->xh[0] = xh;

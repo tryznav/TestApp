@@ -28,29 +28,37 @@ static int32_t apf_coeff_2nd_calc(apf_coefs_t *coef, double fc, double sample_ra
     double d = - cos(2 * M_PI  * fc / sample_rate);
     double dc = d * (1.0 - c);
 
-    switch (form)
-    {
-    case 1:     // direct form
-        coef->c[0] = dbl_to_fxd_p(c, COEF_FR);
-        coef->c[1] = dbl_to_fxd_p(dc, COEF_FR);
+    // switch (form)
+    // {
+    // case 1:     // direct form
+
+    //     break;
+    // case 2:     // lattice form
+    //     printf("c = %f\n", c);
+    //     printf("d = %f\n", d);
+    //     coef->c[0] = dbl_to_fxd_p(d, COEF_FR);
+    //     coef->c[1] = dbl_to_fxd_p((-c), COEF_FR);
+    //     coef->c_dbl[0] = d;
+    //     coef->c_dbl[1] = -c;
+    //     break;
+
+    // default:
+    //     break;
+    // }
+    coef->c[0] = dbl_to_fxd_p(dc, COEF_FR);
+    coef->c[1] = dbl_to_fxd_p(-c, COEF_FR);
         printf("c = %f\n", c);
         printf("dc = %f\n", dc);
-        coef->c_dbl[0] = c;
-        coef->c_dbl[1] = dc;
-        break;
-    case 2:     // lattice form
-        printf("c = %f\n", c);
         printf("d = %f\n", d);
+        printf("c = %f\n", c/2.0);
+        printf("dc = %f\n", dc/2.0);
+        printf("d = %f\n", d);
+    coef->c_dbl[0] = dc;
+    coef->c_dbl[1] = -c;
+    if(form == 5){
         coef->c[0] = dbl_to_fxd_p(d, COEF_FR);
         coef->c[1] = dbl_to_fxd_p((-c), COEF_FR);
-        coef->c_dbl[0] = d;
-        coef->c_dbl[1] = -c;
-        break;
-
-    default:
-        break;
     }
-
     return 0;
 }
 

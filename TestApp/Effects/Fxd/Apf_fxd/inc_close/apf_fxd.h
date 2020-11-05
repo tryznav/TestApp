@@ -76,6 +76,7 @@ typedef struct apf_states_s{
     audio_type          xh[APF_ORDER];
     audio_type          noise[APF_ORDER + 2]; // + for 2nd order lattice
     double              xh_dbl[APF_ORDER];
+    audio_type          y[APF_ORDER];
 }apf_states_t;
 
 typedef struct states_s{

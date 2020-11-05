@@ -27,7 +27,7 @@
 
     /*Now printing the json object*/
     const char *str = json_object_to_json_string(jobj);
-    fprintf(file, str);
+    fprintf(file, "%s", str);
     fclose(file);
     return 0;
 }
