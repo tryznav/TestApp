@@ -1,276 +1,76 @@
 Determining if the include file strings.h exists failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_6138e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_4f3b7.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:49:04 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6138e.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:48:47 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_4f3b7.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_6138e.dir\Debug\".
+  Creating directory "cmTC_4f3b7.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_6138e.dir\Debug\cmTC_6138e.tlog\".
+  Creating directory "cmTC_4f3b7.dir\Debug\cmTC_4f3b7.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_6138e.dir\Debug\cmTC_6138e.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_4f3b7.dir\Debug\cmTC_4f3b7.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6138e.dir\Debug\\" /Fd"cmTC_6138e.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4f3b7.dir\Debug\\" /Fd"cmTC_4f3b7.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6138e.dir\Debug\\" /Fd"cmTC_6138e.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4f3b7.dir\Debug\\" /Fd"cmTC_4f3b7.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   CheckIncludeFile.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'strings.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6138e.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6138e.vcxproj" (default targets) -- FAILED.
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'strings.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_4f3b7.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_4f3b7.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6138e.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_4f3b7.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'strings.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6138e.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'strings.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_4f3b7.vcxproj]
 
     0 Warning(s)
     1 Error(s)
 
-Time Elapsed 00:00:00.70
+Time Elapsed 00:00:00.69
 
 
 Determining if the include file syslog.h exists failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_03fd6.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_e1509.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:49:07 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_03fd6.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:48:51 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_e1509.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_03fd6.dir\Debug\".
+  Creating directory "cmTC_e1509.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_03fd6.dir\Debug\cmTC_03fd6.tlog\".
+  Creating directory "cmTC_e1509.dir\Debug\cmTC_e1509.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_03fd6.dir\Debug\cmTC_03fd6.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_e1509.dir\Debug\cmTC_e1509.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_03fd6.dir\Debug\\" /Fd"cmTC_03fd6.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e1509.dir\Debug\\" /Fd"cmTC_e1509.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_03fd6.dir\Debug\\" /Fd"cmTC_03fd6.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e1509.dir\Debug\\" /Fd"cmTC_e1509.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   CheckIncludeFile.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'syslog.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_03fd6.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_03fd6.vcxproj" (default targets) -- FAILED.
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'syslog.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_e1509.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_e1509.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_03fd6.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_e1509.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'syslog.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_03fd6.vcxproj]
-
-    0 Warning(s)
-    1 Error(s)
-
-Time Elapsed 00:00:00.71
-
-
-Determining if the include file unistd.h exists failed with the following output:
-Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
-
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_6b540.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
-Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/5/2020 10:49:10 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6b540.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_6b540.dir\Debug\".
-  Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_6b540.dir\Debug\cmTC_6b540.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_6b540.dir\Debug\cmTC_6b540.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-VcpkgTripletSelection:
-  Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6b540.dir\Debug\\" /Fd"cmTC_6b540.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6b540.dir\Debug\\" /Fd"cmTC_6b540.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-  CheckIncludeFile.c
-  
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6b540.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6b540.vcxproj" (default targets) -- FAILED.
-
-Build FAILED.
-
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6b540.vcxproj" (default target) (1) ->
-(ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6b540.vcxproj]
-
-    0 Warning(s)
-    1 Error(s)
-
-Time Elapsed 00:00:00.71
-
-
-Determining if the include file sys/resource.h exists failed with the following output:
-Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
-
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_a6bb0.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
-Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/5/2020 10:49:13 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a6bb0.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_a6bb0.dir\Debug\".
-  Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_a6bb0.dir\Debug\cmTC_a6bb0.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_a6bb0.dir\Debug\cmTC_a6bb0.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-VcpkgTripletSelection:
-  Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a6bb0.dir\Debug\\" /Fd"cmTC_a6bb0.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a6bb0.dir\Debug\\" /Fd"cmTC_a6bb0.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-  CheckIncludeFile.c
-  
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/resource.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a6bb0.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a6bb0.vcxproj" (default targets) -- FAILED.
-
-Build FAILED.
-
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a6bb0.vcxproj" (default target) (1) ->
-(ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/resource.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a6bb0.vcxproj]
-
-    0 Warning(s)
-    1 Error(s)
-
-Time Elapsed 00:00:00.67
-
-
-Determining if the include file dlfcn.h exists failed with the following output:
-Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
-
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_40e1c.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
-Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/5/2020 10:49:14 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_40e1c.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_40e1c.dir\Debug\".
-  Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_40e1c.dir\Debug\cmTC_40e1c.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_40e1c.dir\Debug\cmTC_40e1c.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-VcpkgTripletSelection:
-  Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_40e1c.dir\Debug\\" /Fd"cmTC_40e1c.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_40e1c.dir\Debug\\" /Fd"cmTC_40e1c.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-  CheckIncludeFile.c
-  
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'dlfcn.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_40e1c.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_40e1c.vcxproj" (default targets) -- FAILED.
-
-Build FAILED.
-
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_40e1c.vcxproj" (default target) (1) ->
-(ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'dlfcn.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_40e1c.vcxproj]
-
-    0 Warning(s)
-    1 Error(s)
-
-Time Elapsed 00:00:00.67
-
-
-Determining if the include file endian.h exists failed with the following output:
-Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
-
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_1be71.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
-Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/5/2020 10:49:15 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_1be71.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_1be71.dir\Debug\".
-  Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_1be71.dir\Debug\cmTC_1be71.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_1be71.dir\Debug\cmTC_1be71.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-VcpkgTripletSelection:
-  Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1be71.dir\Debug\\" /Fd"cmTC_1be71.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1be71.dir\Debug\\" /Fd"cmTC_1be71.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-  CheckIncludeFile.c
-  
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'endian.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_1be71.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_1be71.vcxproj" (default targets) -- FAILED.
-
-Build FAILED.
-
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_1be71.vcxproj" (default target) (1) ->
-(ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'endian.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_1be71.vcxproj]
-
-    0 Warning(s)
-    1 Error(s)
-
-Time Elapsed 00:00:00.67
-
-
-Determining if the include file sys/cdefs.h exists failed with the following output:
-Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
-
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_d1224.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
-Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/5/2020 10:49:26 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_d1224.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_d1224.dir\Debug\".
-  Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_d1224.dir\Debug\cmTC_d1224.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_d1224.dir\Debug\cmTC_d1224.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-VcpkgTripletSelection:
-  Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d1224.dir\Debug\\" /Fd"cmTC_d1224.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d1224.dir\Debug\\" /Fd"cmTC_d1224.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-  CheckIncludeFile.c
-  
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/cdefs.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_d1224.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_d1224.vcxproj" (default targets) -- FAILED.
-
-Build FAILED.
-
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_d1224.vcxproj" (default target) (1) ->
-(ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/cdefs.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_d1224.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'syslog.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_e1509.vcxproj]
 
     0 Warning(s)
     1 Error(s)
@@ -278,119 +78,319 @@ Build FAILED.
 Time Elapsed 00:00:00.70
 
 
-Determining if the include file sys/param.h exists failed with the following output:
+Determining if the include file unistd.h exists failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_68578.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_47c64.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:49:27 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_68578.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:48:54 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_47c64.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_68578.dir\Debug\".
+  Creating directory "cmTC_47c64.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_68578.dir\Debug\cmTC_68578.tlog\".
+  Creating directory "cmTC_47c64.dir\Debug\cmTC_47c64.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_68578.dir\Debug\cmTC_68578.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_47c64.dir\Debug\cmTC_47c64.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_68578.dir\Debug\\" /Fd"cmTC_68578.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_47c64.dir\Debug\\" /Fd"cmTC_47c64.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_68578.dir\Debug\\" /Fd"cmTC_68578.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_47c64.dir\Debug\\" /Fd"cmTC_47c64.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   CheckIncludeFile.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/param.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_68578.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_68578.vcxproj" (default targets) -- FAILED.
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_47c64.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_47c64.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_68578.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_47c64.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/param.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_68578.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_47c64.vcxproj]
 
     0 Warning(s)
     1 Error(s)
 
-Time Elapsed 00:00:00.67
+Time Elapsed 00:00:00.69
+
+
+Determining if the include file sys/resource.h exists failed with the following output:
+Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_f6fe4.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/6/2020 10:48:57 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_f6fe4.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_f6fe4.dir\Debug\".
+  Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_f6fe4.dir\Debug\cmTC_f6fe4.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_f6fe4.dir\Debug\cmTC_f6fe4.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+VcpkgTripletSelection:
+  Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f6fe4.dir\Debug\\" /Fd"cmTC_f6fe4.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f6fe4.dir\Debug\\" /Fd"cmTC_f6fe4.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  CheckIncludeFile.c
+  
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/resource.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_f6fe4.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_f6fe4.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_f6fe4.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/resource.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_f6fe4.vcxproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.69
+
+
+Determining if the include file dlfcn.h exists failed with the following output:
+Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_05ab3.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/6/2020 10:48:58 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_05ab3.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_05ab3.dir\Debug\".
+  Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_05ab3.dir\Debug\cmTC_05ab3.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_05ab3.dir\Debug\cmTC_05ab3.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+VcpkgTripletSelection:
+  Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_05ab3.dir\Debug\\" /Fd"cmTC_05ab3.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_05ab3.dir\Debug\\" /Fd"cmTC_05ab3.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  CheckIncludeFile.c
+  
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'dlfcn.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_05ab3.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_05ab3.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_05ab3.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'dlfcn.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_05ab3.vcxproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.70
+
+
+Determining if the include file endian.h exists failed with the following output:
+Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_41d91.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/6/2020 10:48:59 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_41d91.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_41d91.dir\Debug\".
+  Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_41d91.dir\Debug\cmTC_41d91.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_41d91.dir\Debug\cmTC_41d91.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+VcpkgTripletSelection:
+  Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_41d91.dir\Debug\\" /Fd"cmTC_41d91.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_41d91.dir\Debug\\" /Fd"cmTC_41d91.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  CheckIncludeFile.c
+  
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'endian.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_41d91.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_41d91.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_41d91.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'endian.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_41d91.vcxproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.68
+
+
+Determining if the include file sys/cdefs.h exists failed with the following output:
+Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_ef7e1.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/6/2020 10:49:12 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_ef7e1.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_ef7e1.dir\Debug\".
+  Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_ef7e1.dir\Debug\cmTC_ef7e1.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_ef7e1.dir\Debug\cmTC_ef7e1.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+VcpkgTripletSelection:
+  Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ef7e1.dir\Debug\\" /Fd"cmTC_ef7e1.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ef7e1.dir\Debug\\" /Fd"cmTC_ef7e1.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  CheckIncludeFile.c
+  
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/cdefs.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_ef7e1.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_ef7e1.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_ef7e1.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/cdefs.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_ef7e1.vcxproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.83
+
+
+Determining if the include file sys/param.h exists failed with the following output:
+Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_740d5.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/6/2020 10:49:13 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_740d5.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_740d5.dir\Debug\".
+  Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_740d5.dir\Debug\cmTC_740d5.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_740d5.dir\Debug\cmTC_740d5.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+VcpkgTripletSelection:
+  Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_740d5.dir\Debug\\" /Fd"cmTC_740d5.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_740d5.dir\Debug\\" /Fd"cmTC_740d5.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  CheckIncludeFile.c
+  
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/param.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_740d5.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_740d5.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_740d5.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/param.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_740d5.vcxproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.68
 
 
 Determining if the include file sys/random.h exists failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_22aaf.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_a57a3.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:49:27 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_22aaf.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:49:14 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a57a3.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_22aaf.dir\Debug\".
+  Creating directory "cmTC_a57a3.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_22aaf.dir\Debug\cmTC_22aaf.tlog\".
+  Creating directory "cmTC_a57a3.dir\Debug\cmTC_a57a3.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_22aaf.dir\Debug\cmTC_22aaf.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_a57a3.dir\Debug\cmTC_a57a3.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_22aaf.dir\Debug\\" /Fd"cmTC_22aaf.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a57a3.dir\Debug\\" /Fd"cmTC_a57a3.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_22aaf.dir\Debug\\" /Fd"cmTC_22aaf.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a57a3.dir\Debug\\" /Fd"cmTC_a57a3.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   CheckIncludeFile.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/random.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_22aaf.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_22aaf.vcxproj" (default targets) -- FAILED.
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/random.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a57a3.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a57a3.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_22aaf.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a57a3.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/random.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_22aaf.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'sys/random.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a57a3.vcxproj]
 
     0 Warning(s)
     1 Error(s)
 
-Time Elapsed 00:00:00.67
+Time Elapsed 00:00:00.70
 
 
 Determining if the include file xlocale.h exists failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_46c9d.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_75015.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:49:30 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_46c9d.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:49:18 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_75015.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_46c9d.dir\Debug\".
+  Creating directory "cmTC_75015.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_46c9d.dir\Debug\cmTC_46c9d.tlog\".
+  Creating directory "cmTC_75015.dir\Debug\cmTC_75015.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_46c9d.dir\Debug\cmTC_46c9d.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_75015.dir\Debug\cmTC_75015.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_46c9d.dir\Debug\\" /Fd"cmTC_46c9d.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_75015.dir\Debug\\" /Fd"cmTC_75015.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_46c9d.dir\Debug\\" /Fd"cmTC_46c9d.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_75015.dir\Debug\\" /Fd"cmTC_75015.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   CheckIncludeFile.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'xlocale.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_46c9d.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_46c9d.vcxproj" (default targets) -- FAILED.
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'xlocale.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_75015.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_75015.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_46c9d.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_75015.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'xlocale.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_46c9d.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'xlocale.h': No such file or directory [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_75015.vcxproj]
 
     0 Warning(s)
     1 Error(s)
@@ -401,41 +401,41 @@ Time Elapsed 00:00:00.69
 Determining if the _doprnt exist failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_7a52f.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_0c3aa.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:49:43 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7a52f.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:49:34 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c3aa.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_7a52f.dir\Debug\".
+  Creating directory "cmTC_0c3aa.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_7a52f.dir\Debug\cmTC_7a52f.tlog\".
+  Creating directory "cmTC_0c3aa.dir\Debug\cmTC_0c3aa.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_7a52f.dir\Debug\cmTC_7a52f.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_0c3aa.dir\Debug\cmTC_0c3aa.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7a52f.dir\Debug\\" /Fd"cmTC_7a52f.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0c3aa.dir\Debug\\" /Fd"cmTC_0c3aa.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7a52f.dir\Debug\\" /Fd"cmTC_7a52f.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0c3aa.dir\Debug\\" /Fd"cmTC_0c3aa.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
   CheckSymbolExists.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: '_doprnt': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7a52f.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7a52f.vcxproj" (default targets) -- FAILED.
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: '_doprnt': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c3aa.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c3aa.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7a52f.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c3aa.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: '_doprnt': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7a52f.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: '_doprnt': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c3aa.vcxproj]
 
     0 Warning(s)
     1 Error(s)
 
-Time Elapsed 00:00:00.68
+Time Elapsed 00:00:00.71
 
 File D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -455,41 +455,41 @@ int main(int argc, char** argv)
 Determining if the vasprintf exist failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_e099c.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_6d80d.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:49:44 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_e099c.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:49:34 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6d80d.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_e099c.dir\Debug\".
+  Creating directory "cmTC_6d80d.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_e099c.dir\Debug\cmTC_e099c.tlog\".
+  Creating directory "cmTC_6d80d.dir\Debug\cmTC_6d80d.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_e099c.dir\Debug\cmTC_e099c.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_6d80d.dir\Debug\cmTC_6d80d.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e099c.dir\Debug\\" /Fd"cmTC_e099c.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6d80d.dir\Debug\\" /Fd"cmTC_6d80d.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e099c.dir\Debug\\" /Fd"cmTC_e099c.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6d80d.dir\Debug\\" /Fd"cmTC_6d80d.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
   CheckSymbolExists.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'vasprintf': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_e099c.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_e099c.vcxproj" (default targets) -- FAILED.
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'vasprintf': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6d80d.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6d80d.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_e099c.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6d80d.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'vasprintf': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_e099c.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'vasprintf': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_6d80d.vcxproj]
 
     0 Warning(s)
     1 Error(s)
 
-Time Elapsed 00:00:00.68
+Time Elapsed 00:00:00.70
 
 File D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -509,41 +509,41 @@ int main(int argc, char** argv)
 Determining if the open exist failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_02fec.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_1b806.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:49:49 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_02fec.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:49:40 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_1b806.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_02fec.dir\Debug\".
+  Creating directory "cmTC_1b806.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_02fec.dir\Debug\cmTC_02fec.tlog\".
+  Creating directory "cmTC_1b806.dir\Debug\cmTC_1b806.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_02fec.dir\Debug\cmTC_02fec.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_1b806.dir\Debug\cmTC_1b806.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_02fec.dir\Debug\\" /Fd"cmTC_02fec.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1b806.dir\Debug\\" /Fd"cmTC_1b806.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_02fec.dir\Debug\\" /Fd"cmTC_02fec.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1b806.dir\Debug\\" /Fd"cmTC_1b806.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
   CheckSymbolExists.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'open': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_02fec.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_02fec.vcxproj" (default targets) -- FAILED.
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'open': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_1b806.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_1b806.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_02fec.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_1b806.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'open': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_02fec.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'open': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_1b806.vcxproj]
 
     0 Warning(s)
     1 Error(s)
 
-Time Elapsed 00:00:00.71
+Time Elapsed 00:00:00.65
 
 File D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -563,36 +563,36 @@ int main(int argc, char** argv)
 Determining if the uselocale exist failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_5efe6.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_f2f69.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:49:54 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_5efe6.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:49:46 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_f2f69.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_5efe6.dir\Debug\".
+  Creating directory "cmTC_f2f69.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_5efe6.dir\Debug\cmTC_5efe6.tlog\".
+  Creating directory "cmTC_f2f69.dir\Debug\cmTC_f2f69.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_5efe6.dir\Debug\cmTC_5efe6.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_f2f69.dir\Debug\cmTC_f2f69.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5efe6.dir\Debug\\" /Fd"cmTC_5efe6.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f2f69.dir\Debug\\" /Fd"cmTC_f2f69.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5efe6.dir\Debug\\" /Fd"cmTC_5efe6.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f2f69.dir\Debug\\" /Fd"cmTC_f2f69.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\CheckSymbolExists.c
   CheckSymbolExists.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'uselocale': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_5efe6.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_5efe6.vcxproj" (default targets) -- FAILED.
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'uselocale': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_f2f69.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_f2f69.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_5efe6.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_f2f69.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'uselocale': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_5efe6.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\checksymbolexists.c(8): error C2065: 'uselocale': undeclared identifier [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_f2f69.vcxproj]
 
     0 Warning(s)
     1 Error(s)
@@ -617,44 +617,44 @@ int main(int argc, char** argv)
 Performing C SOURCE FILE Test HAS_GNU_WARNING_LONG failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_0c258.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_7ab7f.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:50:17 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:50:15 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_0c258.dir\Debug\".
+  Creating directory "cmTC_7ab7f.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_0c258.dir\Debug\cmTC_0c258.tlog\".
+  Creating directory "cmTC_7ab7f.dir\Debug\cmTC_7ab7f.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_0c258.dir\Debug\cmTC_0c258.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_7ab7f.dir\Debug\cmTC_7ab7f.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAS_GNU_WARNING_LONG /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0c258.dir\Debug\\" /Fd"cmTC_0c258.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAS_GNU_WARNING_LONG /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7ab7f.dir\Debug\\" /Fd"cmTC_7ab7f.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAS_GNU_WARNING_LONG /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0c258.dir\Debug\\" /Fd"cmTC_0c258.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAS_GNU_WARNING_LONG /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7ab7f.dir\Debug\\" /Fd"cmTC_7ab7f.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
   src.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2001: newline in constant [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj]
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2143: syntax error: missing ')' before 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj]
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2143: syntax error: missing '{' before 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj]
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2059: syntax error: 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj]
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(5): error C2001: newline in constant [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj" (default targets) -- FAILED.
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2001: newline in constant [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj]
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2143: syntax error: missing ')' before 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj]
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2143: syntax error: missing '{' before 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj]
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2059: syntax error: 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj]
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(5): error C2001: newline in constant [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2001: newline in constant [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj]
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2143: syntax error: missing ')' before 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj]
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2143: syntax error: missing '{' before 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj]
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2059: syntax error: 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj]
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(5): error C2001: newline in constant [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_0c258.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2001: newline in constant [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2143: syntax error: missing ')' before 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2143: syntax error: missing '{' before 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(3): error C2059: syntax error: 'string' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(5): error C2001: newline in constant [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7ab7f.vcxproj]
 
     0 Warning(s)
     5 Error(s)
@@ -672,91 +672,91 @@ int main(int c, char *v) { return 0;}
 Performing C SOURCE FILE Test HAVE_ATOMIC_BUILTINS failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_7b988.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_a2955.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:50:18 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7b988.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:50:15 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a2955.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_7b988.dir\Debug\".
+  Creating directory "cmTC_a2955.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_7b988.dir\Debug\cmTC_7b988.tlog\".
+  Creating directory "cmTC_a2955.dir\Debug\cmTC_a2955.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_7b988.dir\Debug\cmTC_7b988.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_a2955.dir\Debug\cmTC_a2955.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_ATOMIC_BUILTINS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7b988.dir\Debug\\" /Fd"cmTC_7b988.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_ATOMIC_BUILTINS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a2955.dir\Debug\\" /Fd"cmTC_a2955.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_ATOMIC_BUILTINS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7b988.dir\Debug\\" /Fd"cmTC_7b988.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_ATOMIC_BUILTINS /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a2955.dir\Debug\\" /Fd"cmTC_a2955.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
   src.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): warning C4013: '__sync_add_and_fetch' undefined; assuming extern returning int [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7b988.vcxproj]
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): warning C4013: '__sync_add_and_fetch' undefined; assuming extern returning int [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a2955.vcxproj]
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\cmTC_7b988.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\vcpkg\installed\x86-windows\debug\lib" /LIBPATH:"D:\vcpkg\installed\x86-windows\debug\lib\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\vcpkg\installed\x86-windows\debug\lib\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp/Debug/cmTC_7b988.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp/Debug/cmTC_7b988.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_7b988.dir\Debug\src.obj
-src.obj : error LNK2019: unresolved external symbol ___sync_add_and_fetch referenced in function _main [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7b988.vcxproj]
-D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\cmTC_7b988.exe : fatal error LNK1120: 1 unresolved externals [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7b988.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7b988.vcxproj" (default targets) -- FAILED.
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\cmTC_a2955.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\vcpkg\installed\x86-windows\debug\lib" /LIBPATH:"D:\vcpkg\installed\x86-windows\debug\lib\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\vcpkg\installed\x86-windows\debug\lib\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp/Debug/cmTC_a2955.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp/Debug/cmTC_a2955.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_a2955.dir\Debug\src.obj
+src.obj : error LNK2019: unresolved external symbol ___sync_add_and_fetch referenced in function _main [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a2955.vcxproj]
+D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\cmTC_a2955.exe : fatal error LNK1120: 1 unresolved externals [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a2955.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a2955.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7b988.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a2955.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): warning C4013: '__sync_add_and_fetch' undefined; assuming extern returning int [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7b988.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): warning C4013: '__sync_add_and_fetch' undefined; assuming extern returning int [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a2955.vcxproj]
 
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7b988.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a2955.vcxproj" (default target) (1) ->
 (Link target) -> 
-  src.obj : error LNK2019: unresolved external symbol ___sync_add_and_fetch referenced in function _main [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7b988.vcxproj]
-  D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\cmTC_7b988.exe : fatal error LNK1120: 1 unresolved externals [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_7b988.vcxproj]
+  src.obj : error LNK2019: unresolved external symbol ___sync_add_and_fetch referenced in function _main [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a2955.vcxproj]
+  D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\cmTC_a2955.exe : fatal error LNK1120: 1 unresolved externals [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_a2955.vcxproj]
 
     1 Warning(s)
     2 Error(s)
 
-Time Elapsed 00:00:01.34
+Time Elapsed 00:00:01.36
 
 Source file was:
 int main() { int i, x = 0; i = __sync_add_and_fetch(&x,1); return x; }
 Performing C SOURCE FILE Test HAVE___THREAD failed with the following output:
 Change Dir: D:/TestApp/TestApp/build/tmp/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_89b67.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_bc5a9.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.9.21+g9802d43bc3 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2020 10:50:19 AM.
-Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_89b67.vcxproj" on node 1 (default targets).
+Build started 11/6/2020 10:50:17 AM.
+Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_bc5a9.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_89b67.dir\Debug\".
+  Creating directory "cmTC_bc5a9.dir\Debug\".
   Creating directory "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_89b67.dir\Debug\cmTC_89b67.tlog\".
+  Creating directory "cmTC_bc5a9.dir\Debug\cmTC_bc5a9.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_89b67.dir\Debug\cmTC_89b67.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_bc5a9.dir\Debug\cmTC_bc5a9.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 VcpkgTripletSelection:
   Using triplet "x86-windows" from "D:\vcpkg\installed\x86-windows\"
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE___THREAD /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_89b67.dir\Debug\\" /Fd"cmTC_89b67.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\CL.exe /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE___THREAD /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bc5a9.dir\Debug\\" /Fd"cmTC_bc5a9.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE___THREAD /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_89b67.dir\Debug\\" /Fd"cmTC_89b67.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
+  cl /c /I"D:\vcpkg\installed\x86-windows\include" /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE___THREAD /D _CRT_SECURE_NO_DEPRECATE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bc5a9.dir\Debug\\" /Fd"cmTC_bc5a9.dir\Debug\vc141.pdb" /Gd /TC /wd4996 /analyze- /FC /errorReport:queue D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\src.c
   src.c
   
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2054: expected '(' to follow '__thread' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_89b67.vcxproj]
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2085: 'x': not in formal parameter list [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_89b67.vcxproj]
-d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2143: syntax error: missing ';' before '=' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_89b67.vcxproj]
-Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_89b67.vcxproj" (default targets) -- FAILED.
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2054: expected '(' to follow '__thread' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_bc5a9.vcxproj]
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2085: 'x': not in formal parameter list [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_bc5a9.vcxproj]
+d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2143: syntax error: missing ';' before '=' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_bc5a9.vcxproj]
+Done Building Project "D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_bc5a9.vcxproj" (default targets) -- FAILED.
 
 Build FAILED.
 
-"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_89b67.vcxproj" (default target) (1) ->
+"D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_bc5a9.vcxproj" (default target) (1) ->
 (ClCompile target) -> 
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2054: expected '(' to follow '__thread' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_89b67.vcxproj]
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2085: 'x': not in formal parameter list [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_89b67.vcxproj]
-  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2143: syntax error: missing ';' before '=' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_89b67.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2054: expected '(' to follow '__thread' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_bc5a9.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2085: 'x': not in formal parameter list [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_bc5a9.vcxproj]
+  d:\testapp\testapp\build\tmp\cmakefiles\cmaketmp\src.c(1): error C2143: syntax error: missing ';' before '=' [D:\TestApp\TestApp\build\tmp\CMakeFiles\CMakeTmp\cmTC_bc5a9.vcxproj]
 
     0 Warning(s)
     3 Error(s)

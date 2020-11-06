@@ -82,6 +82,8 @@ static audio_type apl_2nd_order(audio_type x, apf_states_t *st, apf_coef_t *coef
     return y;
 }
 
+
+
 static audio_type calc_crossover(audio_type x, cross_states_t *st, coef_t *coef){
     audio_type band1 = 0.0f;
     audio_type band2 = 0.0f;
@@ -147,7 +149,6 @@ static audio_type calc_crossover(audio_type x, cross_states_t *st, coef_t *coef)
     return res;
 }
 
-
 int32_t cross_flt_process(
     void const* coeffs,
     void*       states,
@@ -164,12 +165,35 @@ int32_t cross_flt_process(
 
     for(uint32_t a_index = 0; a_index < samples_count; a_index++){
         _audio[a_index].Left = calc_crossover(_audio[a_index].Left, &(_st->Left), coef);
+
         //_audio[a_index].Right = ;
     }
 
     return 0;
 }
 
+
+static audio_type apl_2nd_order_dbl(audio_type x, apf_states_t *st, apf_coefs_t *coef){
+    double xh = 0;
+
+    xh += (coef->c_dbl[1] * (double)x);
+    xh += (coef->c_dbl[0] * st->xh_dbl[0]);
+
+    xh += st->xh_dbl[1];
+
+
+    xh -= (coef->c_dbl[0] * st->y_dbl[0]);
+    xh -= (coef->c_dbl[1] * st->y_dbl[1]);  
+
+
+    st->xh_dbl[1] = st->xh_dbl[0];
+    st->xh_dbl[0] = (double)x;
+
+    st->y_dbl[1] = st->y_dbl[0];
+    st->y_dbl[0] =  xh;
+
+    return (audio_type)xh;
+}
 
 
 // audio_type calc_canonical_filer(audio_type x, xh_z_t *xh, canon_coefs_t *coef){

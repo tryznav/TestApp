@@ -51,6 +51,7 @@ typedef struct cross_prm_s{
 
 typedef struct  apf_coef_t{
     coef_type          k[2];
+    coef_type          k_dbl[2];
 }apf_coef_t;
 
 typedef struct  coef_t{
@@ -61,6 +62,9 @@ typedef struct  coef_t{
 
 typedef struct apf_states_s{
     audio_type          xh[2];
+    audio_type          y[2];
+    double              xh_dbl[2];
+    double              y_dbl[2];
 }apf_states_t;
 
 typedef struct cross_states_s{

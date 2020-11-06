@@ -93,6 +93,24 @@ static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coef_t *coef
     return  (audio_type)y;
 }
 
+static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coef_t *coef){
+    acum_type  acum = 0;
+    acum = fxd_mac_m(acum, coef->k[0], fxd_rshift(x, 1));
+
+    acum = fxd_msub_m(acum, coef->k[0], st->y[0]);
+
+    acum = fxd63_add(acum, fxd63_lshift(st->xh[0], COEF_FR));
+
+    st->xh[0] = fxd_rshift(x, 1);
+
+
+    st->y[0] = (audio_type)saturation(fxd63_rshift(acum, COEF_FR));
+
+
+    return (audio_type)saturation(fxd63_rshift(acum, COEF_FR - 1));
+}
+
+
 static audio_type apl_2nd_order(audio_type x, apf_states_t *st, apf_coef_t *coef){
     acum_type xh = fxd63_lshift(x, SUM_BITS);
     xh = fxd63_add(xh,st->noise[2]);
@@ -115,6 +133,36 @@ static audio_type apl_2nd_order(audio_type x, apf_states_t *st, apf_coef_t *coef
 
     return (audio_type)y;
 }
+
+static audio_type apl_2nd_order(audio_type x, apf_states_t *st, apf_coef_t *coef){
+    acum_type  acum = 0;
+    acum = fxd_mac_m(acum, coef->k[1], fxd_rshift(x, 1));
+
+    acum = fxd_msub_m(acum, coef->k[1], st->y[1]);
+    
+    acum = fxd_mac_m(acum, coef->k[0], st->xh[0]);
+
+    acum = fxd_msub_m(acum, coef->k[0], st->y[0]);
+
+    acum = fxd63_add(acum, fxd63_lshift(st->xh[1], COEF_FR - 1));
+
+    st->xh[1] = st->xh[0];
+    st->xh[0] = fxd_rshift(x, 1);
+
+    st->y[1] = st->y[0];
+    st->y[0] = (audio_type)saturation(fxd63_rshift(acum, (COEF_FR - 1)));
+
+
+
+    // (audio_type)acum;
+
+    acum = fxd63_rshift(acum, (COEF_FR - 2));
+    acum = saturation(acum);
+}
+
+
+
+
 
 static audio_type calc_crossover(audio_type x, cross_states_t *st, coef_t *coef){
     audio_type band1 = 0;

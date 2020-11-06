@@ -10,18 +10,17 @@ int32_t cross_coeff_calc(cross_prm_t *prm, coef_t *coef){
 
         double c = (tan(M_PI *  fb / prm->sample_rate) - 1) / (tan(M_PI *  fb / prm->sample_rate) + 1);
         double d = - cos(2 * M_PI  * prm->freq[freq] / prm->sample_rate);
+        double dc = d * (1.0 - c);
 
         coef->apf_2nd[freq].k[0]  = dbl_to_fxd_p(d, COEF_FR);
         coef->apf_2nd[freq].k[1]  = dbl_to_fxd_p((-c), COEF_FR);
 
+        coef->apf_2nd[freq].k[0] = dbl_to_fxd_p((dc/2.0), COEF_FR);
+        coef->apf_2nd[freq].k[1] = dbl_to_fxd_p((-c/2.0), COEF_FR);
+
         c = (tan(M_PI *  prm->freq[freq] / prm->sample_rate) - 1) / (tan(M_PI * prm->freq[freq] / prm->sample_rate) + 1);
 
         coef->apf_1st[freq].k[0]  = dbl_to_fxd_p(c, COEF_FR);
-        printf("c = %f\t", c);
-        // if(freq == 1){
-            printf("c = %d  %d\n",freq, coef->apf_1st[freq].k[0]);
-        // }
-
 
     }
 

@@ -54,12 +54,12 @@ typedef struct apf_prm_s{
 }apf_prm_t;
 
 typedef struct canon_doub_coefs_s{
-	double              c[APF_ORDER];
+	double              k[APF_ORDER];
 }apf_doub_coefs_t;
 
 typedef struct apfcoefs_s{
-    coef_type           c[APF_ORDER];
-    double              c_dbl[APF_ORDER];
+    coef_type           k[APF_ORDER];
+    double              k_dbl[APF_ORDER];
     int32_t             order;
     int32_t             form;
 }apf_coefs_t;

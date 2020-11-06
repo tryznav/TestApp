@@ -66,6 +66,7 @@ typedef struct  coef_t{
 
 typedef struct apf_states_s{
     audio_type          xh[2];
+    audio_type          y[2];
     audio_type          noise[4];
 }apf_states_t;
 
