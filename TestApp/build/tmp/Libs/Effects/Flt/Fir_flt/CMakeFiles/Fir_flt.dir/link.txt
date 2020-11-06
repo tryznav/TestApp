@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libFir_flt.a  CMakeFiles/Fir_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Fir_flt/src/fir_flt_control.c.o CMakeFiles/Fir_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Fir_flt/src/fir_flt_process.c.o CMakeFiles/Fir_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Fir_flt/src/coefs.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libFir_flt.a

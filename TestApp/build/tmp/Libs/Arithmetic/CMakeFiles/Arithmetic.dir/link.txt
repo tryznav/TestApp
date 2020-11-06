@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libArithmetic.a  CMakeFiles/Arithmetic.dir/Users/tryznav/TestApp/TestApp/Arithmetic/src/flt_arithmetic.c.o CMakeFiles/Arithmetic.dir/Users/tryznav/TestApp/TestApp/Arithmetic/src/fxd_arithmetic.c.o CMakeFiles/Arithmetic.dir/Users/tryznav/TestApp/TestApp/Arithmetic/src/tables.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libArithmetic.a

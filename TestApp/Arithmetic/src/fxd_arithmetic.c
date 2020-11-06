@@ -47,7 +47,7 @@ fxd_q31_t fxd_get_high(fxd_q63_t n){
 fxd_q63_t saturation(fxd_q63_t num){
     if(num > INT32_MAX){
         // printf("sat Max");
-        // // exit(0);
+        // exit(0);
         return INT32_MAX;
     }
     if(num < INT32_MIN){        

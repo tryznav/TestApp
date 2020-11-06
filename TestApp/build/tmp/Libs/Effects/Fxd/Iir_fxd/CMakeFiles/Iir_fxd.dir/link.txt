@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libIir_fxd.a  CMakeFiles/Iir_fxd.dir/Users/tryznav/TestApp/TestApp/Effects/Fxd/Iir_fxd/src/iir_fxd_control.c.o CMakeFiles/Iir_fxd.dir/Users/tryznav/TestApp/TestApp/Effects/Fxd/Iir_fxd/src/iir_fxd_process.c.o CMakeFiles/Iir_fxd.dir/Users/tryznav/TestApp/TestApp/Effects/Fxd/Iir_fxd/src/coeff_calculate.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libIir_fxd.a

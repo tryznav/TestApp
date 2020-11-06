@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libCrossover_flt.a  CMakeFiles/Crossover_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Crossover_flt/src/coeff_calculate.c.o CMakeFiles/Crossover_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Crossover_flt/src/cross_flt_control.c.o CMakeFiles/Crossover_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Crossover_flt/src/cross_flt_process.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libCrossover_flt.a

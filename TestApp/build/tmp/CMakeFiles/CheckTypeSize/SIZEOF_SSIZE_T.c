@@ -1,7 +1,6 @@
 #include <sys/types.h>
 #include <stdint.h>
 #include <stddef.h>
-#include "BaseTsd.h"
 
 
 #undef KEY
@@ -21,8 +20,8 @@
 # define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
 #endif
 
-#define SIZE (sizeof(SSIZE_T))
-char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+#define SIZE (sizeof(ssize_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
   ('0' + ((SIZE / 10000)%10)),
   ('0' + ((SIZE / 1000)%10)),
   ('0' + ((SIZE / 100)%10)),

@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libGain_flt.a  CMakeFiles/Gain_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Gain_flt/src/effect_control.c.o CMakeFiles/Gain_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Gain_flt/src/effect_process.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libGain_flt.a

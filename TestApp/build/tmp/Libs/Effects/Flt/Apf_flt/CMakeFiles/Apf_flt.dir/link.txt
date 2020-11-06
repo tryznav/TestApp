@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libApf_flt.a  CMakeFiles/Apf_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Apf_flt/src/apf_calculate.c.o CMakeFiles/Apf_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Apf_flt/src/apf_flt_control.c.o CMakeFiles/Apf_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Apf_flt/src/apf_flt_process.c.o CMakeFiles/Apf_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Apf_flt/src/apf_settings.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libApf_flt.a

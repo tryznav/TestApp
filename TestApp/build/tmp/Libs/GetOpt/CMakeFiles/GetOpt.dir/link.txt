@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libGetOpt.a  CMakeFiles/GetOpt.dir/Users/tryznav/TestApp/TestApp/GetOpt/src/getopt.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libGetOpt.a

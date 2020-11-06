@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../Arithmetic/inc/flt_arithmetic.h
+assert.h
+-
+stdint.h
+-
+stdio.h
+-
+math.h
+-
+
+../../Arithmetic/inc/fxd_arithmetic.h
+flt_arithmetic.h
+../../Arithmetic/inc/flt_arithmetic.h
+assert.h
+-
+stdint.h
+-
+stdio.h
+-
+string.h
+-
+
+/Users/tryznav/TestApp/TestApp/Arithmetic/src/fxd_arithmetic.c
+fxd_arithmetic.h
+/Users/tryznav/TestApp/TestApp/Arithmetic/src/fxd_arithmetic.h
+stdlib.h
+-
+Windows.h
+-
+unistd.h
+-
+math.h
+-
+

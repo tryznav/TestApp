@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libApf_fxd.a  CMakeFiles/Apf_fxd.dir/Users/tryznav/TestApp/TestApp/Effects/Fxd/Apf_fxd/src/apf_calculate.c.o CMakeFiles/Apf_fxd.dir/Users/tryznav/TestApp/TestApp/Effects/Fxd/Apf_fxd/src/apf_fxd_control.c.o CMakeFiles/Apf_fxd.dir/Users/tryznav/TestApp/TestApp/Effects/Fxd/Apf_fxd/src/apf_fxd_process.c.o CMakeFiles/Apf_fxd.dir/Users/tryznav/TestApp/TestApp/Effects/Fxd/Apf_fxd/src/apf_settings.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libApf_fxd.a

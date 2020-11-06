@@ -182,7 +182,7 @@ static audio_type apl_direct_f2_2nd(audio_type x, apf_states_t *st, apf_coefs_t 
     xh = flt_msub(xh, coef->c[0], st->xh[0]);
     xh  += x;
 
-     printf("xh %f\n", xh);  
+    printf("xh %f\n", xh);  
     audio_type  y = flt_mul(coef->c[1], xh);
 //  
 

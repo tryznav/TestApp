@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libIir_flt.a  CMakeFiles/Iir_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Iir_flt/src/iir_flt_control.c.o CMakeFiles/Iir_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Iir_flt/src/iir_flt_process.c.o CMakeFiles/Iir_flt.dir/Users/tryznav/TestApp/TestApp/Effects/Flt/Iir_flt/src/coeff_calculate.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libIir_flt.a

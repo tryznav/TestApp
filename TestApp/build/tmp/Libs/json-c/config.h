@@ -12,7 +12,7 @@
 /* #undef HAS_GNU_WARNING_LONG */
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
-/* #undef HAVE_DLFCN_H */
+#define HAVE_DLFCN_H
 
 /* Define to 1 if you have the <endian.h> header file. */
 /* #undef HAVE_ENDIAN_H */
@@ -42,25 +42,25 @@
 #define HAVE_STDLIB_H
 
 /* Define to 1 if you have the <strings.h> header file. */
-/* #undef HAVE_STRINGS_H */
+#define HAVE_STRINGS_H
 
 /* Define to 1 if you have the <string.h> header file. */
 #define HAVE_STRING_H
 
 /* Define to 1 if you have the <syslog.h> header file. */
-/* #undef HAVE_SYSLOG_H */
+#define HAVE_SYSLOG_H 1
 
 /* Define to 1 if you have the <sys/cdefs.h> header file. */
-/* #undef HAVE_SYS_CDEFS_H */
+#define HAVE_SYS_CDEFS_H
 
 /* Define to 1 if you have the <sys/param.h> header file. */
-/* #undef HAVE_SYS_PARAM_H */
+#define HAVE_SYS_PARAM_H 1
 
 /* Define to 1 if you have the <sys/random.h> header file. */
 /* #undef HAVE_SYS_RANDOM_H */
 
 /* Define to 1 if you have the <sys/resource.h> header file. */
-/* #undef HAVE_SYS_RESOURCE_H */
+#define HAVE_SYS_RESOURCE_H
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
 #define HAVE_SYS_STAT_H
@@ -69,16 +69,16 @@
 #define HAVE_SYS_TYPES_H 1
 
 /* Define to 1 if you have the <unistd.h> header file. */
-/* #undef HAVE_UNISTD_H */
+#define HAVE_UNISTD_H 1
 
 /* Define to 1 if you have the <xlocale.h> header file. */
-/* #undef HAVE_XLOCALE_H */
+#define HAVE_XLOCALE_H
 
 /* Define to 1 if you don't have `vprintf' but do have `_doprnt.' */
 /* #undef HAVE_DOPRNT */
 
 /* Has atomic builtins */
-/* #undef HAVE_ATOMIC_BUILTINS */
+#define HAVE_ATOMIC_BUILTINS
 
 /* Define to 1 if you have the declaration of `INFINITY', and to 0 if you
    don't. */
@@ -97,14 +97,14 @@
 
 /* Define to 1 if you have the declaration of `_finite', and to 0 if you
    don't. */
-#define HAVE_DECL__FINITE
+/* #undef HAVE_DECL__FINITE */
 
 /* Define to 1 if you have the declaration of `_isnan', and to 0 if you don't.
    */
-#define HAVE_DECL__ISNAN
+/* #undef HAVE_DECL__ISNAN */
 
 /* Define to 1 if you have the `open' function. */
-/* #undef HAVE_OPEN */
+#define HAVE_OPEN
 
 /* Define to 1 if you have the `realloc' function. */
 #define HAVE_REALLOC
@@ -113,11 +113,11 @@
 #define HAVE_SETLOCALE
 
 /* Define to 1 if you have the `snprintf' function. */
-/* #undef HAVE_SNPRINTF */
+#define HAVE_SNPRINTF
 
 
 /* Define to 1 if you have the `strcasecmp' function. */
-/* #undef HAVE_STRCASECMP */
+#define HAVE_STRCASECMP 1
 
 /* Define to 1 if you have the `strdup' function. */
 #define HAVE_STRDUP
@@ -126,13 +126,13 @@
 #define HAVE_STRERROR
 
 /* Define to 1 if you have the `strncasecmp' function. */
-/* #undef HAVE_STRNCASECMP */
+#define HAVE_STRNCASECMP 1
 
 /* Define to 1 if you have the `uselocale' function. */
 /* #undef HAVE_USELOCALE */
 
 /* Define to 1 if you have the `vasprintf' function. */
-/* #undef HAVE_VASPRINTF */
+#define HAVE_VASPRINTF
 
 /* Define to 1 if you have the `vprintf' function. */
 #define HAVE_VPRINTF
@@ -141,13 +141,13 @@
 #define HAVE_VSNPRINTF
 
 /* Define to 1 if you have the `vsyslog' function. */
-/* #undef HAVE_VSYSLOG */
+#define HAVE_VSYSLOG 1
 
 /* Define if you have the `getrandom' function. */
 /* #undef HAVE_GETRANDOM */
 
 /* Define if you have the `getrusage' function. */
-/* #undef HAVE_GETRUSAGE */
+#define HAVE_GETRUSAGE
 
 #define HAVE_STRTOLL
 #if !defined(HAVE_STRTOLL)
@@ -162,10 +162,10 @@
 #endif
 
 /* Have __thread */
-/* #undef HAVE___THREAD */
+#define HAVE___THREAD
 
 /* Public define for json_inttypes.h */
-/* #undef JSON_C_HAVE_INTTYPES_H */
+#define JSON_C_HAVE_INTTYPES_H 1
 
 /* Name of package */
 #define PACKAGE "json-c"
@@ -195,19 +195,19 @@
 #define SIZEOF_INT64_T 8
 
 /* The number of bytes in type long */
-#define SIZEOF_LONG 4
+#define SIZEOF_LONG 8
 
 /* The number of bytes in type long long */
 #define SIZEOF_LONG_LONG 8
 
 /* The number of bytes in type size_t */
-#define SIZEOF_SIZE_T 4
+#define SIZEOF_SIZE_T 8
 
 /* The number of bytes in type ssize_t */
-#define SIZEOF_SSIZE_T 4
+#define SIZEOF_SSIZE_T 8
 
 /* Specifier for __thread */
-#define SPEC___THREAD __declspec;(;thread;)
+#define SPEC___THREAD __thread
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS

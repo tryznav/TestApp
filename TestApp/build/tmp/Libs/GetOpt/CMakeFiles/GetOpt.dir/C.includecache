@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../GetOpt/inc/getopt.h
+ctype.h
+-
+
+/Users/tryznav/TestApp/TestApp/GetOpt/src/getopt.c
+config.h
+-
+stdio.h
+-
+gnu-versions.h
+-
+stdlib.h
+-
+unistd.h
+-
+unixlib.h
+-
+string.h
+-
+libintl.h
+-
+wchar.h
+-
+getopt.h
+/Users/tryznav/TestApp/TestApp/GetOpt/src/getopt.h
+string.h
+-
+string.h
+-
+strings.h
+-
+
