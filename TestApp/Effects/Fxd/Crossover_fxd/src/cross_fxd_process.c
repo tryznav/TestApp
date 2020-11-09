@@ -68,30 +68,30 @@ static int32_t check(void const* coeffs,
 }
 
 
-static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coef_t *coef){
-    acum_type xh = fxd63_lshift(x, SUM_BITS); //convert to type type xh
-    xh = fxd63_add(xh,st->noise[0]);
-        // printf("c = %d\t", coef->k[0]);
-        // exit(0);
-    xh =  fxd_msub_m(xh, coef->k[0], st->xh[0]);
+// static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coef_t *coef){
+//     acum_type xh = fxd63_lshift(x, SUM_BITS); //convert to type type xh
+//     xh = fxd63_add(xh,st->noise[0]);
+//         // printf("c = %d\t", coef->k[0]);
+//         // exit(0);
+//     xh =  fxd_msub_m(xh, coef->k[0], st->xh[0]);
 
-    st->noise[0] = (fxd_q31_t)(xh & FORWARD_MASK);
-    xh = fxd63_rshift(xh, (COEF_FR)); //convert to type type Q30
+//     st->noise[0] = (fxd_q31_t)(xh & FORWARD_MASK);
+//     xh = fxd63_rshift(xh, (COEF_FR)); //convert to type type Q30
 
-    // saturation(xh);
+//     // saturation(xh);
 
-    acum_type y = fxd63_lshift(st->xh[0], COEF_FR);
-    y = fxd_mac_m(y, coef->k[0], (audio_type)xh);
-    y = fxd63_add(y,st->noise[1]);
-    st->noise[1] = (fxd_q31_t)(y & BACK_MASK);
-    y = fxd63_rshift(y, SUM_BITS);    //convert to type type Q31
+//     acum_type y = fxd63_lshift(st->xh[0], COEF_FR);
+//     y = fxd_mac_m(y, coef->k[0], (audio_type)xh);
+//     y = fxd63_add(y,st->noise[1]);
+//     st->noise[1] = (fxd_q31_t)(y & BACK_MASK);
+//     y = fxd63_rshift(y, SUM_BITS);    //convert to type type Q31
 
-    y = saturation(y);
+//     y = saturation(y);
 
-    st->xh[0] = (audio_type)xh;
+//     st->xh[0] = (audio_type)xh;
 
-    return  (audio_type)y;
-}
+//     return  (audio_type)y;
+// }
 
 static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coef_t *coef){
     acum_type  acum = 0;
@@ -111,28 +111,28 @@ static audio_type apl_1st_order(audio_type x, apf_states_t *st, apf_coef_t *coef
 }
 
 
-static audio_type apl_2nd_order(audio_type x, apf_states_t *st, apf_coef_t *coef){
-    acum_type xh = fxd63_lshift(x, SUM_BITS);
-    xh = fxd63_add(xh,st->noise[2]);
-    xh = fxd_msub_m(xh, coef->k[1], st->xh[1]);
+// static audio_type apl_2nd_order(audio_type x, apf_states_t *st, apf_coef_t *coef){
+//     acum_type xh = fxd63_lshift(x, SUM_BITS);
+//     xh = fxd63_add(xh,st->noise[2]);
+//     xh = fxd_msub_m(xh, coef->k[1], st->xh[1]);
 
-    st->noise[2] = (fxd_q31_t)(xh & FORWARD_MASK);
+//     st->noise[2] = (fxd_q31_t)(xh & FORWARD_MASK);
     
-    xh = fxd63_rshift(xh, COEF_FR);         //convert xh type
-    saturation(xh);
+//     xh = fxd63_rshift(xh, COEF_FR);         //convert xh type
+//     saturation(xh);
 
-    acum_type  y = fxd63_lshift(st->xh[1], COEF_FR);
-    y = fxd63_add(y, st->noise[3]);
-    y = fxd_mac_m(y, coef->k[1], (audio_type)xh);
-    st->noise[3] = (fxd_q31_t)(y & BACK_MASK);
-    y = fxd63_rshift(y, SUM_BITS);
+//     acum_type  y = fxd63_lshift(st->xh[1], COEF_FR);
+//     y = fxd63_add(y, st->noise[3]);
+//     y = fxd_mac_m(y, coef->k[1], (audio_type)xh);
+//     st->noise[3] = (fxd_q31_t)(y & BACK_MASK);
+//     y = fxd63_rshift(y, SUM_BITS);
     
-    y = saturation(y);
+//     y = saturation(y);
 
-    st->xh[1] = apl_1st_order((audio_type)xh, st, coef); //type Q31
+//     st->xh[1] = apl_1st_order((audio_type)xh, st, coef); //type Q31
 
-    return (audio_type)y;
-}
+//     return (audio_type)y;
+// }
 
 static audio_type apl_2nd_order(audio_type x, apf_states_t *st, apf_coef_t *coef){
     acum_type  acum = 0;
@@ -158,6 +158,7 @@ static audio_type apl_2nd_order(audio_type x, apf_states_t *st, apf_coef_t *coef
 
     acum = fxd63_rshift(acum, (COEF_FR - 2));
     acum = saturation(acum);
+    return (audio_type)acum;
 }
 
 

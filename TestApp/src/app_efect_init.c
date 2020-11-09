@@ -188,10 +188,10 @@ static int32_t effect_control(effect_t *effect, wav_hdr_t  *hdr, effect_task_t *
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
     }
 
-    // if((Res = effect->effect_control_initialize(effect->params, effect->coeffs, hdr->FmtChunk->sampleRate)) != 0){
-    //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_control_initialize\n"RESET);
-    //     // exit(EXIT_FAILURE);
-    // }
+    if((Res = effect->effect_control_initialize(effect->params, effect->coeffs, hdr->FmtChunk->sampleRate)) != 0){
+        fprintf(stderr,RED"Error: "BOLDWHITE"effect_control_initialize\n"RESET);
+        // exit(EXIT_FAILURE);
+    }
 
     // if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_START_ID, effect_task->prm.cutoff_freq.sweep.start)) != 0){
     //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);

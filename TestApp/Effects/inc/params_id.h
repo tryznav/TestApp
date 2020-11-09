@@ -6,6 +6,7 @@
 #define PRM_FREQ_START_ID       'FSTA'
 #define PRM_FREQ_END_ID         'FEND'
 #define PRM_IIR_TYPE_ID         'TIIR'
+#define PRM_APF_CFREQ           'APFC'
 #define PRM_CROSSOVER_F0_ID     'CRF0'
 #define PRM_CROSSOVER_F1_ID     'CRF1'
 #define PRM_CROSSOVER_F2_ID     'CRF2'

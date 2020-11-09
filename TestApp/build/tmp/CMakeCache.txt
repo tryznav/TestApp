@@ -754,7 +754,7 @@ HAVE_USELOCALE:INTERNAL=
 //Have symbol vasprintf
 HAVE_VASPRINTF:INTERNAL=
 //Have symbol vprintf
-HAVE_VPRINTF:INTERNAL=1
+HAVE_VPRINTF:INTERNAL=
 //Have symbol vsnprintf
 HAVE_VSNPRINTF:INTERNAL=1
 //Have include xlocale.h
@@ -791,8 +791,8 @@ SIZEOF_SSIZE_T:INTERNAL=4
 SLURM_SBATCH_COMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SLURM_SRUN_COMMAND
 SLURM_SRUN_COMMAND-ADVANCED:INTERNAL=1
-//Have include stdlib.h;stdarg.h;string.h;float.h
-STDC_HEADERS:INTERNAL=1
+//Have includes stdlib.h;stdarg.h;string.h;float.h
+STDC_HEADERS:INTERNAL=
 //ADVANCED property for variable: SVNCOMMAND
 SVNCOMMAND-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run

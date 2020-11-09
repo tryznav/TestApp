@@ -1,4 +1,8 @@
-#include "cross_flt.h"
+#include "cross_api.h"
+
+static double dB_to_coeff(double dB){
+    return pow(10.0f , (0.05f * dB));
+}
 
 /*******************************************************************************
  * Provides with the required data sizes for parameters and coefficients.
@@ -30,20 +34,24 @@ int32_t cross_flt_control_initialize(
     void*       params,
     void*       coeffs,
     uint32_t    sample_rate){
-    cross_prm_t *_prm = (cross_prm_t *)params;
-    coef_t *_coeffs = (coef_t  *)coeffs;
+    prm_t *_prm = (prm_t *)params;
+    coef_t *coef = (coef_t  *)coeffs;
 
-    _prm->sample_rate = (double)sample_rate;
+    _prm->cross_coef.sample_rate = (double)sample_rate;
+    _prm->cross_coef.apf_form1 = 2;
+    _prm->cross_coef.apf_form2 = 3;
+    _prm->cross_coef.freq[0] = 10000;
+    _prm->cross_coef.freq[1] = 11000;
+    _prm->cross_coef.freq[2] = 20000;
+    _prm->gain_dB[0] = 0;
+    _prm->gain_dB[1] = 0;
+    _prm->gain_dB[2] = 0;
+    _prm->gain_dB[3] = 0;
 
-    _prm->freq[0] = 10000;
-    _prm->freq[1] = 10000;
-    _prm->freq[2] = 20000;
-    _prm->gain_dB[0] = -6.0;
-    _prm->gain_dB[1] = -6.0;
-    _prm->gain_dB[2] = -6.0;
-    _prm->gain_dB[3] = -6.0;
-
-    cross_coeff_calc(_prm, _coeffs);
+    cross_flt_coef(&(_prm->cross_coef), &(coef->cross_coef));
+    for(int i = 0; i < NUM_OF_BAND; i++){
+        coef->gain_c[i] = (coef_type)dB_to_coeff(_prm->gain_dB[i]);
+    }
 
     return 0;
 }
@@ -61,21 +69,21 @@ int32_t cross_flt_set_parameter(
     void*       params,
     int32_t     id,
     float       value){
-    cross_prm_t *_prm = (cross_prm_t *)params;
+    prm_t *_prm = (prm_t *)params;
 
     switch (id)
     {
     case  PRM_SAMPLE_RATE_ID:
-        _prm->sample_rate = value;
+        _prm->cross_coef.sample_rate = value;
         return 0;
     case  PRM_CROSSOVER_F0_ID:
-        _prm->freq[0] = (double)value;
+        _prm->cross_coef.freq[0] = (double)value;
         return 0;
     case  PRM_CROSSOVER_F1_ID:
-        _prm->freq[1] = (double)value;
+        _prm->cross_coef.freq[1] = (double)value;
         return 0;
     case  PRM_CROSSOVER_F2_ID:
-        _prm->freq[2] = (double)value;
+        _prm->cross_coef.freq[2] = (double)value;
         return 0;
     case  PRM_CROSSOVER_G0_ID:
         _prm->gain_dB[0] = (double)value;
@@ -103,8 +111,10 @@ int32_t cross_flt_set_parameter(
 int32_t cross_flt_update_coeffs(
     void const* params,
     void*       coeffs){
+    prm_t *_prm = (prm_t *)params;
+    coef_t *coef = (coef_t  *)coeffs;
 
-    cross_coeff_calc((cross_prm_t *)params, (coef_t  *)coeffs);
+    cross_flt_coef(&(_prm->cross_coef), &(coef->cross_coef));
 
     return 0;
 }

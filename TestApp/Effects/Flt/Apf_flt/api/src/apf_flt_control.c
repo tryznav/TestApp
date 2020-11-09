@@ -1,4 +1,59 @@
-#include "apf_flt.h"
+#include "apf_api.h"
+
+static int32_t apf_coeff_calc(apf_prm_t *prm, coef_t *coef){
+    printf("format %d\n", prm->form);
+
+
+    switch (prm->order)
+    {
+    case 1:
+        switch (prm->form)
+        {
+        case 1:
+            coef->apf = &apf_flt_1st_DirectI;
+            break;
+        case 2:
+            coef->apf = &apf_flt_1st_DirectII;
+            break;
+        default:
+            fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong APF form, app has 1-5. Rejected\n"RESET);
+            break;
+        }
+        coef->apf_dbl = apf_dbl_1st_DirectII;
+        apf_flt_1st_coef(&(coef->apf_coef), prm->freq,  prm->sample_rate, prm->form);
+        break;
+    case 2:
+        switch (prm->form)
+        {
+        case 1:
+            coef->apf = &apf_flt_2nd_DirectI;
+            break;
+        case 2:
+            coef->apf = &apf_flt_2nd_DirectI_t;
+            break;
+        case 3:
+            coef->apf = &apf_flt_2nd_DirectII;
+            break;
+        case 4:
+            coef->apf = &apf_flt_2nd_DirectII_t;
+            break;
+        case 5:    //Nested form coef
+            coef->apf = &apf_2nd_Lattice;
+            break;
+        default:
+            fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong APF form, app has 1-5. Rejected\n"RESET);
+            break;
+        }
+        coef->apf_dbl = apf_dbl_2nd_DirectI;
+        apf_flt_2nd_coef(&(coef->apf_coef), prm->freq,  prm->sample_rate, prm->form);
+        break;
+    default:
+        fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong APF form, app has 1-5. Rejected\n"RESET);
+        break;
+    }
+    return 0;
+}
+
 
 /*******************************************************************************
  * Provides with the required data sizes for parameters and coefficients.
@@ -13,7 +68,7 @@ int32_t apf_flt_control_get_sizes(
     size_t*     params_bytes,
     size_t*     coeffs_bytes){
     *params_bytes = sizeof(apf_prm_t);
-    *coeffs_bytes = sizeof(apf_coefs_t);
+    *coeffs_bytes = sizeof(apf_coef_t);
     return 0;
 }
 
@@ -31,14 +86,14 @@ int32_t apf_flt_control_initialize(
     void*       coeffs,
     uint32_t    sample_rate){
     apf_prm_t *_prm = (apf_prm_t *)params;
-    apf_coefs_t *_coeffs = (apf_coefs_t  *)coeffs;
+    coef_t      *coef = (coef_t  *)coeffs;
 
     _prm->sample_rate = (double)sample_rate;
     _prm->freq = 100.0;
     _prm->form = 1;
     _prm->order = 2;
-    apf_coeff_calc(_prm, _coeffs);
-    apf_settings_write(_prm);
+    printf("format %d\n", _prm->form);
+    apf_coeff_calc(_prm, coef);
 
     return 0;
 }
@@ -63,7 +118,7 @@ int32_t apf_flt_set_parameter(
     case  PRM_SAMPLE_RATE_ID:
         _prm->sample_rate = (double)value;
         return 0;
-    case  PRM_FREQ_END_ID:
+    case  PRM_APF_CFREQ:
         _prm->freq = (double)value;
         return 0;
     default:
@@ -83,8 +138,8 @@ int32_t apf_flt_set_parameter(
 int32_t apf_flt_update_coeffs(
     void const* params,
     void*       coeffs){
-    apf_settings_read((apf_prm_t *)params);
-    apf_coeff_calc((apf_prm_t *)params, (apf_coefs_t  *)coeffs);
+
+    apf_coeff_calc((apf_prm_t *)params, (coef_t  *)coeffs);
 
     return 0;
 }

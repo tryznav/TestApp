@@ -75,7 +75,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsC</CompileAs>
@@ -92,10 +92,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -108,7 +108,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -125,10 +125,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -141,7 +141,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -158,10 +158,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -174,7 +174,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -190,10 +190,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\inc_close;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Arithmetic\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\json-c;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc_addition;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\api\inc;D:\TestApp\TestApp\build\Libs\Effects\Flt\Apf_flt\..\..\..\..\..\Effects\Flt\Apf_flt\apf\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -261,10 +261,11 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\src\apf_calculate.c" />
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\src\apf_flt_control.c" />
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\src\apf_flt_process.c" />
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\src\apf_settings.c" />
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\apf\src\apf_dbl_structs.c" />
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\apf\src\apf_flt_structs.c" />
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\apf\src\apf_flt_coef.c" />
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\api\src\apf_flt_control.c" />
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\api\src\apf_flt_process.c" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\ZERO_CHECK.vcxproj">

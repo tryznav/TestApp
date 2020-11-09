@@ -135,7 +135,7 @@
 /* #undef HAVE_VASPRINTF */
 
 /* Define to 1 if you have the `vprintf' function. */
-#define HAVE_VPRINTF
+/* #undef HAVE_VPRINTF */
 
 /* Define to 1 if you have the `vsnprintf' function. */
 #define HAVE_VSNPRINTF
@@ -210,7 +210,7 @@
 #define SPEC___THREAD __declspec;(;thread;)
 
 /* Define to 1 if you have the ANSI C header files. */
-#define STDC_HEADERS
+/* #undef STDC_HEADERS */
 
 /* Version number of package */
 #define VERSION "0.15.99"

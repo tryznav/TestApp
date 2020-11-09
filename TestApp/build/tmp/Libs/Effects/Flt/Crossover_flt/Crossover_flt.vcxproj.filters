@@ -1,13 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Crossover_flt\src\coeff_calculate.c">
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\apf\src\apf_dbl_structs.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Crossover_flt\src\cross_flt_control.c">
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\apf\src\apf_flt_structs.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Crossover_flt\src\cross_flt_process.c">
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Apf_flt\apf\src\apf_flt_coef.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Crossover_flt\cross\src\cross_flt_coef.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Crossover_flt\cross\src\cross_flt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Crossover_flt\cross\src\cross_dbl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Crossover_flt\api\src\cross_flt_control.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Flt\Crossover_flt\api\src\cross_flt_process.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
