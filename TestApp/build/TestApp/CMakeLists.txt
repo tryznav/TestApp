@@ -22,6 +22,8 @@ set(LIBS_PATH_2 "/tmp/Debug/")
 # find_package(json-c CONFIG REQUIRED)
 # target_link_libraries(${PR_NAME} PRIVATE json-c)
 
+target_link_libraries(${PR_NAME} PRIVATE json-c)
+
 target_link_libraries(${PR_NAME} PRIVATE GetOpt)
 target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
 #fxd
@@ -48,6 +50,9 @@ target_include_directories(${PR_NAME} PRIVATE ../../inc)
 
 
 set(EFFECTS_PATH "../../Effects")
+
+
+# target_include_directories(${LIB_NAME} PRIVATE ../json-c)
 
 target_include_directories(${PR_NAME} PRIVATE ${EFFECTS_PATH}/inc)
 target_include_directories(${PR_NAME} PRIVATE ${EFFECTS_PATH}/inc/Flt)

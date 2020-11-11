@@ -3,11 +3,13 @@
 // First order All-Pass Filter
 
 audio_type apf_flt_1st_DirectI(audio_type x, apf_states_t *st, apf_coef_t *coef){
-    audio_type xh = flt_msub(x, coef->k[0], st->xh[0]);
-    audio_type y =  flt_mac(st->xh[0], coef->k[0], xh);
+    audio_type y = 0;
+    y = flt_mac(y, coef->k[0], x);
+    y = flt_msub(y, coef->k[0], st->y[0]);
+    y = flt_add(y, st->xh[0]);
 
-    st->xh[0] = xh;
-
+    st->xh[0] = x;
+    st->y[0] = y;
     return y;
 }
 
@@ -16,7 +18,7 @@ audio_type apf_flt_1st_DirectII(audio_type x, apf_states_t *st, apf_coef_t *coef
     audio_type y =  flt_mac(st->xh[0], coef->k[0], xh);
 
     st->xh[0] = xh;
-
+    // printf("xh = %f\n", xh);
     return y;
 }
 

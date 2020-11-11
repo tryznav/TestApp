@@ -18,7 +18,7 @@
 Apf_flt_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Apf_flt
 
 //Dependencies for the target
-Apf_flt_LIB_DEPENDS:STATIC=general;Arithmetic;general;json-c;
+Apf_flt_LIB_DEPENDS:STATIC=general;Arithmetic;
 
 //Value Computed by CMake
 Apf_flt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Flt/Apf_flt

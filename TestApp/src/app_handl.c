@@ -22,7 +22,7 @@ int32_t app_handl(app_func_t *task){
         n = fhand_newhdr_f(&hdr, pr.gen_sig->sample_rate, pr.gen_sig->length_sample, task->audioFormatType);
     }else{
         if((pr.src_file = fhand_parse_wav_file_fptr(pr.src_f_path, &hdr)) == NULL){
-            fprintf(stderr,RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
+            fprintf(stderr, RED"Error: "BOLDWHITE"File unparse. Reject\n"RESET);
             return -1;
         }
         if((n = check(&pr ,&hdr)) != 0){

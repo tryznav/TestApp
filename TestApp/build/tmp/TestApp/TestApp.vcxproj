@@ -83,7 +83,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsC</CompileAs>
@@ -100,10 +100,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -111,7 +111,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\GetOpt\Debug\GetOpt.lib;..\Libs\TestSigGen\Debug\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Debug\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Debug\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\Debug\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\Debug\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Debug\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Debug\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Debug\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\Debug\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\Debug\Apf_flt.lib;..\Libs\Arithmetic\Debug\Arithmetic.lib;..\Libs\json-c\Debug\json-c.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\GetOpt\Debug\GetOpt.lib;..\Libs\TestSigGen\Debug\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Debug\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Debug\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\Debug\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\Debug\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Debug\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Debug\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Debug\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\Debug\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\Debug\Apf_flt.lib;..\Libs\json-c\Debug\json-c.lib;..\Libs\Arithmetic\Debug\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -126,7 +126,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -143,10 +143,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -154,7 +154,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\GetOpt\Release\GetOpt.lib;..\Libs\TestSigGen\Release\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Release\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Release\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\Release\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\Release\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Release\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Release\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Release\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\Release\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\Release\Apf_flt.lib;..\Libs\Arithmetic\Release\Arithmetic.lib;..\Libs\json-c\Release\json-c.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\GetOpt\Release\GetOpt.lib;..\Libs\TestSigGen\Release\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Release\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Release\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\Release\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\Release\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Release\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Release\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Release\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\Release\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\Release\Apf_flt.lib;..\Libs\json-c\Release\json-c.lib;..\Libs\Arithmetic\Release\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -169,7 +169,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -186,10 +186,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -197,7 +197,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\GetOpt\MinSizeRel\GetOpt.lib;..\Libs\TestSigGen\MinSizeRel\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\MinSizeRel\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\MinSizeRel\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\MinSizeRel\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\MinSizeRel\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\MinSizeRel\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\MinSizeRel\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\MinSizeRel\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\MinSizeRel\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\MinSizeRel\Apf_flt.lib;..\Libs\Arithmetic\MinSizeRel\Arithmetic.lib;..\Libs\json-c\MinSizeRel\json-c.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\GetOpt\MinSizeRel\GetOpt.lib;..\Libs\TestSigGen\MinSizeRel\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\MinSizeRel\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\MinSizeRel\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\MinSizeRel\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\MinSizeRel\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\MinSizeRel\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\MinSizeRel\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\MinSizeRel\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\MinSizeRel\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\MinSizeRel\Apf_flt.lib;..\Libs\json-c\MinSizeRel\json-c.lib;..\Libs\Arithmetic\MinSizeRel\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -212,7 +212,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -228,10 +228,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\Libs\json-c;D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Flt;D:\TestApp\TestApp\build\TestApp\..\..\Effects\inc\Fxd;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;D:\TestApp\TestApp\build\Libs\json-c;D:\TestApp\TestApp\build\tmp\Libs\json-c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -239,7 +239,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\GetOpt\RelWithDebInfo\GetOpt.lib;..\Libs\TestSigGen\RelWithDebInfo\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\RelWithDebInfo\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\RelWithDebInfo\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\RelWithDebInfo\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\RelWithDebInfo\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\RelWithDebInfo\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\RelWithDebInfo\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\RelWithDebInfo\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\RelWithDebInfo\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\RelWithDebInfo\Apf_flt.lib;..\Libs\Arithmetic\RelWithDebInfo\Arithmetic.lib;..\Libs\json-c\RelWithDebInfo\json-c.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\GetOpt\RelWithDebInfo\GetOpt.lib;..\Libs\TestSigGen\RelWithDebInfo\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\RelWithDebInfo\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\RelWithDebInfo\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\RelWithDebInfo\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\RelWithDebInfo\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\RelWithDebInfo\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\RelWithDebInfo\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\RelWithDebInfo\Iir_flt.lib;..\Libs\Effects\Flt\Crossover_flt\RelWithDebInfo\Crossover_flt.lib;..\Libs\Effects\Flt\Apf_flt\RelWithDebInfo\Apf_flt.lib;..\Libs\json-c\RelWithDebInfo\json-c.lib;..\Libs\Arithmetic\RelWithDebInfo\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>

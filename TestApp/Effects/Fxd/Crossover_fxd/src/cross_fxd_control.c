@@ -78,14 +78,16 @@ int32_t cross_fxd_set_parameter(
     case  PRM_CROSSOVER_F2_ID:
         _prm->freq[2] = (double)value;
         return 0;
-    case  PRM_CROSSOVER_G0_ID:
+    case  PRM_CROSSOVER_G1_ID:
         _prm->gain_dB[0] = (double)value;
         return 0;
-    case  PRM_CROSSOVER_G1_ID:
+    case  PRM_CROSSOVER_G2_ID:
         _prm->gain_dB[1] = (double)value;
         return 0;
-    case  PRM_CROSSOVER_G2_ID:
+    case  PRM_CROSSOVER_G3_ID:
         _prm->gain_dB[2] = (double)value;
+    case  PRM_CROSSOVER_G4_ID:
+        _prm->gain_dB[3] = (double)value;
         return 0;
     default:
         fprintf(stderr, RED"Error: "BOLDWHITE"Unsupported params. Rejected.\n"RESET);

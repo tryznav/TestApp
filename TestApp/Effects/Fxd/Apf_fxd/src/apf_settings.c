@@ -3,8 +3,7 @@
 
 #define FILE_NAME       "apf_preset.json"
 
- int32_t apf_settings_write(apf_prm_t *prm)
-{
+int32_t apf_settings_write(apf_prm_t *prm){
     FILE *file = fopen(FILE_NAME, "wb");
     json_object * jobj = json_object_new_object();
 

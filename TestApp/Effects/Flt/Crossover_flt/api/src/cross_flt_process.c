@@ -24,9 +24,22 @@ int32_t cross_flt_reset(
     for(int i = 0; i < (NUM_OF_FREQ * 2); i++){
         for(int o = 0; o < 2; o++){
             _st->Left.apf_1st[i].xh[o] = 0.0f;
+            _st->Left.apf_2nd[i].y[o] = 0.0f;
             _st->Left.apf_2nd[i].xh[o] = 0.0f;
+            _st->Left.apf_2nd[i].y[o] = 0.0f;
             _st->Right.apf_1st[i].xh[o] = 0.0f;
+            _st->Right.apf_1st[i].y[o] = 0.0f;
             _st->Right.apf_2nd[i].xh[o] = 0.0f;
+            _st->Right.apf_2nd[i].y[o] = 0.0f;
+
+            _st->Left.apf_1st[i].xh_dbl[o] = 0.0;
+            _st->Left.apf_2nd[i].y_dbl[o] = 0.0;
+            _st->Left.apf_2nd[i].xh_dbl[o] = 0.0;
+            _st->Left.apf_2nd[i].y_dbl[o] = 0.0;
+            _st->Right.apf_1st[i].xh_dbl[o] = 0.0;
+            _st->Right.apf_1st[i].y_dbl[o] = 0.0;
+            _st->Right.apf_2nd[i].xh_dbl[o] = 0.0;
+            _st->Right.apf_2nd[i].y_dbl[o] = 0.0;
         }
     }
     return 0;
@@ -70,14 +83,6 @@ static audio_type cross_hand_flt(bands_t a, coef_type *gain_c){
     return res;
 }
 
-static audio_type cross_hand_dbl(bands_dbl_t a, coef_type *gain_c){
-    double  res = 0;
-    res += a.band1 * gain_c[0];
-    res += a.band2 * gain_c[1];
-    res += a.band3 * gain_c[2];
-    res += a.band4 * gain_c[3];
-    return (audio_type)res;
-}
 
 int32_t cross_flt_process(
     void const* coeffs,
@@ -95,7 +100,7 @@ int32_t cross_flt_process(
 
     for(uint32_t a_index = 0; a_index < samples_count; a_index++){
         _audio[a_index].Left = cross_hand_flt(crossover_flt(_audio[a_index].Left, &(_st->Left), &(coef->cross_coef)), coef->gain_c);
-        // _audio[a_index].Right = cross_hand_dbl(crossover_dbl((double)_audio[a_index].Right, &(_st->Right), &(coef->cross_coef)), coef->gain_c);
+        _audio[a_index].Right = cross_hand_flt(crossover_flt(_audio[a_index].Right, &(_st->Right), &(coef->cross_coef)), coef->gain_c);
     }
 
     return 0;

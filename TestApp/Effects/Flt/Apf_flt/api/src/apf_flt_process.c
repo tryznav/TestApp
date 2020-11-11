@@ -82,6 +82,7 @@ int32_t apf_flt_process(
 
     for(uint32_t a_index = 0; a_index < samples_count; a_index++){
         _audio[a_index].Left = coef->apf(_audio[a_index].Left, &(_st->Left), &(coef->apf_coef));
+        // _audio[a_index].Right = (_audio[a_index].Right +  _audio[a_index].Left)*0.5f;
         _audio[a_index].Right = (audio_type)coef->apf_dbl((double)_audio[a_index].Left, &(_st->Right), &(coef->apf_coef));
     }
 

@@ -121,6 +121,11 @@ int32_t apf_flt_set_parameter(
     case  PRM_APF_CFREQ:
         _prm->freq = (double)value;
         return 0;
+    case  PRM_APF_FORM:
+        _prm->form = (int32_t)value;
+    case  PRM_APF_ORDER:
+        _prm->order = (int32_t)value;
+        return 0;
     default:
         fprintf(stderr, RED"Error: "BOLDWHITE"Unsupported params. Rejected.\n"RESET);
         return -1;
@@ -138,8 +143,11 @@ int32_t apf_flt_set_parameter(
 int32_t apf_flt_update_coeffs(
     void const* params,
     void*       coeffs){
+    printf("format %d\n", ((apf_prm_t *)params)->form);
+    printf("order %d\n", ((apf_prm_t *)params)->order);
 
     apf_coeff_calc((apf_prm_t *)params, (coef_t  *)coeffs);
+    
 
     return 0;
 }

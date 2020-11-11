@@ -38,11 +38,9 @@ int32_t cross_flt_control_initialize(
     coef_t *coef = (coef_t  *)coeffs;
 
     _prm->cross_coef.sample_rate = (double)sample_rate;
-    _prm->cross_coef.apf_form1 = 2;
-    _prm->cross_coef.apf_form2 = 3;
-    _prm->cross_coef.freq[0] = 10000;
-    _prm->cross_coef.freq[1] = 11000;
-    _prm->cross_coef.freq[2] = 20000;
+    _prm->cross_coef.freq[0] = 400;
+    _prm->cross_coef.freq[1] = 6000;
+    _prm->cross_coef.freq[2] = 12000;
     _prm->gain_dB[0] = 0;
     _prm->gain_dB[1] = 0;
     _prm->gain_dB[2] = 0;
@@ -85,15 +83,16 @@ int32_t cross_flt_set_parameter(
     case  PRM_CROSSOVER_F2_ID:
         _prm->cross_coef.freq[2] = (double)value;
         return 0;
-    case  PRM_CROSSOVER_G0_ID:
+    case  PRM_CROSSOVER_G1_ID:
         _prm->gain_dB[0] = (double)value;
         return 0;
-    case  PRM_CROSSOVER_G1_ID:
+    case  PRM_CROSSOVER_G2_ID:
         _prm->gain_dB[1] = (double)value;
         return 0;
-    case  PRM_CROSSOVER_G2_ID:
+    case  PRM_CROSSOVER_G3_ID:
         _prm->gain_dB[2] = (double)value;
-        return 0;
+    case  PRM_CROSSOVER_G4_ID:
+         _prm->gain_dB[3] = (double)value;
     default:
         fprintf(stderr, RED"Error: "BOLDWHITE"Unsupported params. Rejected.\n"RESET);
         return -1;
@@ -115,6 +114,9 @@ int32_t cross_flt_update_coeffs(
     coef_t *coef = (coef_t  *)coeffs;
 
     cross_flt_coef(&(_prm->cross_coef), &(coef->cross_coef));
+    for(int i = 0; i < NUM_OF_BAND; i++){
+        coef->gain_c[i] = (coef_type)dB_to_coeff(_prm->gain_dB[i]);
+    }
 
     return 0;
 }
