@@ -15,24 +15,6 @@
 ########################
 
 //Value Computed by CMake
-Apf_flt_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Apf_flt
-
-//Dependencies for the target
-Apf_flt_LIB_DEPENDS:STATIC=general;Arithmetic;
-
-//Value Computed by CMake
-Apf_flt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Flt/Apf_flt
-
-//Value Computed by CMake
-Apf_fxd_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Apf_fxd
-
-//Dependencies for the target
-Apf_fxd_LIB_DEPENDS:STATIC=general;Arithmetic;general;json-c;
-
-//Value Computed by CMake
-Apf_fxd_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Fxd/Apf_fxd
-
-//Value Computed by CMake
 Arithmetic_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Arithmetic
 
 //Value Computed by CMake
@@ -313,22 +295,13 @@ CVSCOMMAND:FILEPATH=CVSCOMMAND-NOTFOUND
 CVS_UPDATE_OPTIONS:STRING=-d -A -P
 
 //Value Computed by CMake
-Crossover_flt_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Crossover_flt
+Chain_flt_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Chain_flt
 
 //Dependencies for the target
-Crossover_flt_LIB_DEPENDS:STATIC=general;Arithmetic;
+Chain_flt_LIB_DEPENDS:STATIC=general;Arithmetic;
 
 //Value Computed by CMake
-Crossover_flt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Flt/Crossover_flt
-
-//Value Computed by CMake
-Crossover_fxd_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Crossover_fxd
-
-//Dependencies for the target
-Crossover_fxd_LIB_DEPENDS:STATIC=general;Arithmetic;
-
-//Value Computed by CMake
-Crossover_fxd_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Fxd/Crossover_fxd
+Chain_flt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Flt/Chain_flt
 
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
@@ -354,62 +327,11 @@ ENABLE_RDRAND:BOOL=OFF
 //Enable partial threading support.
 ENABLE_THREADING:BOOL=OFF
 
-//Value Computed by CMake
-Fir_flt_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Fir_flt
-
-//Dependencies for the target
-Fir_flt_LIB_DEPENDS:STATIC=general;Arithmetic;
-
-//Value Computed by CMake
-Fir_flt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Flt/Fir_flt
-
-//Value Computed by CMake
-Fir_fxd_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Fir_fxd
-
-//Dependencies for the target
-Fir_fxd_LIB_DEPENDS:STATIC=general;Arithmetic;
-
-//Value Computed by CMake
-Fir_fxd_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Fxd/Fir_fxd
-
 //Path to a program.
 GITCOMMAND:FILEPATH=C:/Program Files/Git/cmd/git.exe
 
-//Value Computed by CMake
-Gain_flt_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Gain_flt
-
-//Dependencies for the target
-Gain_flt_LIB_DEPENDS:STATIC=general;Arithmetic;
-
-//Value Computed by CMake
-Gain_flt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Flt/Gain_flt
-
-//Value Computed by CMake
-GetOpt_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/GetOpt
-
-//Value Computed by CMake
-GetOpt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/GetOpt
-
 //Path to a program.
 HGCOMMAND:FILEPATH=HGCOMMAND-NOTFOUND
-
-//Value Computed by CMake
-Iir_flt_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Iir_flt
-
-//Dependencies for the target
-Iir_flt_LIB_DEPENDS:STATIC=general;Arithmetic;
-
-//Value Computed by CMake
-Iir_flt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Flt/Iir_flt
-
-//Value Computed by CMake
-Iir_fxd_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Iir_fxd
-
-//Dependencies for the target
-Iir_fxd_LIB_DEPENDS:STATIC=general;Arithmetic;
-
-//Value Computed by CMake
-Iir_fxd_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Fxd/Iir_fxd
 
 //Command to build the project
 MAKECOMMAND:STRING="C:\Program Files\CMake 3.12\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
@@ -441,18 +363,6 @@ SLURM_SRUN_COMMAND:FILEPATH=SLURM_SRUN_COMMAND-NOTFOUND
 
 //Path to a program.
 SVNCOMMAND:FILEPATH=SVNCOMMAND-NOTFOUND
-
-//Value Computed by CMake
-TestApp_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/TestApp
-
-//Value Computed by CMake
-TestApp_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/TestApp
-
-//Value Computed by CMake
-TestSigGen_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/TestSigGen
-
-//Value Computed by CMake
-TestSigGen_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/TestSigGen
 
 //Value Computed by CMake
 WholeSolution_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp
@@ -583,7 +493,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=16
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_COMPILER
@@ -674,11 +584,11 @@ HAVE_DECL_ISINF:INTERNAL=1
 //Have symbol isnan
 HAVE_DECL_ISNAN:INTERNAL=1
 //Have symbol nan
-HAVE_DECL_NAN:INTERNAL=1
+HAVE_DECL_NAN:INTERNAL=
 //Have symbol _finite
 HAVE_DECL__FINITE:INTERNAL=1
 //Have symbol _isnan
-HAVE_DECL__ISNAN:INTERNAL=1
+HAVE_DECL__ISNAN:INTERNAL=
 //Have include dlfcn.h
 HAVE_DLFCN_H:INTERNAL=
 //Have symbol _doprnt
@@ -688,7 +598,7 @@ HAVE_ENDIAN_H:INTERNAL=
 //Have include fcntl.h
 HAVE_FCNTL_H:INTERNAL=1
 //Have include inttypes.h
-HAVE_INTTYPES_H:INTERNAL=1
+HAVE_INTTYPES_H:INTERNAL=
 //Have include limits.h
 HAVE_LIMITS_H:INTERNAL=1
 //Have include locale.h
@@ -702,21 +612,21 @@ HAVE_REALLOC:INTERNAL=1
 //Have symbol setlocale
 HAVE_SETLOCALE:INTERNAL=1
 //Result of TRY_COMPILE
-HAVE_SIZEOF_INT:INTERNAL=TRUE
+HAVE_SIZEOF_INT:INTERNAL=FALSE
 //Result of TRY_COMPILE
 HAVE_SIZEOF_INT64_T:INTERNAL=TRUE
 //Result of TRY_COMPILE
-HAVE_SIZEOF_LONG:INTERNAL=TRUE
+HAVE_SIZEOF_LONG:INTERNAL=FALSE
 //Result of TRY_COMPILE
 HAVE_SIZEOF_LONG_LONG:INTERNAL=TRUE
 //Result of TRY_COMPILE
-HAVE_SIZEOF_SIZE_T:INTERNAL=TRUE
+HAVE_SIZEOF_SIZE_T:INTERNAL=FALSE
 //Result of TRY_COMPILE
-HAVE_SIZEOF_SSIZE_T:INTERNAL=TRUE
+HAVE_SIZEOF_SSIZE_T:INTERNAL=FALSE
 //Have include stdarg.h
 HAVE_STDARG_H:INTERNAL=1
 //Have include stddef.h
-HAVE_STDDEF_H:INTERNAL=1
+HAVE_STDDEF_H:INTERNAL=
 //Have include stdint.h
 HAVE_STDINT_H:INTERNAL=1
 //Have include stdlib.h
@@ -744,7 +654,7 @@ HAVE_SYS_RANDOM_H:INTERNAL=
 //Have include sys/resource.h
 HAVE_SYS_RESOURCE_H:INTERNAL=
 //Have include sys/stat.h
-HAVE_SYS_STAT_H:INTERNAL=1
+HAVE_SYS_STAT_H:INTERNAL=
 //Have include sys/types.h
 HAVE_SYS_TYPES_H:INTERNAL=1
 //Have include unistd.h
@@ -775,24 +685,24 @@ P4COMMAND-ADVANCED:INTERNAL=1
 SCPCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SITE
 SITE-ADVANCED:INTERNAL=1
-//CHECK_TYPE_SIZE: sizeof(int)
-SIZEOF_INT:INTERNAL=4
+//CHECK_TYPE_SIZE: int unknown
+SIZEOF_INT:INTERNAL=
 //CHECK_TYPE_SIZE: sizeof(int64_t)
 SIZEOF_INT64_T:INTERNAL=8
-//CHECK_TYPE_SIZE: sizeof(long)
-SIZEOF_LONG:INTERNAL=4
+//CHECK_TYPE_SIZE: long unknown
+SIZEOF_LONG:INTERNAL=
 //CHECK_TYPE_SIZE: sizeof(long long)
 SIZEOF_LONG_LONG:INTERNAL=8
-//CHECK_TYPE_SIZE: sizeof(size_t)
-SIZEOF_SIZE_T:INTERNAL=4
-//CHECK_TYPE_SIZE: sizeof(SSIZE_T)
-SIZEOF_SSIZE_T:INTERNAL=4
+//CHECK_TYPE_SIZE: size_t unknown
+SIZEOF_SIZE_T:INTERNAL=
+//CHECK_TYPE_SIZE: SSIZE_T unknown
+SIZEOF_SSIZE_T:INTERNAL=
 //ADVANCED property for variable: SLURM_SBATCH_COMMAND
 SLURM_SBATCH_COMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SLURM_SRUN_COMMAND
 SLURM_SRUN_COMMAND-ADVANCED:INTERNAL=1
-//Have includes stdlib.h;stdarg.h;string.h;float.h
-STDC_HEADERS:INTERNAL=
+//Have include stdlib.h;stdarg.h;string.h;float.h
+STDC_HEADERS:INTERNAL=1
 //ADVANCED property for variable: SVNCOMMAND
 SVNCOMMAND-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run

@@ -21,7 +21,7 @@
 #define HAVE_FCNTL_H
 
 /* Define to 1 if you have the <inttypes.h> header file. */
-#define HAVE_INTTYPES_H
+/* #undef HAVE_INTTYPES_H */
 
 /* Define to 1 if you have the <limits.h> header file. */
 #define HAVE_LIMITS_H
@@ -63,7 +63,7 @@
 /* #undef HAVE_SYS_RESOURCE_H */
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
-#define HAVE_SYS_STAT_H
+/* #undef HAVE_SYS_STAT_H */
 
 /* Define to 1 if you have the <sys/types.h> header file. */
 #define HAVE_SYS_TYPES_H 1
@@ -93,7 +93,7 @@
 #define HAVE_DECL_ISNAN
 
 /* Define to 1 if you have the declaration of `nan', and to 0 if you don't. */
-#define HAVE_DECL_NAN
+/* #undef HAVE_DECL_NAN */
 
 /* Define to 1 if you have the declaration of `_finite', and to 0 if you
    don't. */
@@ -101,7 +101,7 @@
 
 /* Define to 1 if you have the declaration of `_isnan', and to 0 if you don't.
    */
-#define HAVE_DECL__ISNAN
+/* #undef HAVE_DECL__ISNAN */
 
 /* Define to 1 if you have the `open' function. */
 /* #undef HAVE_OPEN */
@@ -189,28 +189,28 @@
 #define PACKAGE_VERSION "0.15.99"
 
 /* The number of bytes in type int */
-#define SIZEOF_INT 4
+/* #undef SIZEOF_INT */
 
 /* The number of bytes in type int64_t */
 #define SIZEOF_INT64_T 8
 
 /* The number of bytes in type long */
-#define SIZEOF_LONG 4
+/* #undef SIZEOF_LONG */
 
 /* The number of bytes in type long long */
 #define SIZEOF_LONG_LONG 8
 
 /* The number of bytes in type size_t */
-#define SIZEOF_SIZE_T 4
+/* #undef SIZEOF_SIZE_T */
 
 /* The number of bytes in type ssize_t */
-#define SIZEOF_SSIZE_T 4
+/* #undef SIZEOF_SSIZE_T */
 
 /* Specifier for __thread */
 #define SPEC___THREAD __declspec;(;thread;)
 
 /* Define to 1 if you have the ANSI C header files. */
-/* #undef STDC_HEADERS */
+#define STDC_HEADERS
 
 /* Version number of package */
 #define VERSION "0.15.99"

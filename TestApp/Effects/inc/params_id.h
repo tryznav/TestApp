@@ -27,5 +27,6 @@
 #define LSH         5
 #define HSH         6
 #define APF         7
+#define OFF         8
 
 #endif
