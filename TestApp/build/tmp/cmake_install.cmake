@@ -36,7 +36,18 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("D:/TestApp/TestApp/build/tmp/Libs/Arithmetic/cmake_install.cmake")
   include("D:/TestApp/TestApp/build/tmp/Libs/json-c/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Fir_flt/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Iir_flt/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Gain_flt/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Apf_flt/cmake_install.cmake")
   include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Flt/Chain_flt/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Fir_fxd/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Iir_fxd/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Apf_fxd/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Crossover_fxd/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/Libs/TestSigGen/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/Libs/GetOpt/cmake_install.cmake")
+  include("D:/TestApp/TestApp/build/tmp/TestApp/cmake_install.cmake")
 
 endif()
 

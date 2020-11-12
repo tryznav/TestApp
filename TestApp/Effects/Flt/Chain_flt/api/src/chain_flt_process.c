@@ -9,7 +9,7 @@
 
 /******************************************************************************/
 
-int32_t apf_flt_process_get_sizes(
+int32_t chain_flt_process_get_sizes(
     size_t*     states_bytes){
 
     *states_bytes = sizeof(states_t);
@@ -19,7 +19,7 @@ int32_t apf_flt_process_get_sizes(
 
 /*******************************************************************************/
 
-int32_t apf_flt_reset(
+int32_t chain_flt_reset(
     void const* coeffs,
     void*       states){
 
@@ -30,6 +30,7 @@ int32_t apf_flt_reset(
     comp_flt_set_state(&st->Right.comp);
     cross_flt_set_state(&st->Right.cross);
     eq_flt_set_state(&st->Right.eq);
+    printf("chain_flt_reset\n");
     
     return 0;
 }
@@ -63,11 +64,12 @@ static int32_t check(void const* coeffs,
     return 0;
 }
 
-int32_t apf_flt_process(
+int32_t chain_flt_process(
     void const* coeffs,
     void*       states,
     void*       audio,
     size_t      samples_count){
+            // printf("chain_flt_process\n");
     int n = check(coeffs, states, audio, samples_count);
     if(n == -1){
         return -1;
@@ -76,9 +78,14 @@ int32_t apf_flt_process(
     chanes_t *_audio = (chanes_t *)(audio);
     states_t* st = (states_t*)states;
     chain_flt_coef_t *coef = (chain_flt_coef_t *)coeffs;
+    // printf("chain_flt_process\n");
+    bands_t R;
 
     for(uint32_t a_index = 0; a_index < samples_count; a_index++){
-        _audio[a_index].Left = compressor(_audio[a_index].Left, &coef->comp, &st->Left.comp);
+        //_audio[a_index].Left = compressor(_audio[a_index].Left, &st->Left.comp, &coef->comp);
+        R = crossover_flt(_audio[a_index].Left, &st->Left.cross, &coef->cross);
+        _audio[a_index].Left = R.band1 + R.band2 + R.band3 + R.band4;
+        // _audio[a_index].Left = eq_flt(_audio[a_index].Left,  &(st->Left.eq), &(coef->eq));
         // // _audio[a_index].Right = (_audio[a_index].Right +  _audio[a_index].Left)*0.5f;
         // _audio[a_index].Right = (audio_type)coef->apf_dbl((double)_audio[a_index].Left, &(_st->Right), &(coef->apf_coef));
         

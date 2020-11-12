@@ -25,6 +25,7 @@ int main (int argc, char **argv)
         {"generator", required_argument, 0, 's'},
         {"crossover", no_argument, 0, 'c'},
         {"apf",       no_argument, 0, 'a'},
+        {"chain",     no_argument, 0, 'n'},
         {0, 0, 0, 0}
       };
     /* getopt_long stores the option index here. */
@@ -91,6 +92,18 @@ int main (int argc, char **argv)
         app_task->audioFormatType = IEEE_754;
         app_task->effect = malloc(sizeof(effect_task_t));
         app_task->effect->effect_type = EFFECT_ID_CROSSOVER;
+        // printf(" EFFECT_ID_FIR");
+        app_task->effect->cutoff_freq_Hz.sweep.start = 0;// (float)atof(optarg);
+        // fin = strchr(optarg, '_');
+        // fin = fin + 1;
+        app_task->effect->cutoff_freq_Hz.sweep.end = 0; //(float)atof(fin);
+        // printf("prm.cutoff_freq.sweep.start %f\n", app_task->effect->prm.cutoff_freq.sweep.start );
+        // printf("app_task->effect->prm.cutoff_freq.sweep.end %f\n", app_task->effect->prm.cutoff_freq.sweep.end);
+        break;
+      case 'n':
+        app_task->audioFormatType = IEEE_754;
+        app_task->effect = malloc(sizeof(effect_task_t));
+        app_task->effect->effect_type = EFFECT_ID_CHAIN;
         // printf(" EFFECT_ID_FIR");
         app_task->effect->cutoff_freq_Hz.sweep.start = 0;// (float)atof(optarg);
         // fin = strchr(optarg, '_');

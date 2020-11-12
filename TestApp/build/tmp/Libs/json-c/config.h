@@ -21,7 +21,7 @@
 #define HAVE_FCNTL_H
 
 /* Define to 1 if you have the <inttypes.h> header file. */
-/* #undef HAVE_INTTYPES_H */
+#define HAVE_INTTYPES_H
 
 /* Define to 1 if you have the <limits.h> header file. */
 #define HAVE_LIMITS_H
@@ -63,10 +63,10 @@
 /* #undef HAVE_SYS_RESOURCE_H */
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
-/* #undef HAVE_SYS_STAT_H */
+#define HAVE_SYS_STAT_H
 
 /* Define to 1 if you have the <sys/types.h> header file. */
-#define HAVE_SYS_TYPES_H 1
+/* #undef HAVE_SYS_TYPES_H */
 
 /* Define to 1 if you have the <unistd.h> header file. */
 /* #undef HAVE_UNISTD_H */
@@ -93,7 +93,7 @@
 #define HAVE_DECL_ISNAN
 
 /* Define to 1 if you have the declaration of `nan', and to 0 if you don't. */
-/* #undef HAVE_DECL_NAN */
+#define HAVE_DECL_NAN
 
 /* Define to 1 if you have the declaration of `_finite', and to 0 if you
    don't. */
@@ -101,7 +101,7 @@
 
 /* Define to 1 if you have the declaration of `_isnan', and to 0 if you don't.
    */
-/* #undef HAVE_DECL__ISNAN */
+#define HAVE_DECL__ISNAN
 
 /* Define to 1 if you have the `open' function. */
 /* #undef HAVE_OPEN */
@@ -135,7 +135,7 @@
 /* #undef HAVE_VASPRINTF */
 
 /* Define to 1 if you have the `vprintf' function. */
-/* #undef HAVE_VPRINTF */
+#define HAVE_VPRINTF
 
 /* Define to 1 if you have the `vsnprintf' function. */
 #define HAVE_VSNPRINTF
@@ -155,10 +155,10 @@
 /* #define json_c_strtoll strtoll*/
 #endif
 
-#define HAVE_STRTOULL
+/* #undef HAVE_STRTOULL */
 #if !defined(HAVE_STRTOULL)
-#define strtoull strtoull
-/* #define json_c_strtoull strtoull */
+#define strtoull _strtoui64
+/* #define json_c_strtoull _strtoui64 */
 #endif
 
 /* Have __thread */
@@ -189,22 +189,22 @@
 #define PACKAGE_VERSION "0.15.99"
 
 /* The number of bytes in type int */
-/* #undef SIZEOF_INT */
+#define SIZEOF_INT 4
 
 /* The number of bytes in type int64_t */
 #define SIZEOF_INT64_T 8
 
 /* The number of bytes in type long */
-/* #undef SIZEOF_LONG */
+#define SIZEOF_LONG 4
 
 /* The number of bytes in type long long */
 #define SIZEOF_LONG_LONG 8
 
 /* The number of bytes in type size_t */
-/* #undef SIZEOF_SIZE_T */
+#define SIZEOF_SIZE_T 4
 
 /* The number of bytes in type ssize_t */
-/* #undef SIZEOF_SSIZE_T */
+#define SIZEOF_SSIZE_T 4
 
 /* Specifier for __thread */
 #define SPEC___THREAD __declspec;(;thread;)

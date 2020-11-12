@@ -23,8 +23,8 @@ static int32_t apf_flt_1st_coef(apf_coef_1st_t *coef, double fc, double sample_r
 }
 
 static int32_t apf_flt_2nd_coef(apf_coef_2nd_t *coef, double fc, double sample_rate){
-    double Q = 0.1;
-    double fb = 0.8;
+    double Q = 0.70710678118;
+    double fb = fc / Q;
 
     double c = (tan(M_PI *  fb / sample_rate) - 1) / (tan(M_PI *  fb / sample_rate) + 1);
     double d = -cos(2 * M_PI  * fc / sample_rate);

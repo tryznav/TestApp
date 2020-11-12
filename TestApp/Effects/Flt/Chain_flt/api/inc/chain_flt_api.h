@@ -4,6 +4,9 @@
 #include "params_id.h"
 #include "colors.h"
 
+#include "chain_flt_control.h"
+#include "chain_flt_process.h"
+
 #include "comp_flt.h"
 #include "cross_flt.h"
 #include "eq_flt.h"

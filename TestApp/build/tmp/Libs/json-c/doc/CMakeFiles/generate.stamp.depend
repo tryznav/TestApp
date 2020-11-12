@@ -3,3 +3,4 @@ C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/FindDoxygen.cmake
 C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/FindPackageHandleStandardArgs.cmake
 C:/Program Files/CMake 3.12/share/cmake-3.12/Modules/FindPackageMessage.cmake
 D:/TestApp/TestApp/build/Libs/json-c/doc/CMakeLists.txt
+D:/TestApp/TestApp/build/Libs/json-c/doc/Doxyfile.in

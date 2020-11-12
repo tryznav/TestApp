@@ -125,15 +125,23 @@ int32_t app_efect_init(pross_waw_t *pr, wav_hdr_t  *hdr, effect_task_t *effect_t
              break;
         case    EFFECT_ID_CROSSOVER:
             //controll
-            efect->effect_control_get_sizes  = &cross_flt_control_get_sizes;
-            efect->effect_control_initialize = &cross_flt_control_initialize;
-            efect->effect_set_parameter      = &cross_flt_set_parameter;
-            efect->effect_update_coeffs      = &cross_flt_update_coeffs;
-            //process
-            efect->effect_process            = &cross_flt_process;
-            efect->effect_process_get_sizes  = &cross_flt_process_get_sizes;
-            efect->effect_reset              = &cross_flt_reset;
-             break;
+            // efect->effect_control_get_sizes  = &cross_flt_control_get_sizes;
+            // efect->effect_control_initialize = &cross_flt_control_initialize;
+            // efect->effect_set_parameter      = &cross_flt_set_parameter;
+            // efect->effect_update_coeffs      = &cross_flt_update_coeffs;
+            // //process
+            // efect->effect_process            = &cross_flt_process;
+            // efect->effect_process_get_sizes  = &cross_flt_process_get_sizes;
+            // efect->effect_reset              = &cross_flt_reset;
+            efect->effect_control_get_sizes  = &chain_flt_control_get_sizes;
+            efect->effect_control_initialize = &chain_flt_control_initialize;
+            efect->effect_set_parameter      = &chain_flt_set_parameter;
+            efect->effect_update_coeffs      = &chain_flt_update_coeffs;
+            //procchain
+            efect->effect_process            = &chain_flt_process;
+            efect->effect_process_get_sizes  = &chain_flt_process_get_sizes;
+            efect->effect_reset              = &chain_flt_reset;
+            break;
         case    EFFECT_ID_APF:
             //controll
             efect->effect_control_get_sizes  = &apf_flt_control_get_sizes;
@@ -144,7 +152,20 @@ int32_t app_efect_init(pross_waw_t *pr, wav_hdr_t  *hdr, effect_task_t *effect_t
             efect->effect_process            = &apf_flt_process;
             efect->effect_process_get_sizes  = &apf_flt_process_get_sizes;
             efect->effect_reset              = &apf_flt_reset;
+                        //controll
+
              break;
+        case    EFFECT_ID_CHAIN:
+            //controll
+            efect->effect_control_get_sizes  = &chain_flt_control_get_sizes;
+            efect->effect_control_initialize = &chain_flt_control_initialize;
+            efect->effect_set_parameter      = &chain_flt_set_parameter;
+            efect->effect_update_coeffs      = &chain_flt_update_coeffs;
+            //procchain
+            efect->effect_process            = &chain_flt_process;
+            efect->effect_process_get_sizes  = &chain_flt_process_get_sizes;
+            efect->effect_reset              = &chain_flt_reset;
+            break;
         default:
             break;
         }
@@ -168,24 +189,24 @@ static int32_t effect_control(effect_t *effect, wav_hdr_t  *hdr, effect_task_t *
     size_t coeffs_bytes = 0;
     size_t states_bytes = 0;
     int32_t Res = -1;
-    json_object *jobj;
-    
-    json_object *cross_obj;
-    json_object *cross_prm;
+                // json_object *jobj;
+                
+                // json_object *cross_obj;
+                // json_object *cross_prm;
 
-    json_object *apf_obj;
-    json_object *apf_prm;
-    char string[1000];
-    memset(string, 0, 1000);
-    FILE *file = fopen(PRESET_FILE,"r");
+                // json_object *apf_obj;
+                // json_object *apf_prm;
+                // char string[1000];
+                // memset(string, 0, 1000);
+                // FILE *file = fopen(PRESET_FILE,"r");
 
-    if (!file) {
-        fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
-        return -1;
-    }
-    while (fgets(string,1000, file)!= NULL);
+                // if (!file) {
+                //     fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));
+                //     return -1;
+                // }
+                // while (fgets(string,1000, file)!= NULL);
 
-    jobj = json_tokener_parse(string);
+                // jobj = json_tokener_parse(string);
 
 
     if((Res = effect->effect_control_get_sizes(&params_bytes, &coeffs_bytes)) != 0){
@@ -218,103 +239,105 @@ static int32_t effect_control(effect_t *effect, wav_hdr_t  *hdr, effect_task_t *
         fprintf(stderr,RED"Error: "BOLDWHITE"effect_control_initialize\n"RESET);
         // exit(EXIT_FAILURE);
     }
-    json_object_object_get_ex(jobj,"Apf", &apf_obj);
-    json_object_object_get_ex(jobj,"Crossover", &cross_obj);
+            // json_object_object_get_ex(jobj,"Apf", &apf_obj);
+            // json_object_object_get_ex(jobj,"Crossover", &cross_obj);
 
-    json_object_object_get_ex(apf_obj,"Cutoff freq", &apf_prm);
+            // json_object_object_get_ex(apf_obj,"Cutoff freq", &apf_prm);
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_APF_CFREQ, (float)json_object_get_double(apf_prm))) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_APF_CFREQ)\n"RESET);
-    }
-        
-    json_object_object_get_ex(apf_obj,"Form", &apf_prm);
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_APF_CFREQ, (float)json_object_get_double(apf_prm))) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_APF_CFREQ)\n"RESET);
+            // }
+                
+            // json_object_object_get_ex(apf_obj,"Form", &apf_prm);
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_APF_FORM, (float)json_object_get_int(apf_prm))) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_APF_FORM)\n"RESET);
-    }
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_APF_FORM, (float)json_object_get_int(apf_prm))) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_APF_FORM)\n"RESET);
+            // }
 
-    json_object_object_get_ex(apf_obj,"Order", &apf_prm);
+            // json_object_object_get_ex(apf_obj,"Order", &apf_prm);
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_APF_ORDER, (float)json_object_get_int(apf_prm))) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_APF_ORDER)\n"RESET);
-    }
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_APF_ORDER, (float)json_object_get_int(apf_prm))) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_APF_ORDER)\n"RESET);
+            // }
 
 
-    
-    json_object_object_get_ex(cross_obj,"f1", &cross_prm);
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_F0_ID, (float)json_object_get_double(cross_prm) )) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_F0_ID)\n"RESET);
-    }
+            // json_object_object_get_ex(cross_obj,"f1", &cross_prm);
 
-    json_object_object_get_ex(cross_obj,"f2", &cross_prm);
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_F0_ID, (float)json_object_get_double(cross_prm) )) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_F0_ID)\n"RESET);
+            // }
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_F1_ID, (float)json_object_get_double(cross_prm) )) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_F1_ID)\n"RESET);
-    }
-    
-    json_object_object_get_ex(cross_obj,"f3", &cross_prm);
+            // json_object_object_get_ex(cross_obj,"f2", &cross_prm);
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_F2_ID, (float)json_object_get_double(cross_prm) )) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_F2_ID)\n"RESET);
-    }
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_F1_ID, (float)json_object_get_double(cross_prm) )) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_F1_ID)\n"RESET);
+            // }
 
-    json_object_object_get_ex(cross_obj,"g1", &cross_prm);
+            // json_object_object_get_ex(cross_obj,"f3", &cross_prm);
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_G1_ID, (float)json_object_get_double(cross_prm) )) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_G1_ID)\n"RESET);
-    }
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_F2_ID, (float)json_object_get_double(cross_prm) )) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_F2_ID)\n"RESET);
+            // }
 
-    
-    json_object_object_get_ex(cross_obj,"g2", &cross_prm);
+            // json_object_object_get_ex(cross_obj,"g1", &cross_prm);
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_G2_ID, (float)json_object_get_double(cross_prm) )) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_G2_ID)\n"RESET);
-    }
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_G1_ID, (float)json_object_get_double(cross_prm) )) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_G1_ID)\n"RESET);
+            // }
 
-    
-    json_object_object_get_ex(cross_obj,"g3", &cross_prm);
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_G3_ID, (float)json_object_get_double(cross_prm) )) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_G3_ID)\n"RESET);
-    }
+            // json_object_object_get_ex(cross_obj,"g2", &cross_prm);
 
-    json_object_object_get_ex(cross_obj,"g4", &cross_prm);
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_G2_ID, (float)json_object_get_double(cross_prm) )) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_G2_ID)\n"RESET);
+            // }
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_G4_ID, (float)json_object_get_double(cross_prm) )) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_G4_ID)\n"RESET);
-    }
-    
-    json_object_object_get_ex(cross_obj,"form1", &cross_prm);
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_FORM1, (float)json_object_get_int(cross_prm) )) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter( PRM_CROSSOVER_FORM1)\n"RESET);
-    }
+            // json_object_object_get_ex(cross_obj,"g3", &cross_prm);
 
-    json_object_object_get_ex(cross_obj,"form2", &cross_prm);
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_G3_ID, (float)json_object_get_double(cross_prm) )) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_G3_ID)\n"RESET);
+            // }
 
-    if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_FORM2, (float)json_object_get_int(cross_prm) )) != 0){
-        fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_FORM2)\n"RESET);
-    }
+            // json_object_object_get_ex(cross_obj,"g4", &cross_prm);
 
-    // if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_START_ID, effect_task->prm.cutoff_freq.sweep.start)) != 0){
-    //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
-    //     // 
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_G4_ID, (float)json_object_get_double(cross_prm) )) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_G4_ID)\n"RESET);
+            // }
 
-    // if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_START_ID, effect_task->prm.cutoff_freq.sweep.start)) != 0){
-    //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
-    //     // exit(EXIT_FAILURE);
-    // }
+            // json_object_object_get_ex(cross_obj,"form1", &cross_prm);
 
-    // if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_END_ID, effect_task->prm.cutoff_freq.sweep.end)) != 0){
-    //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
-    //     // exit(EXIT_FAILURE);
-    // }
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_FORM1, (float)json_object_get_int(cross_prm) )) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter( PRM_CROSSOVER_FORM1)\n"RESET);
+            // }
 
-    // if((Res = effect->effect_set_parameter(effect->params, PRM_GAIN_dB_ID, effect_task->prm.gain_dB)) != 0){
-    //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
-    //     // exit(EXIT_FAILURE);
-    // }
+            // json_object_object_get_ex(cross_obj,"form2", &cross_prm);
+
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_CROSSOVER_FORM2, (float)json_object_get_int(cross_prm) )) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_CROSSOVER_FORM2)\n"RESET);
+            // }
+
+
+
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_START_ID, effect_task->prm.cutoff_freq.sweep.start)) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
+            //     // 
+
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_START_ID, effect_task->prm.cutoff_freq.sweep.start)) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
+            //     // exit(EXIT_FAILURE);
+            // }
+
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_FREQ_END_ID, effect_task->prm.cutoff_freq.sweep.end)) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
+            //     // exit(EXIT_FAILURE);
+            // }
+
+            // if((Res = effect->effect_set_parameter(effect->params, PRM_GAIN_dB_ID, effect_task->prm.gain_dB)) != 0){
+            //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
+            //     // exit(EXIT_FAILURE);
+            // }
 
 
     if((Res = effect->effect_update_coeffs(effect->params, effect->coeffs)) != 0){
@@ -326,7 +349,7 @@ static int32_t effect_control(effect_t *effect, wav_hdr_t  *hdr, effect_task_t *
     if((Res = effect->effect_reset(effect->coeffs, effect->states)) != 0){
         fprintf(stderr,RED"Error: "BOLDWHITE"effect_update_coeffs\n"RESET);
     }
-    fclose(file);
+    // fclose(file);
     
 
     return 0;

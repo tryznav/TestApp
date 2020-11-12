@@ -18,11 +18,11 @@ typedef my_float coef_type;
 typedef my_float acum_type;
 
 typedef struct apf_states_1st_s{
-    audio_type          xh[2];
+    audio_type          xh[1];
 }apf_states_1st_t;
 
 typedef struct apf_states_2nd_s{
-    audio_type          xh[1];
+    audio_type          xh[2];
 }apf_states_2nd_t;
 
 typedef struct cross_prm_s{

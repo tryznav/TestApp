@@ -26,7 +26,7 @@ int32_t chain_flt_control_get_sizes(
  * 
  * @return 0 if effect is initialized, non-zero error code otherwise
  ******************************************************************************/
-int32_t apf_flt_control_initialize(
+int32_t chain_flt_control_initialize(
     void*       params,
     void*       coeffs,
     uint32_t    sample_rate){
@@ -49,6 +49,7 @@ int32_t apf_flt_control_initialize(
     coef->comp_enable = prm->comp_enable;
     coef->cross_enable =  prm->cross_enable;
     coef->eq_enable = prm->eq_enable;
+    printf("chain_flt_control_initialize\n");
     return 0;
 }
 
@@ -67,7 +68,7 @@ int32_t chain_flt_set_parameter(
     float       value){
 
 //to work...
-
+    return 0;
 }
 
 /*******************************************************************************
@@ -93,9 +94,9 @@ int32_t chain_flt_update_coeffs(
     coef->cross_enable =  prm->cross_enable;
     coef->eq_enable = prm->eq_enable;
 
-    coef->comp_enable = prm->comp_enable;
-    coef->cross_enable =  prm->cross_enable;
-    coef->eq_enable = prm->eq_enable;
-
+    // coef->comp_enable = prm->comp_enable;
+    // coef->cross_enable =  prm->cross_enable;
+    // coef->eq_enable = prm->eq_enable;
+printf("chain_flt_update_coeffs\n");
     return 0;
 }

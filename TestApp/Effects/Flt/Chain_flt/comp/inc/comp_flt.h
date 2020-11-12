@@ -66,7 +66,7 @@ typedef struct comp_flt_states_s{
 }comp_flt_states_t;
 
 int32_t comp_flt_coef(comp_prm_t *prm, comp_flt_coef_t *coef);
-audio_type compressor(audio_type x, comp_flt_coef_t *coef, comp_flt_states_t *st);
+audio_type compressor(audio_type x, comp_flt_states_t *st, comp_flt_coef_t *coef);
 int32_t comp_flt_set_state(comp_flt_states_t *st);
 int32_t comp_flt_set_prm(comp_prm_t*prm, double samle_rate);
 

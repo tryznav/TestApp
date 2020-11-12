@@ -35,8 +35,9 @@ target_link_libraries(${PR_NAME} PRIVATE Apf_fxd)
 target_link_libraries(${PR_NAME} PRIVATE Gain_flt)
 target_link_libraries(${PR_NAME} PRIVATE Fir_flt)
 target_link_libraries(${PR_NAME} PRIVATE Iir_flt)
-target_link_libraries(${PR_NAME} PRIVATE Crossover_flt)
+# target_link_libraries(${PR_NAME} PRIVATE Crossover_flt)
 target_link_libraries(${PR_NAME} PRIVATE Apf_flt)
+target_link_libraries(${PR_NAME} PRIVATE Chain_flt)
 
 
 

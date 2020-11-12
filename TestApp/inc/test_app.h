@@ -22,6 +22,9 @@
 #include "apf_flt_control.h"
 #include "apf_flt_process.h"
 
+#include "chain_flt_control.h"
+#include "chain_flt_process.h"
+
 
 #include "apf_fxd_control.h"
 #include "apf_fxd_process.h"
@@ -35,6 +38,8 @@
 #include "cross_fxd_control.h"
 #include "cross_fxd_process.h"
 
+
+
 #include "params_id.h"
 #include "new_type.h"
 // #include "file_handler.h"
@@ -47,6 +52,7 @@
 #define EFFECT_ID_IIR           'IIR_'
 #define EFFECT_ID_CROSSOVER     'CROS'
 #define EFFECT_ID_APF           'APF_'
+#define EFFECT_ID_CHAIN         'CHAI'
 
 #define DEFAULT_SAMPLE_RATE     48000
 #define HELP_TEXT_OPT               "Options\n"
@@ -77,6 +83,7 @@
 #define HELP_TEXT_IIR_LSH           "           LSH                    <freq-Hz>                       <amplitude-dB>\n"
 #define HELP_TEXT_IIR_HSH           "           HSH                    <freq-Hz>                       <amplitude-dB>\n"
 #define HELP_TEXT_CROSSOVER         "   --crossover     -c\n"
+#define HELP_TEXT_APF               "   --chain         -n\n"
 
 // "Options
 //     --in            -i  <input-file-path>                                   = Specify file for processing.

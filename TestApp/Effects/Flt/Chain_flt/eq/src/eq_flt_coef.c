@@ -11,6 +11,7 @@ int32_t eq_flt_coef(eq_prm_t *prm,  eq_flt_coef_t *coef){
     {
         A[i] = pow(10, prm->gain[i] / 40);
         omega[i] = 2 * M_PI * prm->freq[i] / prm->sample_rate;
+        printf("freq [%d] %f, sample =%f\n",i, prm->freq[i], prm->sample_rate );
         sn[i] = sin(omega[i]);
         cs[i] = cos(omega[i]);
         alpha[i] = sn[i] / (2 * prm->Q[i]);
@@ -27,20 +28,20 @@ int32_t eq_flt_coef(eq_prm_t *prm,  eq_flt_coef_t *coef){
             a2[i] =  1.0 - alpha[i];
             break;
         case HPF:
-            b0[i] =  (1 + cs[i]) /2.0;
-            b1[i] = -(1 + cs[i]);
-            b2[i] =  (1 + cs[i]) /2.0;
-            a0[i] =  1 + alpha[i];
-            a1[i] = -2 * cs[i];
-            a2[i] =  1 - alpha[i];
+            b0[i] =  (1.0 + cs[i]) /2.0;
+            b1[i] = -(1.0 + cs[i]);
+            b2[i] =  (1.0 + cs[i]) /2.0;
+            a0[i] =  1.0 + alpha[i];
+            a1[i] = -2.0 * cs[i];
+            a2[i] =  1.0 - alpha[i];
             break;
         case PQE:
-            b0[i] =  1 + (alpha[i] * A[i]);
-            b1[i] = -2 * cs[i];
-            b2[i] =  1 - (alpha[i] * A[i]);
-            a0[i] =  1 + (alpha[i] / A[i]);
-            a1[i] = -2 * cs[i];
-            a2[i] =  1 - (alpha[i] / A[i]);
+            b0[i] =  1.0 + (alpha[i] * A[i]);
+            b1[i] = -2.0 * cs[i];
+            b2[i] =  1.0 - (alpha[i] * A[i]);
+            a0[i] =  1.0 + (alpha[i] / A[i]);
+            a1[i] = -2.0 * cs[i];
+            a2[i] =  1.0 - (alpha[i] / A[i]);
             break;
         case LSH:
             b0[i] = A[i] * ((A[i] + 1) - (A[i] - 1) * cs[i] + beta[i] * sn[i]);
