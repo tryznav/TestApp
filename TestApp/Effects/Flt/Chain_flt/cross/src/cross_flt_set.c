@@ -9,7 +9,7 @@ int32_t cross_flt_set_prm(cross_prm_t *prm, double samle_rate){
 }
 
 int32_t cross_flt_set_state(cross_flt_states_t *st){
-    for(int i = 0; i < 6; i++){
+    for(int i = 0; i < 15; i++){
         st->apf_1st[i].xh[0] = 0.0f;
         // st->apf_1st->xh[1] = 0.0f;
         st->apf_2nd[i].xh[0] = 0.0f;

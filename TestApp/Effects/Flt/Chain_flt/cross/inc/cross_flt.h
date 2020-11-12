@@ -45,8 +45,8 @@ typedef struct  cross_coef_t{
 }cross_flt_coef_t;
 
 typedef struct cross_states_s{
-    apf_states_1st_t    apf_1st[(NUM_OF_FREQ * 2)];
-    apf_states_2nd_t    apf_2nd[(NUM_OF_FREQ * 2)];
+    apf_states_1st_t    apf_1st[(NUM_OF_FREQ * 5)]; //10
+    apf_states_2nd_t    apf_2nd[(NUM_OF_FREQ * 5)]; //10
 }cross_flt_states_t;
 
 typedef struct bands_s{
