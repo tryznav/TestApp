@@ -11,12 +11,12 @@
 #include "cross_flt.h"
 #include "eq_flt.h"
 
-#pragma pack(push,1)
-typedef struct chanes_s{
-    coef_type Left;
-    coef_type Right;
-}chanes_t;
-#pragma pack(pop)
+// #pragma pack(push,1)
+// typedef struct chanes_s{
+//     audio_type Left;
+//     audio_type Right;
+// }chanes_t;
+// #pragma pack(pop)
 
 typedef struct chain_flt_prm_s{
     eq_prm_t        eq;
@@ -29,7 +29,7 @@ typedef struct chain_flt_prm_s{
 
 typedef struct chain_flt_states_s{
     eq_flt_states_t     eq;
-    cross_flt_states_t  cross;
+    cross4b_states_t    cross;
     comp_flt_states_t   comp;
 }chain_flt_states_t;
 

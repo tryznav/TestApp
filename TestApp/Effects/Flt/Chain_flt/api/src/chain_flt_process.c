@@ -64,6 +64,17 @@ static int32_t check(void const* coeffs,
     return 0;
 }
 
+// static audio_type apf_flt_2nd(audio_type x, apf_states_2nd_t *st, apf_coef_2nd_t *coef){
+//     audio_type  y = flt_mac(st->xh[0], coef->k2, x);
+    
+//     st->xh[0] = flt_mac(st->xh[1], coef->k1, x);
+//     st->xh[0] = flt_msub(st->xh[0], coef->k1, y);
+
+//     st->xh[1] = flt_msub(x, coef->k2, y);
+
+//     return y;
+// }
+
 int32_t chain_flt_process(
     void const* coeffs,
     void*       states,
@@ -79,13 +90,16 @@ int32_t chain_flt_process(
     states_t* st = (states_t*)states;
     chain_flt_coef_t *coef = (chain_flt_coef_t *)coeffs;
     // printf("chain_flt_process\n");
-    bands_t R;
+    band4_t R;
 
     for(uint32_t a_index = 0; a_index < samples_count; a_index++){
         //_audio[a_index].Left = compressor(_audio[a_index].Left, &st->Left.comp, &coef->comp);
-        R = crossover_flt(_audio[a_index].Left, &st->Left.cross, &coef->cross);
-        _audio[a_index].Left = R.band1 + R.band3;// - R.band3 - R.band4;
-        _audio[a_index].Right = R.band2 + R.band4;
+        R = cross4b_flt(_audio[a_index].Left, &st->Left.cross, &coef->cross);
+        _audio[a_index].Left = R.high.band1 + R.low.band1;
+        _audio[a_index].Right = R.high.band2 + R.low.band2;
+    //    _audio[a_index].Left = apf_flt_2nd(_audio[a_index].Left, &st->Left.cross.apf_2nd[0],  &coef->cross.apf_2nd[0]);
+        // _audio[a_index].Left = R.band1 + R.band3;// - R.band3 - R.band4;
+        // _audio[a_index].Right = R.band2 + R.band4;
         // _audio[a_index].Left = eq_flt(_audio[a_index].Left,  &(st->Left.eq), &(coef->eq));
         // // _audio[a_index].Right = (_audio[a_index].Right +  _audio[a_index].Left)*0.5f;
         // _audio[a_index].Right = (audio_type)coef->apf_dbl((double)_audio[a_index].Left, &(_st->Right), &(coef->apf_coef));
