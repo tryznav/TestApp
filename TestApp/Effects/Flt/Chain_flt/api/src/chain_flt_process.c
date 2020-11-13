@@ -84,7 +84,8 @@ int32_t chain_flt_process(
     for(uint32_t a_index = 0; a_index < samples_count; a_index++){
         //_audio[a_index].Left = compressor(_audio[a_index].Left, &st->Left.comp, &coef->comp);
         R = crossover_flt(_audio[a_index].Left, &st->Left.cross, &coef->cross);
-        _audio[a_index].Left = R.band1+ R.band2 + R.band3 + R.band4;// - R.band3 - R.band4;
+        _audio[a_index].Left = R.band1 + R.band3;// - R.band3 - R.band4;
+        _audio[a_index].Right = R.band2 + R.band4;
         // _audio[a_index].Left = eq_flt(_audio[a_index].Left,  &(st->Left.eq), &(coef->eq));
         // // _audio[a_index].Right = (_audio[a_index].Right +  _audio[a_index].Left)*0.5f;
         // _audio[a_index].Right = (audio_type)coef->apf_dbl((double)_audio[a_index].Left, &(_st->Right), &(coef->apf_coef));
