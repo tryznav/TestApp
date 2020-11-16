@@ -43,7 +43,7 @@ int32_t chain_flt_control_initialize(
     eq_flt_set_prm(&prm->eq, (double)sample_rate);
 
     comp_flt_coef(&prm->comp, &coef->comp);
-    cross_flt_coef(&prm->cross, &coef->cross);
+    cross_flt_coef(&prm->cross, coef->cross);
     eq_flt_coef(&prm->eq,  &coef->eq);
 
     coef->comp_enable = prm->comp_enable;
@@ -87,12 +87,16 @@ int32_t chain_flt_update_coeffs(
     chain_flt_coef_t *coef = (chain_flt_coef_t *)coeffs;
 
     comp_flt_coef(&prm->comp, &coef->comp);
-    cross_flt_coef(&prm->cross, &coef->cross);
+        printf("coef->comp.ratio %f\n", coef->comp.ratio);
+    cross_flt_coef(&prm->cross, coef->cross);
+     printf("coef->comp.ratio %f\n", coef->comp.ratio);
     eq_flt_coef(&prm->eq,  &coef->eq);
-
+ printf("coef->comp.ratio %f\n", coef->comp.ratio);
     coef->comp_enable = prm->comp_enable;
     coef->cross_enable =  prm->cross_enable;
     coef->eq_enable = prm->eq_enable;
+
+    printf("coef->comp.ratio %f\n", coef->comp.ratio);
 
     // coef->comp_enable = prm->comp_enable;
     // coef->cross_enable =  prm->cross_enable;

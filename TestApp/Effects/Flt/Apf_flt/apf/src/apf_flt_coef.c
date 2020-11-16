@@ -25,6 +25,7 @@ int32_t apf_flt_2nd_coef(apf_coef_t *coef, double fc, double sample_rate, int32_
     printf("SEcond freq%f\n",  fc);
     printf("coef->k[0] = %f\n", coef->k[0]);
     printf("coef->k[1] = %f\n", coef->k[1]);
+    printf("form %d\n", form);
 
     coef->k_dbl[0] = dc;
     coef->k_dbl[1] = -c;

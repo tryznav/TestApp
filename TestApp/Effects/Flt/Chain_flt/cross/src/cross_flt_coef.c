@@ -7,7 +7,7 @@ static double dB_to_coeff(double dB){
 int32_t cross_flt_coef(cross_prm_t *prm, cross_flt_coef_t *coef){
     for(int i = 0; i < 3; i++){
         double Q = 0.70710678118;
-        double fb =  (prm->freq[i] / Q);
+        double fb = (prm->freq[i] / Q);
 
         double c = (tan(M_PI *  fb / prm->sample_rate) - 1) / (tan(M_PI *  fb / prm->sample_rate) + 1);
         double d = -cos(2 * M_PI  * prm->freq[i] / prm->sample_rate);

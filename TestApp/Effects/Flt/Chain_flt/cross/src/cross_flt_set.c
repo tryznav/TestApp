@@ -1,9 +1,9 @@
 #include "cross_flt.h"
 
 int32_t cross_flt_set_prm(cross_prm_t *prm, double samle_rate){
-    prm->freq[0] = 200;
-    prm->freq[1] = 1000;
-    prm->freq[2] = 10000;
+    prm->freq[0] = 100;
+    prm->freq[1] = 600;
+    prm->freq[2] = 1000;
     prm->sample_rate = samle_rate;
     return 0;
 }

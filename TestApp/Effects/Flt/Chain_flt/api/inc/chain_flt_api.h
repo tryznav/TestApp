@@ -41,7 +41,7 @@ typedef struct states_s{
 typedef struct chain_flt_coef_s{
     eq_flt_coef_t       eq;
     int32_t             eq_enable;
-    cross_flt_coef_t    cross;
+    cross_flt_coef_t    cross[3];
     int32_t             cross_enable;
     comp_flt_coef_t     comp;
     int32_t             comp_enable;

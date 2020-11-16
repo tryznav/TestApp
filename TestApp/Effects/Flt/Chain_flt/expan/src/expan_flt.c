@@ -1,6 +1,6 @@
 #include "comp_flt.h"
 
-audio_type compressor(audio_type x, comp_flt_states_t *st, comp_flt_coef_t *coef){
+audio_type expander_flt(audio_type x, comp_flt_states_t *st, comp_flt_coef_t *coef){
     // printf("here");
     audio_type x_abs = flt_abs(x);
     audio_type env = 0.0f;

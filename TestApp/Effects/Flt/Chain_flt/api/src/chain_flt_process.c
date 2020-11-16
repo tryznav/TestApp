@@ -90,13 +90,13 @@ int32_t chain_flt_process(
     states_t* st = (states_t*)states;
     chain_flt_coef_t *coef = (chain_flt_coef_t *)coeffs;
     // printf("chain_flt_process\n");
-    band4_t R;
+    // band4_t R;
 
     for(uint32_t a_index = 0; a_index < samples_count; a_index++){
-        //_audio[a_index].Left = compressor(_audio[a_index].Left, &st->Left.comp, &coef->comp);
-        R = cross4b_flt(_audio[a_index].Left, &st->Left.cross, &coef->cross);
-        _audio[a_index].Left = R.high.band1 + R.low.band1;
-        _audio[a_index].Right = R.high.band2 + R.low.band2;
+        _audio[a_index].Left = compressor(_audio[a_index].Left, &st->Left.comp, &coef->comp);
+        // R = cross4b_flt(_audio[a_index].Left, &st->Left.cross, &coef->cross);
+        // _audio[a_index].Left = R.high.band1 + R.low.band1;
+        // _audio[a_index].Right = R.high.band2 + R.low.band2;
     //    _audio[a_index].Left = apf_flt_2nd(_audio[a_index].Left, &st->Left.cross.apf_2nd[0],  &coef->cross.apf_2nd[0]);
         // _audio[a_index].Left = R.band1 + R.band3;// - R.band3 - R.band4;
         // _audio[a_index].Right = R.band2 + R.band4;

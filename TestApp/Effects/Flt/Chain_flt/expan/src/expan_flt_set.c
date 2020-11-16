@@ -1,6 +1,6 @@
-#include "comp_flt.h"
+#include "expan_flt.h"
 
-int32_t comp_flt_set_prm(comp_prm_t* prm, double samle_rate){
+int32_t expan_flt_set_prm(expan_prm_t* prm, double samle_rate){
     prm->threshold = -18.0;
     prm->ratio = 2.0;
     prm->tauAttack = 20.0;
@@ -12,7 +12,7 @@ int32_t comp_flt_set_prm(comp_prm_t* prm, double samle_rate){
     return 0;
 }
 
-int32_t comp_flt_set_state(comp_flt_states_t *st){
+int32_t expan_flt_set_state(expan_flt_states_t *st){
     st->x = 0.0f;   //
     st->y = 0.0f;
     st->x_dB = 0.0f; //

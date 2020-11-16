@@ -191,8 +191,8 @@ static int32_t effect_control(effect_t *effect, wav_hdr_t  *hdr, effect_task_t *
     int32_t Res = -1;
                 // json_object *jobj;
                 
-                // json_object *cross_obj;
-                // json_object *cross_prm;
+                // // json_object *cross_obj;
+                // // json_object *cross_prm;
 
                 // json_object *apf_obj;
                 // json_object *apf_prm;
@@ -240,7 +240,7 @@ static int32_t effect_control(effect_t *effect, wav_hdr_t  *hdr, effect_task_t *
         // exit(EXIT_FAILURE);
     }
             // json_object_object_get_ex(jobj,"Apf", &apf_obj);
-            // json_object_object_get_ex(jobj,"Crossover", &cross_obj);
+            // // json_object_object_get_ex(jobj,"Crossover", &cross_obj);
 
             // json_object_object_get_ex(apf_obj,"Cutoff freq", &apf_prm);
 
@@ -375,61 +375,61 @@ static int32_t effect_states_init(effect_t *effect){
     return 0;
 }
 
-static int32_t apf_settings_write(){
+// static int32_t apf_settings_write(){
    
-    FILE *file = fopen(PRESET_FILE, "wb");
-    json_object * jobj = json_object_new_object();
-    json_object * jobj_cross = json_object_new_object();
-    json_object * jobj_apf = json_object_new_object();
+//     FILE *file = fopen(PRESET_FILE, "wb");
+//     json_object * jobj = json_object_new_object();
+//     json_object * jobj_cross = json_object_new_object();
+//     json_object * jobj_apf = json_object_new_object();
 
-    /*Creating a json integer*/
-    json_object *form = json_object_new_int(1);
-    json_object *order = json_object_new_int(2);
+//     /*Creating a json integer*/
+//     json_object *form = json_object_new_int(1);
+//     json_object *order = json_object_new_int(2);
 
-    /*Creating a json double*/
-    json_object *cutoff_freq = json_object_new_double(200.0);
-    json_object *sample_rate = json_object_new_double(48000);
-    json_object *band_width = json_object_new_double(0.8);
+//     /*Creating a json double*/
+//     json_object *cutoff_freq = json_object_new_double(200.0);
+//     json_object *sample_rate = json_object_new_double(48000);
+//     json_object *band_width = json_object_new_double(0.8);
 
-	json_object *f1= json_object_new_double(200.0);
-	json_object *f2= json_object_new_double(300.0);
-	json_object *f3= json_object_new_double(400.0);
-	json_object *form1 = json_object_new_int(2);
-    json_object *form2 = json_object_new_int(1);
-    json_object *g1= json_object_new_double(0.0);
-	json_object *g2= json_object_new_double(0.0);
-	json_object *g3= json_object_new_double(0.0);
-    json_object *g4= json_object_new_double(0.0);
+// 	json_object *f1= json_object_new_double(200.0);
+// 	json_object *f2= json_object_new_double(300.0);
+// 	json_object *f3= json_object_new_double(400.0);
+// 	json_object *form1 = json_object_new_int(2);
+//     json_object *form2 = json_object_new_int(1);
+//     json_object *g1= json_object_new_double(0.0);
+// 	json_object *g2= json_object_new_double(0.0);
+// 	json_object *g3= json_object_new_double(0.0);
+//     json_object *g4= json_object_new_double(0.0);
 
-        /*Form the json object*/
-    /*Each of these is like a key value pair*/
-    json_object_object_add(jobj_apf,"Sample rate", sample_rate);
-    json_object_object_add(jobj_apf,"Cutoff freq", cutoff_freq);
-    json_object_object_add(jobj_apf,"Band width", band_width);
-    json_object_object_add(jobj_apf,"Form", form);
-    json_object_object_add(jobj_apf,"Order", order);
+//         /*Form the json object*/
+//     /*Each of these is like a key value pair*/
+//     json_object_object_add(jobj_apf,"Sample rate", sample_rate);
+//     json_object_object_add(jobj_apf,"Cutoff freq", cutoff_freq);
+//     json_object_object_add(jobj_apf,"Band width", band_width);
+//     json_object_object_add(jobj_apf,"Form", form);
+//     json_object_object_add(jobj_apf,"Order", order);
 
 
-    json_object_object_add(jobj_cross,"f1", f1);
-    json_object_object_add(jobj_cross,"f2", f2);    
-    json_object_object_add(jobj_cross,"f3", f3);
-    json_object_object_add(jobj_cross,"Form1", form);
-    json_object_object_add(jobj_cross,"Form2", form);
+//     json_object_object_add(jobj_cross,"f1", f1);
+//     json_object_object_add(jobj_cross,"f2", f2);    
+//     json_object_object_add(jobj_cross,"f3", f3);
+//     json_object_object_add(jobj_cross,"Form1", form);
+//     json_object_object_add(jobj_cross,"Form2", form);
 
-    json_object_object_add(jobj_cross,"g1", g1);
-    json_object_object_add(jobj_cross,"g2", g2);
-    json_object_object_add(jobj_cross,"g3", g3);
-    json_object_object_add(jobj_cross,"g4", g4);
- printf("here\n");
-    // json_object_array_add(jobj, jobj_cross);
-    // json_object_array_add(jobj, jobj_apf);
-    json_object_object_add(jobj,"Crossover", jobj_cross);
-    json_object_object_add(jobj,"Apf", jobj_apf);
- printf("here1\n");
-    /*Now printing the json object*/
-    const char *str = json_object_to_json_string(jobj);
-    printf("%s\n",str);
-    fprintf(file, "%s", str);
-    fclose(file);
-    return 0;
-}
+//     json_object_object_add(jobj_cross,"g1", g1);
+//     json_object_object_add(jobj_cross,"g2", g2);
+//     json_object_object_add(jobj_cross,"g3", g3);
+//     json_object_object_add(jobj_cross,"g4", g4);
+//  printf("here\n");
+//     // json_object_array_add(jobj, jobj_cross);
+//     // json_object_array_add(jobj, jobj_apf);
+//     json_object_object_add(jobj,"Crossover", jobj_cross);
+//     json_object_object_add(jobj,"Apf", jobj_apf);
+//  printf("here1\n");
+//     /*Now printing the json object*/
+//     const char *str = json_object_to_json_string(jobj);
+//     printf("%s\n",str);
+//     fprintf(file, "%s", str);
+//     fclose(file);
+//     return 0;
+// }

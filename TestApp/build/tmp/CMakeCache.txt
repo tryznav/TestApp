@@ -748,7 +748,7 @@ HAVE_SYS_RESOURCE_H:INTERNAL=
 //Have include sys/stat.h
 HAVE_SYS_STAT_H:INTERNAL=1
 //Have include sys/types.h
-HAVE_SYS_TYPES_H:INTERNAL=
+HAVE_SYS_TYPES_H:INTERNAL=1
 //Have include unistd.h
 HAVE_UNISTD_H:INTERNAL=
 //Have symbol uselocale
