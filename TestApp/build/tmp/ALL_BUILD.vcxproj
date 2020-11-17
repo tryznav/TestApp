@@ -180,9 +180,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{F14DF3C5-37D2-3DF4-82E0-933E9B895071}</Project>
       <Name>Chain_flt</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Effects\Fxd\Crossover_fxd\Crossover_fxd.vcxproj">
-      <Project>{11A21A86-518B-3758-81B6-609D43E02F58}</Project>
-      <Name>Crossover_fxd</Name>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Effects\Fxd\Chain_fxd\Chain_fxd.vcxproj">
+      <Project>{5B1AAC15-9F5B-3A83-BE45-5B092E7C9063}</Project>
+      <Name>Chain_fxd</Name>
     </ProjectReference>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Effects\Flt\Fir_flt\Fir_flt.vcxproj">
       <Project>{A15958A5-0E05-308C-88E2-1460AD2F3A14}</Project>

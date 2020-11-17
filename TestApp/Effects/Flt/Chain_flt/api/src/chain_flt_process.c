@@ -24,12 +24,27 @@ int32_t chain_flt_reset(
     void*       states){
 
     states_t *st = (states_t *)states;
-    comp_flt_set_state(&st->Left.comp);
+       eq_flt_set_state(&st->Left.eq1);
     cross_flt_set_state(&st->Left.cross);
-    eq_flt_set_state(&st->Left.eq);
-    comp_flt_set_state(&st->Right.comp);
+
+    comp_flt_set_state(&st->Left.comp_1b);
+    comp_flt_set_state(&st->Left.comp_1b);
+    comp_flt_set_state(&st->Left.comp_2b);
+    comp_flt_set_state(&st->Left.comp_3b);
+    comp_flt_set_state(&st->Left.comp_4b);
+      eq_flt_set_state(&st->Left.eq2);
+    comp_flt_set_state(&st->Left.limiter);
+
+       eq_flt_set_state(&st->Right.eq1);
     cross_flt_set_state(&st->Right.cross);
-    eq_flt_set_state(&st->Right.eq);
+
+    comp_flt_set_state(&st->Right.comp_1b);
+    comp_flt_set_state(&st->Right.comp_1b);
+    comp_flt_set_state(&st->Right.comp_2b);
+    comp_flt_set_state(&st->Right.comp_3b);
+    comp_flt_set_state(&st->Right.comp_4b);
+      eq_flt_set_state(&st->Right.eq2);
+    comp_flt_set_state(&st->Right.limiter);
     printf("chain_flt_reset\n");
     
     return 0;
@@ -75,6 +90,48 @@ static int32_t check(void const* coeffs,
 //     return y;
 // }
 
+static inline audio_type chain_flt(audio_type x, chain_flt_states_t *st, chain_flt_coef_t *coef){
+    audio_type res = eq_flt(x,  &(st->eq1), &(coef->eq1));
+    if (coef->comp_4b_enable)
+    {
+        band4_t b = cross4b_flt(res, &(st->cross), coef->cross);
+        if(coef->comp_1b.Enable){
+            b.low.band1 = compressor(b.low.band1, &(st->comp_1b), &(coef->comp_1b));
+        }
+        if(coef->comp_2b.Enable){
+            b.low.band2 = compressor(b.low.band2, &(st->comp_2b), &(coef->comp_2b));
+        }
+        if(coef->comp_3b.Enable){
+             b.high.band1 = compressor(b.high.band1, &(st->comp_3b), &(coef->comp_3b));
+        }
+        if(coef->comp_3b.Enable){
+            b.high.band2 = compressor(b.high.band2, &(st->comp_4b), &(coef->comp_4b));
+        }
+        res = flt_add( flt_add(b.low.band1, b.low.band2), flt_add(b.high.band1, b.high.band2));
+    }
+    res = eq_flt(res,  &(st->eq2), &(coef->eq2));
+    res = compressor(res, &(st->limiter), &(coef->limiter));
+    
+    // band4_t b = cross4b_flt(res, &(st->cross), coef->cross);
+    //     if(coef->comp_1b.Enable){
+    //         b.low.band1 = compressor(b.low.band1, &(st->comp_1b), &(coef->comp_1b));
+    //     }
+    //     if(coef->comp_2b.Enable){
+    //         b.low.band2 = compressor(b.low.band2, &(st->comp_2b), &(coef->comp_2b));
+    //     }
+    //     if(coef->comp_3b.Enable){
+    //          b.high.band1 = compressor(b.high.band1, &(st->comp_3b), &(coef->comp_3b));
+    //     }
+    // b.low.band1 = compressor(b.low.band1, &(st->comp_1b), &(coef->comp_1b));
+
+   
+    
+   
+
+    return res;
+}
+
+
 int32_t chain_flt_process(
     void const* coeffs,
     void*       states,
@@ -93,7 +150,8 @@ int32_t chain_flt_process(
     // band4_t R;
 
     for(uint32_t a_index = 0; a_index < samples_count; a_index++){
-        _audio[a_index].Left = compressor(_audio[a_index].Left, &st->Left.comp, &coef->comp);
+        _audio[a_index].Left = chain_flt(_audio[a_index].Left, &st->Left, coef);
+        // _audio[a_index].Left = compressor(_audio[a_index].Left, &st->Left, &coef->limiter);
         // R = cross4b_flt(_audio[a_index].Left, &st->Left.cross, &coef->cross);
         // _audio[a_index].Left = R.high.band1 + R.low.band1;
         // _audio[a_index].Right = R.high.band2 + R.low.band2;

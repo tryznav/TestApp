@@ -1,5 +1,6 @@
 #ifndef __PARAMS_ID_H__
 #define __PARAMS_ID_H__
+#include <stdint.h>
 
 #define PRM_GAIN_dB_ID          'Gain'
 #define PRM_SAMPLE_RATE_ID      'SMPR'
@@ -28,5 +29,39 @@
 #define HSH         6
 #define APF         7
 #define OFF         8
+
+#pragma pack(push,1)
+typedef struct id_s{
+    uint8_t empty;  //
+    uint8_t effect;
+    uint8_t sub_effect;
+    uint8_t prm;
+}id_t;
+#pragma pack(pop)
+
+union id_union_t{
+    int32_t         all;
+    id_t            id;
+};
+
+//Efect ID
+#define EQ1                   0
+
+//Efect ID
+#define Compresor_nb      1
+//Sub efect
+#define Compresor_1b            0
+#define Compresor_2b            1
+#define Compresor_3b            2
+#define Compresor_4b            3
+#define Crossover               4
+#define Enable_id               255
+
+#define EQ2                     2
+
+
+#define Limiter                 3
+
+#define Multy_Band_Compresor    1
 
 #endif

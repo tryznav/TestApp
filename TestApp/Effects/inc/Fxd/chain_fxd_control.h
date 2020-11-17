@@ -1,5 +1,8 @@
-#include "cross_fxd.h"
+#ifndef __CHAIN_FXD_CONTROL_H__
+#define __CHAIN_FXD_CONTROL_H__
 
+#include <stdint.h>
+#include <stddef.h>
 
 /*******************************************************************************
  * Provides with the required data sizes for parameters and coefficients.
@@ -10,13 +13,10 @@
  * 
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
-int32_t cross_fxd_control_get_sizes(
+int32_t chain_fxd_control_get_sizes(
     size_t*     params_bytes,
-    size_t*     coeffs_bytes){
-    *params_bytes = sizeof(cross_prm_t);
-    *coeffs_bytes = sizeof(coef_t);
-    return 0;
-}
+    size_t*     coeffs_bytes);
+
 
 /*******************************************************************************
  * Initializes params, coeffs and states to default values for the requested SR.
@@ -27,30 +27,14 @@ int32_t cross_fxd_control_get_sizes(
  * 
  * @return 0 if effect is initialized, non-zero error code otherwise
  ******************************************************************************/
-int32_t cross_fxd_control_initialize(
+int32_t chain_fxd_control_initialize(
     void*       params,
     void*       coeffs,
-    uint32_t    sample_rate){
-    cross_prm_t *_prm = (cross_prm_t *)params;
-    coef_t *_coeffs = (coef_t  *)coeffs;
+    uint32_t    sample_rate);
 
-    _prm->sample_rate = (double)sample_rate;
-
-    _prm->freq[0] = 200;
-    _prm->freq[1] = 500;
-    _prm->freq[2] = 20000;
-    _prm->gain_dB[0] = -6.0;
-    _prm->gain_dB[1] = -6.0;
-    _prm->gain_dB[2] = -6.0;
-    _prm->gain_dB[3] = -6.0;
-
-    cross_coeff_calc(_prm, _coeffs);
-
-    return 0;
-}
 
 /*******************************************************************************
- * Set single parameter 
+ * Set single parameter and calculate corresponding coefficients.
  * 
  * @param[in] params    initialized params
  * @param[in] id        parameter ID
@@ -58,56 +42,24 @@ int32_t cross_fxd_control_initialize(
  * 
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
-int32_t cross_fxd_set_parameter(
+int32_t chain_fxd_set_parameter(
     void*       params,
     int32_t     id,
-    float       value){
-    cross_prm_t *_prm = (cross_prm_t *)params;
+    float       value);
 
-    switch (id)
-    {
-    case  PRM_SAMPLE_RATE_ID:
-        _prm->sample_rate = value;
-        return 0;
-    case  PRM_CROSSOVER_F0_ID:
-        _prm->freq[0] = (double)value;
-        return 0;
-    case  PRM_CROSSOVER_F1_ID:
-        _prm->freq[1] = (double)value;
-        return 0;
-    case  PRM_CROSSOVER_F2_ID:
-        _prm->freq[2] = (double)value;
-        return 0;
-    case  PRM_CROSSOVER_G1_ID:
-        _prm->gain_dB[0] = (double)value;
-        return 0;
-    case  PRM_CROSSOVER_G2_ID:
-        _prm->gain_dB[1] = (double)value;
-        return 0;
-    case  PRM_CROSSOVER_G3_ID:
-        _prm->gain_dB[2] = (double)value;
-    case  PRM_CROSSOVER_G4_ID:
-        _prm->gain_dB[3] = (double)value;
-        return 0;
-    default:
-        fprintf(stderr, RED"Error: "BOLDWHITE"Unsupported params. Rejected.\n"RESET);
-        return -1;
-    }
-}
 
 /*******************************************************************************
  * Calculate coefficients, corresponding to the parameters.
  * 
  * @param[in] params    initialized params
+ * @param[in] id        parameter ID
  * @param[in] value     parameter value
  * 
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
-int32_t cross_fxd_update_coeffs(
+int32_t chain_fxd_update_coeffs(
     void const* params,
-    void*       coeffs){
+    void*       coeffs);
 
-    cross_coeff_calc((cross_prm_t *)params, (coef_t  *)coeffs);
 
-    return 0;
-}
+#endif

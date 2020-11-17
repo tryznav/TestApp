@@ -12,8 +12,8 @@
 int32_t chain_flt_control_get_sizes(
     size_t*     params_bytes,
     size_t*     coeffs_bytes){
-    *params_bytes = sizeof(cross_prm_t) + sizeof(comp_prm_t) + sizeof(eq_prm_t);
-    *coeffs_bytes = sizeof(cross_flt_coef_t) + sizeof(comp_flt_coef_t) + sizeof(eq_flt_coef_t);
+    *params_bytes = sizeof(chain_flt_prm_t);
+    *coeffs_bytes = sizeof(chain_flt_coef_t);;
     return 0;
 }
 
@@ -34,24 +34,60 @@ int32_t chain_flt_control_initialize(
     chain_flt_prm_t *prm = (chain_flt_prm_t *)params;
     chain_flt_coef_t *coef = (chain_flt_coef_t *)coeffs;
 
-    prm->comp_enable = 1;
+// ______________Set default parameters_______________
+
+    prm->eq1_enable = 1;
     prm->cross_enable = 1;
-    prm->eq_enable = 1;
+    prm->comp_1b_enable = 1;
+    prm->comp_2b_enable = 1;
+    prm->comp_3b_enable = 1;
+    prm->comp_4b_enable = 1;
+    prm->eq2_enable = 1;
+    prm->limiter_enable = 1;
 
-    comp_flt_set_prm(&prm->comp, (double)sample_rate);
-    cross_flt_set_prm(&prm->cross, (double)sample_rate);
-    eq_flt_set_prm(&prm->eq, (double)sample_rate);
+    eq_flt_set_prm_d(&prm->eq1, (double)sample_rate);
 
-    comp_flt_coef(&prm->comp, &coef->comp);
+    cross_flt_set_prm_d(&prm->cross, (double)sample_rate);
+
+    comp_flt_set_prm_d(&prm->comp_1b, (double)sample_rate);
+    comp_flt_set_prm_d(&prm->comp_2b, (double)sample_rate);
+    comp_flt_set_prm_d(&prm->comp_3b, (double)sample_rate);
+    comp_flt_set_prm_d(&prm->comp_4b, (double)sample_rate);
+
+    eq_flt_set_prm_d(&prm->eq2, (double)sample_rate);
+
+    comp_flt_set_prm_d(&prm->limiter, (double)sample_rate);
+
+// ______________Calculate coefficients, corresponding to the default parameters_______________
+
+    eq_flt_coef(&prm->eq1,  &coef->eq1);
+
     cross_flt_coef(&prm->cross, coef->cross);
-    eq_flt_coef(&prm->eq,  &coef->eq);
+    comp_flt_coef(&prm->comp_1b, &coef->comp_1b);
+    comp_flt_coef(&prm->comp_2b, &coef->comp_2b);
+    comp_flt_coef(&prm->comp_3b, &coef->comp_3b);
+    comp_flt_coef(&prm->comp_4b, &coef->comp_4b);
 
-    coef->comp_enable = prm->comp_enable;
-    coef->cross_enable =  prm->cross_enable;
-    coef->eq_enable = prm->eq_enable;
+    eq_flt_coef(&prm->eq2,  &coef->eq2);
+
+    comp_flt_coef(&prm->limiter, &coef->limiter);
+
+    coef->eq1_enable =          prm->eq1_enable;
+    coef->cross_enable =        prm->cross_enable;
+    coef->comp_1b_enable =      prm->comp_1b_enable; 
+    coef->comp_2b_enable =      prm->comp_2b_enable;
+    coef->comp_3b_enable =      prm->comp_3b_enable;
+    coef->comp_4b_enable =      prm->comp_4b_enable;
+    coef->eq2_enable =          prm->eq2_enable;
+    coef->limiter_enable =      prm->limiter_enable;
+
     printf("chain_flt_control_initialize\n");
     return 0;
 }
+
+
+
+
 
 /*******************************************************************************
  * Set single parameter 
@@ -66,8 +102,30 @@ int32_t chain_flt_set_parameter(
     void*       params,
     int32_t     id,
     float       value){
+    union id_union_t _id;
+    _id.all = id;
+    chain_flt_prm_t *prm = (chain_flt_prm_t *)params;
 
-//to work...
+    switch (_id.id.effect)
+    {
+    case EQ1:
+
+        break;
+    case Compresor_nb:
+        
+        break;
+    case EQ2:
+
+        break;
+    case Limiter:
+
+        break;
+    case Enable_id:
+        
+        break;
+    default:
+        break;
+    }
     return 0;
 }
 
@@ -86,21 +144,29 @@ int32_t chain_flt_update_coeffs(
     chain_flt_prm_t *prm = (chain_flt_prm_t *)params;
     chain_flt_coef_t *coef = (chain_flt_coef_t *)coeffs;
 
-    comp_flt_coef(&prm->comp, &coef->comp);
-        printf("coef->comp.ratio %f\n", coef->comp.ratio);
-    cross_flt_coef(&prm->cross, coef->cross);
-     printf("coef->comp.ratio %f\n", coef->comp.ratio);
-    eq_flt_coef(&prm->eq,  &coef->eq);
- printf("coef->comp.ratio %f\n", coef->comp.ratio);
-    coef->comp_enable = prm->comp_enable;
-    coef->cross_enable =  prm->cross_enable;
-    coef->eq_enable = prm->eq_enable;
+// ______________Calculate coefficients, corresponding to the parameters_______________
 
-    printf("coef->comp.ratio %f\n", coef->comp.ratio);
+    eq_flt_coef(&prm->eq1,  &coef->eq1);
 
-    // coef->comp_enable = prm->comp_enable;
-    // coef->cross_enable =  prm->cross_enable;
-    // coef->eq_enable = prm->eq_enable;
-printf("chain_flt_update_coeffs\n");
+    cross_flt_coef(&prm->cross,  coef->cross);
+    comp_flt_coef(&prm->comp_1b, &coef->comp_1b);
+    comp_flt_coef(&prm->comp_2b, &coef->comp_2b);
+    comp_flt_coef(&prm->comp_3b, &coef->comp_3b);
+    comp_flt_coef(&prm->comp_4b, &coef->comp_4b);
+
+    eq_flt_coef(&prm->eq2,  &coef->eq2);
+
+    comp_flt_coef(&prm->limiter, &coef->limiter);
+
+    coef->eq1_enable =          prm->eq1_enable;
+    coef->cross_enable =        prm->cross_enable;
+    coef->comp_1b_enable =      prm->comp_1b_enable; 
+    coef->comp_2b_enable =      prm->comp_2b_enable;
+    coef->comp_3b_enable =      prm->comp_3b_enable;
+    coef->comp_4b_enable =      prm->comp_4b_enable;
+    coef->eq2_enable =          prm->eq2_enable;
+    coef->limiter_enable =      prm->limiter_enable;
+
+
     return 0;
 }

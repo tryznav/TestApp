@@ -322,6 +322,15 @@ Chain_flt_LIB_DEPENDS:STATIC=general;Arithmetic;
 Chain_flt_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Flt/Chain_flt
 
 //Value Computed by CMake
+Chain_fxd_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Chain_fxd
+
+//Dependencies for the target
+Chain_fxd_LIB_DEPENDS:STATIC=general;Arithmetic;
+
+//Value Computed by CMake
+Chain_fxd_SOURCE_DIR:STATIC=D:/TestApp/TestApp/build/Libs/Effects/Fxd/Chain_fxd
+
+//Value Computed by CMake
 Crossover_fxd_BINARY_DIR:STATIC=D:/TestApp/TestApp/build/tmp/Libs/Effects/Fxd/Crossover_fxd
 
 //Dependencies for the target

@@ -1,10 +1,28 @@
 #include "cross_flt.h"
 
-int32_t cross_flt_set_prm(cross_prm_t *prm, double samle_rate){
+int32_t cross_flt_set_prm_d(cross_prm_t *prm, double samle_rate){
     prm->freq[0] = 100;
     prm->freq[1] = 600;
     prm->freq[2] = 1000;
     prm->sample_rate = samle_rate;
+    return 0;
+}
+
+int32_t cross_flt_set_prm_c(cross_prm_t *prm, uint8_t Id_prm, float value){
+    switch (Id_prm)
+    {
+    case 1:
+        prm->freq[0] = (double)value;
+        break;
+    case 2:
+        prm->freq[1] = (double)value;
+        break;
+    case 3:
+        prm->freq[2]  = (double)value;
+        break;
+    default:
+        break;
+    }
     return 0;
 }
 

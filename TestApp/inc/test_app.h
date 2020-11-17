@@ -26,6 +26,10 @@
 #include "chain_flt_process.h"
 
 
+#include "chain_fxd_control.h"
+#include "chain_fxd_process.h"
+
+
 #include "apf_fxd_control.h"
 #include "apf_fxd_process.h"
 

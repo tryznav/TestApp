@@ -19,18 +19,33 @@
 // #pragma pack(pop)
 
 typedef struct chain_flt_prm_s{
-    eq_prm_t        eq;
-    int32_t         eq_enable;
+    eq_prm_t        eq1;
+    int32_t         eq1_enable;
     cross_prm_t     cross;
     int32_t         cross_enable;
-    comp_prm_t      comp;
-    int32_t         comp_enable;
+    comp_prm_t      comp_1b;
+    int32_t         comp_1b_enable;
+    comp_prm_t      comp_2b;
+    int32_t         comp_2b_enable;
+    comp_prm_t      comp_3b;
+    int32_t         comp_3b_enable;
+    comp_prm_t      comp_4b;
+    int32_t         comp_4b_enable;
+    eq_prm_t        eq2;
+    int32_t         eq2_enable;
+    comp_prm_t      limiter;
+    int32_t         limiter_enable;
 }chain_flt_prm_t;
 
 typedef struct chain_flt_states_s{
-    eq_flt_states_t     eq;
+    eq_flt_states_t     eq1;
     cross4b_states_t    cross;
-    comp_flt_states_t   comp;
+    comp_flt_states_t   comp_1b;
+    comp_flt_states_t   comp_2b;
+    comp_flt_states_t   comp_3b;
+    comp_flt_states_t   comp_4b;
+    eq_flt_states_t     eq2;
+    comp_flt_states_t   limiter;
 }chain_flt_states_t;
 
 typedef struct states_s{
@@ -39,12 +54,22 @@ typedef struct states_s{
 }states_t;
 
 typedef struct chain_flt_coef_s{
-    eq_flt_coef_t       eq;
-    int32_t             eq_enable;
+    eq_flt_coef_t       eq1;
+    int32_t             eq1_enable;
     cross_flt_coef_t    cross[3];
     int32_t             cross_enable;
-    comp_flt_coef_t     comp;
-    int32_t             comp_enable;
+    comp_flt_coef_t     comp_1b;
+    int32_t             comp_1b_enable;
+    comp_flt_coef_t     comp_2b;
+    int32_t             comp_2b_enable;
+    comp_flt_coef_t     comp_3b;
+    int32_t             comp_3b_enable;
+    comp_flt_coef_t     comp_4b;
+    int32_t             comp_4b_enable;
+    eq_flt_coef_t       eq2;
+    int32_t             eq2_enable;
+    comp_flt_coef_t     limiter;
+    int32_t             limiter_enable;
 }chain_flt_coef_t;
 
 #endif

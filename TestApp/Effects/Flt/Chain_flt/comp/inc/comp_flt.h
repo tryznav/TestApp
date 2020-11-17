@@ -3,6 +3,7 @@
 
 #include "colors.h"
 #include "flt_arithmetic.h"
+#include "params_id.h"
 
 #ifndef M_PI
     #define M_PI 3.14159265358979323846
@@ -27,6 +28,7 @@ typedef struct comp_prm_s{
 
     double tauEnvAtt;
     double tauEnvRel;
+    int32_t Enable;
     /*float kneeWidth;*/
 }comp_prm_t;
 
@@ -42,6 +44,7 @@ typedef struct comp_flt_coef_s{
 
     coef_type makeUpGain;
     coef_type samplerate;
+    int32_t   Enable;
 }comp_flt_coef_t;
 
 
@@ -68,6 +71,7 @@ typedef struct comp_flt_states_s{
 int32_t comp_flt_coef(comp_prm_t *prm, comp_flt_coef_t *coef);
 audio_type compressor(audio_type x, comp_flt_states_t *st, comp_flt_coef_t *coef);
 int32_t comp_flt_set_state(comp_flt_states_t *st);
-int32_t comp_flt_set_prm(comp_prm_t*prm, double samle_rate);
+int32_t comp_flt_set_prm_d(comp_prm_t*prm, double samle_rate);
+int32_t comp_flt_set_prm_c(comp_prm_t* prm, uint8_t Id, float value);
 
 #endif

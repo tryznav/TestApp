@@ -85,8 +85,6 @@ static audio_type apl_direct_f1_2nd(audio_type x, apf_states_t *st, apf_coefs_t 
     st->y[1] = st->y[0];
     st->y[0] = (audio_type)saturation(fxd63_rshift(acum, (COEF_FR - 1)));
 
-
-
     // (audio_type)acum;
 
     acum = fxd63_rshift(acum, (COEF_FR - 2));

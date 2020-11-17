@@ -111,7 +111,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\GetOpt\Debug\GetOpt.lib;..\Libs\TestSigGen\Debug\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Debug\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Debug\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\Debug\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\Debug\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Debug\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Debug\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Debug\Iir_flt.lib;..\Libs\Effects\Flt\Apf_flt\Debug\Apf_flt.lib;..\Libs\Effects\Flt\Chain_flt\Debug\Chain_flt.lib;..\Libs\json-c\Debug\json-c.lib;..\Libs\Arithmetic\Debug\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\GetOpt\Debug\GetOpt.lib;..\Libs\TestSigGen\Debug\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Debug\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Debug\Iir_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\Debug\Apf_fxd.lib;..\Libs\Effects\Fxd\Chain_fxd\Debug\Chain_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Debug\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Debug\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Debug\Iir_flt.lib;..\Libs\Effects\Flt\Apf_flt\Debug\Apf_flt.lib;..\Libs\Effects\Flt\Chain_flt\Debug\Chain_flt.lib;..\Libs\json-c\Debug\json-c.lib;..\Libs\Arithmetic\Debug\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -154,7 +154,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\GetOpt\Release\GetOpt.lib;..\Libs\TestSigGen\Release\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Release\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Release\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\Release\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\Release\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Release\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Release\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Release\Iir_flt.lib;..\Libs\Effects\Flt\Apf_flt\Release\Apf_flt.lib;..\Libs\Effects\Flt\Chain_flt\Release\Chain_flt.lib;..\Libs\json-c\Release\json-c.lib;..\Libs\Arithmetic\Release\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\GetOpt\Release\GetOpt.lib;..\Libs\TestSigGen\Release\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\Release\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\Release\Iir_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\Release\Apf_fxd.lib;..\Libs\Effects\Fxd\Chain_fxd\Release\Chain_fxd.lib;..\Libs\Effects\Flt\Gain_flt\Release\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\Release\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\Release\Iir_flt.lib;..\Libs\Effects\Flt\Apf_flt\Release\Apf_flt.lib;..\Libs\Effects\Flt\Chain_flt\Release\Chain_flt.lib;..\Libs\json-c\Release\json-c.lib;..\Libs\Arithmetic\Release\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -197,7 +197,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\GetOpt\MinSizeRel\GetOpt.lib;..\Libs\TestSigGen\MinSizeRel\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\MinSizeRel\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\MinSizeRel\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\MinSizeRel\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\MinSizeRel\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\MinSizeRel\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\MinSizeRel\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\MinSizeRel\Iir_flt.lib;..\Libs\Effects\Flt\Apf_flt\MinSizeRel\Apf_flt.lib;..\Libs\Effects\Flt\Chain_flt\MinSizeRel\Chain_flt.lib;..\Libs\json-c\MinSizeRel\json-c.lib;..\Libs\Arithmetic\MinSizeRel\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\GetOpt\MinSizeRel\GetOpt.lib;..\Libs\TestSigGen\MinSizeRel\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\MinSizeRel\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\MinSizeRel\Iir_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\MinSizeRel\Apf_fxd.lib;..\Libs\Effects\Fxd\Chain_fxd\MinSizeRel\Chain_fxd.lib;..\Libs\Effects\Flt\Gain_flt\MinSizeRel\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\MinSizeRel\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\MinSizeRel\Iir_flt.lib;..\Libs\Effects\Flt\Apf_flt\MinSizeRel\Apf_flt.lib;..\Libs\Effects\Flt\Chain_flt\MinSizeRel\Chain_flt.lib;..\Libs\json-c\MinSizeRel\json-c.lib;..\Libs\Arithmetic\MinSizeRel\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -239,7 +239,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Libs\GetOpt\RelWithDebInfo\GetOpt.lib;..\Libs\TestSigGen\RelWithDebInfo\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\RelWithDebInfo\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\RelWithDebInfo\Iir_fxd.lib;..\Libs\Effects\Fxd\Crossover_fxd\RelWithDebInfo\Crossover_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\RelWithDebInfo\Apf_fxd.lib;..\Libs\Effects\Flt\Gain_flt\RelWithDebInfo\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\RelWithDebInfo\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\RelWithDebInfo\Iir_flt.lib;..\Libs\Effects\Flt\Apf_flt\RelWithDebInfo\Apf_flt.lib;..\Libs\Effects\Flt\Chain_flt\RelWithDebInfo\Chain_flt.lib;..\Libs\json-c\RelWithDebInfo\json-c.lib;..\Libs\Arithmetic\RelWithDebInfo\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\Libs\GetOpt\RelWithDebInfo\GetOpt.lib;..\Libs\TestSigGen\RelWithDebInfo\TestSigGen.lib;..\Libs\Effects\Fxd\Fir_fxd\RelWithDebInfo\Fir_fxd.lib;..\Libs\Effects\Fxd\Iir_fxd\RelWithDebInfo\Iir_fxd.lib;..\Libs\Effects\Fxd\Apf_fxd\RelWithDebInfo\Apf_fxd.lib;..\Libs\Effects\Fxd\Chain_fxd\RelWithDebInfo\Chain_fxd.lib;..\Libs\Effects\Flt\Gain_flt\RelWithDebInfo\Gain_flt.lib;..\Libs\Effects\Flt\Fir_flt\RelWithDebInfo\Fir_flt.lib;..\Libs\Effects\Flt\Iir_flt\RelWithDebInfo\Iir_flt.lib;..\Libs\Effects\Flt\Apf_flt\RelWithDebInfo\Apf_flt.lib;..\Libs\Effects\Flt\Chain_flt\RelWithDebInfo\Chain_flt.lib;..\Libs\json-c\RelWithDebInfo\json-c.lib;..\Libs\Arithmetic\RelWithDebInfo\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -341,9 +341,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{F14DF3C5-37D2-3DF4-82E0-933E9B895071}</Project>
       <Name>Chain_flt</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Effects\Fxd\Crossover_fxd\Crossover_fxd.vcxproj">
-      <Project>{11A21A86-518B-3758-81B6-609D43E02F58}</Project>
-      <Name>Crossover_fxd</Name>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Effects\Fxd\Chain_fxd\Chain_fxd.vcxproj">
+      <Project>{5B1AAC15-9F5B-3A83-BE45-5B092E7C9063}</Project>
+      <Name>Chain_fxd</Name>
     </ProjectReference>
     <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Effects\Flt\Fir_flt\Fir_flt.vcxproj">
       <Project>{A15958A5-0E05-308C-88E2-1460AD2F3A14}</Project>

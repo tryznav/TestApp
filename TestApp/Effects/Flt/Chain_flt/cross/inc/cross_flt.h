@@ -60,7 +60,7 @@ typedef struct cross2b_states_s{
     my_float f_c;//1st compensation
 }cross2b_states_t;
 
-typedef struct cross4b_states_t{
+typedef struct cross4b_states_s{
     cross2b_states_t    f0;
     cross2b_states_t    f1;
     cross2b_states_t    f2;
@@ -68,14 +68,15 @@ typedef struct cross4b_states_t{
     co_states_t         c_f2;
 }cross4b_states_t;
 
-typedef struct cross_flt_states_t{
+typedef struct cross_flt_states_s{
     cross4b_states_t Left;
     cross4b_states_t Right;
 }cross_flt_states_t;
 
 int32_t cross_flt_coef(cross_prm_t *prm, cross_flt_coef_t *coef);
 int32_t cross_flt_set_state(cross4b_states_t *st);
-int32_t cross_flt_set_prm(cross_prm_t *prm, double samle_rate);
+int32_t cross_flt_set_prm_d(cross_prm_t *prm, double samle_rate);
+int32_t cross_flt_set_prm_c(cross_prm_t *prm, uint8_t Id_prm, float value);
 band4_t cross4b_flt(audio_type x, cross4b_states_t *st, cross_flt_coef_t *coef);
 
 

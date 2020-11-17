@@ -24,6 +24,7 @@ typedef struct eq_prm_s {
     double          gain[10]; 
     double          Q[10];
     int32_t         type[10];
+    int32_t         Enable[10];
 } eq_prm_t;
 
 typedef struct eq_flt_states_s{
@@ -49,7 +50,8 @@ int32_t eq_flt_coef(eq_prm_t *prm,  eq_flt_coef_t *coef);
 audio_type eq_flt(audio_type x, eq_flt_states_t *st,  eq_flt_coef_t *coef);
 
 int32_t eq_flt_set_state(eq_flt_states_t *st);
-int32_t eq_flt_set_prm(eq_prm_t *prm, double samle_rate);
+int32_t eq_flt_set_prm_d(eq_prm_t *prm, double samle_rate);
+int32_t eq_flt_set_prm_c(eq_prm_t *prm, uint8_t Id_f, uint8_t Id_prm, float value);
 
 
 #endif
