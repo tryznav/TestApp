@@ -10,22 +10,22 @@
     <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\cross\src\cross_fxd_set.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_flt_coef.c">
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_fxd_coef.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_flt.c">
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_fxd.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_flt_set.c">
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_fxd_set.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_flt_coef.c">
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_fxd_coef.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_flt.c">
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_fxd.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_flt_set.c">
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_fxd_set.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\api\src\chain_fxd_control.c">

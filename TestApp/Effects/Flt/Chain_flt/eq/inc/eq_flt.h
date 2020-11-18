@@ -28,10 +28,8 @@ typedef struct eq_prm_s {
 } eq_prm_t;
 
 typedef struct eq_flt_states_s{
-    audio_type          x0[10];
     audio_type          x1[10];
     audio_type          x2[10];
-    audio_type          y0[10];
     audio_type          y1[10];
     audio_type          y2[10];
 } eq_flt_states_t;

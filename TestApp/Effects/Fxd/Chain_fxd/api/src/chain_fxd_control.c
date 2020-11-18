@@ -12,8 +12,8 @@
 int32_t chain_fxd_control_get_sizes(
     size_t*     params_bytes,
     size_t*     coeffs_bytes){
-    *params_bytes = sizeof(chain_flt_prm_t);
-    *coeffs_bytes = sizeof(chain_flt_coef_t);;
+    *params_bytes = sizeof(chain_fxd_prm_t);
+    *coeffs_bytes = sizeof(chain_fxd_coef_t);;
     return 0;
 }
 
@@ -31,57 +31,57 @@ int32_t chain_fxd_control_initialize(
     void*       coeffs,
     uint32_t    sample_rate){
 
-    chain_flt_prm_t *prm = (chain_flt_prm_t *)params;
-    chain_flt_coef_t *coef = (chain_flt_coef_t *)coeffs;
+    chain_fxd_prm_t *prm = (chain_fxd_prm_t *)params;
+    chain_fxd_coef_t *coef = (chain_fxd_coef_t *)coeffs;
 
 // ______________Set default parameters_______________
 
-//     prm->eq1_enable = 1;
+    prm->eq1_enable = 1;
     prm->cross_enable = 1;
-//     prm->comp_1b_enable = 1;
-//     prm->comp_2b_enable = 1;
-//     prm->comp_3b_enable = 1;
-//     prm->comp_4b_enable = 1;
-//     prm->eq2_enable = 1;
-//     prm->limiter_enable = 1;
+    prm->comp_1b_enable = 1;
+    prm->comp_2b_enable = 1;
+    prm->comp_3b_enable = 1;
+    prm->comp_4b_enable = 1;
+        prm->eq2_enable = 1;
+    prm->limiter_enable = 1;
 
-//     eq_flt_set_prm_d(&prm->eq1, (double)sample_rate);
+    eq_fxd_set_prm_d(&prm->eq1, (double)sample_rate);
 
     cross_fxd_set_prm_d(&prm->cross, (double)sample_rate);
 
-//     comp_flt_set_prm_d(&prm->comp_1b, (double)sample_rate);
-//     comp_flt_set_prm_d(&prm->comp_2b, (double)sample_rate);
-//     comp_flt_set_prm_d(&prm->comp_3b, (double)sample_rate);
-//     comp_flt_set_prm_d(&prm->comp_4b, (double)sample_rate);
+    comp_fxd_set_prm_d(&prm->comp_1b, (double)sample_rate);
+    comp_fxd_set_prm_d(&prm->comp_2b, (double)sample_rate);
+    comp_fxd_set_prm_d(&prm->comp_3b, (double)sample_rate);
+    comp_fxd_set_prm_d(&prm->comp_4b, (double)sample_rate);
 
-//     eq_flt_set_prm_d(&prm->eq2, (double)sample_rate);
+    eq_fxd_set_prm_d(&prm->eq2, (double)sample_rate);
 
-//     comp_flt_set_prm_d(&prm->limiter, (double)sample_rate);
+    comp_fxd_set_prm_d(&prm->limiter, (double)sample_rate);
 
 // // ______________Calculate coefficients, corresponding to the default parameters_______________
 
-//     eq_flt_coef(&prm->eq1,  &coef->eq1);
+    eq_fxd_coef(&prm->eq1,  &coef->eq1);
 
     cross_fxd_coef(&prm->cross, coef->cross);
-    // comp_flt_coef(&prm->comp_1b, &coef->comp_1b);
-    // comp_flt_coef(&prm->comp_2b, &coef->comp_2b);
-    // comp_flt_coef(&prm->comp_3b, &coef->comp_3b);
-    // comp_flt_coef(&prm->comp_4b, &coef->comp_4b);
+    comp_fxd_coef(&prm->comp_1b, &coef->comp_1b);
+    comp_fxd_coef(&prm->comp_2b, &coef->comp_2b);
+    comp_fxd_coef(&prm->comp_3b, &coef->comp_3b);
+    comp_fxd_coef(&prm->comp_4b, &coef->comp_4b);
 
-    // eq_flt_coef(&prm->eq2,  &coef->eq2);
+    eq_fxd_coef(&prm->eq2,  &coef->eq2);
 
-    // comp_flt_coef(&prm->limiter, &coef->limiter);
+    comp_fxd_coef(&prm->limiter, &coef->limiter);
 
-    // coef->eq1_enable =          prm->eq1_enable;
-    // coef->cross_enable =        prm->cross_enable;
-    // coef->comp_1b_enable =      prm->comp_1b_enable; 
-    // coef->comp_2b_enable =      prm->comp_2b_enable;
-    // coef->comp_3b_enable =      prm->comp_3b_enable;
-    // coef->comp_4b_enable =      prm->comp_4b_enable;
-    // coef->eq2_enable =          prm->eq2_enable;
-    // coef->limiter_enable =      prm->limiter_enable;
+    coef->eq1_enable =          prm->eq1_enable;
+    coef->cross_enable =        prm->cross_enable;
+    coef->comp_1b_enable =      prm->comp_1b_enable; 
+    coef->comp_2b_enable =      prm->comp_2b_enable;
+    coef->comp_3b_enable =      prm->comp_3b_enable;
+    coef->comp_4b_enable =      prm->comp_4b_enable;
+    coef->eq2_enable =          prm->eq2_enable;
+    coef->limiter_enable =      prm->limiter_enable;
 
-    printf("chain_flt_control_initialize\n");
+    printf("chain_fxd_control_initialize\n");
     return 0;
 }
 
@@ -104,7 +104,7 @@ int32_t chain_fxd_set_parameter(
     float       value){
     union id_union_t _id;
     _id.all = id;
-    chain_flt_prm_t *prm = (chain_flt_prm_t *)params;
+    chain_fxd_prm_t *prm = (chain_fxd_prm_t *)params;
 
     switch (_id.id.effect)
     {
@@ -141,31 +141,31 @@ int32_t chain_fxd_update_coeffs(
     void const* params,
     void*       coeffs){
   
-    chain_flt_prm_t *prm = (chain_flt_prm_t *)params;
-    chain_flt_coef_t *coef = (chain_flt_coef_t *)coeffs;
+    chain_fxd_prm_t *prm = (chain_fxd_prm_t *)params;
+    chain_fxd_coef_t *coef = (chain_fxd_coef_t *)coeffs;
 
 // ______________Calculate coefficients, corresponding to the parameters_______________
 
-    // eq_flt_coef(&prm->eq1,  &coef->eq1);
+    eq_fxd_coef(&prm->eq1,  &coef->eq1);
 
-    // cross_flt_coef(&prm->cross,  coef->cross);
-    // comp_flt_coef(&prm->comp_1b, &coef->comp_1b);
-    // comp_flt_coef(&prm->comp_2b, &coef->comp_2b);
-    // comp_flt_coef(&prm->comp_3b, &coef->comp_3b);
-    // comp_flt_coef(&prm->comp_4b, &coef->comp_4b);
+    cross_fxd_coef(&prm->cross,  coef->cross);
+    comp_fxd_coef(&prm->comp_1b, &coef->comp_1b);
+    comp_fxd_coef(&prm->comp_2b, &coef->comp_2b);
+    comp_fxd_coef(&prm->comp_3b, &coef->comp_3b);
+    comp_fxd_coef(&prm->comp_4b, &coef->comp_4b);
 
-    // eq_flt_coef(&prm->eq2,  &coef->eq2);
+    eq_fxd_coef(&prm->eq2,  &coef->eq2);
 
-    // comp_flt_coef(&prm->limiter, &coef->limiter);
+    comp_fxd_coef(&prm->limiter, &coef->limiter);
 
-    // coef->eq1_enable =          prm->eq1_enable;
+    coef->eq1_enable =          prm->eq1_enable;
     coef->cross_enable =        prm->cross_enable;
-    // coef->comp_1b_enable =      prm->comp_1b_enable; 
-    // coef->comp_2b_enable =      prm->comp_2b_enable;
-    // coef->comp_3b_enable =      prm->comp_3b_enable;
-    // coef->comp_4b_enable =      prm->comp_4b_enable;
-    // coef->eq2_enable =          prm->eq2_enable;
-    // coef->limiter_enable =      prm->limiter_enable;
+    coef->comp_1b_enable =      prm->comp_1b_enable; 
+    coef->comp_2b_enable =      prm->comp_2b_enable;
+    coef->comp_3b_enable =      prm->comp_3b_enable;
+    coef->comp_4b_enable =      prm->comp_4b_enable;
+    coef->eq2_enable =          prm->eq2_enable;
+    coef->limiter_enable =      prm->limiter_enable;
 
 
     return 0;

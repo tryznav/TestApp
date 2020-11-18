@@ -47,16 +47,16 @@ int32_t comp_fxd_set_prm_c(comp_prm_t* prm, uint8_t Id, float value){
 }
 
 int32_t comp_fxd_set_state(comp_fxd_states_t *st){
-    st->x = 0.0f;   //
-    st->y = 0.0f;
-    st->x_dB = 0.0f; //
-    st->x_sc = 0.0f;       //
-    st->g_c = 0.0f;
-    st->g_s = 0.0f;
-    st->g_sPrev = 0.0f;
-    st->g_m = 0.0f;
-    st->g_lin = 0.0f;
-    st->env = 0.0f;     //
-    st->env_prev = 0.0f;
+    st->x = 0;   //
+    st->y = 0;
+    st->x_dB = 0; //
+    st->x_sc = 0;       //
+    st->g_c = 0;
+    st->g_s = 0;
+    st->g_sPrev = 0;
+    st->g_m = 0;
+    st->g_lin = 0;
+    st->env = 0;     //
+    st->env_prev = 0;
     return 0;
 }

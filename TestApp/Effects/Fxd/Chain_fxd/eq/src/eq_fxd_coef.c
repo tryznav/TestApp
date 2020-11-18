@@ -1,8 +1,8 @@
-#include "eq_flt.h"
+#include "eq_fxd.h"
 
 #include "params_id.h" 
 
-int32_t eq_flt_coef(eq_prm_t *prm,  eq_flt_coef_t *coef){
+int32_t eq_fxd_coef(eq_prm_t *prm,  eq_fxd_coef_t *coef){
     double  A[10], sn[10], cs[10], alpha[10], beta[10], omega[10];
     double b0[10], b1[10], b2[10], a0[10], a1[10], a2[10];
 
@@ -16,7 +16,7 @@ int32_t eq_flt_coef(eq_prm_t *prm,  eq_flt_coef_t *coef){
         cs[i] = cos(omega[i]);
         alpha[i] = sn[i] / (2 * prm->Q[i]);
         beta[i]  = sqrt(A[i] + A[i]);
-        coef->Enable[i] = prm->Enable;
+        coef->Enable[i] = prm->Enable[i];
         switch (prm->type[i])
         {
         case LPF:
@@ -78,11 +78,11 @@ int32_t eq_flt_coef(eq_prm_t *prm,  eq_flt_coef_t *coef){
 
 
 
-        coef->a1[i] = (coef_type)(a1[i]);
-        coef->a2[i] = (coef_type)(a2[i]);
-        coef->b0[i] = (coef_type)(b0[i]);
-        coef->b1[i] = (coef_type)(b1[i]);
-        coef->b2[i] = (coef_type)(b2[i]);
+        coef->a1[i] = dbl_to_fxd(a1[i]/8);
+        coef->a2[i] = dbl_to_fxd(a2[i]/8);
+        coef->b0[i] = dbl_to_fxd(b0[i]/8);
+        coef->b1[i] = dbl_to_fxd(b1[i]/8);
+        coef->b2[i] = dbl_to_fxd(b2[i]/8);
 
     }
     return 0;

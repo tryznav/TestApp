@@ -4,6 +4,7 @@
         "map": "c",
         "queue": "c",
         "xhash": "c",
-        "stack": "c"
+        "stack": "c",
+        "cmath": "c"
     }
 }

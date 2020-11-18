@@ -92,6 +92,7 @@ static int32_t check(void const* coeffs,
 
 static inline audio_type chain_flt(audio_type x, chain_flt_states_t *st, chain_flt_coef_t *coef){
     audio_type res = eq_flt(x,  &(st->eq1), &(coef->eq1));
+
     if (coef->comp_4b_enable)
     {
         band4_t b = cross4b_flt(res, &(st->cross), coef->cross);

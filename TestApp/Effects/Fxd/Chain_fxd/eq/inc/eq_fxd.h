@@ -1,5 +1,5 @@
-#ifndef __EQ_FLT_H__
-#define __EQ_FLT_H__
+#ifndef __EQ_FXD_H__
+#define __EQ_FXD_H__
 
 #include "colors.h"
 #include "fxd_arithmetic.h"
@@ -27,32 +27,29 @@ typedef struct eq_prm_s {
     int32_t         Enable[10];
 } eq_prm_t;
 
-typedef struct eq_flt_states_s{
-    audio_type          x0[10];
+typedef struct eq_fxd_states_s{
     audio_type          x1[10];
     audio_type          x2[10];
-    audio_type          y0[10];
     audio_type          y1[10];
     audio_type          y2[10];
     audio_type          noise[10];
-} eq_flt_states_t;
+} eq_fxd_states_t;
 
-typedef struct eq_flt_coef_s{
+typedef struct eq_fxd_coef_s{
     int32_t          Enable[10];
     coef_type        b0[10];
     coef_type        b1[10];
     coef_type        b2[10];
     coef_type        a1[10];
     coef_type        a2[10];
-}eq_flt_coef_t;
+}eq_fxd_coef_t;
 
 
-int32_t eq_flt_coef(eq_prm_t *prm,  eq_flt_coef_t *coef);
-audio_type eq_flt(audio_type x, eq_flt_states_t *st,  eq_flt_coef_t *coef);
+int32_t eq_fxd_coef(eq_prm_t *prm,  eq_fxd_coef_t *coef);
+audio_type eq_fxd(audio_type x, eq_fxd_states_t *st,  eq_fxd_coef_t *coef);
 
-int32_t eq_flt_set_state(eq_flt_states_t *st);
-int32_t eq_flt_set_prm_d(eq_prm_t *prm, double samle_rate);
-int32_t eq_flt_set_prm_c(eq_prm_t *prm, uint8_t Id_f, uint8_t Id_prm, float value);
-
+int32_t eq_fxd_set_state(eq_fxd_states_t *st);
+int32_t eq_fxd_set_prm_d(eq_prm_t *prm, double samle_rate);
+int32_t eq_fxd_set_prm_c(eq_prm_t *prm, uint8_t Id_f, uint8_t Id_prm, float value);
 
 #endif

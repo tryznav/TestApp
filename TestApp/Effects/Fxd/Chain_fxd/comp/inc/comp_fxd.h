@@ -1,5 +1,5 @@
-#ifndef __COMP_FLT_H__
-#define __COMP_FLT_H__
+#ifndef __COMP_FXD_H__
+#define __COMP_FXD_H__
 
 #include "colors.h"
 #include "fxd_arithmetic.h"
@@ -13,6 +13,8 @@
 #define ORDER           2
 #define NUM_OF_FREQ     3
 #define NUM_OF_BAND     (NUM_OF_FREQ + 1)
+
+#define GAIN_FR         (31-4)
 
 typedef fxd_q31_t audio_type;
 typedef fxd_q31_t coef_type;
@@ -32,7 +34,7 @@ typedef struct comp_prm_s{
     /*float kneeWidth;*/
 }comp_prm_t;
 
-typedef struct comp_flt_coef_s{
+typedef struct comp_fxd_coef_s{
     coef_type threshold;
     coef_type ratio;
 
@@ -43,12 +45,11 @@ typedef struct comp_flt_coef_s{
     coef_type e_release; //env relise
 
     coef_type makeUpGain;
-    coef_type samplerate;
     int32_t   Enable;
-}comp_flt_coef_t;
+}comp_fxd_coef_t;
 
 
-typedef struct comp_flt_states_s{
+typedef struct comp_fxd_states_s{
     audio_type x;   //
     audio_type y;
 
@@ -66,12 +67,12 @@ typedef struct comp_flt_states_s{
 
     audio_type env;     //
     audio_type env_prev;
-}comp_flt_states_t;
+}comp_fxd_states_t;
 
-int32_t comp_flt_coef(comp_prm_t *prm, comp_flt_coef_t *coef);
-audio_type compressor(audio_type x, comp_flt_states_t *st, comp_flt_coef_t *coef);
-int32_t comp_flt_set_state(comp_flt_states_t *st);
-int32_t comp_flt_set_prm_d(comp_prm_t*prm, double samle_rate);
-int32_t comp_flt_set_prm_c(comp_prm_t* prm, uint8_t Id, float value);
+int32_t comp_fxd_coef(comp_prm_t *prm, comp_fxd_coef_t *coef);
+audio_type compressor_fxd(audio_type x, comp_fxd_states_t *st, comp_fxd_coef_t *coef);
+int32_t comp_fxd_set_state(comp_fxd_states_t *st);
+int32_t comp_fxd_set_prm_d(comp_prm_t*prm, double samle_rate);
+int32_t comp_fxd_set_prm_c(comp_prm_t* prm, uint8_t Id, float value);
 
 #endif

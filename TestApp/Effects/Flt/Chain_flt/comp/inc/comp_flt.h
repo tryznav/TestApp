@@ -43,7 +43,6 @@ typedef struct comp_flt_coef_s{
     coef_type e_release; //env relise
 
     coef_type makeUpGain;
-    coef_type samplerate;
     int32_t   Enable;
 }comp_flt_coef_t;
 

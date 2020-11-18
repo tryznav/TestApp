@@ -264,12 +264,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\cross\src\cross_fxd_coef.c" />
     <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\cross\src\cross_fxd.c" />
     <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\cross\src\cross_fxd_set.c" />
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_flt_coef.c" />
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_flt.c" />
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_flt_set.c" />
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_flt_coef.c" />
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_flt.c" />
-    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_flt_set.c" />
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_fxd_coef.c" />
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_fxd.c" />
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\comp\src\comp_fxd_set.c" />
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_fxd_coef.c" />
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_fxd.c" />
+    <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\eq\src\eq_fxd_set.c" />
     <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\api\src\chain_fxd_control.c" />
     <ClCompile Include="D:\TestApp\TestApp\Effects\Fxd\Chain_fxd\api\src\chain_fxd_process.c" />
   </ItemGroup>

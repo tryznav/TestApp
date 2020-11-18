@@ -44,10 +44,8 @@ int32_t eq_flt_set_prm_c(eq_prm_t *prm, uint8_t Id_f , uint8_t Id_prm, float val
 
 int32_t eq_flt_set_state(eq_flt_states_t *st){
     for(int i = 0; i < 10; i++){
-        st->x0[i] = 0.0f;
         st->x1[i] = 0.0f;
         st->x2[i] = 0.0f;
-        st->y0[i] = 0.0f;
         st->y1[i] = 0.0f;
         st->y2[i] = 0.0f;
     }

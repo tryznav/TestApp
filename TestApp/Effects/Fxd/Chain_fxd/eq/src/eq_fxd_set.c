@@ -1,7 +1,7 @@
-#include "eq_flt.h"
+#include "eq_fxd.h"
 #include "params_id.h"
 
-int32_t eq_flt_set_prm_d(eq_prm_t *prm, double samle_rate){
+int32_t eq_fxd_set_prm_d(eq_prm_t *prm, double samle_rate){
     for(int i = 0; i < 10; i++){
         prm->freq[i] = 100.0 + ((double)i *500.0);
         prm->gain[i] = 3.0;
@@ -18,7 +18,7 @@ int32_t eq_flt_set_prm_d(eq_prm_t *prm, double samle_rate){
     return 0;
 }
 
-int32_t eq_flt_set_prm_c(eq_prm_t *prm, uint8_t Id_f , uint8_t Id_prm, float value){
+int32_t eq_fxd_set_prm_c(eq_prm_t *prm, uint8_t Id_f , uint8_t Id_prm, float value){
     switch (Id_prm)
     {
     case 1:
@@ -42,14 +42,13 @@ int32_t eq_flt_set_prm_c(eq_prm_t *prm, uint8_t Id_f , uint8_t Id_prm, float val
     return 0;
 }
 
-int32_t eq_flt_set_state(eq_flt_states_t *st){
+int32_t eq_fxd_set_state(eq_fxd_states_t *st){
     for(int i = 0; i < 10; i++){
-        st->x0[i] = 0.0f;
-        st->x1[i] = 0.0f;
-        st->x2[i] = 0.0f;
-        st->y0[i] = 0.0f;
-        st->y1[i] = 0.0f;
-        st->y2[i] = 0.0f;
+        st->x1[i] = 0;
+        st->x2[i] = 0;
+        st->y1[i] = 0;
+        st->y2[i] = 0;
+        st->noise[i]= 0;
     }
     return 0;
 }

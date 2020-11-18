@@ -16,13 +16,13 @@ add_library(${LIB_NAME} STATIC
     ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/cross/src/cross_fxd.c
     ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/cross/src/cross_fxd_set.c
 
-    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/comp/src/comp_flt_coef.c
-    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/comp/src/comp_flt.c
-    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/comp/src/comp_flt_set.c
+    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/comp/src/comp_fxd_coef.c
+    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/comp/src/comp_fxd.c
+    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/comp/src/comp_fxd_set.c
 
-    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/eq/src/eq_flt_coef.c
-    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/eq/src/eq_flt.c
-    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/eq/src/eq_flt_set.c
+    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/eq/src/eq_fxd_coef.c
+    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/eq/src/eq_fxd.c
+    ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/eq/src/eq_fxd_set.c
 
     ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/api/src/chain_fxd_control.c
     ${EFFECTS_PATH}/${_TYPE}/${LIB_NAME}/api/src/chain_fxd_process.c)

@@ -2,8 +2,8 @@
 
 int32_t cross_fxd_set_prm_d(cross_prm_t *prm, double samle_rate){
     prm->freq[0] = 1000;
-    prm->freq[1] = 7000;
-    prm->freq[2] = 15000;
+    prm->freq[1] = 5000;
+    prm->freq[2] = 10000;
     prm->sample_rate = samle_rate;
     return 0;
 }

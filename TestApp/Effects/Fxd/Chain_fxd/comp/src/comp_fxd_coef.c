@@ -10,31 +10,35 @@ static double dB_to_coeff(double dB){
 
 int32_t comp_fxd_coef(comp_prm_t *prm, comp_fxd_coef_t *coef){
 
-    coef->threshold =  (coef_type)pow(10.0, (prm->threshold/20.0));  //in linear
-    coef->ratio = (coef_type)prm->ratio;
-    printf("prm->ratio %f, coef->ratio%f\n", prm->ratio, coef->ratio);
+    double threshold = pow(10.0, (prm->threshold/20.0));  //in linear
+    double ratio = (1.0 - 1.0 / prm->ratio);
+    printf("prm->ratio %f, coef->ratio %d\n", prm->ratio, coef->ratio);
 
-    coef->a_attack = (coef_type)pow(M_e, (-(log(9.0)) / (0.001*prm->tauAttack*prm->samplerate)));
-    coef->a_release = (coef_type)pow(M_e, (-(log(9.0)) / (0.001*prm->tauRelease*prm->samplerate)));
+    double a_attack = pow(M_e, (-(log(9.0)) / (0.001*prm->tauAttack*prm->samplerate)));
+    double a_release = pow(M_e, (-(log(9.0)) / (0.001*prm->tauRelease*prm->samplerate)));
+    double e_attack = pow(M_e, (-(log(9.0)) / (0.001*prm->tauEnvAtt*prm->samplerate)));
+    double e_release = pow(M_e, (-(log(9.0)) / (0.001*prm->tauEnvRel*prm->samplerate)));
 
-    coef->e_attack =(coef_type) pow(M_e, (-(log(9.0)) / (0.001*prm->tauEnvAtt*prm->samplerate)));
-    coef->e_release = (coef_type) pow(M_e, (-(log(9.0)) / (0.001*prm->tauEnvRel*prm->samplerate)));
+    double makeUpGain = pow(10.0, (prm->makeUpGain/20.0));
 
-
-    /*update_coeffs->alphaAttack = 1 - powf(M_e, ((-2.2) / (0.001*update_params->tauAttack*update_params->samplerate)));
-    update_coeffs->alphaRelease = 1 - powf(M_e, ((-2.2) / (0.001*update_params->tauRelease*update_params->samplerate)));*/
-
-    //update_coeffs->makeUpGain = update_params->makeUpGain;
-    coef->makeUpGain = (coef_type)pow(10.0, (prm->makeUpGain/20.0));
-
-    coef->samplerate = (coef_type)prm->samplerate;
     coef->Enable = prm->Enable;
-    printf("coef->e_attack %f\n", coef->e_attack);
-    printf("coef->e_release %f\n", coef->e_release);
-    printf("coef->a_attack %f\n", coef->a_attack);
-    printf("coef->a_release %f\n", coef->a_release);
-    printf("coef->makeUpGain  %f\n", coef->makeUpGain);
-    printf("prm->samplerate %f\n", prm->samplerate);
 
+
+
+    coef->threshold = dbl_to_fxd(threshold);
+    coef->ratio = dbl_to_fxd(ratio);
+    coef->a_attack = dbl_to_fxd(a_attack);
+    coef->a_release = dbl_to_fxd(a_release);
+    coef->e_attack = dbl_to_fxd(e_attack);
+    coef->e_release = dbl_to_fxd(e_release);
+    coef->makeUpGain = dbl_to_fxd_p(makeUpGain, GAIN_FR);
+
+
+    printf("coef->e_attack %d\n", coef->e_attack);
+    printf("coef->e_release %d\n", coef->e_release);
+    printf("coef->a_attack %d\n", coef->a_attack);
+    printf("coef->a_release %d\n", coef->a_release);
+    printf("coef->makeUpGain  %d\n", coef->makeUpGain);
+    printf("prm->samplerate %f\n", prm->samplerate);
     return 0;
 }

@@ -17,7 +17,7 @@ int32_t comp_flt_coef(comp_prm_t *prm, comp_flt_coef_t *coef){
     coef->a_attack = (coef_type)pow(M_e, (-(log(9.0)) / (0.001*prm->tauAttack*prm->samplerate)));
     coef->a_release = (coef_type)pow(M_e, (-(log(9.0)) / (0.001*prm->tauRelease*prm->samplerate)));
 
-    coef->e_attack =(coef_type) pow(M_e, (-(log(9.0)) / (0.001*prm->tauEnvAtt*prm->samplerate)));
+    coef->e_attack = (coef_type) pow(M_e, (-(log(9.0)) / (0.001*prm->tauEnvAtt*prm->samplerate)));
     coef->e_release = (coef_type) pow(M_e, (-(log(9.0)) / (0.001*prm->tauEnvRel*prm->samplerate)));
 
 
@@ -26,8 +26,6 @@ int32_t comp_flt_coef(comp_prm_t *prm, comp_flt_coef_t *coef){
 
     //update_coeffs->makeUpGain = update_params->makeUpGain;
     coef->makeUpGain = (coef_type)pow(10.0, (prm->makeUpGain/20.0));
-
-    coef->samplerate = (coef_type)prm->samplerate;
     coef->Enable = prm->Enable;
     printf("coef->e_attack %f\n", coef->e_attack);
     printf("coef->e_release %f\n", coef->e_release);
