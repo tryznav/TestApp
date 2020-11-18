@@ -1,4 +1,4 @@
-#include "comp_flt.h"
+#include "comp_fxd.h"
 
 #ifndef  M_e
     #define M_e    2.71828182846
@@ -8,7 +8,7 @@ static double dB_to_coeff(double dB){
     return pow(10.0f , (0.05f * dB));
 }
 
-int32_t comp_flt_coef(comp_prm_t *prm, comp_flt_coef_t *coef){
+int32_t comp_fxd_coef(comp_prm_t *prm, comp_fxd_coef_t *coef){
 
     coef->threshold =  (coef_type)pow(10.0, (prm->threshold/20.0));  //in linear
     coef->ratio = (coef_type)prm->ratio;

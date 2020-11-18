@@ -19,7 +19,8 @@ int32_t cross_fxd_coef(cross_prm_t *prm, cross_fxd_coef_t *coef){
         coef[i].k2_2 = dbl_to_fxd_p((-c/2.0), COEF_FR);
 
         c = (tan(M_PI * prm->freq[i] / prm->sample_rate) - 1) / (tan(M_PI *  prm->freq[i] / prm->sample_rate) + 1);
-        coef[i].k1_1 = dbl_to_fxd_p(c, COEF_FR);
+        printf("c %f\n", c);
+        coef[i].k1_1 = dbl_to_fxd_p(c/2.0, COEF_FR);
     }
     return 0;
 }

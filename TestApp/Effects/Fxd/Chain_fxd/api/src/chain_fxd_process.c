@@ -153,8 +153,8 @@ int32_t chain_fxd_process(
         // _audio[a_index].Left = chain_flt(_audio[a_index].Left, &st->Left, coef);
         // _audio[a_index].Left = compressor(_audio[a_index].Left, &st->Left, &coef->limiter);
         R = cross4b_fxd(_audio[a_index].Left, &st->Left.cross, coef->cross);
-        _audio[a_index].Left = R.high.band1 + R.low.band1;
-        _audio[a_index].Right = R.high.band2 + R.low.band2;
+        _audio[a_index].Left = R.low.band1 ;
+        _audio[a_index].Right = R.low.band2;
     //    _audio[a_index].Left = apf_flt_2nd(_audio[a_index].Left, &st->Left.cross.apf_2nd[0],  &coef->cross.apf_2nd[0]);
         // _audio[a_index].Left = R.band1 + R.band3;// - R.band3 - R.band4;
         // _audio[a_index].Right = R.band2 + R.band4;

@@ -34,6 +34,7 @@ typedef struct eq_flt_states_s{
     audio_type          y0[10];
     audio_type          y1[10];
     audio_type          y2[10];
+    audio_type          noise[10];
 } eq_flt_states_t;
 
 typedef struct eq_flt_coef_s{

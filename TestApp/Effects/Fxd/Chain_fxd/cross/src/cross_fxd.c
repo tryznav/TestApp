@@ -1,4 +1,6 @@
 #include "cross_fxd.h"
+#define ROOM1 1
+#define ROOM2 1
 
 static inline audio_type apf_fxd_1st(audio_type x, coef_type k, audio_type *st_y, audio_type *st_x);
 static inline audio_type apf_fxd_2nd(audio_type x, 
@@ -19,9 +21,12 @@ band4_t cross4b_fxd(audio_type x, cross4b_fxd_states_t *st, cross_fxd_coef_t *co
     
     res.low = cross2b_fxd(f1.band1, &st->f0, &coef[0]);
     res.high = cross2b_fxd(f1.band2, &st->f2, &coef[2]);
+    
     // res.low = cross2b_fxd(x, &st->f1, &coef[1]);
     // res.high.band1 = 0;
     // res.high.band2 = 0;
+    // res.low.band2 = 0;
+    // res.low.band1 = compes_fxd(x, &st->c_f0, &coef[2]);
     return res;
 }
 
@@ -54,7 +59,7 @@ static band2_t cross2b_fxd(audio_type x, cross2b_fxd_states_t *st, cross_fxd_coe
     //get low 
     res.band1 = fxd_add(y_2nd, y_1st);
 /*******************************************************/;
-    res.band2 = tmpx - res.band1;
+    res.band2 = fxd_sub(tmpx, res.band1);
 
     return res;
 }
@@ -74,19 +79,19 @@ static audio_type compes_fxd(audio_type x, co_fxd_states_t *st, cross_fxd_coef_t
 
 static inline audio_type apf_fxd_1st(audio_type x, coef_type k, audio_type *st_y, audio_type *st_x){
     acum_type  acum = 0;
-    acum = fxd_mac_m(acum, k, fxd_rshift(x, 1));
+    acum = fxd_mac_m(acum, k, fxd_rshift(x, ROOM1));
 
     acum = fxd_msub_m(acum, k, *st_y);
 
-    acum = fxd63_add(acum, fxd63_lshift(*st_x, COEF_FR));
+    acum = fxd63_add(acum, fxd63_lshift(*st_x, COEF_FR - 1));
 
-    *st_x = fxd_rshift(x, 1);
-
-
-    *st_y = (audio_type)saturation(fxd63_rshift(acum, COEF_FR));
+    *st_x = fxd_rshift(x, ROOM1);
 
 
-    return (audio_type)saturation(fxd63_rshift(acum, COEF_FR - 1));
+    *st_y = (audio_type)saturation(fxd63_rshift(acum, COEF_FR - 1));
+
+
+    return (audio_type)saturation(fxd63_rshift(acum, COEF_FR - ROOM1 - 1));
 
 }
 
@@ -95,7 +100,7 @@ static inline audio_type apf_fxd_2nd(audio_type x,
                              audio_type *st_y1, audio_type *st_x1,
                              audio_type *st_y2, audio_type *st_x2){
     acum_type  acum = 0;
-    acum = fxd_mac_m(acum, k2, fxd_rshift(x, 1));
+    acum = fxd_mac_m(acum, k2, fxd_rshift(x, ROOM2));
 
     acum = fxd_msub_m(acum, k2, *st_y2);
     
@@ -103,19 +108,19 @@ static inline audio_type apf_fxd_2nd(audio_type x,
 
     acum = fxd_msub_m(acum, k1, *st_y1);
 
-    acum = fxd63_add(acum, fxd63_lshift(*st_x2, COEF_FR - 1));
+    acum = fxd63_add(acum, fxd63_lshift(*st_x2, COEF_FR - ROOM2));
 
     *st_x2 = *st_x1;
-    *st_x1 = fxd_rshift(x, 1);
+    *st_x1 = fxd_rshift(x, ROOM2);
 
     *st_y2 = *st_y1;
-    *st_y1 = (audio_type)saturation(fxd63_rshift(acum, (COEF_FR - 1)));
+    *st_y1 = (audio_type)saturation(fxd63_rshift(acum, (COEF_FR - ROOM2)));
 
 
 
     // (audio_type)acum;
 
-    acum = fxd63_rshift(acum, (COEF_FR - 2));
+    acum = fxd63_rshift(acum, (COEF_FR - ROOM1 - 1));
     acum = saturation(acum);
 
     return (audio_type)acum;

@@ -41,7 +41,12 @@ fxd_q31_t fxd_get_high(fxd_q63_t n){
     n <<= 32;
     return (fxd_q31_t)n;
 }
+/***********************************************/
 
+fxd_q31_t fxd_get_low(fxd_q63_t n){
+    n <<= 32;
+    return (fxd_q31_t)n;
+}
 /***********************************************/
 
 fxd_q63_t saturation(fxd_q63_t num){
@@ -183,12 +188,12 @@ fxd_q31_t   fxd_lshift(fxd_q31_t a, uint32_t n){
     
     assert(n <= 32);
 
-    fxd_q31_t  res =  a << n;
+    fxd_q63_t  res = a;
 
-    if((a ^ res) & SIGN_Q31){
-        res = (a > 0) ? (res ^ SIGN_Q31) : (res | SIGN_Q31);
-    }
-    return res;
+    res =  res << n;
+
+    res = saturation(res);
+    return (fxd_q31_t)res;
 }
 
 /***********************************************/
