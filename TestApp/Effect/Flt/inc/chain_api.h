@@ -10,6 +10,7 @@
 // #include "comp_flt.h"
 #include "cross.h"
 #include "eq.h"
+#include "flt_arithmetic.h"
 
 // #pragma pack(push,1)
 // typedef struct chanes_s{

@@ -42,7 +42,7 @@ typedef struct biquad_coef_s{
 }biquad_coef_t;
 
 
-void biquad_process(vfloat *x, biquad_coef_t *coef,  biquad_states_t *st);
+static inline void biquad_process(vfloat *x, biquad_coef_t *coef,  biquad_states_t *st);
 
 void biquad_calculate_coef(biquad_prm_t *prm,  biquad_coef_t *coef);
 void biquad_set_state(biquad_states_t *st);

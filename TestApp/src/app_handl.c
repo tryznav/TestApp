@@ -70,7 +70,10 @@ static int32_t process(pross_waw_t *pr){
         }
 
         if(pr->effect){
+
+
             effect_process(pr->effect->coeffs, pr->effect->states, buff, pr->buff.samples);
+        
         }
 
         n = fwrite((const void *)buff, 1,  pr->buff.size_byte, pr->dest_file);

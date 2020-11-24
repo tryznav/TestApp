@@ -10,26 +10,40 @@
 // #define M_E         2.71828182845904523536028747135266250
 #define AVX 0
 #define SSE 0
-#define CH  2 //chanel
+#define CH  8 //chanel
+
+
 
 typedef float mfloat;
 
+typedef struct stereo_s{
+    mfloat Left;
+    mfloat Right;
+}stereo_t;
+
 #if AVX
+
     typedef union flt_arithmetic
     {   
-        m_float ch[8];
+        mfloat ch[CH];
         __m256 i;
-    }_float;
+    }vfloat;
 #elif SSE
     typedef union flt_arithmetic
     {   
         m_float ch[4];
         __m128 i;
-    }_float;
-#else
-    typedef struct vfloat_s{
-        mfloat ch[CH];
     }vfloat;
+#else
+    // #define CH  2 //chanel
+    typedef union vfloat_s{
+        mfloat ch[CH];
+        __m256 i;
+    }vfloat;
+
+    // typedef flt_arithmetic{
+    //     mfloat      ch[CH];
+    // }vfloat;
 #endif
 
 extern vfloat vadd(vfloat a, vfloat b);

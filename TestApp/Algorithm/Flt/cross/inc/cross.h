@@ -16,17 +16,6 @@
 #define NUM_OF_FREQ     3
 #define NUM_OF_BAND     (NUM_OF_FREQ + 1)
 
-
-
-#if CH == 2
-    static const vfloat HALF_A = {0.5f, 0.5f};
-    static const vfloat TWO_A = {2.0f, 2.0f};
-#endif
-
-#if CH == 4
-    const vfloat HALF_A = {0.5f, 0.5f, 0.5f, 0.5f};
-#endif
-
 typedef struct cross_prm_s{
     double          freq[NUM_OF_FREQ];
     double          sample_rate;
@@ -70,6 +59,16 @@ typedef struct cross_prm_s{
         band2_t low;
         band2_t high;
         }band4_t;
+    #elif CH == 8
+        typedef struct band2_s{
+            vfloat  band1; //low
+            vfloat  band2; //high
+        }band2_t;
+
+        typedef struct band4_s{
+            band2_t low;
+            band2_t high;
+        }band4_t;
     #endif
 #endif
 
@@ -81,6 +80,7 @@ typedef struct cross2b_coef_s{
     vfloat    k;//1st order
     vfloat    k1;//2nd order
     vfloat    k2;//2nd order
+    vfloat    half;
 }cross2b_coef_t;
 
 typedef struct co_states_s{

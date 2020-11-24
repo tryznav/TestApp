@@ -52,6 +52,17 @@ void cross_calculate_coef(cross_prm_t *prm, cross4b_coef_t *coef){
         band2_t low;
         band2_t high;
         }band4_t;
+
+    #elif CH == 8
+        for(int x = 0; x < CH; x++){
+            coef->f[i].k1.ch[x] = (mfloat)dc;
+            coef->f[i].k2.ch[x] = (mfloat)-c;
+            coef->f[i].k.ch[x] = (mfloat)c1;
+            coef->f[i].half.ch[x] = (mfloat)0.5;
+            printf("coef->f[i].k1.ch[] = (mfloat)dc %f\n", coef->f[i].k1.ch[x]);
+            printf("coef->f[i].k2.ch[i] = (mfloat)-c %f\n" ,coef->f[i].k2.ch[x]);
+            printf("coef->f[i].k.ch[i] = (mfloat)c1 %f\n", coef->f[i].k.ch[x]);
+        }
     #endif
 #endif
 

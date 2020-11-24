@@ -25,12 +25,27 @@ typedef struct eq_prm_s {
 }eq_prm_t;
 
 typedef struct eq_states_s{
+#if CH == 2
     biquad_states_t biquad_states[EQ_BAND];
+#elif CH == 8
+    vfloat          x1[3];
+    vfloat          x2[3];
+    vfloat          y1[3];
+    vfloat          y2[3];
+#endif
 }eq_states_t;
 
 typedef struct eq_coef_s{
     int32_t         Enable[10];
+#if CH == 2
     biquad_coef_t   biquad_coef[EQ_BAND];
+#elif CH == 8
+    vfloat        b0[3];
+    vfloat        b1[3];
+    vfloat        b2[3];
+    vfloat        a1[3];
+    vfloat        a2[3];
+#endif
 }eq_coef_t;
 
 void eq_process(vfloat *x, eq_coef_t *coef, eq_states_t *st);

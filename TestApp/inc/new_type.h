@@ -89,7 +89,7 @@ typedef struct buff_s{
 }size_my_t;
 
 typedef struct effect_s{
-    void const          *coeffs;
+    void                *coeffs;
     void                *states;
 }effect_t;
 

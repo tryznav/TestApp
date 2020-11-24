@@ -141,19 +141,22 @@ int32_t effect_process(
     if(n == -1){
         return -1;
     }
-
-    vfloat *_audio = (vfloat *)(audio);
     chain_states_t* st = (chain_states_t*)states;
     chain_coef_t *coef = (chain_coef_t *)coeffs;
-    band4_t b;
-    for(uint32_t a_index = 0; a_index < samples_count; a_index++){
+    stereo_t *stereo   = (stereo_t *)audio;
+    vfloat _audio;
 
-        cross4b_process(&_audio[a_index], &b, &coef->cross, &st->cross);
-        _audio[a_index].ch[0] = b.high.band1.ch[0] + b.low.band1.ch[0] + b.high.band2.ch[0] + b.low.band2.ch[0];
-         _audio[a_index].ch[1] = b.low.band2.ch[0] + b.low.band2.ch[0];
+    for(uint32_t a_index = 0; a_index < samples_count; a_index++){
+        _audio.ch[0] = stereo[a_index].Left;
+        _audio.ch[1] = stereo[a_index].Right;
+        // cross4b_process(&_audio[a_index], &b, &coef->cross, &st->cross);
+        // _audio[a_index].ch[0] = b.high.band1.ch[0] + b.low.band1.ch[0] + b.high.band2.ch[0] + b.low.band2.ch[0];
+        //  _audio[a_index].ch[1] = b.low.band1.ch[0] + b.low.band2.ch[0];
 // printf(" tmp.band1v %f\n", b.high.band1.ch[0]);
 // printf(" tmp.band2v %f\n", b.high.band1.ch[0]);
-//         eq_process(&_audio[a_index], &coef->eq1, &st->eq1);
+        // eq_process(&_audio[a_index], &coef->eq1, &st->eq1);
+
+        eq_process(&_audio, &coef->eq1, &st->eq1);
 
 
         // chain_flt(&_audio[a_index], st, coef);
@@ -167,8 +170,11 @@ int32_t effect_process(
         // _audio[a_index].Left = eq_flt(_audio[a_index].Left,  &(st->Left.eq), &(coef->eq));
         // // _audio[a_index].Right = (_audio[a_index].Right +  _audio[a_index].Left)*0.5f;
         // _audio[a_index].Right = (audio_type)coef->apf_dbl((double)_audio[a_index].Left, &(_st->Right), &(coef->apf_coef));
-        
+        stereo[a_index].Left = _audio.ch[0]; 
+        stereo[a_index].Right = _audio.ch[1]; 
     }
+
+    
 
     return 0;
 }

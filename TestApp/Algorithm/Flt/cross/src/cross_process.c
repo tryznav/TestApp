@@ -27,7 +27,7 @@ static inline void cross2b_process(vfloat *x, band2_t *res, cross2b_coef_t *coef
 
     // printf(" tmp.band1 2 %f\n", x->ch[1]);
     // printf(" tmp.band22 %f\n", x->ch[1]);
-    *x = vmul(*x , HALF_A);
+    *x = vmul(*x ,coef->half);
     vfloat y_2nd = vmac(coef->k2, *x, st->xh1);
 
     st->xh1 = vmsub(coef->k1, y_2nd, st->xh2);
@@ -49,9 +49,6 @@ static inline void cross2b_process(vfloat *x, band2_t *res, cross2b_coef_t *coef
     res->band2 = vsub(y_2nd, y_1st);
     // printf(" tmp.band1 %f\n", res->band1.ch[1]);
     // printf(" tmp.band2 %f\n", res->band2.ch[1]);
-    
-
-
 }
 
 //compensation

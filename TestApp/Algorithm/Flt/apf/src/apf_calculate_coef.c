@@ -62,7 +62,7 @@ void biquad_calculate_coef(biquad_prm_t *prm,  biquad_coef_t *coef){
         break;
     case OFF:
         coef->Enable = 0;
-        b1 = 0;
+        b0 = 1;
         b1 = 0;
         b2 = 0;
         a0 = 0;

@@ -5,7 +5,7 @@ project(WholeSolution)
 set(_TYPE "Flt")
 
 add_subdirectory(Libs/Arithmetic/${_TYPE})
-add_subdirectory(Libs/json-c)
+# add_subdirectory(Libs/json-c)
 
 add_subdirectory(Libs/Effect/${_TYPE})
 

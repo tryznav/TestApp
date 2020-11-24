@@ -5,7 +5,13 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${vcpkgRoot}/x86-windows/include",
-                "${workspaceFolder}/TestApp/Effects/Flt/Chain_flt/cross/inc"
+                "${workspaceFolder}/TestApp/Algorithm/Flt/cross/inc",
+                "${workspaceFolder}/TestApp/Algorithm/Flt/comp/inc",
+                "${workspaceFolder}/TestApp/Effect/inc",
+                "${workspaceFolder}/TestApp/Algorithm/Flt/biquad/inc",
+                "${workspaceFolder}/TestApp/Arithmetic/Flt/inc",
+                "${workspaceFolder}/TestApp/Algorithm/Flt/eq/inc",
+                "${workspaceFolder}/TestApp/Algorithm/inc_addition"
             ],
             "defines": [
                 "_DEBUG",
