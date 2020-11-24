@@ -1,10 +1,9 @@
-cmake_minimum_required(VERSION 3.10)
+#include "apf.h"
+ 
+inline void apf_1st_process(vfloat *x, apf_1st_coef_t *coef, apf_1st_states_t *st){
+    //first order
+    vfloat xh = vmsub(coef->k, st->xh, *x);
+    *x        = vmac(coef->k, xh, st->xh);
 
-set(LIB_NAME "GetOpt")
-
-project(${LIB_NAME})
-
-add_library(${LIB_NAME} STATIC
-    ../../../${LIB_NAME}/src/getopt.c)
-
-target_include_directories(${LIB_NAME} PRIVATE ../../../${LIB_NAME}/inc)
+    st->xh = xh;
+}
