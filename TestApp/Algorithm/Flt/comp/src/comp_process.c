@@ -52,13 +52,10 @@ int32_t comp_set_state(comp_states_t *st){
         st->y.ch[i] = 0.0f;
         st->x_dB.ch[i] = 0.0f; //
         st->x_sc.ch[i] = 0.0f;       //
-        st->g_c.ch[i] = 0.0f;
         st->g_s.ch[i] = 0.0f;
-        st->g_sPrev.ch[i] = 0.0f;
         st->g_m.ch[i] = 0.0f;
         st->g_lin.ch[i] = 0.0f;
         st->env.ch[i] = 0.0f;     //
-        st->env_prev.ch[i] = 0.0f;
     }
 
     return 0;

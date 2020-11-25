@@ -26,10 +26,6 @@ void eq_calculate_coef(eq_prm_t *prm,  eq_coef_t *coef){
             alpha = sn / (2 * bprm->Q);
             beta  = sqrt(A + A);
 
-            printf("prm->freq %f\n",   bprm->freq);
-            printf("prm->gain %f\n",   bprm->gain);
-            printf("prm->Q %f\n",      bprm->Q);
-            printf("prm->sample_rate %f\n", bprm->sample_rate);
             switch (bprm->type)
             {
             case LPF:

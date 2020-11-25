@@ -7,7 +7,7 @@
 #include <math.h>
 #include <immintrin.h>
 
-// #define M_E         2.71828182845904523536028747135266250
+#define INLINE      inline
 #define AVX 0
 #define SSE 0
 #define CH  8 //chanel
@@ -46,28 +46,229 @@ typedef struct stereo_s{
     // }vfloat;
 #endif
 
-static inline vfloat vadd(vfloat a, vfloat b);
+#include "flt_arithmetic.h"
 
-static inline vfloat vsub(vfloat a, vfloat b);
+#define POW2EXP  0.075977616f
+#define T2      1.882352948f
+#define T1      2.823529482f
 
-static inline vfloat vmul(vfloat a, vfloat b);
+static INLINE vfloat vadd( vfloat a, vfloat b){
+#if AVX
+    return _mm256_add_ps(a.i, b.i);
+#elif SSE
+    return _mm128_add_ps(a.i, b.i);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] = a.ch[i] + b.ch[i];
+    }
+    return res;
+#endif
+}
 
-static inline vfloat vmac(vfloat a, vfloat b, vfloat c);
+static INLINE vfloat vsub(vfloat a, vfloat b){
+#if AVX
+    return _mm256_sub_ps(a.i, b.i);
+#elif SSE
+    return _mm128_sub_ps(a.i, b.i);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] = a.ch[i] - b.ch[i];
+    }
+    return res;
+#endif
+}
 
-static inline vfloat vmsub(vfloat a, vfloat b, vfloat c);
+static INLINE vfloat vmul(vfloat a, vfloat b){
+#if AVX
+    return _mm256_sub_ps(a, b);
+#elif SSE
+    return _mm128_sub_ps(a, b);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] = a.ch[i] * b.ch[i];
+    }
+    return res;
+#endif
+}
 
-static inline vfloat vabs(vfloat a);
+static INLINE vfloat vmac(vfloat a, vfloat b, vfloat c){
+#if AVX
+    return _mm256_sub_ps(a, b);
+#elif SSE
+    return _mm128_sub_ps(a, b);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] = (a.ch[i] * b.ch[i]) + c.ch[i];
+    }
+    return res;
+#endif
+}
 
-static inline vfloat vneg(vfloat a);
+static INLINE vfloat vmsub(vfloat a, vfloat b, vfloat c){
+#if AVX
+    return _mm256_fnmadd_ps(a, b, c);
+#elif SSE
+    return _mm128_fnmadd_ps(a, b, c);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] = -(a.ch[i] * b.ch[i]) + c.ch[i];
+    }
+    return res;
+#endif
+}
 
-static inline vfloat vdiv(vfloat N, vfloat  D);
+static INLINE vfloat vabs(vfloat a){
+#if AVX
+    return _mm256_fnmadd_ps(a);
+#elif SSE
+    return _mm128_fnmadd_ps(a, b, c);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] = (a.ch[i] < 0) ? -a.ch[i]: a.ch[i];
+    }
+    return res;
+#endif
+}
 
-static inline vfloat vpow2(vfloat n);
+static INLINE vfloat vneg(vfloat a){
+#if AVX
+    return _mm256_fnmadd_ps(a);
+#elif SSE
+    return _mm128_fnmadd_ps(a, b, c);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] =  -a.ch[i];
+    }
+    return res;
+#endif
+}
 
-static inline vfloat vcpm_gt(vfloat a, vfloat b);
+static INLINE vfloat vdiv(vfloat N, vfloat  D){
+#if AVX
+    return _mm256_fnmadd_ps(a);
+#elif SSE
+    return _mm128_fnmadd_ps(a, b, c);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] =  N.ch[i] / D.ch[i];
+    }
+    return res;
+#endif
+}
 
-static inline vfloat vcpm_lt(vfloat a, vfloat b);
+static INLINE vfloat vpow2(vfloat n){
+#if AVX
+    return _mm256_fnmadd_ps(a);
+#elif SSE
+    return _mm128_fnmadd_ps(a, b, c);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] =  powf(n.ch[i], 2.0f);
+    }
+    return res;
+#endif
+}
 
-static inline vfloat vblend(vfloat a, vfloat b, vfloat mask);
+static INLINE vfloat vpow(vfloat a, vfloat n){
+#if AVX
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] =  powf(a.ch[i], n.ch[i]);
+    }
+    return res;
+#elif SSE
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] =  powf(a.ch[i], n.ch[i]);
+    }
+    return res;
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] =  powf(a.ch[i], n.ch[i]);
+    }
+    return res;
+#endif
+}
+
+static INLINE vfloat vcpm_gt(vfloat a, vfloat b){
+#if AVX
+    return _mm256_cmp_ps(a.i, b.i, _CMP_LT_OS);
+#elif SSE
+    return _mm128_fnmadd_ps(a, b, c);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        *((uint32_t *)&res.ch[i]) = (a.ch[i] > b.ch[i]) ? 0xFFFFFFFF : 0;
+    }
+    return res;
+#endif
+}
+
+
+static INLINE vfloat vcpm_lt(vfloat a, vfloat b){
+#if AVX
+    return _mm256_cmp_ps(a.i, b.i, _CMP_GT_OS);
+#elif SSE
+    return _mm128_fnmadd_ps(a, b, c);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        *((uint32_t *)&res.ch[i]) = (a.ch[i] < b.ch[i]) ? 0xFFFFFFFF : 0;
+    }
+    return res;
+#endif
+}
+
+static INLINE vfloat vcpm_le(vfloat a, vfloat b){
+#if AVX
+    return _mm256_cmp_ps(a.i, b.i, _CMP_LE_OS);
+#elif SSE
+    return _mm128_fnmadd_ps(a, b, c);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        *((uint32_t *)&res.ch[i]) = (a.ch[i] < b.ch[i]) ? 0xFFFFFFFF : 0;
+    }
+    return res;
+#endif
+}
+
+static INLINE vfloat vcpm_ge(vfloat a, vfloat b){
+#if AVX
+    return _mm256_cmp_ps(a.i, b.i, _CMP_GE_OS);
+#elif SSE
+    return _mm128_fnmadd_ps(a, b, c);
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        *((uint32_t *)&res.ch[i]) = (a.ch[i] < b.ch[i]) ? 0xFFFFFFFF : 0;
+    }
+    return res;
+#endif
+}
+
+static INLINE vfloat vblend(vfloat a, vfloat b, vfloat mask){
+   #if AVX
+    return _mm256_blendv_ps(a.i, b.i, mask.i);
+#elif SSE
+
+#else
+    vfloat res;
+    for(int i = 0; i < CH; i++){
+        res.ch[i] = (*((uint32_t *)&res.ch[i])) ? b.ch[i] : a.ch[i];
+    }
+    return res;
+#endif 
+}
 
 #endif /* colors.h */
