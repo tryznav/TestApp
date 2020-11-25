@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\TestApp\TestApp\Algorithm\Flt\cross\src\cross_calculate_coef.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Algorithm\Flt\cross\src\cross_process.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Algorithm\Flt\cross\src\cross_set.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Algorithm\Flt\biquad\src\biquad_calculate_coef.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Algorithm\Flt\biquad\src\biquad_process.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Algorithm\Flt\biquad\src\biquad_set.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Algorithm\Flt\eq\src\eq_calculate_coef.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Algorithm\Flt\eq\src\eq_process.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Algorithm\Flt\eq\src\eq_set.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Effect\Flt\src\effect_control.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\TestApp\TestApp\Effect\Flt\src\effect_process.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\TestApp\TestApp\build\Libs\Effect\Flt\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{FD1FFBE7-2066-353F-90AF-71D00F8884B7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

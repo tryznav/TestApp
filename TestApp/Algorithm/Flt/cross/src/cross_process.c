@@ -1,9 +1,6 @@
 #include "cross.h"
 
-// #if CH == 2
-//     const vfloat HALF_A = {0.5f, 0.5f};
-// #endif
-
+#if CH == 2
 static inline void cross2b_process(vfloat *x, band2_t *res, cross2b_coef_t *coef, cross2b_states_t *st);
 static inline void compes_process(vfloat *x, cross2b_coef_t *coef, co_states_t *st);
 
@@ -22,11 +19,6 @@ void cross4b_process(vfloat *x, band4_t *res, cross4b_coef_t *coef, cross4b_stat
 
 
 static inline void cross2b_process(vfloat *x, band2_t *res, cross2b_coef_t *coef, cross2b_states_t *st){
-    // printf(" tmp.band1 %f\n", x->ch[1]);
-    // printf(" tmp.band2 %f\n", x->ch[1]);
-
-    // printf(" tmp.band1 2 %f\n", x->ch[1]);
-    // printf(" tmp.band22 %f\n", x->ch[1]);
     *x = vmul(*x ,coef->half);
     vfloat y_2nd = vmac(coef->k2, *x, st->xh1);
 
@@ -63,82 +55,84 @@ static inline void compes_process(vfloat *x, cross2b_coef_t *coef, co_states_t *
     
     *x = y_2nd;
 }
+#endif
+#if CH == 8
+static inline void cross2b_process(vfloat *x, band2_t *res, cross2b_coef_t *coef, cross2b_states_t *st);
+static inline void cross2b_to_4b_process(vfloat *x, band4_t *res, cross2b_to_4b_coef_t *coef, cross2b_to_4b_states_t *st);
+//ch[0,1] low_low; ch[2,3] high_low ch[4,5] low_high ch[4,5] high_high
+void cross4b_process(vfloat *x, band4_t *res, cross4b_coef_t *coef, cross4b_states_t *st){
+    band2_t tmp;
+    cross2b_process(x, &tmp,  &coef->f1, &st->f1);
+    // *res = tmp;
+    cross2b_to_4b_process(&tmp, res, &coef->f0_f2, &st->f0_f2);
+}
 
-// bands_t crossover_flt(vfloat x, cross_flt_states_t *st, cross_flt_coef_t *coef){
-//     bands_t res;
-//     vfloat xh = 0.0; 
-//     audio_type  apl_2nd = apf_flt_2nd(x,       &(st->apf_2nd[0]), &coef->apf_2nd[1]);
-//     audio_type  apl_1st = apf_flt_1st(x,       &(st->apf_1st[0]), &coef->apf_1st[1]);
-//     audio_type  l_f2 = flt_add(apl_2nd, apl_1st) * 0.5f;
-//     audio_type h_f2 = 0.0f;
 
-// xh = apl_2nd;
-// xh = apf_flt_1st(xh,       &(st->apf_1st[1]), &coef->apf_1st[1]);
+static inline void cross2b_process(vfloat *x, band2_t *res, cross2b_coef_t *coef, cross2b_states_t *st){
+    *x = vmul(*x ,coef->half);
+    vfloat y_2nd = vmac(coef->k2, *x, st->xh1);
 
-//         apl_2nd = apf_flt_2nd(l_f2, &(st->apf_2nd[1]), &coef->apf_2nd[1]);
-//         apl_1st = apf_flt_1st(l_f2, &(st->apf_1st[2]), &coef->apf_1st[1]);
+    st->xh1 = vmsub(coef->k1, y_2nd, st->xh2);
+    st->xh1 = vmac(coef->k1, *x, st->xh1);
 
-//     l_f2 = flt_add(apl_2nd, apl_1st) * 0.5f;
-//     h_f2 = xh - l_f2;
+    st->xh2 = vmsub(coef->k2, y_2nd, *x);
+/*******************************************************/
+    //first order
+    vfloat f = vmsub(coef->k, st->xh, *x);
+    vfloat y_1st =  vmac(coef->k, f , st->xh);
 
-// //compensation f2
+    st->xh = f;
+/*******************************************************/
+    //get low
+    f = vneg(y_1st);
+    y_1st.ch[2] = f.ch[0];
+    y_1st.ch[3] = f.ch[1];
+    y_2nd.ch[2] = y_2nd.ch[0];
+    y_2nd.ch[3] = y_2nd.ch[1];
 
-// l_f2 = apf_flt_2nd(l_f2, &(st->apf_2nd[7]), &coef->apf_2nd[2]);
-// l_f2 = apf_flt_1st(l_f2, &(st->apf_1st[10]), &coef->apf_1st[2]);
+    *res = vadd(y_2nd, y_1st);//ch[0,1] low; ch[2,3] h
+}
 
-// /****************************************************************/
+//compensation
+static inline void cross2b_to_4b_process(vfloat *x, band4_t *res, cross2b_to_4b_coef_t *coef, cross2b_to_4b_states_t *st){
+  //phase compensation  
+    vfloat y_c = vmac(coef->k2_c, *x, st->xh1_c);
+
+    st->xh1_c = vmsub(coef->k1_c, y_c, st->xh2_c);
+    st->xh1_c = vmac(coef->k1_c, *x, st->xh1_c);
+
+    st->xh2_c = vmsub(coef->k2_c, y_c, *x);
     
-//     apl_2nd = apf_flt_2nd(l_f2, &(st->apf_2nd[2]), &coef->apf_2nd[0]);   
-//     apl_1st = apf_flt_1st(l_f2, &(st->apf_1st[3]), &coef->apf_1st[0]);
-// xh = apl_2nd;
-// xh = apf_flt_1st(xh,       &(st->apf_1st[4]), &coef->apf_1st[0]);
-//     res.band1 = flt_add(apl_2nd, apl_1st) * 0.5f;
+    *x = y_c;
+/// cross2b_to_4b_process
+/*******************************************************/
+    *x = vmul(*x ,coef->half);
 
-//         apl_2nd = apf_flt_2nd(res.band1, &(st->apf_2nd[3]), &coef->apf_2nd[0]);
-//         apl_1st = apf_flt_1st(res.band1, &(st->apf_1st[5]), &coef->apf_1st[0]);
+    vfloat y_2nd = vmac(coef->k2, *x, st->xh1);
 
-//     res.band1 = flt_add(apl_2nd, apl_1st) * 0.5f;
-//     res.band2 = xh - res.band1;
+    st->xh1 = vmsub(coef->k1, y_2nd, st->xh2);
+    st->xh1 = vmac(coef->k1, *x, st->xh1);
 
-// //compensation f0
+    st->xh2 = vmsub(coef->k2, y_2nd, *x);
+/*******************************************************/
+    //first order
+    vfloat f = vmsub(coef->k, st->xh, *x);
+    vfloat y_1st =  vmac(coef->k, f , st->xh);
 
-// h_f2 = apf_flt_2nd(h_f2, &(st->apf_2nd[4]), &coef->apf_2nd[0]);
-// h_f2 = apf_flt_1st(h_f2, &(st->apf_1st[6]), &coef->apf_1st[0]);
-
-// /****************************************************************/
-
-//     apl_2nd = apf_flt_2nd(h_f2, &(st->apf_2nd[5]), &coef->apf_2nd[2]);   
-//     apl_1st = apf_flt_1st(h_f2, &(st->apf_1st[7]), &coef->apf_1st[2]);
-// xh = apl_2nd;
-// xh = apf_flt_1st(xh,       &(st->apf_1st[8]), &coef->apf_1st[2]);
-//     res.band3 = flt_add(apl_2nd, apl_1st) * 0.5f;
-
-//         apl_2nd = apf_flt_2nd(res.band3, &(st->apf_2nd[6]), &coef->apf_2nd[2]);
-//         apl_1st = apf_flt_1st(res.band3, &(st->apf_1st[9]), &coef->apf_1st[2]);
-
-//     res.band3 = flt_add(apl_2nd, apl_1st) * 0.5f;
-//     res.band4 = xh - res.band3;
-
-//     return res;
-// }
-
-// //Direct form 2
-// static audio_type apf_flt_1st(audio_type x, apf_states_1st_t *st, apf_coef_1st_t *coef){
-//     audio_type xh = flt_msub(x, coef->k1, st->xh[0]);
-//     audio_type y =  flt_mac(st->xh[0], coef->k1, xh);
-
-//     st->xh[0] = xh;
-//     return y;
-// }
-
-// //Direct form 2 Transposed
-// static audio_type apf_flt_2nd(audio_type x, apf_states_2nd_t *st, apf_coef_2nd_t *coef){
-//     audio_type  y = flt_mac(st->xh[0], coef->k2, x);
+    st->xh = f;
+/*******************************************************/
+    //get low
+    f = vneg(y_1st);
+    y_1st.ch[4] = f.ch[0];
+    y_1st.ch[5] = f.ch[1];
+    y_1st.ch[6] = f.ch[2];
+    y_1st.ch[7] = f.ch[3];
+    y_2nd.ch[4] = y_2nd.ch[0];
+    y_2nd.ch[5] = y_2nd.ch[1];
+    y_2nd.ch[6] = y_2nd.ch[2];
+    y_2nd.ch[7] = y_2nd.ch[3];
     
-//     st->xh[0] = flt_mac(st->xh[1], coef->k1, x);
-//     st->xh[0] = flt_msub(st->xh[0], coef->k1, y);
+    *res = vadd(y_2nd, y_1st);//ch[0,1] low_low; ch[2,3] high_low ch[4,5] low_high ch[4,5] high_high
+}
 
-//     st->xh[1] = flt_msub(x, coef->k2, y);
-
-//     return y;
-// }
+#endif

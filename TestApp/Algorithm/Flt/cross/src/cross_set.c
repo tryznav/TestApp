@@ -25,7 +25,7 @@ int32_t cross_set_prm_c(cross_prm_t *prm, id_union_t id_prm, float value){
     }
     return 0;
 }
-
+#if CH == 2
 void cross_set_state(cross4b_states_t *st){
     for(int i = 0; i < CH; i++){
         st->c_f0.xh1.ch[i] = 0.0f;
@@ -47,3 +47,19 @@ void cross_set_state(cross4b_states_t *st){
         st->f2.xh2.ch[i] = 0.0f;
     }
 }
+#endif
+
+#if CH == 8
+void cross_set_state(cross4b_states_t *st){
+    for(int i = 0; i < CH; i++){
+        st->f0_f2.xh.ch[i] = 0.0f;
+        st->f0_f2.xh1.ch[i] = 0.0f;
+        st->f0_f2.xh2.ch[i] = 0.0f;
+        st->f0_f2.xh1_c.ch[i] = 0.0f;
+        st->f0_f2.xh2_c.ch[i] = 0.0f;
+        st->f1.xh.ch[i] = 0.0f;
+        st->f1.xh1.ch[i] = 0.0f;
+        st->f1.xh2.ch[i] = 0.0f;
+    }
+}
+#endif

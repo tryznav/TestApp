@@ -28,45 +28,44 @@ typedef struct comp_prm_s{
     /*float kneeWidth;*/
 }comp_prm_t;
 
-typedef struct comp_flt_coef_s{
+typedef struct comp_coef_s{
     vfloat threshold;
     vfloat ratio;
 
-    vfloat a_attack;//alpha attack
+    vfloat      a_attack;//alpha attack
     vfloat      a_release;//alpha relise
+    vfloat      a_attack_m;//alpha attack
+    vfloat      a_release_m;//alpha relise
 
-    vfloat    e_attack; //env attack
-    vfloat    e_release; //env relise
+    vfloat      e_attack; //env attack
+    vfloat      e_release; //env rel
+    vfloat      e_attack_m; //env attack
+    vfloat      e_release_m; //env rel    
+    vfloat      makeUpGain;
+    int32_t     Enable;
+}comp_coef_t;
 
-    vfloat    makeUpGain;
-    int32_t   Enable;
-}comp_flt_coef_t;
 
-
-typedef struct comp_flt_states_s{
+typedef struct comp_states_s{
     vfloat x;   //
     vfloat y;
 
     vfloat x_dB; //
     vfloat x_sc;       //
 
-    vfloat g_c;
-
     vfloat g_s;
-    vfloat g_sPrev;
 
     vfloat g_m;
 
     vfloat g_lin;
 
     vfloat env;     //
-    vfloat env_prev;
-}comp_flt_states_t;
+}comp_states_t;
 
-int32_t comp_flt_coef(comp_prm_t *prm, comp_flt_coef_t *coef);
-vfloat compressor(vfloat x, comp_flt_states_t *st, comp_flt_coef_t *coef);
-int32_t comp_flt_set_state(comp_flt_states_t *st);
-int32_t comp_flt_set_prm_d(comp_prm_t*prm, double samle_rate);
-int32_t comp_flt_set_prm_c(comp_prm_t* prm, uint8_t Id, float value);
+int32_t comp_calculate_coef(comp_prm_t *prm, comp_coef_t *coef);
+vfloat compressor(vfloat x, comp_states_t *st, comp_coef_t *coef);
+int32_t comp_set_state(comp_states_t *st);
+int32_t comp_set_prm_d(comp_prm_t*prm, double samle_rate);
+int32_t comp_set_prm_c(comp_prm_t* prm, uint8_t Id, float value);
 
 #endif

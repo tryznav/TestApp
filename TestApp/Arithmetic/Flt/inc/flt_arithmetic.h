@@ -46,23 +46,28 @@ typedef struct stereo_s{
     // }vfloat;
 #endif
 
-extern vfloat vadd(vfloat a, vfloat b);
+static inline vfloat vadd(vfloat a, vfloat b);
 
-extern vfloat vsub(vfloat a, vfloat b);
+static inline vfloat vsub(vfloat a, vfloat b);
 
-extern vfloat vmul(vfloat a, vfloat b);
+static inline vfloat vmul(vfloat a, vfloat b);
 
-extern vfloat vmac(vfloat a, vfloat b, vfloat c);
+static inline vfloat vmac(vfloat a, vfloat b, vfloat c);
 
-extern vfloat vmsub(vfloat a, vfloat b, vfloat c);
+static inline vfloat vmsub(vfloat a, vfloat b, vfloat c);
 
-extern vfloat vabs(vfloat a);
+static inline vfloat vabs(vfloat a);
 
-extern vfloat vneg(vfloat a);
+static inline vfloat vneg(vfloat a);
 
-extern vfloat vdiv(vfloat N, vfloat  D);
+static inline vfloat vdiv(vfloat N, vfloat  D);
 
-extern vfloat vpow2(vfloat n);
+static inline vfloat vpow2(vfloat n);
 
+static inline vfloat vcpm_gt(vfloat a, vfloat b);
+
+static inline vfloat vcpm_lt(vfloat a, vfloat b);
+
+static inline vfloat vblend(vfloat a, vfloat b, vfloat mask);
 
 #endif /* colors.h */

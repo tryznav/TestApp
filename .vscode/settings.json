@@ -5,6 +5,7 @@
         "queue": "c",
         "xhash": "c",
         "stack": "c",
-        "cmath": "c"
+        "cmath": "c",
+        "xutility": "c"
     }
 }

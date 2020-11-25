@@ -1,6 +1,6 @@
 #include "comp_flt.h"
 
-int32_t comp_flt_set_prm_d(comp_prm_t* prm, double samle_rate){
+int32_t comp_set_prm_d(comp_prm_t* prm, double samle_rate){
     prm->threshold = -18.0;
     prm->ratio = 2.0;
     prm->tauAttack = 20.0;
@@ -13,7 +13,7 @@ int32_t comp_flt_set_prm_d(comp_prm_t* prm, double samle_rate){
     return 0;
 }
 
-int32_t comp_flt_set_prm_c(comp_prm_t* prm, uint8_t Id, float value){
+int32_t comp_set_prm_c(comp_prm_t* prm, uint8_t Id, float value){
     switch (Id)
     {
     case 1:
@@ -46,7 +46,7 @@ int32_t comp_flt_set_prm_c(comp_prm_t* prm, uint8_t Id, float value){
     return 0;
 }
 
-int32_t comp_flt_set_state(comp_flt_states_t *st){
+int32_t comp_set_state(comp_states_t *st){
     for(int i = 0; i < CH; i++){
         st->x.ch[i] = 0.0f;   //
         st->y.ch[i] = 0.0f;

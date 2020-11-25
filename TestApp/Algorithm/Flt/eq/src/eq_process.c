@@ -5,7 +5,7 @@
 #if CH == 2
 void eq_process(vfloat *x, eq_coef_t *coef, eq_states_t *st){
     for(size_t i = 0; i < EQ_BAND; i++){
-            biquad_process(x, &coef->biquad_coef[i], &st->biquad_states[i]);
+        biquad_process(x, &coef->biquad_coef[i], &st->biquad_states[i]);
     }
 }
 #elif CH == 4
@@ -13,29 +13,19 @@ void eq_process(vfloat *x, eq_coef_t *coef, eq_states_t *st){
 #elif CH == 8
 void eq_process(vfloat *x, eq_coef_t *coef, eq_states_t *st){
     vfloat y;
-    // vfloat xh;
     for(size_t i = 0; i < 3; i++){
 
-        // xh.ch[0] = x->ch[0];
-        // xh.ch[1] = x->ch[1];
         y = vmac(coef->b0[i], *x, st->x1[i]);
         x->ch[2] = y.ch[0];
         x->ch[3] = y.ch[1];
 
-        // xh.ch[2] = x->ch[2];
-        // xh.ch[3] = x->ch[3];
         y = vmac(coef->b0[i], *x, st->x1[i]);
         x->ch[4] = y.ch[2];
         x->ch[5] = y.ch[3];
 
-        // xh.ch[4] = x->ch[4];
-        // xh.ch[5] = x->ch[5];
         y = vmac(coef->b0[i], *x, st->x1[i]);
         x->ch[6] = y.ch[4];
         x->ch[7] = y.ch[5];
-
-        // xh.ch[6] = x->ch[6];
-        // xh.ch[7] = x->ch[7];
 
         y = vmac(coef->b0[i], *x, st->x1[i]);
 
@@ -52,5 +42,3 @@ void eq_process(vfloat *x, eq_coef_t *coef, eq_states_t *st){
     x->ch[1] = y.ch[3];
 }
 #endif
-
-

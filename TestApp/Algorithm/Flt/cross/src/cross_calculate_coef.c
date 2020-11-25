@@ -54,15 +54,61 @@ void cross_calculate_coef(cross_prm_t *prm, cross4b_coef_t *coef){
         }band4_t;
 
     #elif CH == 8
-        for(int x = 0; x < CH; x++){
-            coef->f[i].k1.ch[x] = (mfloat)dc;
-            coef->f[i].k2.ch[x] = (mfloat)-c;
-            coef->f[i].k.ch[x] = (mfloat)c1;
-            coef->f[i].half.ch[x] = (mfloat)0.5;
-            printf("coef->f[i].k1.ch[] = (mfloat)dc %f\n", coef->f[i].k1.ch[x]);
-            printf("coef->f[i].k2.ch[i] = (mfloat)-c %f\n" ,coef->f[i].k2.ch[x]);
-            printf("coef->f[i].k.ch[i] = (mfloat)c1 %f\n", coef->f[i].k.ch[x]);
+        switch (i)
+        {
+        case 0:
+            for(int x = 0; x < 2; x++){
+                coef->f0_f2.k1.ch[x] = (mfloat)dc;
+                coef->f0_f2.k2.ch[x] = (mfloat)-c;
+                coef->f0_f2.k.ch[x] = (mfloat)c1;
+                
+                // printf("coef->f[i].k1.ch[] = (mfloat)dc %f\n", coef->f[i].k1.ch[x]);
+                // printf("coef->f[i].k2.ch[i] = (mfloat)-c %f\n" ,coef->f[i].k2.ch[x]);
+                // printf("coef->f[i].k.ch[i] = (mfloat)c1 %f\n", coef->f[i].k.ch[x]);
+            }
+            for(int x = 2; x < 4; x++){
+                coef->f0_f2.k1_c.ch[x] = (mfloat)dc;
+                coef->f0_f2.k2_c.ch[x] = (mfloat)-c;  
+                // printf("coef->f[i].k1.ch[] = (mfloat)dc %f\n", coef->f[i].k1.ch[x]);
+                // printf("coef->f[i].k2.ch[i] = (mfloat)-c %f\n" ,coef->f[i].k2.ch[x]);
+                // printf("coef->f[i].k.ch[i] = (mfloat)c1 %f\n", coef->f[i].k.ch[x]);
+            }
+            break;
+        case 1:
+            for(int x = 0; x < CH; x++){
+                coef->f1.k1.ch[x] = (mfloat)dc;
+                coef->f1.k2.ch[x] = (mfloat)-c;
+                coef->f1.k.ch[x] = (mfloat)c1;
+                coef->f1.half.ch[x] = (mfloat)0.5;
+                coef->f0_f2.half.ch[x] = (mfloat)0.5;
+                // printf("coef->f[i].k1.ch[] = (mfloat)dc %f\n", coef->f[i].k1.ch[x]);
+                // printf("coef->f[i].k2.ch[i] = (mfloat)-c %f\n" ,coef->f[i].k2.ch[x]);
+                // printf("coef->f[i].k.ch[i] = (mfloat)c1 %f\n", coef->f[i].k.ch[x]);
+            }
+            break;
+        case 2:
+            /* code */
+            break;
+        
+        default:
+            break;
         }
+            for(int x = 2; x < 4; x++){
+                coef->f0_f2.k1.ch[x] = (mfloat)dc;
+                coef->f0_f2.k2.ch[x] = (mfloat)-c;
+                coef->f0_f2.k.ch[x] = (mfloat)c1;
+                
+                // printf("coef->f[i].k1.ch[] = (mfloat)dc %f\n", coef->f[i].k1.ch[x]);
+                // printf("coef->f[i].k2.ch[i] = (mfloat)-c %f\n" ,coef->f[i].k2.ch[x]);
+                // printf("coef->f[i].k.ch[i] = (mfloat)c1 %f\n", coef->f[i].k.ch[x]);
+            }
+            for(int x = 0; x < 2; x++){
+                coef->f0_f2.k1_c.ch[x] = (mfloat)dc;
+                coef->f0_f2.k2_c.ch[x] = (mfloat)-c;  
+                // printf("coef->f[i].k1.ch[] = (mfloat)dc %f\n", coef->f[i].k1.ch[x]);
+                // printf("coef->f[i].k2.ch[i] = (mfloat)-c %f\n" ,coef->f[i].k2.ch[x]);
+                // printf("coef->f[i].k.ch[i] = (mfloat)c1 %f\n", coef->f[i].k.ch[x]);
+            }
     #endif
 #endif
 
