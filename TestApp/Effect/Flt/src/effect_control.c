@@ -49,7 +49,7 @@ int32_t effect_control_initialize(
 
     cross_set_prm_d(&prm->cross, (double)sample_rate);
 
-    // comp_flt_set_prm_d(&prm->comp_1b, (double)sample_rate);
+    comp_set_prm_d(&prm->comp_1b, (double)sample_rate);
     // comp_flt_set_prm_d(&prm->comp_2b, (double)sample_rate);
     // comp_flt_set_prm_d(&prm->comp_3b, (double)sample_rate);
     // comp_flt_set_prm_d(&prm->comp_4b, (double)sample_rate);
@@ -129,7 +129,7 @@ int32_t effect_update_coeffs(
     eq_calculate_coef(&prm->eq1,  &coef->eq1);
 
     cross_calculate_coef(&prm->cross,  &coef->cross);
-    // comp_flt_coef(&prm->comp_1b, &coef->comp_1b);
+    comp_calculate_coef(&prm->comp_1b, &coef->comp_1b);
     // comp_flt_coef(&prm->comp_2b, &coef->comp_2b);
     // comp_flt_coef(&prm->comp_3b, &coef->comp_3b);
     // comp_flt_coef(&prm->comp_4b, &coef->comp_4b);

@@ -24,12 +24,8 @@ typedef struct cross_prm_s{
 
 
 #if AVX
-    typedef struct band4_s{
-        vfloat bands;
-    }band2_t;
-    typedef struct band4_s{
-        vfloat bands;
-    }band4_t;
+    typedef vfloat band2_t;
+    typedef vfloat band4_t;
 #elif SSE
     typedef struct band4_s{
         vfloat;

@@ -7,7 +7,7 @@
 #include "effect_control.h"
 #include "effect_process.h"
 
-// #include "comp_flt.h"
+#include "comp.h"
 #include "cross.h"
 #include "eq.h"
 #include "flt_arithmetic.h"
@@ -20,12 +20,12 @@
 // #pragma pack(pop)
 
 typedef struct chain_prm_s{
-    eq_prm_t        eq1;
-    int32_t         eq1_enable;
-    cross_prm_t     cross;
-    int32_t         cross_enable;
-    // comp_prm_t      comp_1b;
-    // int32_t         comp_1b_enable;
+    eq_prm_t            eq1;
+    int32_t             eq1_enable;
+    cross_prm_t         cross;
+    int32_t             cross_enable;
+    comp_prm_t          comp_1b;
+    int32_t             comp_1b_enable;
     // comp_prm_t      comp_2b;
     // int32_t         comp_2b_enable;
     // comp_prm_t      comp_3b;
@@ -39,9 +39,9 @@ typedef struct chain_prm_s{
 }chain_prm_t;
 
 typedef struct chain_states_s{
-    eq_states_t     eq1;
-    cross4b_states_t    cross;
-    // comp_flt_states_t   comp_1b;
+    eq_states_t             eq1;
+    cross4b_states_t        cross;
+    comp_states_t           comp_1b;
     // comp_flt_states_t   comp_2b;
     // comp_flt_states_t   comp_3b;
     // comp_flt_states_t   comp_4b;
@@ -51,12 +51,12 @@ typedef struct chain_states_s{
 
 
 typedef struct chain_coef_s{
-    eq_coef_t       eq1;
+    eq_coef_t           eq1;
     int32_t             eq1_enable;
     cross4b_coef_t      cross;
     int32_t             cross_enable;
-    // comp_flt_coef_t     comp_1b;
-    // int32_t             comp_1b_enable;
+    comp_coef_t         comp_1b;
+    int32_t             comp_1b_enable;
     // comp_flt_coef_t     comp_2b;
     // int32_t             comp_2b_enable;
     // comp_flt_coef_t     comp_3b;

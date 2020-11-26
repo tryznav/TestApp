@@ -18,3 +18,5 @@ target_include_directories(${LIB_NAME} PRIVATE ../../../../${LIB_NAME}/${_TYPE}/
 if(MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
+
+# add_compile_options(-O2)

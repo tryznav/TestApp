@@ -27,7 +27,7 @@ int32_t effect_reset(
     eq_set_state(&st->eq1);
     cross_set_state(&st->cross);
 
-    // comp_flt_set_state(&st->Left.comp_1b);
+    comp_set_state(&st->comp_1b);
     // comp_flt_set_state(&st->Left.comp_1b);
     // comp_flt_set_state(&st->Left.comp_2b);
     // comp_flt_set_state(&st->Left.comp_3b);
@@ -146,6 +146,14 @@ int32_t effect_process(
     stereo_t *stereo   = (stereo_t *)audio;
     vfloat _audio;
     band4_t b;
+    _audio.ch[0] = 1.0f;
+    _audio.ch[1] = 1.0f;
+    _audio.ch[2] = 1.0f;
+    _audio.ch[3] = 1.0f;
+    _audio.ch[4] = 1.0f;
+    _audio.ch[5] = 1.0f;
+    _audio.ch[5] = 1.0f;
+    _audio.ch[5] = 1.0f;
 
     for(uint32_t a_index = 0; a_index < samples_count; a_index++){
         _audio.ch[0] = stereo[a_index].Left;
@@ -153,10 +161,15 @@ int32_t effect_process(
 
         
     
-        cross4b_process(&_audio, &b, &coef->cross, &st->cross);
+        // cross4b_process(&_audio, &b, &coef->cross, &st->cross);
 
-        stereo[a_index].Left = b.ch[3] + b.ch[5] + b.ch[7] + b.ch[1];
-        stereo[a_index].Right = b.ch[2];
+        // stereo[a_index].Left =b.ch[1] + b.ch[3] + b.ch[5] + b.ch[7];
+        // stereo[a_index].Right = b.ch[2];
+
+        compressor_process(&_audio, &coef->comp_1b, &st->comp_1b);
+        stereo[a_index].Left = _audio.ch[0];
+        stereo[a_index].Right = _audio.ch[1];
+        
         // _audio[a_index].ch[0] = b.high.band1.ch[0] + b.low.band1.ch[0] + b.high.band2.ch[0] + b.low.band2.ch[0];
         //  _audio[a_index].ch[1] = b.low.band1.ch[0] + b.low.band2.ch[0];
 // printf(" tmp.band1v %f\n", b.high.band1.ch[0]);

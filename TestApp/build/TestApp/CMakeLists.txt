@@ -42,3 +42,5 @@ target_include_directories(${PR_NAME} PRIVATE ../../TestSigGen/inc)
 if(MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
+
+# add_compile_options(-O2)

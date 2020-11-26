@@ -97,11 +97,11 @@ void eq_calculate_coef(eq_prm_t *prm,  eq_coef_t *coef){
             coef->b1[x].ch[y+1] = (mfloat)(b1);
             coef->b2[x].ch[y+1] = (mfloat)(b2);
 
-            printf("coef->a1[x].ch[y] %f\n", coef->a1[x].ch[y]);
-            printf("coef->a2[x].ch[y] %f\n", coef->a2[x].ch[y]);
-            printf("coef->b0[x].ch[y] %f\n", coef->b0[x].ch[y]);
-            printf("coef->b1[x].ch[y] %f\n", coef->b1[x].ch[y]);
-            printf("coef->b2[x].ch[y] %f\n", coef->b2[x].ch[y]);
+            // printf("coef->a1[x].ch[y] %f\n", coef->a1[x].ch[y]);
+            // printf("coef->a2[x].ch[y] %f\n", coef->a2[x].ch[y]);
+            // printf("coef->b0[x].ch[y] %f\n", coef->b0[x].ch[y]);
+            // printf("coef->b1[x].ch[y] %f\n", coef->b1[x].ch[y]);
+            // printf("coef->b2[x].ch[y] %f\n", coef->b2[x].ch[y]);
 
             y+=2;
             if(y > 7){

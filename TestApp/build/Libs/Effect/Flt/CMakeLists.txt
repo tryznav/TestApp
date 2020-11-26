@@ -16,9 +16,10 @@ add_library(${LIB_NAME} STATIC
     ${ALGORITHM_PATH}/${_TYPE}/cross/src/cross_calculate_coef.c
     ${ALGORITHM_PATH}/${_TYPE}/cross/src/cross_process.c
     ${ALGORITHM_PATH}/${_TYPE}/cross/src/cross_set.c
-    # ${ALGORITHM_PATH}/${_TYPE}/comp/src/comp_flt_coef.c
-    # ${ALGORITHM_PATH}/${_TYPE}/comp/src/comp_flt.c
-    # ${ALGORITHM_PATH}/${_TYPE}/comp/src/comp_flt_set.c
+
+    ${ALGORITHM_PATH}/${_TYPE}/comp/src/comp_calculate_coef.c
+    ${ALGORITHM_PATH}/${_TYPE}/comp/src/comp_process.c
+    ${ALGORITHM_PATH}/${_TYPE}/comp/src/comp_set.c
 
     ${ALGORITHM_PATH}/${_TYPE}/biquad/src/biquad_calculate_coef.c
     ${ALGORITHM_PATH}/${_TYPE}/biquad/src/biquad_process.c
@@ -47,8 +48,9 @@ target_include_directories(${LIB_NAME} PRIVATE ${ALGORITHM_PATH}/inc_addition)
 
 
 
-# target_include_directories(${LIB_NAME} PRIVATE ${ALGORITHM_PATH}/${_TYPE}/cross/inc)
-# target_include_directories(${LIB_NAME} PRIVATE ${ALGORITHM_PATH}/${_TYPE}/comp/inc)
+target_include_directories(${LIB_NAME} PRIVATE ${ALGORITHM_PATH}/${_TYPE}/comp/inc)
 target_include_directories(${LIB_NAME} PRIVATE ${ALGORITHM_PATH}/${_TYPE}/eq/inc)
 target_include_directories(${LIB_NAME} PRIVATE ${ALGORITHM_PATH}/${_TYPE}/cross/inc)
 target_include_directories(${LIB_NAME} PRIVATE ${ALGORITHM_PATH}/${_TYPE}/biquad/inc)
+
+add_compile_options(-O2)
