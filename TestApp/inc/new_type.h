@@ -10,9 +10,9 @@
 
 #include "colors.h"
 
-#define     RIFF_CHUNK_ID       'FFIR'  //0x52494646
-#define     fmt_CHUNK_ID        ' tmf'  //0x666D7420
-#define     data_CHUNK_ID       'atad'  //0x64617461
+#define     RIFF_CHUNK_ID       1179011410 //'FFIR'  //
+#define     fmt_CHUNK_ID        544501094 //' tmf'  //
+#define     data_CHUNK_ID       1635017060 //'atad'  //
 
 #define     PCM                 1
 #define     IEEE_754            3

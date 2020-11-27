@@ -53,6 +53,7 @@ int32_t app_handl(app_func_t *task){
 
 static int32_t process(pross_waw_t *pr){
     size_t n = 0;
+    // void *buff = aligned_alloc(16, pr->buff.size_byte);
     void *buff = malloc(pr->buff.size_byte);
     if (buff == NULL){
         fprintf(stderr,RED"%d: Error: "BOLDWHITE"%s.\n"RESET, errno, strerror(errno));

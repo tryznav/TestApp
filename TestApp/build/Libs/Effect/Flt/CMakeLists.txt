@@ -1,5 +1,21 @@
 cmake_minimum_required(VERSION 3.10)
 
+add_compile_options(-O2 -Wmultichar -mavx 
+-mfma
+-mavx2
+-mavx
+-msse4.2
+-msse4.1
+-mssse3
+-msse3
+-msse2
+-msse
+-pg)
+
+SET(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
+SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
+
 set(LIB_NAME "Effect")
 set(_TYPE "Flt")
 
@@ -53,4 +69,14 @@ target_include_directories(${LIB_NAME} PRIVATE ${ALGORITHM_PATH}/${_TYPE}/eq/inc
 target_include_directories(${LIB_NAME} PRIVATE ${ALGORITHM_PATH}/${_TYPE}/cross/inc)
 target_include_directories(${LIB_NAME} PRIVATE ${ALGORITHM_PATH}/${_TYPE}/biquad/inc)
 
-add_compile_options(-O2)
+# add_compile_options(-O2 -Wmultichar -mavx 
+# -mfma         
+# -mavx2        
+# -mavx         
+# -msse4.2      
+# -msse4.1      
+# -mssse3       
+# -msse3        
+# -msse2        
+# -m64          
+# -msse)

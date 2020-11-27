@@ -1,4 +1,4 @@
-#include "chain_api.h"
+#include "sub_api.h"
 #include <stdlib.h>
 
 #ifdef WIN32
@@ -9,7 +9,7 @@
 
 /******************************************************************************/
 
-int32_t effect_process_get_sizes(
+int32_t biquad_cascade_process_get_sizes(
     size_t*     states_bytes){
 
     *states_bytes = sizeof(chain_states_t);
@@ -19,7 +19,7 @@ int32_t effect_process_get_sizes(
 
 /*******************************************************************************/
 
-int32_t effect_reset(
+int32_t biquad_cascade_reset(
     void const* coeffs,
     void*       states){
 
@@ -28,23 +28,7 @@ int32_t effect_reset(
     cross_set_state(&st->cross);
 
     comp_set_state(&st->comp_1b);
-    // comp_flt_set_state(&st->Left.comp_1b);
-    // comp_flt_set_state(&st->Left.comp_2b);
-    // comp_flt_set_state(&st->Left.comp_3b);
-    // comp_flt_set_state(&st->Left.comp_4b);
-    //   eq_flt_set_state(&st->Left.eq2);
-    // comp_flt_set_state(&st->Left.limiter);
 
-    //    eq_flt_set_state(&st->Right.eq1);
-    // cross_flt_set_state(&st->Right.cross);
-
-    // comp_flt_set_state(&st->Right.comp_1b);
-    // comp_flt_set_state(&st->Right.comp_1b);
-    // comp_flt_set_state(&st->Right.comp_2b);
-    // comp_flt_set_state(&st->Right.comp_3b);
-    // comp_flt_set_state(&st->Right.comp_4b);
-    //   eq_flt_set_state(&st->Right.eq2);
-    // comp_flt_set_state(&st->Right.limiter);
     printf("chain_flt_reset\n");
     
     return 0;
@@ -131,7 +115,7 @@ static inline void chain_flt(vfloat *x, chain_states_t *st, chain_coef_t *coef){
 }
 
 
-int32_t effect_process(
+int32_t biquad_cascade_process(
     void const* coeffs,
     void*       states,
     void*       audio,

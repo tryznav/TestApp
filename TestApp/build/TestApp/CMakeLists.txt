@@ -1,5 +1,20 @@
 cmake_minimum_required(VERSION 3.10)
 
+add_compile_options(-O2 -Wmultichar -mavx 
+-mfma
+-mavx2
+-mavx
+-msse4.2
+-msse4.1
+-mssse3
+-msse3
+-msse2
+-msse)
+
+SET(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
+SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
+
 set(PR_NAME "TestApp")
 set(EFFECT_PATH "../../Effect")
 
@@ -22,7 +37,7 @@ add_executable(${PR_NAME}
 # find_package(json-c CONFIG REQUIRED)
 # target_link_libraries(${PR_NAME} PRIVATE json-c)
 
-target_link_libraries(${PR_NAME} PRIVATE json-c)
+# target_link_libraries(${PR_NAME} PRIVATE json-c)
 
 target_link_libraries(${PR_NAME} PRIVATE GetOpt)
 target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
@@ -30,7 +45,7 @@ target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
 
 target_link_libraries(${PR_NAME} PRIVATE Effect)
 
-target_include_directories(${PR_NAME} PRIVATE ../Libs/json-c)
+# target_include_directories(${PR_NAME} PRIVATE ../Libs/json-c)
 target_include_directories(${PR_NAME} PRIVATE ../../inc)
 
 
@@ -43,4 +58,14 @@ if(MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
 
-# add_compile_options(-O2)
+# add_compile_options(-O2 -Wmultichar -mavx 
+# -mfma         
+# -mavx2        
+# -mavx         
+# -msse4.2      
+# -msse4.1      
+# -mssse3       
+# -msse3        
+# -msse2        
+# -m64          
+# -msse)

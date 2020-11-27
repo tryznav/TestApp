@@ -15,6 +15,8 @@
 
 
 
+
+
 typedef float mfloat;
 
 typedef struct stereo_s{
@@ -23,12 +25,14 @@ typedef struct stereo_s{
 }stereo_t;
 
 #if AVX
-
+// #pragma pack(push)  /* push current alignment to stack */
+#pragma pack(push, 2)     /* set alignment to 2 byte boundary */
     typedef union flt_arithmetic
     {   
         mfloat ch[CH];
         __m256 i;
     }vfloat;
+#pragma pack(pop)
 #elif SSE
     typedef union flt_arithmetic
     {   
@@ -37,11 +41,13 @@ typedef struct stereo_s{
     }vfloat;
 #else
     // #define CH  2 //chanel
-    typedef union vfloat_s{
+  #pragma pack(push, 2)   
+    typedef union flt_arithmetic{
         mfloat ch[CH];
-        __m256 i;
+        uint32_t in[CH];
     }vfloat;
 
+  #pragma pack(pop)
     // typedef flt_arithmetic{
     //     mfloat      ch[CH];
     // }vfloat;
@@ -235,7 +241,8 @@ static INLINE vfloat vcpm_gt(vfloat a, vfloat b){
 #else
     vfloat res;
     for(int i = 0; i < CH; i++){
-        *((uint32_t *)&res.ch[i]) = (a.ch[i] > b.ch[i]) ? 0xFFFFFFFF : 0;
+        // *((uint32_t *)&res.ch[i]) = (a.ch[i] > b.ch[i]) ? 0xFFFFFFFF : 0;
+         res.in[i] = (a.ch[i] > b.ch[i]) ? 0xFFFFFFFF : 0;
     }
     return res;
 #endif
@@ -252,7 +259,8 @@ static INLINE vfloat vcpm_lt(vfloat a, vfloat b){
 #else
     vfloat res;
     for(int i = 0; i < CH; i++){
-        *((uint32_t *)&res.ch[i]) = (a.ch[i] < b.ch[i]) ? 0xFFFFFFFF : 0;
+        // *((uint32_t *)&res.ch[i]) = (a.ch[i] < b.ch[i]) ? 0xFFFFFFFF : 0;
+        res.in[i] = (a.ch[i] < b.ch[i]) ? 0xFFFFFFFF : 0;
     }
     return res;
 #endif
@@ -268,7 +276,8 @@ static INLINE vfloat vcpm_le(vfloat a, vfloat b){
 #else
     vfloat res;
     for(int i = 0; i < CH; i++){
-        *((uint32_t *)&res.ch[i]) = (a.ch[i] <= b.ch[i]) ? 0xFFFFFFFF : 0;
+         //*((uint32_t *)&res.ch[i]) = (a.ch[i] <= b.ch[i]) ? 0xFFFFFFFF : 0;
+        res.in[i] = (a.ch[i] <= b.ch[i]) ? 0xFFFFFFFF : 0;
     }
     return res;
 #endif
@@ -284,7 +293,9 @@ static INLINE vfloat vcpm_ge(vfloat a, vfloat b){
 #else
     vfloat res;
     for(int i = 0; i < CH; i++){
-        *((uint32_t *)&res.ch[i]) = (a.ch[i] >= b.ch[i]) ? 0xFFFFFFFF : 0;
+        // *((uint32_t *)&res.ch[i]) = (a.ch[i] >= b.ch[i]) ? 0xFFFFFFFF : 0;
+        res.in[i] = (a.ch[i] >= b.ch[i]) ? 0xFFFFFFFF : 0;
+        // res.in[i] = (a.ch[i] >= b.ch[i]) ? 0xFFFFFFFF : 0;
     }
     return res;
 #endif
@@ -300,7 +311,8 @@ static INLINE vfloat vblend(vfloat a, vfloat b, vfloat mask){
 #else
     vfloat res;
     for(int i = 0; i < CH; i++){
-        res.ch[i] = (*((uint32_t *)&mask.ch[i])) ? b.ch[i] : a.ch[i];
+        //res.ch[i] = (*((uint32_t *)&mask.ch[i])) ? b.ch[i] : a.ch[i];    //что-то непонятное 
+        res.ch[i] = (mask.in[i]) ? b.ch[i] : a.ch[i];
     }
     return res;
 #endif 
