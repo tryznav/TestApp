@@ -1,10 +1,9 @@
-#ifndef __BIQUAD_H__
-#define __BIQUAD_H__
+#ifndef __FILTERS_H__
+#define __FILTERS_H__
+
+#define FRAME_SIZE  32
 
 #include "flt_arithmetic.h"
-// #include "params_id.h"
-#include "algorithm.h"
-// #include "colors.h"
 
 #ifndef M_PI
     #define M_PI 3.14159265358979323846
