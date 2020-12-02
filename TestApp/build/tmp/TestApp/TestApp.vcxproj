@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{10F1C4E6-2140-3F1C-A196-7B588220407D}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>TestApp</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\TestApp\TestApp\build\tmp\TestApp\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TestApp.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TestApp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\TestApp\TestApp\build\tmp\TestApp\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TestApp.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TestApp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\TestApp\TestApp\build\tmp\TestApp\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">TestApp.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">TestApp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\TestApp\TestApp\build\tmp\TestApp\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">TestApp.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">TestApp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\Libs\GetOpt\Debug\GetOpt.lib;..\Libs\TestSigGen\Debug\TestSigGen.lib;..\Libs\Effect\Debug\Effect.lib;..\Libs\Sub_effects\Flt\Chain\Debug\Chain.lib;..\Libs\Sub_effects\Flt\EQ\Debug\EQ.lib;..\Libs\Sub_effects\Flt\Compressors\Debug\Compressors.lib;..\Libs\Sub_effects\Flt\Crossovers\Debug\Crossovers.lib;..\Libs\Sub_effects\Flt\Filters\Debug\Filters.lib;..\Libs\Arithmetic\Flt\Debug\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/TestApp/TestApp/build/tmp/TestApp/Debug/TestApp.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/TestApp/TestApp/build/tmp/TestApp/Debug/TestApp.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\Libs\GetOpt\Release\GetOpt.lib;..\Libs\TestSigGen\Release\TestSigGen.lib;..\Libs\Effect\Release\Effect.lib;..\Libs\Sub_effects\Flt\Chain\Release\Chain.lib;..\Libs\Sub_effects\Flt\EQ\Release\EQ.lib;..\Libs\Sub_effects\Flt\Compressors\Release\Compressors.lib;..\Libs\Sub_effects\Flt\Crossovers\Release\Crossovers.lib;..\Libs\Sub_effects\Flt\Filters\Release\Filters.lib;..\Libs\Arithmetic\Flt\Release\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/TestApp/TestApp/build/tmp/TestApp/Release/TestApp.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/TestApp/TestApp/build/tmp/TestApp/Release/TestApp.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\Libs\GetOpt\MinSizeRel\GetOpt.lib;..\Libs\TestSigGen\MinSizeRel\TestSigGen.lib;..\Libs\Effect\MinSizeRel\Effect.lib;..\Libs\Sub_effects\Flt\Chain\MinSizeRel\Chain.lib;..\Libs\Sub_effects\Flt\EQ\MinSizeRel\EQ.lib;..\Libs\Sub_effects\Flt\Compressors\MinSizeRel\Compressors.lib;..\Libs\Sub_effects\Flt\Crossovers\MinSizeRel\Crossovers.lib;..\Libs\Sub_effects\Flt\Filters\MinSizeRel\Filters.lib;..\Libs\Arithmetic\Flt\MinSizeRel\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/TestApp/TestApp/build/tmp/TestApp/MinSizeRel/TestApp.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/TestApp/TestApp/build/tmp/TestApp/MinSizeRel/TestApp.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\TestApp\TestApp\build\TestApp\..\..\inc;D:\TestApp\TestApp\build\TestApp\..\..\Effect\inc;D:\TestApp\TestApp\build\TestApp\..\..\Sub_effects\inc_addition;D:\TestApp\TestApp\build\TestApp\..\..\GetOpt\inc;D:\TestApp\TestApp\build\TestApp\..\..\TestSigGen\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\Libs\GetOpt\RelWithDebInfo\GetOpt.lib;..\Libs\TestSigGen\RelWithDebInfo\TestSigGen.lib;..\Libs\Effect\RelWithDebInfo\Effect.lib;..\Libs\Sub_effects\Flt\Chain\RelWithDebInfo\Chain.lib;..\Libs\Sub_effects\Flt\EQ\RelWithDebInfo\EQ.lib;..\Libs\Sub_effects\Flt\Compressors\RelWithDebInfo\Compressors.lib;..\Libs\Sub_effects\Flt\Crossovers\RelWithDebInfo\Crossovers.lib;..\Libs\Sub_effects\Flt\Filters\RelWithDebInfo\Filters.lib;..\Libs\Arithmetic\Flt\RelWithDebInfo\Arithmetic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/TestApp/TestApp/build/tmp/TestApp/RelWithDebInfo/TestApp.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/TestApp/TestApp/build/tmp/TestApp/RelWithDebInfo/TestApp.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\TestApp\TestApp\build\TestApp\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/TestApp/TestApp/build/TestApp/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/TestApp/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/TestApp/TestApp/build/TestApp/CMakeLists.txt;D:\TestApp\TestApp\build\TestApp\CMakeLists.txt;D:\TestApp\TestApp\build\TestApp\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\TestApp\TestApp\build\tmp\TestApp\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/TestApp/TestApp/build/TestApp/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/TestApp/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/TestApp/TestApp/build/TestApp/CMakeLists.txt;D:\TestApp\TestApp\build\TestApp\CMakeLists.txt;D:\TestApp\TestApp\build\TestApp\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\TestApp\TestApp\build\tmp\TestApp\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/TestApp/TestApp/build/TestApp/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/TestApp/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/TestApp/TestApp/build/TestApp/CMakeLists.txt;D:\TestApp\TestApp\build\TestApp\CMakeLists.txt;D:\TestApp\TestApp\build\TestApp\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\TestApp\TestApp\build\tmp\TestApp\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/TestApp/TestApp/build/TestApp/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake 3.12\bin\cmake.exe" -HD:/TestApp/TestApp/build -BD:/TestApp/TestApp/build/tmp --check-stamp-file D:/TestApp/TestApp/build/tmp/TestApp/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/TestApp/TestApp/build/TestApp/CMakeLists.txt;D:\TestApp\TestApp\build\TestApp\CMakeLists.txt;D:\TestApp\TestApp\build\TestApp\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\TestApp\TestApp\build\tmp\TestApp\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\TestApp\TestApp\src\opt_parse\app_parse_gen_opt.c" />
+    <ClCompile Include="D:\TestApp\TestApp\src\app_efect_init.c" />
+    <ClCompile Include="D:\TestApp\TestApp\src\app_generator_init.c" />
+    <ClCompile Include="D:\TestApp\TestApp\src\app_handl.c" />
+    <ClCompile Include="D:\TestApp\TestApp\src\app_task_check.c" />
+    <ClCompile Include="D:\TestApp\TestApp\src\fhand_newav.c" />
+    <ClCompile Include="D:\TestApp\TestApp\src\fhand_parse_wav_file_fptr.c" />
+    <ClCompile Include="D:\TestApp\TestApp\src\fhand.c" />
+    <ClCompile Include="D:\TestApp\TestApp\src\main.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\ZERO_CHECK.vcxproj">
+      <Project>{6C8658F8-03E2-351E-A7A5-341A5A5536CB}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Arithmetic\Flt\Arithmetic.vcxproj">
+      <Project>{B1C71917-8A32-3E29-9BE8-C26EAAAF859A}</Project>
+      <Name>Arithmetic</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Sub_effects\Flt\Chain\Chain.vcxproj">
+      <Project>{49CA50D4-0A37-3422-9D05-9D8536DB487B}</Project>
+      <Name>Chain</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Sub_effects\Flt\Compressors\Compressors.vcxproj">
+      <Project>{B3F1CCE0-4B6A-3234-8E24-CF70F882111C}</Project>
+      <Name>Compressors</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Sub_effects\Flt\Crossovers\Crossovers.vcxproj">
+      <Project>{E700FA12-0EC7-3285-92E2-499CCCEFE7B3}</Project>
+      <Name>Crossovers</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Sub_effects\Flt\EQ\EQ.vcxproj">
+      <Project>{2D63BF58-89E6-3A1A-B6FF-546031200C37}</Project>
+      <Name>EQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Effect\Effect.vcxproj">
+      <Project>{F51548F7-8773-3E05-8E99-F62A28D216BA}</Project>
+      <Name>Effect</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\Sub_effects\Flt\Filters\Filters.vcxproj">
+      <Project>{460A3E88-1401-3F5E-8A05-4CED1DF09618}</Project>
+      <Name>Filters</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\GetOpt\GetOpt.vcxproj">
+      <Project>{4E3839B3-0E43-316E-AA07-22AC5C8A6DC0}</Project>
+      <Name>GetOpt</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\TestApp\TestApp\build\tmp\Libs\TestSigGen\TestSigGen.vcxproj">
+      <Project>{FE357F6E-8C1E-3855-BA30-665C86453040}</Project>
+      <Name>TestSigGen</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

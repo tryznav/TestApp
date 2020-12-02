@@ -2,21 +2,20 @@ cmake_minimum_required(VERSION 3.10)
 
 set(LIB_NAME "Arithmetic")
 set(_TYPE "Flt")
-add_compile_options(-O2 -Wmultichar -mavx 
--mfma
--mavx2
--mavx
--msse4.2
--msse4.1
--mssse3
--msse3
--msse2
--msse
--pg)
+# add_compile_options(-O2 -Wmultichar -mavx 
+# -mfma
+# -mavx2
+# -mavx
+# -msse4.2
+# -msse4.1
+# -mssse3
+# -msse3
+# -msse2
+# -msse)
 
-SET(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -pg")
-SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
-SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
+# SET(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+# SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
+# SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
 
 project(${LIB_NAME})
 

@@ -1,4 +1,5 @@
 #include "chain_process.h"
+#include "colors.h"
 
 /******************************************************************************/
 
@@ -17,6 +18,7 @@ int32_t effect_reset(
     void*       states){
     
     chain_reset((chain_coeffs_t const *)&coeffs, (chain_states_t *)states);
+    printf("effect_reset\n");
     return 0;
 }
 
@@ -59,12 +61,12 @@ int32_t effect_process(
     if(n == -1){
         return -1;
     }
-    chain_coef_t const* _coeffs = (chain_coef_t const*) coeffs;
-    chain_states_t*     _states = (chain_states_t*)     states;
-    stereo_t *          _audio  = (stereo_t *)audio;
+    chain_coeffs_t const*   _coeffs = (chain_coeffs_t const*) coeffs;
+    chain_states_t*         _states = (chain_states_t*)     states;
+    stereo_t *              _audio  = (stereo_t *)audio;
 
     for(uint32_t a_index = 0; a_index < samples_count; a_index += FRAME_SIZE){
-        chain_process(_coeffs, _states, _audio[a_index]);
+        chain_process(_coeffs, _states, &_audio[a_index]);
     }
 
     return 0;

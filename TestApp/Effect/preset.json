@@ -1,0 +1,178 @@
+[
+{
+    "Effect ID": 1,
+    "Effect Name": "Compressor 4band",
+    "active": 1,
+    "Sub Effects": [
+        {
+            "Sub Effect ID": 0,
+            "Effect Name": "Crossover4b",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0, "Parameter Name": "Cutoff Freq 1", "Value" : 100    },
+                {"Parameter ID": 1, "Parameter Name": "Cutoff Freq 2", "Value" : 500    },
+                {"Parameter ID": 2, "Parameter Name": "Cutoff Freq 3", "Value" : 5000   }
+            ]
+        },
+        {
+            "Sub Effect ID": 1,
+            "Effect Name": "Compressor 4band",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0,  "Parameter Name":   "Band1 Threshold",      "Value" : 100   },
+                {"Parameter ID": 1,  "Parameter Name":   "Band1 Ratio",          "Value" : 500   },
+                {"Parameter ID": 2,  "Parameter Name":   "Band1 Attack",         "Value" : 5000  },
+                {"Parameter ID": 3,  "Parameter Name":   "Band1 Release",        "Value" : 100   },
+                {"Parameter ID": 4,  "Parameter Name":   "Band1 Env Attack",     "Value" : 500   },
+                {"Parameter ID": 5,  "Parameter Name":   "Band1 Env Release",    "Value" : 5000  },
+                {"Parameter ID": 7,  "Parameter Name":   "Band1 MakeUpGain",     "Value" : 5000  },
+                {"Parameter ID": 5,  "Parameter Name":   "Band1 active",         "Value" : 5000  },
+
+                {"Parameter ID": 6,  "Parameter Name":   "Band2 Threshold",      "Value" : 100   },
+                {"Parameter ID": 7,  "Parameter Name":   "Band2 Ratio",          "Value" : 500   },
+                {"Parameter ID": 8,  "Parameter Name":   "Band2 Attack",         "Value" : 5000  },
+                {"Parameter ID": 9,  "Parameter Name":   "Band2 Release",        "Value" : 100   },
+                {"Parameter ID": 10, "Parameter Name":   "Band2 Env Attack",     "Value" : 500   },
+                {"Parameter ID": 11, "Parameter Name":   "Band2 Env Release",    "Value" : 5000  },
+                {"Parameter ID": 12, "Parameter Name":   "Band2 MakeUpGain",     "Value" : 5000  },
+                {"Parameter ID": 13, "Parameter Name":   "Band2 active",         "Value" : 5000  },
+
+                {"Parameter ID": 14, "Parameter Name":   "Band3 Threshold",      "Value" : 100   },
+                {"Parameter ID": 15, "Parameter Name":   "Band3 Ratio",          "Value" : 500   },
+                {"Parameter ID": 16, "Parameter Name":   "Band3 Attack",         "Value" : 5000  },
+                {"Parameter ID": 17, "Parameter Name":   "Band3 Release",        "Value" : 100   },
+                {"Parameter ID": 18, "Parameter Name":   "Band3 Env Attack",     "Value" : 500   },
+                {"Parameter ID": 19, "Parameter Name":   "Band3 Env Release",    "Value" : 5000  },
+                {"Parameter ID": 20, "Parameter Name":   "Band3 MakeUpGain",     "Value" : 5000  },
+                {"Parameter ID": 21, "Parameter Name":   "Band3 active",         "Value" : 5000  },
+
+                {"Parameter ID": 22, "Parameter Name":   "Band4 Threshold",      "Value" : 100   },
+                {"Parameter ID": 23, "Parameter Name":   "Band4 Ratio",          "Value" : 500   },
+                {"Parameter ID": 24, "Parameter Name":   "Band4 Attack",         "Value" : 5000  },
+                {"Parameter ID": 25, "Parameter Name":   "Band4 Release",        "Value" : 100   },
+                {"Parameter ID": 26, "Parameter Name":   "Band4 Env Attack",     "Value" : 500   },
+                {"Parameter ID": 27, "Parameter Name":   "Band4 Env Release",    "Value" : 5000  },
+                {"Parameter ID": 28, "Parameter Name":   "Band4 MakeUpGain",     "Value" : 5000  },
+                {"Parameter ID": 29, "Parameter Name":   "Band4 active",         "Value" : 5000  },
+            ]
+        }
+    ]
+},
+{
+    "Effect ID": 2,
+    "Effect Name": "EQ",
+    "active": 1,
+    "Sub Effects": [
+        {
+            "Sub Effect ID": 0,
+            "Effect Name": "Biquad1",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0, "Parameter Name": "Cutoff Freq  ", "Value" : 100    },
+                {"Parameter ID": 1, "Parameter Name": "Gain         ", "Value" : 3      },
+                {"Parameter ID": 2, "Parameter Name": "Q            ", "Value" : 6      },
+                {"Parameter ID": 3, "Parameter Name": "Type         ", "Value" : 4      }
+            ]
+        },
+        {
+            "Sub Effect ID": 0,
+            "Effect Name": "Biquad2",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0, "Parameter Name": "Cutoff Freq  ", "Value" : 200    },
+                {"Parameter ID": 1, "Parameter Name": "Gain         ", "Value" : 3      },
+                {"Parameter ID": 2, "Parameter Name": "Q            ", "Value" : 6      },
+                {"Parameter ID": 3, "Parameter Name": "Type         ", "Value" : 4      }
+            ]
+        },
+        {
+            "Sub Effect ID": 0,
+            "Effect Name": "Biquad3",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0, "Parameter Name": "Cutoff Freq  ", "Value" : 500    },
+                {"Parameter ID": 1, "Parameter Name": "Gain         ", "Value" : 3      },
+                {"Parameter ID": 2, "Parameter Name": "Q            ", "Value" : 6      },
+                {"Parameter ID": 3, "Parameter Name": "Type         ", "Value" : 4      }
+            ]
+        },
+        {
+            "Sub Effect ID": 0,
+            "Effect Name": "Biquad4",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0, "Parameter Name": "Cutoff Freq  ", "Value" : 700    },
+                {"Parameter ID": 1, "Parameter Name": "Gain         ", "Value" : 3      },
+                {"Parameter ID": 2, "Parameter Name": "Q            ", "Value" : 6      },
+                {"Parameter ID": 3, "Parameter Name": "Type         ", "Value" : 4      }
+            ]
+        },
+        {
+            "Sub Effect ID": 0,
+            "Effect Name": "Biquad5",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0, "Parameter Name": "Cutoff Freq  ", "Value" : 1000   },
+                {"Parameter ID": 1, "Parameter Name": "Gain         ", "Value" : 3      },
+                {"Parameter ID": 2, "Parameter Name": "Q            ", "Value" : 6      },
+                {"Parameter ID": 3, "Parameter Name": "Type         ", "Value" : 4      }
+            ]
+        },
+        {
+            "Sub Effect ID": 0,
+            "Effect Name": "Biquad6",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0, "Parameter Name": "Cutoff Freq  ", "Value" : 5000   },
+                {"Parameter ID": 1, "Parameter Name": "Gain         ", "Value" : 3      },
+                {"Parameter ID": 2, "Parameter Name": "Q            ", "Value" : 6      },
+                {"Parameter ID": 3, "Parameter Name": "Type         ", "Value" : 4      }
+            ]
+        },
+        {
+            "Sub Effect ID": 0,
+            "Effect Name": "Biquad7",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0, "Parameter Name": "Cutoff Freq  ", "Value" : 7000   },
+                {"Parameter ID": 1, "Parameter Name": "Gain         ", "Value" : 3      },
+                {"Parameter ID": 2, "Parameter Name": "Q            ", "Value" : 6      },
+                {"Parameter ID": 3, "Parameter Name": "Type         ", "Value" : 4      }
+            ]
+        },
+        {
+            "Sub Effect ID": 0,
+            "Effect Name": "Biquad8",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0, "Parameter Name": "Cutoff Freq  ", "Value" : 10000  },
+                {"Parameter ID": 1, "Parameter Name": "Gain         ", "Value" : 3      },
+                {"Parameter ID": 2, "Parameter Name": "Q            ", "Value" : 6      },
+                {"Parameter ID": 3, "Parameter Name": "Type         ", "Value" : 4      }
+            ]
+        },
+        {
+            "Sub Effect ID": 0,
+            "Effect Name": "Biquad9",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0, "Parameter Name": "Cutoff Freq  ", "Value" : 120000 },
+                {"Parameter ID": 1, "Parameter Name": "Gain         ", "Value" : 3      },
+                {"Parameter ID": 2, "Parameter Name": "Q            ", "Value" : 6      },
+                {"Parameter ID": 3, "Parameter Name": "Type         ", "Value" : 4      }
+            ]
+        },
+        {
+            "Sub Effect ID": 0,
+            "Effect Name": "Biquad10",
+            "active": 1,
+            "Parameters":[
+                {"Parameter ID": 0, "Parameter Name": "Cutoff Freq  ", "Value" : 15000  },
+                {"Parameter ID": 1, "Parameter Name": "Gain         ", "Value" : 3      },
+                {"Parameter ID": 2, "Parameter Name": "Q            ", "Value" : 6      },
+                {"Parameter ID": 3, "Parameter Name": "Type         ", "Value" : 4      }
+            ]
+        }
+    ]
+}
+]

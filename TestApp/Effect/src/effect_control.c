@@ -1,3 +1,5 @@
+#include "effect_control.h"
+#include "colors.h"
 #include "chain_control.h"
 
 /*******************************************************************************
@@ -32,16 +34,16 @@ int32_t effect_control_initialize(
     void*       coeffs,
     uint32_t    sample_rate){
 
-    chain_params_t *_params = (chain_prm_t *)params;
-    chain_coeffs_t *_coeffs = (chain_coef_t *)coeffs;
+    chain_params_t *_params = (chain_params_t *)params;
+    chain_coeffs_t *_coeffs = (chain_coeffs_t *)coeffs;
 
 // ______________Set default parameters_______________
 
-    chain_control_initialize((void const*)params, _coeffs, sample_rate);
+    chain_control_initialize(_params, _coeffs, sample_rate);
 
 // ______________Calculate coefficients, corresponding to the default parameters____________
 
-    effect_update_coeffs(_params, coeffs);
+    effect_update_coeffs((void const*)params, coeffs);
 
     printf("chain_flt_control_initialize\n");
     return 0;
@@ -99,7 +101,7 @@ int32_t effect_update_coeffs(
     void const* params,
     void*       coeffs){
 
-    chain_update_coeffs((chain_params_t const *)params, (chain_coeffs_t)coeffs);
+    chain_update_coeffs((chain_params_t const *)params, (chain_coeffs_t *)coeffs);
 
     return 0;
 }

@@ -53,6 +53,7 @@ int32_t app_handl(app_func_t *task){
 
 static int32_t process(pross_waw_t *pr){
     size_t n = 0;
+        // printf("PROOOOOSSSSSSSCCCCCCC = %d\n", pr->buff.size_byte);
     // void *buff = aligned_alloc(16, pr->buff.size_byte);
     void *buff = malloc(pr->buff.size_byte);
     if (buff == NULL){
@@ -61,6 +62,7 @@ static int32_t process(pross_waw_t *pr){
     }
     memset(buff, 0, pr->buff.size_byte);
     printf("pr->buff.size_byte = %d\n", pr->buff.size_byte);
+
 
     while (pr->audio.size_byte > pr->buff.size_byte){
 
@@ -74,7 +76,7 @@ static int32_t process(pross_waw_t *pr){
 
 
             effect_process(pr->effect->coeffs, pr->effect->states, buff, pr->buff.samples);
-        
+      
         }
 
         n = fwrite((const void *)buff, 1,  pr->buff.size_byte, pr->dest_file);
@@ -104,7 +106,7 @@ static int32_t process(pross_waw_t *pr){
         }
 
     }
-
+    
     free(buff);
     buff = NULL;
     return 0;
@@ -170,6 +172,10 @@ static int32_t del_proc_prm(pross_waw_t *pr){
         if(pr->effect->states){
             free(pr->effect->states);
             pr->effect->states = NULL;
+        }
+        if (pr->effect->coeffs) {
+            free(pr->effect->coeffs);
+            pr->effect->coeffs = NULL;
         }
     }
     fclose(pr->dest_file);

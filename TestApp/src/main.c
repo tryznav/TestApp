@@ -25,7 +25,7 @@ int main (int argc, char **argv)
     /* getopt_long stores the option index here. */
     int option_index = 0;
 
-    c = getopt_long (argc, argv, "chpqfo:g:i:b:r:s:",
+    c = getopt_long (argc, argv, "chepqfo:g:i:b:r:s:",
                       long_options, &option_index);
 
     /* Detect the end of the options. */
@@ -66,6 +66,7 @@ int main (int argc, char **argv)
         break;
       case 'e':
         app_task->effect = true;
+        printf("SCDCSCDS\n");
         break;
       case 't':
           app_task->audioFormatType = PCM;

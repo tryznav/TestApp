@@ -10,7 +10,7 @@
 #include "effect_control.h"
 #include "effect_process.h"
 
-#include "params_id.h"
+// #include "params_id.h"
 #include "new_type.h"
 // #include "file_handler.h"
 #include "getopt.h"
