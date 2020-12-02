@@ -32,5 +32,6 @@ add_subdirectory(Libs/Sub_effects/${_TYPE}/Chain)
 add_subdirectory(Libs/Effect)
 add_subdirectory(Libs/TestSigGen)
 add_subdirectory(Libs/GetOpt)
+add_subdirectory(Libs/cJSON)
 
 add_subdirectory(TestApp)

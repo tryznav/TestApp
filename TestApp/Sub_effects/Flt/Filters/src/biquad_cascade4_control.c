@@ -103,13 +103,14 @@ void biquad_cascade4_update_coeffs(
             coeffs->b2.ch[y + i*2] = biquad_coeffs.b2.ch[y];
         }
     }
-    for(uint32_t i = 0; i < 4; i++){
-        for(int y = 0; y < 2; y++){
-            printf("coeffs->a1.ch[%d] %f\n", (y + i*2), coeffs->a1.ch[y + i*2]);
-            printf("coeffs->a2.ch[%d] %f\n", (y + i*2), coeffs->a2.ch[y + i*2]);
-            printf("coeffs->b0.ch[%d] %f\n", (y + i*2), coeffs->b0.ch[y + i*2]);
-            printf("coeffs->b1.ch[%d] %f\n", (y + i*2), coeffs->b1.ch[y + i*2]);
-            printf("coeffs->b2.ch[%d] %f\n", (y + i*2), coeffs->b2.ch[y + i*2]);
-        }
-    }
+//++++++++++++++++++++++++++
+    // for(uint32_t i = 0; i < 4; i++){
+    //     for(int y = 0; y < 2; y++){
+    //         printf("coeffs->a1.ch[%d] %f\n", (y + i*2), coeffs->a1.ch[y + i*2]);
+    //         printf("coeffs->a2.ch[%d] %f\n", (y + i*2), coeffs->a2.ch[y + i*2]);
+    //         printf("coeffs->b0.ch[%d] %f\n", (y + i*2), coeffs->b0.ch[y + i*2]);
+    //         printf("coeffs->b1.ch[%d] %f\n", (y + i*2), coeffs->b1.ch[y + i*2]);
+    //         printf("coeffs->b2.ch[%d] %f\n", (y + i*2), coeffs->b2.ch[y + i*2]);
+    //     }
+    // }
 }

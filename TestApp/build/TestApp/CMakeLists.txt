@@ -40,6 +40,7 @@ add_executable(${PR_NAME}
 # target_link_libraries(${PR_NAME} PRIVATE json-c)
 
 target_link_libraries(${PR_NAME} PRIVATE GetOpt)
+target_link_libraries(${PR_NAME} PRIVATE cJSON)
 target_link_libraries(${PR_NAME} PRIVATE TestSigGen)
 #fxd
 
@@ -53,6 +54,7 @@ target_include_directories(${PR_NAME} PRIVATE ${EFFECT_PATH}/inc)
 
 target_include_directories(${PR_NAME} PRIVATE ../../Sub_effects/inc_addition)
 
+target_include_directories(${PR_NAME} PRIVATE ../../cJSON/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../GetOpt/inc)
 target_include_directories(${PR_NAME} PRIVATE ../../TestSigGen/inc)
 

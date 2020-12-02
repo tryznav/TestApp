@@ -75,7 +75,7 @@
 				]
 			},
 			{
-				"Sub Effect ID": 0,
+				"Sub Effect ID": 1,
 				"Effect Name": "Biquad2",
 				"active": 1,
 				"Parameters":[
@@ -86,7 +86,7 @@
 				]
 			},
 			{
-				"Sub Effect ID": 0,
+				"Sub Effect ID": 2,
 				"Effect Name": "Biquad3",
 				"active": 1,
 				"Parameters":[
@@ -97,7 +97,7 @@
 				]
 			},
 			{
-				"Sub Effect ID": 0,
+				"Sub Effect ID": 3,
 				"Effect Name": "Biquad4",
 				"active": 1,
 				"Parameters":[
@@ -108,7 +108,7 @@
 				]
 			},
 			{
-				"Sub Effect ID": 0,
+				"Sub Effect ID": 4,
 				"Effect Name": "Biquad5",
 				"active": 1,
 				"Parameters":[
@@ -119,7 +119,7 @@
 				]
 			},
 			{
-				"Sub Effect ID": 0,
+				"Sub Effect ID": 5,
 				"Effect Name": "Biquad6",
 				"active": 1,
 				"Parameters":[
@@ -130,7 +130,7 @@
 				]
 			},
 			{
-				"Sub Effect ID": 0,
+				"Sub Effect ID": 6,
 				"Effect Name": "Biquad7",
 				"active": 1,
 				"Parameters":[
@@ -141,7 +141,7 @@
 				]
 			},
 			{
-				"Sub Effect ID": 0,
+				"Sub Effect ID": 7,
 				"Effect Name": "Biquad8",
 				"active": 1,
 				"Parameters":[
@@ -152,7 +152,7 @@
 				]
 			},
 			{
-				"Sub Effect ID": 0,
+				"Sub Effect ID": 8,
 				"Effect Name": "Biquad9",
 				"active": 1,
 				"Parameters":[
@@ -163,7 +163,7 @@
 				]
 			},
 			{
-				"Sub Effect ID": 0,
+				"Sub Effect ID": 9,
 				"Effect Name": "Biquad10",
 				"active": 1,
 				"Parameters":[

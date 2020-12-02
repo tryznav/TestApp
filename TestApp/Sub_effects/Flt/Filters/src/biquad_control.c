@@ -123,10 +123,10 @@ void biquad_update_coeffs(
     beta  = sqrt(A + A);
 
 
-    printf("prm->freq %f\n",   params->freq);
-    printf("prm->gain %f\n",   params->gain);
-    printf("prm->Q %f\n",      params->Q);
-    printf("prm->sample_rate %f\n", params->sample_rate);
+    // printf("prm->freq %f\n",   params->freq);
+    // printf("prm->gain %f\n",   params->gain);
+    // printf("prm->Q %f\n",      params->Q);
+    // printf("prm->sample_rate %f\n", params->sample_rate);
     switch (params->type)
     {
     case LPF:
