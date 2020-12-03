@@ -62,30 +62,8 @@ int32_t effect_set_parameter(
     void*       params,
     int32_t     id,
     float       value){
-    // id_union_t _id;
-    // _id.all = id;
-    // chain_prm_t *prm = (chain_prm_t *)params;
-
-    // switch (_id.id.effect)
-    // {
-    // case EQ1:
-
-    //     break;
-    // case Compresor_nb:
-        
-    //     break;
-    // case EQ2:
-
-    //     break;
-    // case Limiter:
-
-    //     break;
-    // case Enable_id:
-        
-    //     break;
-    // default:
-    //     break;
-    // }
+    chain_params_t *_params = (chain_params_t *)params;
+    chain_set_parameter(_params, id, value);
     return 0;
 }
 

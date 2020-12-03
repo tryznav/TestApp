@@ -81,33 +81,57 @@ void compressor_4band_control_initialize(
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
 int32_t compressor_4band_set_parameter(
-    void*       params,
-    int32_t     id,
-    float       value){
-    // id_union_t _id;
-    // _id.all = id;
-    // compressor_4band_prm_t *prm = (compressor_4band_prm_t *)params;
+    compressor_4band_params_t*          params,
+    int32_t                             id,
+    float                               value){
+    int32_t res = -1;
+    id_union_t _id;
+    _id.id = id;
 
-    // switch (_id.id.biquad_cascade)
-    // {
-    // case compressor_4band1:
-
-    //     break;
-    // case Compresor_nb:
-        
-    //     break;
-    // case compressor_4band2:
-
-    //     break;
-    // case Limiter:
-
-    //     break;
-    // case Enable_id:
-        
-    //     break;
-    // default:
-    //     break;
-    // }
+    switch (_id.sub_effect)
+    {
+    case 0:
+        res = crossover4b_set_parameter(&params->crossover, id, value);
+        if(res){
+            return res;
+        }
+        break;
+    case 1:
+        int band = _id.prm/8;
+        int patams_id = _id.prm%8;
+        switch (patams_id)
+        {
+        case 0:
+            params->threshold       [band] = (double)value;
+            break;
+        case 1:
+            params->ratio           [band] = (double)value;
+            break;
+        case 2:
+            params->tau_attack      [band] = (double)value;
+            break;
+        case 3:
+            params->tau_release     [band] = (double)value;
+            break;
+        case 4:
+            params->tau_env_attack  [band] = (double)value;
+            break;
+        case 5:
+            params->tau_env_release [band] = (double)value;
+            break;
+        case 6:
+            params->makeUpGain      [band] = (double)value;
+            break;
+        case 7:
+            params->enable          [band] = (double)value;
+            break;
+        default:
+            break;
+        }
+        break;
+    default:
+        break;
+    }
     return 0;
 }
 

@@ -8,7 +8,8 @@
                 "${workspaceFolder}/TestApp/Sub_effects/Flt/Chain/inc",
                 "${workspaceFolder}/TestApp/Sub_effects/Flt/EQ/inc",
                 "${workspaceFolder}/TestApp/Sub_effects/Flt/Filters/inc",
-                "${workspaceFolder}/TestApp/Sub_effects/Flt/Crossovers/inc"
+                "${workspaceFolder}/TestApp/Sub_effects/Flt/Crossovers/inc",
+                "${workspaceFolder}/TestApp/Sub_effects/inc_addition"
             ],
             "defines": [
                 "_DEBUG",

@@ -10,8 +10,8 @@
 				"active": 1,
 				"Parameters":[
 					{"Parameter ID": 0, "Parameter Name": "Cutoff Freq 1", "Value" : 100	},
-					{"Parameter ID": 1, "Parameter Name": "Cutoff Freq 2", "Value" : 500	},
-					{"Parameter ID": 2, "Parameter Name": "Cutoff Freq 3", "Value" : 5000	}
+					{"Parameter ID": 1, "Parameter Name": "Cutoff Freq 2", "Value" : 1000	},
+					{"Parameter ID": 2, "Parameter Name": "Cutoff Freq 3", "Value" : 7000	}
 				]
 		        },
 			{
@@ -19,47 +19,47 @@
 				"Effect Name": "Compressor 4band",
 				"active": 1,
 				"Parameters":[
-					{"Parameter ID": 0,	 "Parameter Name":	 "Band1_Threshold",		 "Value" : 100	 },
-					{"Parameter ID": 1,	 "Parameter Name":	 "Band1_Ratio",			 "Value" : 500	 },
-					{"Parameter ID": 2,	 "Parameter Name":	 "Band1_Attack",		 "Value" : 5000	 },
-					{"Parameter ID": 3,	 "Parameter Name":	 "Band1_Release",		 "Value" : 100	 },
-					{"Parameter ID": 4,	 "Parameter Name":	 "Band1_Env Attack",	 "Value" : 500	 },
-					{"Parameter ID": 5,	 "Parameter Name":	 "Band1_Env Release",	 "Value" : 5000	 },
-					{"Parameter ID": 7,	 "Parameter Name":	 "Band1_MakeUpGain",	 "Value" : 5000	 },
-					{"Parameter ID": 5,	 "Parameter Name":	 "Band1_active",		 "Value" : 5000	 },
+					{"Parameter ID": 0,	 "Parameter Name":	 "Band1_Threshold",		 "Value" : -18.0 },
+					{"Parameter ID": 1,	 "Parameter Name":	 "Band1_Ratio",			 "Value" : 400	 },
+					{"Parameter ID": 2,	 "Parameter Name":	 "Band1_Attack",		 "Value" : 10	 },
+					{"Parameter ID": 3,	 "Parameter Name":	 "Band1_Release",		 "Value" : 40	 },
+					{"Parameter ID": 4,	 "Parameter Name":	 "Band1_Env Attack",	 "Value" : 0.0000000000001 },
+					{"Parameter ID": 5,	 "Parameter Name":	 "Band1_Env Release",	 "Value" : 30	 },
+					{"Parameter ID": 6,	 "Parameter Name":	 "Band1_MakeUpGain",	 "Value" : 0.0	 },
+					{"Parameter ID": 7,	 "Parameter Name":	 "Band1_active",		 "Value" : 1	 },
 
-					{"Parameter ID": 6,	 "Parameter Name":	 "Band2_Threshold",		 "Value" : 100	 },
-					{"Parameter ID": 7,	 "Parameter Name":	 "Band2_Ratio",			 "Value" : 500	 },
-					{"Parameter ID": 8,	 "Parameter Name":	 "Band2_Attack",		 "Value" : 5000	 },
-					{"Parameter ID": 9,	 "Parameter Name":	 "Band2_Release",		 "Value" : 100	 },
-					{"Parameter ID": 10, "Parameter Name":	 "Band2_Env Attack",	 "Value" : 500	 },
-					{"Parameter ID": 11, "Parameter Name":	 "Band2_Env Release",	 "Value" : 5000	 },
-					{"Parameter ID": 12, "Parameter Name":	 "Band2_MakeUpGain",	 "Value" : 5000	 },
-					{"Parameter ID": 13, "Parameter Name":	 "Band2_active",		 "Value" : 5000	 },
+					{"Parameter ID": 8,	 "Parameter Name":	 "Band3_Threshold",		 "Value" : -3.0 },
+					{"Parameter ID": 9,	 "Parameter Name":	 "Band3_Ratio",			 "Value" : 400	 },
+					{"Parameter ID": 10, "Parameter Name":	 "Band3_Attack",		 "Value" : 10	 },
+					{"Parameter ID": 11, "Parameter Name":	 "Band3_Release",		 "Value" : 40	 },
+					{"Parameter ID": 12, "Parameter Name":	 "Band3_Env Attack",	 "Value" : 0.0000000000001 },
+					{"Parameter ID": 13, "Parameter Name":	 "Band3_Env Release",	 "Value" : 30	 },
+					{"Parameter ID": 14, "Parameter Name":	 "Band3_MakeUpGain",	 "Value" : 0.0	 },
+					{"Parameter ID": 15, "Parameter Name":	 "Band3_active",		 "Value" : 1	 },
 
-					{"Parameter ID": 14, "Parameter Name":	 "Band3_Threshold",		 "Value" : 100	 },
-					{"Parameter ID": 15, "Parameter Name":	 "Band3_Ratio",			 "Value" : 500	 },
-					{"Parameter ID": 16, "Parameter Name":	 "Band3_Attack",		 "Value" : 5000	 },
-					{"Parameter ID": 17, "Parameter Name":	 "Band3_Release",		 "Value" : 100	 },
-					{"Parameter ID": 18, "Parameter Name":	 "Band3_Env Attack",	 "Value" : 500	 },
-					{"Parameter ID": 19, "Parameter Name":	 "Band3_Env Release",	 "Value" : 5000	 },
-					{"Parameter ID": 20, "Parameter Name":	 "Band3_MakeUpGain",	 "Value" : 5000	 },
-					{"Parameter ID": 21, "Parameter Name":	 "Band3_active",		 "Value" : 5000	 },
+					{"Parameter ID": 16, "Parameter Name":	 "Band2_Threshold",		 "Value" : -0.0 },
+					{"Parameter ID": 17, "Parameter Name":	 "Band2_Ratio",			 "Value" : 400	 },
+					{"Parameter ID": 18, "Parameter Name":	 "Band2_Attack",		 "Value" : 10	 },
+					{"Parameter ID": 19, "Parameter Name":	 "Band2_Release",		 "Value" : 40	 },
+					{"Parameter ID": 20, "Parameter Name":	 "Band2_Env Attack",	 "Value" : 0.0000000000001 },
+					{"Parameter ID": 21, "Parameter Name":	 "Band2_Env Release",	 "Value" : 30	 },
+					{"Parameter ID": 22, "Parameter Name":	 "Band2_MakeUpGain",	 "Value" : 0.0	 },
+					{"Parameter ID": 23, "Parameter Name":	 "Band2_active",		 "Value" : 1	 },
 
-					{"Parameter ID": 22, "Parameter Name":	 "Band4_Threshold",		 "Value" : 100	 },
-					{"Parameter ID": 23, "Parameter Name":	 "Band4_Ratio",			 "Value" : 500	 },
-					{"Parameter ID": 24, "Parameter Name":	 "Band4_Attack",		 "Value" : 5000	 },
-					{"Parameter ID": 25, "Parameter Name":	 "Band4_Release",		 "Value" : 100	 },
-					{"Parameter ID": 26, "Parameter Name":	 "Band4_Env Attack",	 "Value" : 500	 },
-					{"Parameter ID": 27, "Parameter Name":	 "Band4_Env Release",	 "Value" : 5000	 },
-					{"Parameter ID": 28, "Parameter Name":	 "Band4_MakeUpGain",	 "Value" : 5000	 },
-					{"Parameter ID": 29, "Parameter Name":	 "Band4_active",		 "Value" : 5000	 }
+					{"Parameter ID": 24, "Parameter Name":	 "Band4_Threshold",		 "Value" : -10.0 },
+					{"Parameter ID": 25, "Parameter Name":	 "Band4_Ratio",			 "Value" : 400	 },
+					{"Parameter ID": 26, "Parameter Name":	 "Band4_Attack",		 "Value" : 10	 },
+					{"Parameter ID": 27, "Parameter Name":	 "Band4_Release",		 "Value" : 40	 },
+					{"Parameter ID": 28, "Parameter Name":	 "Band4_Env Attack",	 "Value" : 0.0000000000001 },
+					{"Parameter ID": 29, "Parameter Name":	 "Band4_Env Release",	 "Value" : 30	 },
+					{"Parameter ID": 30, "Parameter Name":	 "Band4_MakeUpGain",	 "Value" : 0.0	 },
+					{"Parameter ID": 31, "Parameter Name":	 "Band4_active",		 "Value" : 1	 }
 				]
 			}
 		]
 	},
 	{
-		"Effect ID": 2,
+		"Effect ID": 0,
 		"Effect Name": "EQ",
 		"active": 1,
 		"Sub Effects": [
@@ -69,7 +69,7 @@
 				"active": 1,
 				"Parameters":[
 					{"Parameter ID": 0, "Parameter Name": "Cutoff Freq", "Value" : 100	},
-					{"Parameter ID": 1, "Parameter Name": "Gain", "Value" : 3		},
+					{"Parameter ID": 1, "Parameter Name": "Gain", "Value" : 6		},
 					{"Parameter ID": 2, "Parameter Name": "Q", "Value" : 6		},
 					{"Parameter ID": 3, "Parameter Name": "Type", "Value" : 4		}
 				]
@@ -156,7 +156,7 @@
 				"Effect Name": "Biquad9",
 				"active": 1,
 				"Parameters":[
-					{"Parameter ID": 0, "Parameter Name": "Cutoff_Freq", "Value" : 120000 },
+					{"Parameter ID": 0, "Parameter Name": "Cutoff_Freq", "Value" : 12000 },
 					{"Parameter ID": 1, "Parameter Name": "Gain", "Value" : 3		},
 					{"Parameter ID": 2, "Parameter Name": "Q", "Value" : 6		},
 					{"Parameter ID": 3, "Parameter Name": "Type", "Value" : 4		}
@@ -167,7 +167,7 @@
 				"Effect Name": "Biquad10",
 				"active": 1,
 				"Parameters":[
-					{"Parameter ID": 0, "Parameter Name": "Cutoff_Freq", "Value" : 15000	},
+					{"Parameter ID": 0, "Parameter Name": "Cutoff_Freq", "Value" : 14000},
 					{"Parameter ID": 1, "Parameter Name": "Gain", "Value" : 3		},
 					{"Parameter ID": 2, "Parameter Name": "Q", "Value" : 6		},
 					{"Parameter ID": 3, "Parameter Name": "Type", "Value" : 4		}

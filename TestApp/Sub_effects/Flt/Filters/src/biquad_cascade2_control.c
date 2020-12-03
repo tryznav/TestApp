@@ -54,34 +54,31 @@ void biquad_cascade2_control_initialize(
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
 int32_t biquad_cascade2_set_parameter(
-    void*       params,
-    int32_t     id,
-    float       value){
-    // id_union_t _id;
-    // _id.all = id;
-    // chain_prm_t *prm = (chain_prm_t *)params;
+    biquad_cascade2_params_t*           params,
+    int32_t                             id,
+    float                               value){
+    int res = 0;
+    id_union_t _id;
+    _id.id = id;
 
-    // switch (_id.id.biquad_cascade)
-    // {
-    // case EQ1:
-
-    //     break;
-    // case Compresor_nb:
-        
-    //     break;
-    // case EQ2:
-
-    //     break;
-    // case Limiter:
-
-    //     break;
-    // case Enable_id:
-        
-    //     break;
-    // default:
-    //     break;
-    // }
-    return 0;
+    switch (_id.sub_effect)
+    {
+    case 0:
+        res = biquad_set_parameter(&params->cascade2[0],id,value);
+        break;
+    case 1:
+        res = biquad_set_parameter(&params->cascade2[1],id,value);
+        break;
+    case 255:
+        //to do
+        break;
+    default:
+        break;
+    }
+    if(res){
+        fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Cascade. Wrong parametr in biquad id %d. Rejected\n"RESET, _id.sub_effect );
+    }
+    return res;
 }
 
 /*******************************************************************************

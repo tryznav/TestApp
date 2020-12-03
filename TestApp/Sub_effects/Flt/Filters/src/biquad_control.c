@@ -50,55 +50,62 @@ void biquad_control_initialize(
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
 int32_t biquad_set_parameter(
-    void*       params,
-    int32_t     id,
-    float       value){
-    // id_union_t _id;
-    // _id.all = id;
-    // chain_prm_t *prm = (chain_prm_t *)params;
+    biquad_params_t*        params,
+    int32_t                 id,
+    float                   value){
+    int32_t res = -1;
+    id_union_t _id;
+    _id.id = id;
 
-    //     switch (Id_prm.id.prm)
-    // {
-    // case 1:
-    //     prm->freq = (double)value;
-    //     break;
-    // case 2:
-    //    prm->gain = (double)value;
-    //     break;
-    // case 3:
-    //     prm->Q = (double)value;
-    //     break;
-    // case 4:
-    //     prm->type = (int32_t)value;
-    //     break;
-    // case Enable_id:
-    //     prm->Enable = (int32_t)value;
-    //     break;
-    // default:
-    //     break;
-    // }
-
-    // switch (_id.id.biquad_cascade)
-    // {
-    // case EQ1:
-
-    //     break;
-    // case Compresor_nb:
-        
-    //     break;
-    // case EQ2:
-
-    //     break;
-    // case Limiter:
-
-    //     break;
-    // case Enable_id:
-        
-    //     break;
-    // default:
-    //     break;
-    // }
-    return 0;
+    switch (_id.prm)
+    {
+    case 0://Fre
+        if(value < 20.0 && value > 15000.0){
+            fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'Frequency' parametr. Rejected\n"RESET);
+            return -1;
+        }
+        params->freq = (double)value;
+        res = 0;
+        break;
+    case 1:
+        if(value < -12.0 && value > 12.0){
+            fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'Gain' parametr. Rejected\n"RESET);
+            return -1;
+        }
+        params->gain = (double)value;
+        res = 0;
+        break;
+    case 2:
+        if(value < 0.1 && value > 8.0){
+            fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'Q' parametr. Rejected\n"RESET);
+            return -1;
+        }
+        params->Q = (double)value;
+        res = 0;
+        break;
+    case 3:
+        if((int32_t)value < 0 &&  (int32_t)value > 6){
+            fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'Type' parametr. Rejected\n"RESET);
+            return -1;
+        }
+        params->type = (int32_t)value;
+        res = 0;
+        break;
+    case 255:
+        if((int32_t)value < 0 &&  (int32_t)value > 1){
+            fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'Enable' parametr. Rejected\n"RESET);
+            return -1;
+        }
+        params->Enable = (int32_t)value;
+        res = 0;
+        break;
+    default:
+        break;
+    }
+    if(res){
+        fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Biquade. Wrong parametr id %d. Rejected\n"RESET, _id.prm );
+    }
+    return res;
 }
 
 /*******************************************************************************
@@ -138,6 +145,14 @@ void biquad_update_coeffs(
         a2 =  1.0 - alpha;
         break;
     case HPF:
+        b0 =  (1.0 + cs) /2.0;
+        b1 = -(1.0 + cs);
+        b2 =  (1.0 + cs) /2.0;
+        a0 =  1.0 + alpha;
+        a1 = -2.0 * cs;
+        a2 =  1.0 - alpha;
+        break;
+    case BSF: // пересчитать параметры 
         b0 =  (1.0 + cs) /2.0;
         b1 = -(1.0 + cs);
         b2 =  (1.0 + cs) /2.0;

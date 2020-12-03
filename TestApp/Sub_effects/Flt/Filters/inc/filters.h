@@ -3,6 +3,7 @@
 
 #include "frame_types.h"
 #include "flt_arithmetic.h"
+#include "colors.h"
 
 #define LPF         0
 #define HPF         1

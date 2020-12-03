@@ -43,3 +43,4 @@ target_include_directories(${LIB_NAME} PRIVATE ${SUB_EFFECT_PATH}/${_TYPE}/Cross
 target_include_directories(${LIB_NAME} PRIVATE ${SUB_EFFECT_PATH}/${_TYPE}/EQ/inc)
 target_include_directories(${LIB_NAME} PRIVATE ${SUB_EFFECT_PATH}/${_TYPE}/Filters/inc)
 target_include_directories(${LIB_NAME} PRIVATE ${SUB_EFFECT_PATH}/${_TYPE}/inc)
+target_include_directories(${LIB_NAME} PRIVATE ${SUB_EFFECT_PATH}/inc_addition)

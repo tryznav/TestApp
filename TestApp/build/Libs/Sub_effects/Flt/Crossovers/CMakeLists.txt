@@ -46,3 +46,4 @@ target_include_directories(${LIB_NAME} PRIVATE ${BASE_PATH}/Arithmetic/${_TYPE}/
 target_include_directories(${LIB_NAME} PRIVATE ${SUB_EFFECT_PATH}/${_TYPE}/${LIB_NAME}/inc)
 target_include_directories(${LIB_NAME} PRIVATE ${SUB_EFFECT_PATH}/${_TYPE}/Filters/inc)
 target_include_directories(${LIB_NAME} PRIVATE ${SUB_EFFECT_PATH}/${_TYPE}/inc)
+target_include_directories(${LIB_NAME} PRIVATE ${SUB_EFFECT_PATH}/inc_addition)

@@ -8,7 +8,8 @@
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #include "compressors.h"
-#include "compressors_control.h"
+#include "colors.h"
+#include "set_params.h"
 
 /*******************************************************************************/
 void compressor_4band_control_get_sizes(

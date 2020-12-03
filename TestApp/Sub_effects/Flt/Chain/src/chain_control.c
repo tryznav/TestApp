@@ -45,34 +45,31 @@ void chain_control_initialize(
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
 int32_t chain_set_parameter(
-    void*       params,
-    int32_t     id,
-    float       value){
-    // id_union_t _id;
-    // _id.all = id;
-    // chain_prm_t *prm = (chain_prm_t *)params;
+    chain_params_t*       params,
+    int32_t               id,
+    float                 value){
+    int32_t res = 0;
+    id_union_t _id;
+    _id.id = id;
 
-    // switch (_id.id.biquad_cascade)
-    // {
-    // case chain1:
+    switch (_id.effect)
+    {
+    case 0://EQ
+        res = eq_set_parameter(&params->eq1, id, value);
+        break;
+    case 1://M COMPRESSOR
+        res = compressor_4band_set_parameter(&params->compressor, id, value);
+        break;
+    case 3://LIMITER
 
-    //     break;
-    // case Compresor_nb:
-        
-    //     break;
-    // case chain2:
+        break;
+    case 255: //ENABLE
 
-    //     break;
-    // case Limiter:
-
-    //     break;
-    // case Enable_id:
-        
-    //     break;
-    // default:
-    //     break;
-    // }
-    return 0;
+        break;
+    default:
+        break;
+    }
+    return res;
 }
 
 /*******************************************************************************

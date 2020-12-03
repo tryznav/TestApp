@@ -33,12 +33,12 @@ void crossover4b_control_initialize(
     crossover4b_coeffs_t*       coeffs,
     uint32_t                    sample_rate){
 
-    params->apf_compens.freq[0] = 10000.0;
+    params->apf_compens.freq[0] = 14000.0;
     params->apf_compens.freq[1] = 200.0;
     params->apf_compens.sample_rate = (double)sample_rate;
 
     params->crossover2b_to_4b.freq[0] = 200.0;
-    params->crossover2b_to_4b.freq[1] = 10000.0;
+    params->crossover2b_to_4b.freq[1] = 14000.0;
     params->crossover2b_to_4b.sample_rate = (double)sample_rate;
 
     params->crossover2b.freq = 1000.0;
@@ -57,34 +57,52 @@ void crossover4b_control_initialize(
  * @return 0 if success, non-zero error code otherwise
  ******************************************************************************/
 int32_t crossover4b_set_parameter(
-    void*       params,
-    int32_t     id,
-    float       value){
-    // id_union_t _id;
-    // _id.all = id;
-    // chain_prm_t *prm = (chain_prm_t *)params;
+    crossover4b_params_t*       params,
+    int32_t                     id,
+    float                       value){
+    int32_t res = 0;
+    id_union_t _id;
+    _id.id = id;
 
-    // switch (_id.id.biquad_cascade)
-    // {
-    // case EQ1:
-
-    //     break;
-    // case Compresor_nb:
-        
-    //     break;
-    // case EQ2:
-
-    //     break;
-    // case Limiter:
-
-    //     break;
-    // case Enable_id:
-        
-    //     break;
-    // default:
-    //     break;
-    // }
-    return 0;
+    switch (_id.prm)
+    {
+    case 0://Freq1
+        if(value < 100.0 || value > params->crossover2b.freq){
+            fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'Frequency 1' parametr. Rejected\n"RESET);
+            return -1;
+        }
+        params->crossover2b_to_4b.freq[0] = (double)value;
+        params->apf_compens.freq[1] = (double)value;
+        res = 0;
+        break;
+    case 1://Freq2
+        if(value < params->crossover2b_to_4b.freq[0] || value > params->crossover2b_to_4b.freq[1] ){
+            fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'Frequency 2' parametr. Rejected\n"RESET);
+            return -1;
+        }
+        params->crossover2b.freq = (double)value;
+        res = 0;
+        break;
+    case 2://Freq1
+        if(value > 15000.0 || value < params->crossover2b.freq){
+            fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'Frequency 3' parametr. Rejected\n"RESET);
+            return -1;
+        }
+        params->crossover2b_to_4b.freq[1] = (double)value;
+        params->apf_compens.freq[0] = (double)value;
+        res = 0;
+        break;
+    case 255:
+            fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Wrong 'Can not turn off crossover. Rejected\n"RESET);
+            return -1;
+        break;
+    default:
+        break;
+    }
+    if(res){
+        fprintf(stderr, RED "Error:\t"RESET BOLDWHITE"Crossover4b. Wrong parametr id %d. Rejected\n"RESET, _id.prm );
+    }
+    return res;
 }
 
 /*******************************************************************************

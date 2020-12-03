@@ -3,6 +3,7 @@
 
 #include "eq.h"
 #include "filters_control.h"
+#include "set_params.h"
 
 #include <stdint.h>
 #include <stddef.h>

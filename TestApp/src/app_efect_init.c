@@ -1,7 +1,10 @@
 #include "test_app.h"
 #include "cJSON.h"
+#include "set_params.h"
+
 char *create_monitor(void);
 static void effect_set_preset(void *params);
+
 
 int32_t app_efect_init(pross_waw_t *pr, uint32_t sample_rate){
     size_t      params_bytes = 0;
@@ -73,15 +76,9 @@ int32_t app_efect_init(pross_waw_t *pr, uint32_t sample_rate){
 }
 
 static void effect_set_preset(void *params){
-    // int Res;
-    
+    id_union_t  ID;
+    int32_t Res;
     FILE * js = fopen("D:/TestApp/TestApp/Effect/preset_2.json", "rb");
-
-    //FILE * wri = fopen("D:/TestApp/TestApp/Effect/preset_3.json", "wb");
-    //char *s = create_monitor();
-    //fprintf(wri,"%s", s);
-    //free(s);
-    //fclose(wri);
     
     fseek(js, 0, SEEK_END);
     size_t size = ftell(js);
@@ -99,11 +96,14 @@ static void effect_set_preset(void *params){
     cJSON *chain = cJSON_GetObjectItemCaseSensitive(json, "chain");
     cJSON *chain_name = cJSON_GetObjectItemCaseSensitive(json, "name");
     printf("%s dmkasmdklamkl \n", chain_name->valuestring);
+    ID.empty = 0;
     cJSON_ArrayForEach(Effects, chain)
     {
         cJSON *Effect_ID    = cJSON_GetObjectItemCaseSensitive(Effects, "Effect ID");
         cJSON *Effect_Name  = cJSON_GetObjectItemCaseSensitive(Effects, "Effect Name");
         printf("%s %d\n", Effect_Name->valuestring, Effect_ID->valueint);
+
+        ID.effect = (uint8_t)Effect_ID->valueint;
 
         cJSON *Sub_Effects  = cJSON_GetObjectItemCaseSensitive(Effects, "Sub Effects");
         cJSON *Sub_Effect   = NULL;
@@ -111,6 +111,10 @@ static void effect_set_preset(void *params){
         {
             cJSON *Sub_Effect_ID   = cJSON_GetObjectItemCaseSensitive(Sub_Effect, "Sub Effect ID");
             cJSON *Sub_Effect_Name = cJSON_GetObjectItemCaseSensitive(Sub_Effect, "Effect Name");
+
+
+            ID.sub_effect = (uint8_t)Sub_Effect_ID->valueint;
+    
             printf("%s %d\n", Sub_Effect_Name->valuestring, Sub_Effect_ID->valueint);
             cJSON *Parameters = cJSON_GetObjectItemCaseSensitive(Sub_Effect, "Parameters");
             cJSON *Parameter = NULL;
@@ -118,15 +122,19 @@ static void effect_set_preset(void *params){
             {   
                 cJSON *Parameter_ID    = cJSON_GetObjectItemCaseSensitive(Parameter, "Parameter ID");
                 cJSON *Parameter_Name = cJSON_GetObjectItemCaseSensitive(Parameter, "Parameter Name");
-                printf("%s\t%d\n", Parameter_Name->valuestring, Parameter_ID->valueint);
+                cJSON *value = cJSON_GetObjectItemCaseSensitive(Parameter, "Value");
+
+                ID.prm = (uint8_t)Parameter_ID->valueint;
+                if((Res = effect_set_parameter(params, ID.id, (float)value->valuedouble)) != 0){
+                    fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
+                    // exit(EXIT_FAILURE);
+                }
+                
             }
         }
     }
     fclose(js);
-    // if((Res = effect_set_parameter(params, PRM_GAIN_dB_ID,value)) != 0){
-    //     fprintf(stderr,RED"Error: "BOLDWHITE"effect_set_parameter(PRM_GAIN_dB_ID)\n"RESET);
-    //     // exit(EXIT_FAILURE);
-    // }
+
 }
 
 char *create_monitor(void)

@@ -1,13 +1,17 @@
 #ifndef __CHAIN_CONTROL_H__
 #define __CHAIN_CONTROL_H__
 
+#include <stdint.h>
+#include <stddef.h>
+
 #include "chain.h"
 
 #include "eq_control.h"
 #include "compressors_control.h"
+#include "set_params.h"
 
-#include <stdint.h>
-#include <stddef.h>
+
+
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 void chain_control_get_sizes(
@@ -20,7 +24,7 @@ void chain_control_initialize(
     uint32_t                sample_rate);
 
 int32_t chain_set_parameter(
-    void*                   params,
+    chain_params_t*         params,
     int32_t                 id,
     float                   value);
 
